@@ -1,0 +1,11 @@
+C:\Users\burke\source\repos\blind75\blind75\bin\Debug\net8.0\blind75.deps.json
+C:\Users\burke\source\repos\blind75\blind75\bin\Debug\net8.0\blind75.dll
+C:\Users\burke\source\repos\blind75\blind75\bin\Debug\net8.0\blind75.pdb
+C:\Users\burke\source\repos\blind75\blind75\obj\Debug\net8.0\blind75.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\burke\source\repos\blind75\blind75\obj\Debug\net8.0\blind75.AssemblyInfoInputs.cache
+C:\Users\burke\source\repos\blind75\blind75\obj\Debug\net8.0\blind75.AssemblyInfo.cs
+C:\Users\burke\source\repos\blind75\blind75\obj\Debug\net8.0\blind75.csproj.CoreCompileInputs.cache
+C:\Users\burke\source\repos\blind75\blind75\obj\Debug\net8.0\blind75.dll
+C:\Users\burke\source\repos\blind75\blind75\obj\Debug\net8.0\refint\blind75.dll
+C:\Users\burke\source\repos\blind75\blind75\obj\Debug\net8.0\blind75.pdb
+C:\Users\burke\source\repos\blind75\blind75\obj\Debug\net8.0\ref\blind75.dll
