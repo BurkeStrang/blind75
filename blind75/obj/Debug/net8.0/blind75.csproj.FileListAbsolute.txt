@@ -9,3 +9,4 @@ C:\Users\burke\source\repos\blind75\blind75\obj\Debug\net8.0\blind75.dll
 C:\Users\burke\source\repos\blind75\blind75\obj\Debug\net8.0\refint\blind75.dll
 C:\Users\burke\source\repos\blind75\blind75\obj\Debug\net8.0\blind75.pdb
 C:\Users\burke\source\repos\blind75\blind75\obj\Debug\net8.0\ref\blind75.dll
+C:\Users\burke\source\repos\blind75\blind75\obj\Debug\net8.0\blind75.sourcelink.json

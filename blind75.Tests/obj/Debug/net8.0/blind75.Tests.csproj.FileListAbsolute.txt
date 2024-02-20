@@ -100,3 +100,4 @@ C:\Users\burke\source\repos\blind75\blind75.Tests\obj\Debug\net8.0\refint\blind7
 C:\Users\burke\source\repos\blind75\blind75.Tests\obj\Debug\net8.0\blind75.Tests.pdb
 C:\Users\burke\source\repos\blind75\blind75.Tests\obj\Debug\net8.0\blind75.Tests.genruntimeconfig.cache
 C:\Users\burke\source\repos\blind75\blind75.Tests\obj\Debug\net8.0\ref\blind75.Tests.dll
+C:\Users\burke\source\repos\blind75\blind75.Tests\obj\Debug\net8.0\blind75.Tests.sourcelink.json
