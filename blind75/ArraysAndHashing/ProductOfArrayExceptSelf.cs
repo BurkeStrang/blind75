@@ -1,7 +1,13 @@
 namespace blind75.ArraysAndHashing;
 
+// Given an array nums of n integers where n > 1,
+// return an array output such that output[i] is
+// equal to the product of all the elements of nums except nums[i].
+// [1,2,3,4] => [24,12,8,6]
 public static class ProductOfArrayExceptSelfClass
 {
+    // uses O(n) time and O(1) space
+    // ueses prefix and suffix product
     public static int[] ProductOfArrayExceptSelf(int[] nums)
     {
         int numsLength = nums.Length;
@@ -12,11 +18,15 @@ public static class ProductOfArrayExceptSelfClass
         {
             result[i] = prefixProduct;
             prefixProduct *= nums[i];
+            // result = [1,1,2,6]
+            // prefixProduct = 1,2,6,24
         }
         for (int i = numsLength - 1; i >= 0; i--)
         {
             result[i] *= suffixProduct;
             suffixProduct *= nums[i];
+            // result = [24,12,8,6]
+            // suffixProduct = 1,4,12,24
         }
         return result;
     }
