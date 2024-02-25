@@ -21,28 +21,30 @@ public static class ReorderListClass
         int nodeCount = 1;
         while (fast != null && fast.next != null)
         {
-            slow = slow.next;
+            slow = slow?.next;
             nodeCount++;
             fast = fast.next.next;
         }
 
-        ListNode middle = slow.next;
-        slow.next = null;
+        ListNode? middle = slow?.next;
+        slow!.next = null;
 
-
-        ListNode? secondHead = ReverseLinkedListClass.ReverseList(middle);
-
-        // merge two lists
-        ListNode? first = head;
-        ListNode? second = secondHead;
-        while (second != null)
+        if (middle != null)
         {
-            ListNode? temp1 = first.next;
-            ListNode? temp2 = second.next;
-            first.next = second;
-            second.next = temp1;
-            first = temp1;
-            second = temp2;
+            ListNode? secondHead = ReverseLinkedListClass.ReverseList(middle);
+
+            // merge two lists
+            ListNode? first = head;
+            ListNode? second = secondHead;
+            while (second != null)
+            {
+                ListNode? temp1 = first?.next;
+                ListNode? temp2 = second?.next;
+                first!.next = second;
+                second!.next = temp1;
+                first = temp1;
+                second = temp2;
+            }
         }
         return;
     }
