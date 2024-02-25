@@ -2,6 +2,7 @@ namespace blind75.BinarySearch;
 
 public static class SearchRotatedSortedArrayClass
 {
+
     // There is an integer array nums sorted in ascending order (with distinct values).
 
     // Prior to being passed to your function, nums is possibly rotated at an unknown pivot index k (1 <= k < nums.length)
@@ -14,6 +15,8 @@ public static class SearchRotatedSortedArrayClass
     // You must write an algorithm with O(log n) runtime complexity.
 
     // nums = [4,5,6,7,0,1,2] target = 5
+    // mid = 3{7}
+    // standard binary search but then you do an extra check to see if mid is in rotation
     public static int Search(int[] nums, int target)
     {
         int low = 0;
@@ -23,9 +26,7 @@ public static class SearchRotatedSortedArrayClass
             var mid = (low + high) / 2;
 
             if (nums[mid] == target)
-            {
                 return mid;
-            }
             else if (nums[low] <= nums[mid])
             {
                 if (target > nums[mid] || target < nums[low])
