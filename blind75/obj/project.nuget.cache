@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GZmHiOh3qDCySC8y9w8LWYevXqwAh9YTbYmi9vbyQ3HRLR8wT8HnObr70DdUa9lXL+pVq8OIAyx9waFgkIhMqw==",
+  "dgSpecHash": "GgfmKQTp5KaceZAUMm6U4mLS+YVBF9vDd4Xxw6POTWsUd+Qu1iw6nffDTJu1+7euAaKnXnuHpgzS32Z2JOyDOg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\burke\\source\\repos\\blind75\\blind75\\blind75.csproj",
+  "projectFilePath": "/home/burke/repos/blind75/blind75/blind75.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

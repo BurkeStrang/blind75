@@ -12,7 +12,6 @@ public static class ValidParenthesesClass
                 { '{', '}' }
             };
         Stack<char> stack = new();
-
         for (int i = 0; i < s.Length; i++)
         {
             if (par.TryGetValue(s[i], out char val))

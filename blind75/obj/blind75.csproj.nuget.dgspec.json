@@ -1,32 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\burke\\source\\repos\\blind75\\blind75\\blind75.csproj": {}
+    "/home/burke/repos/blind75/blind75/blind75.csproj": {}
   },
   "projects": {
-    "C:\\Users\\burke\\source\\repos\\blind75\\blind75\\blind75.csproj": {
+    "/home/burke/repos/blind75/blind75/blind75.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\burke\\source\\repos\\blind75\\blind75\\blind75.csproj",
+        "projectUniqueName": "/home/burke/repos/blind75/blind75/blind75.csproj",
         "projectName": "blind75",
-        "projectPath": "C:\\Users\\burke\\source\\repos\\blind75\\blind75\\blind75.csproj",
-        "packagesPath": "C:\\Users\\burke\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\burke\\source\\repos\\blind75\\blind75\\obj\\",
+        "projectPath": "/home/burke/repos/blind75/blind75/blind75.csproj",
+        "packagesPath": "/root/.nuget/packages/",
+        "outputPath": "/home/burke/repos/blind75/blind75/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\burke\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/root/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -60,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.102/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
