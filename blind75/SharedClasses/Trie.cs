@@ -6,4 +6,5 @@ public class TrieNode
     }
     public Dictionary<char, TrieNode> childrenMap { get; set; }
     public bool isWord { get; set; }
+    public bool EndOfWord { get; set; }
 }
