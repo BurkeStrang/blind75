@@ -9,7 +9,7 @@ public class ReorderList
         list.next.next.next = new ListNode(3);
         list.next.next.next.next = new ListNode(4);
         list.next.next.next.next.next = new ListNode(10);
-        list.next.next.next.next.next.next = new ListNode(11);
+        list.next.next.next.next.next!.next = new ListNode(11);
 
         ListNode expectedlist = new ListNode(0);
         expectedlist.next = new ListNode(11);
@@ -17,7 +17,7 @@ public class ReorderList
         expectedlist.next.next.next = new ListNode(10);
         expectedlist.next.next.next.next = new ListNode(2);
         expectedlist.next.next.next.next.next = new ListNode(4);
-        expectedlist.next.next.next.next.next.next = new ListNode(3);
+        expectedlist.next.next.next.next.next!.next = new ListNode(3);
 
         ReorderListClass.ReorderList(list);
 

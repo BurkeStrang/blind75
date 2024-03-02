@@ -18,7 +18,7 @@ public class MergeTwoList
         expectedList.next.next.next = new ListNode(3);
         expectedList.next.next.next.next = new ListNode(4);
         expectedList.next.next.next.next.next = new ListNode(10);
-        expectedList.next.next.next.next.next.next = new ListNode(11);
+        expectedList.next.next.next.next.next!.next = new ListNode(11);
 
         Assert.Equivalent(expectedList, MergeTwoListClass.MergeTwoLists(list1, list2));
     }

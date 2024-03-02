@@ -4,13 +4,13 @@ public class ValidParentheses
     public void ReturnsTrueForValidParentheses()
     {
         string s = "()[]{}";
-        Assert.Equal(ValidParenthesesClass.ValidParentheses(s), true);
+        Assert.True(ValidParenthesesClass.ValidParentheses(s));
     }
 
     [Fact]
     public void ReturnsFalsForInvalidParentheses()
     {
         string s = ")]{}";
-        Assert.Equal(ValidParenthesesClass.ValidParentheses(s), false);
+        Assert.False(ValidParenthesesClass.ValidParentheses(s));
     }
 }

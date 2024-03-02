@@ -7,6 +7,6 @@ public class ValidateBinarySearchTree
         root.left = new TreeNode(1);
         root.right = new TreeNode(3);
 
-        Assert.Equal(true, ValidateBinarySearchTreeClass.IsValidBST(root));
+        Assert.True(ValidateBinarySearchTreeClass.IsValidBST(root));
     }
 }

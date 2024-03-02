@@ -9,6 +9,6 @@ public class HasCycle
         list1.next.next.next = new ListNode(10);
         list1.next.next.next.next = list1.next.next;
 
-        Assert.Equal(HasCycleClass.HasCycle(list1), true);
+        Assert.True(HasCycleClass.HasCycle(list1));
     }
 }
