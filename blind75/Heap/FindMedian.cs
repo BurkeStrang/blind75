@@ -1,3 +1,5 @@
+namespace blind75.Heap;
+
 public class MedianFinder
 {
     private PriorityQueue<int, int> leftHeap = new(Comparer<int>.Create((a, b) => b - a));

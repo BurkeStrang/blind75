@@ -1,3 +1,5 @@
+namespace blind75.Tries;
+
 public class WordDictionary
 {
 
