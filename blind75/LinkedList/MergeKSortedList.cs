@@ -6,24 +6,24 @@ namespace blind75.LinkedList;
 
 public static class MergeKSortedListClass
 {
-    public static ListNode? MergeKLists(ListNode[] lists)
+    public static ListNode? MergeKLists(ListNode?[] lists)
     {
-        if (lists.Length == 0)
+        if (lists?.Length == 0)
         {
             return null;
         }
 
-        while (lists.Length > 1)
+        while (lists?.Length > 1)
         {
-            var mergedLists = new ListNode[(lists.Length + 1) / 2];
+            ListNode?[] mergedLists = new ListNode[(lists.Length + 1) / 2];
             for (int i = 0; i < lists.Length; i += 2)
             {
                 ListNode? l1 = lists[i];
                 ListNode? l2 = (i + 1 < lists.Length) ? lists[i + 1] : null;
-                mergedLists[i / 2] = (MergeTwoListClass.MergeTwoLists(l1, l2));
+                mergedLists[i / 2] = MergeTwoListClass.MergeTwoLists(l1, l2);
             }
             lists = mergedLists;
         }
-        return lists[0];
+        return lists?[0];
     }
 }
