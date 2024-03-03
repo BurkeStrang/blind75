@@ -4,3 +4,15 @@
 // 1. 1 step + 1 step + 1 step
 // 2. 1 step + 2 steps
 // 3. 2 steps + 1 step
+
+public class ClimbingStairsTests
+{
+    [Theory]
+    [InlineData(2, 2)]
+    [InlineData(3, 3)]
+    public void TestClimbingStairs(int n, int expected)
+    {
+        int result = ClimbingStairsClass.ClimbStairs(n);
+        Assert.Equal(expected, result);
+    }
+}
