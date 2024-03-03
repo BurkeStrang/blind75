@@ -1,3 +1,4 @@
+namespace blind75.DynammicProgramming;
 // You are a professional robber planning to rob houses along a street.
 // Each house has a certain amount of money stashed.
 // All houses at this place are arranged in a circle.
