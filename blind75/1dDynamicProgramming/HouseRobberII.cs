@@ -18,22 +18,24 @@ public static class HouseRobberII
 {
     public static int Rob(int[] nums)
     {
-        if (nums.Length == 1)
-        {
-            return nums[0];
-        }
-        return Math.Max(Rob(nums, 0, nums.Length - 2), Rob(nums, 1, nums.Length - 1));
+
+        return Math.Max(nums[0], Math.Max(
+            getMaxRobAmount(nums, 0, nums.Length - 1),
+            getMaxRobAmount(nums, 1, nums.Length))
+        );
     }
-    private static int Rob(int[] nums, int start, int end)
+
+    public static int getMaxRobAmount(int[] nums, int start, int end)
     {
-        int prev = 0;
-        int curr = 0;
-        for (int i = start; i <= end; i++)
+        int rob1 = 0, rob2 = 0;
+
+        for (int i = start; i < end; i++)
         {
-            int temp = Math.Max(prev + nums[i], curr);
-            prev = curr;
-            curr = temp;
+            int temp = Math.Max(nums[i] + rob1, rob2);
+            rob1 = rob2;
+            rob2 = temp;
         }
-        return curr;
+
+        return rob2;
     }
 }
