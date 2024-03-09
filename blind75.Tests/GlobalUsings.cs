@@ -7,6 +7,7 @@ global using blind75.Greedy;
 global using blind75.Heap;
 global using blind75.Intervals;
 global using blind75.LinkedList;
+global using blind75.MathAndGeo;
 global using blind75.Shared;
 global using blind75.SlidingWindow;
 global using blind75.Stack;
