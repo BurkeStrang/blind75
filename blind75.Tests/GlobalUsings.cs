@@ -1,6 +1,7 @@
 global using blind75.ArraysAndHashing;
 global using blind75.Backtracking;
 global using blind75.BinarySearch;
+global using blind75.BitManipulation;
 global using blind75.DynammicProgramming;
 global using blind75.Graphs;
 global using blind75.Greedy;
