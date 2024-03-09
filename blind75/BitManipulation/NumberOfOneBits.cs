@@ -26,7 +26,9 @@ public static class NumberOfOneBits
         int hammingWeight = 0;
         while (n > 0)
         {
+            // if the last bit of n is 1
             hammingWeight += (int)(n & 1);
+            // shift n to the right
             n >>= 1;
         }
         return hammingWeight;
