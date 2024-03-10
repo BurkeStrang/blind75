@@ -1,6 +1,5 @@
 namespace blind75.ArraysAndHashing;
 
-
 // Design an algorithm to encode a list of strings to a string.
 // The encoded string is then sent over the network and is decoded back to the original list of strings.
 
@@ -11,10 +10,8 @@ namespace blind75.ArraysAndHashing;
 
 public static class Codec
 {
-    public static string Encode(IList<string> strs)
-    {
-        return string.Concat(strs.SelectMany(s => $"{s.Length}#{s}"));
-    }
+    public static string Encode(IList<string> strs) =>
+        string.Concat(strs.SelectMany(s => $"{s.Length}#{s}"));
 
     public static IList<string> Decode(string s)
     {

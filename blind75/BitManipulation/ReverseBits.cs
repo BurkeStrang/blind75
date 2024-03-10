@@ -8,7 +8,7 @@ public static class ReverseBitsClass
         // iterate through 32 bits
         for (int i = 0; i < 32; i++)
         {
-            // get the last bit of n
+            // get the last bit of n if it's last bit is 1
             uint temp = n & 1;
             // shift result to the left and add temp
             result = (result << 1) + temp;
