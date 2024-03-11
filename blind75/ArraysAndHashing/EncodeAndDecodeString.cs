@@ -6,28 +6,31 @@ namespace blind75.ArraysAndHashing;
 // Input: ["lint","code","love","you"]
 // Output: ["lint","code","love","you"]
 // Explanation:
-// One possible encode method is: "lint:;code:;love:;you"
+// One possible encode method is: "4#lint4#code4#love3#you"
 
 public static class Codec
 {
-    public static string Encode(IList<string> strs) =>
-        string.Concat(strs.SelectMany(s => $"{s.Length}#{s}"));
+    public static string Encode(IList<string> strs)
+    {
+        // returns a single string with the length of the string followed
+        // by the # symbol before the string in the list
+        return string.Concat(strs.SelectMany(s => $"{s.Length}#{s}"));
+    }
 
     public static IList<string> Decode(string s)
     {
         List<string> res = new();
+
         int i = 0;
         while (i < s.Length)
         {
-            int j = i;
-            while (s[j] != '#')
+            if (!int.TryParse(s[i].ToString(), out int length) || !(s[i + 1] == '#'))
             {
-                ++j;
+                throw new ArgumentException("Invalid Input");
             }
-            int.TryParse(s.AsSpan(i, j - i), out int len);
-            j++;
-            res.Add(s.Substring(j, len));
-            i = j + len;
+            i += 2;
+            res.Add(s.Substring(i, length));
+            i += length;
         }
         return res;
     }
