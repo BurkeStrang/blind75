@@ -1,4 +1,5 @@
 namespace blind75.DynammicProgramming;
+
 // You are a professional robber planning to rob houses along a street.
 // Each house has a certain amount of money stashed,
 // the only constraint stopping you from robbing each of them is that adjacent houses
@@ -17,13 +18,15 @@ namespace blind75.DynammicProgramming;
 
 public static class HouseRobber
 {
-
     public static int Rob(int[] nums)
     {
-        int rob1 = 0, rob2 = 0;
+        int rob1 = 0,
+            rob2 = 0;
 
+        // Loop through the array of houses
         foreach (int num in nums)
         {
+            // Get the max amount of money you can rob
             int temp = Math.Max(num + rob1, rob2);
             rob1 = rob2;
             rob2 = temp;
@@ -32,3 +35,17 @@ public static class HouseRobber
         return rob2;
     }
 }
+// Walkthrough:
+// We can solve this problem using dynamic programming.
+// We will use two variables to keep track of the maximum amount of money we can rob.
+// We will loop through the array of houses and for each house, we will calculate the maximum amount of money we can rob.
+// We will then return the maximum amount of money we can rob.
+// Space complexity: O(1)
+// Time complexity: O(n)
+// example foreach loop:
+// rob1 = 0, rob2 = 0
+// num = 1, temp = Math.Max(num + 0, 0) = 1, rob1 = 0, rob2 = 1
+// num = 2, temp = Math.Max(num + 0, 1) = 2, rob1 = 1, rob2 = 2
+// num = 3, temp = Math.Max(num + 1, 2) = 4, rob1 = 2, rob2 = 4
+// num = 1, temp = Math.Max(num + 2, 4) = 4, rob1 = 4, rob2 = 4
+// return rob2 = 4
