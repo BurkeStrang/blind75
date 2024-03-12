@@ -44,8 +44,8 @@ public static class HouseRobber
 // Time complexity: O(n)
 // example foreach loop:
 // rob1 = 0, rob2 = 0
-// num = 1, temp = Math.Max(num + 0, 0) = 1, rob1 = 0, rob2 = 1
-// num = 2, temp = Math.Max(num + 0, 1) = 2, rob1 = 1, rob2 = 2
-// num = 3, temp = Math.Max(num + 1, 2) = 4, rob1 = 2, rob2 = 4
-// num = 1, temp = Math.Max(num + 2, 4) = 4, rob1 = 4, rob2 = 4
+// num = 1, temp = Max(num + 0, 0) = 1, rob1 = 0, rob2 = 1
+// num = 2, temp = Max(num + 0, 1) = 2, rob1 = 1, rob2 = 2
+// num = 3, temp = Max(num + 1, 2) = 4, rob1 = 2, rob2 = 4
+// num = 1, temp = Max(num + 2, 4) = 4, rob1 = 4, rob2 = 4
 // return rob2 = 4

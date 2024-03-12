@@ -11,17 +11,18 @@ public static class GraphValidTree
         if (n == 0)
             return true;
 
-        var adj = new HashSet<int>[n];
+        HashSet<int>[] adj = new HashSet<int>[n];
 
         for (int i = 0; i < n; i++)
         {
-            adj[i] = new HashSet<int>();
+            adj[i] = new();
         }
         foreach (var edge in edges)
         {
             var e1 = edge[0];
             var e2 = edge[1];
-            adj[e1].Add(e2); adj[e2].Add(e1);
+            adj[e1].Add(e2);
+            adj[e2].Add(e1);
         }
         var visited = new bool[n];
 
@@ -38,8 +39,8 @@ public static class GraphValidTree
             return false;
         visited[current] = true;
 
-        var nextLevel = adj[current];
-        foreach (var level in nextLevel)
+        HashSet<int> nextLevel = adj[current];
+        foreach (int level in nextLevel)
         {
             adj[level].Remove(current);
             if (!DfsValidTree(adj, level, visited))
