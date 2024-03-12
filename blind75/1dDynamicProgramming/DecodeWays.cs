@@ -1,4 +1,5 @@
 namespace blind75.DynammicProgramming;
+
 /*
 A message containing letters from A-Z can be encoded into numbers using the following mapping:
 
@@ -25,7 +26,8 @@ public static class DecodeWays
 {
     public static int NumDecodings(string s)
     {
-        if (s[0] == '0') return 0;
+        if (s[0] == '0')
+            return 0;
         int n = s.Length;
         int[] dp = new int[n + 1];
         dp[0] = 1;

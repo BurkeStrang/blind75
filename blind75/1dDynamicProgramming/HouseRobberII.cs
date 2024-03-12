@@ -1,4 +1,5 @@
 namespace blind75.DynammicProgramming;
+
 // You are a professional robber planning to rob houses along a street.
 // Each house has a certain amount of money stashed.
 // All houses at this place are arranged in a circle.
@@ -19,16 +20,19 @@ public static class HouseRobberII
 {
     public static int Rob(int[] nums)
     {
-
-        return Math.Max(nums[0], Math.Max(
-            getMaxRobAmount(nums, 0, nums.Length - 1),
-            getMaxRobAmount(nums, 1, nums.Length))
+        return Math.Max(
+            nums[0],
+            Math.Max(
+                GetMaxRobAmount(nums, 0, nums.Length - 1),
+                GetMaxRobAmount(nums, 1, nums.Length)
+            )
         );
     }
 
-    public static int getMaxRobAmount(int[] nums, int start, int end)
+    public static int GetMaxRobAmount(int[] nums, int start, int end)
     {
-        int rob1 = 0, rob2 = 0;
+        int rob1 = 0,
+            rob2 = 0;
 
         for (int i = start; i < end; i++)
         {
