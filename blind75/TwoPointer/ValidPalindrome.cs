@@ -10,17 +10,6 @@ public static class ValidPalindrome
 {
     public static bool IsPalindrome(string s)
     {
-        s = string.Concat(Array.FindAll(s.ToCharArray(), Char.IsLetterOrDigit)).ToLowerInvariant();
-        int high = s.Length - 1;
-        int low = 0;
-
-        while (low <= high)
-        {
-            if (s[low] != s[high])
-                return false;
-            low++;
-            high--;
-        }
-        return true;
+        throw new NotImplementedException();
     }
 }
