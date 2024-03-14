@@ -23,6 +23,21 @@ public static class ContainerWithMostWaterClass
 {
     public static int MaxArea(int[] height)
     {
-        throw new NotImplementedException();
+        int left = 0,
+            right = height.Length - 1,
+            maxArea = 0;
+
+        while (left < right)
+        {
+            int minHeight = Math.Min(height[left], height[right]);
+            int area = (right - left) * minHeight;
+            maxArea = Math.Max(maxArea, area);
+
+            if (height[left] == minHeight)
+                left++;
+            else
+                right--;
+        }
+        return maxArea;
     }
 }

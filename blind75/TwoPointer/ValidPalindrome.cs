@@ -10,6 +10,17 @@ public static class ValidPalindrome
 {
     public static bool IsPalindrome(string s)
     {
-        throw new NotImplementedException();
+        s = s.Replace(" ", "").ToLowerInvariant();
+        int left = 0;
+        int right = s.Length - 1;
+
+        while (left <= right)
+        {
+            if (s[left] != s[right])
+                return false;
+            left++;
+            right--;
+        }
+        return true;
     }
 }

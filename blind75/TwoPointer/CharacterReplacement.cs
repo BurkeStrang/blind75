@@ -19,6 +19,25 @@ public static class CharacterReplacementClass
 {
     public static int CharacterReplacement(string s, int k)
     {
-        throw new NotImplementedException();
+        int left = 0,
+            maxLength = 0;
+        int mostFrequentLetterCount = 0;
+        int[] charCounts = new int[26];
+
+        for (int right = 0; right < s.Length; right++)
+        {
+            charCounts[s[right] - 'A']++;
+            mostFrequentLetterCount = Math.Max(mostFrequentLetterCount, charCounts[s[right] - 'A']);
+            int lettersToChange = (right - left + 1) - mostFrequentLetterCount;
+            if (lettersToChange > k)
+            {
+                // Window is invalid, decrease char count and move left pointer
+                charCounts[s[left] - 'A']--;
+                left++;
+            }
+
+            maxLength = Math.Max(maxLength, (right - left + 1));
+        }
+        return maxLength;
     }
 }

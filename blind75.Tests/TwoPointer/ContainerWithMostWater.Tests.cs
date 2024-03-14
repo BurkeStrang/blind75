@@ -7,4 +7,12 @@ public class ContainerWithMostWaterTests
         int maxHeight = 49;
         Assert.Equal(maxHeight, ContainerWithMostWaterClass.MaxArea(nums));
     }
+
+    [Fact]
+    public void ContainerWithMostWaterReturnsValidAnswer2()
+    {
+        int[] nums = { 1, 1 };
+        int maxHeight = 1;
+        Assert.Equal(maxHeight, ContainerWithMostWaterClass.MaxArea(nums));
+    }
 }
