@@ -11,4 +11,14 @@ public class HasCycle
 
         Assert.True(HasCycleClass.HasCycle(list1));
     }
+
+    [Fact]
+    public void HasCycleCorrect2()
+    {
+        ListNode list1 = new ListNode(0);
+        list1.next = new ListNode(1);
+        list1.next.next = new ListNode(4);
+        list1.next.next.next = new ListNode(10);
+        Assert.False(HasCycleClass.HasCycle(list1));
+    }
 }
