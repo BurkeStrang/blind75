@@ -1,4 +1,5 @@
 namespace blind75.Graphs;
+
 // There are a total of numCourses courses you have to take, labeled from 0 to numCourses - 1.
 // You are given an array prerequisites where prerequisites[i] = [ai, bi]
 // indicates that you must take course bi first if you want to take course ai.
@@ -10,16 +11,15 @@ namespace blind75.Graphs;
 
 // Input: numCourses = 2, prerequisites = [[1,0]]
 // Output: true
-// Explanation: There are a total of 2 courses to take. 
+// Explanation: There are a total of 2 courses to take.
 // To take course 1 you should have finished course 0. So it is possible.
 
 public static class CourseScheduleClass
 {
     public static bool CanFinish(int numCourses, int[][] prerequisites)
     {
-
-        IDictionary<int, List<int>> preMap = new Dictionary<int, List<int>>();
-        HashSet<int> visited = new HashSet<int>();
+        Dictionary<int, List<int>> preMap = new();
+        HashSet<int> visited = new();
         for (int i = 0; i < numCourses; i++)
         {
             preMap.Add(i, new List<int>());
@@ -32,7 +32,7 @@ public static class CourseScheduleClass
             preMap[courseToTake].Add(courseDependOn);
         }
 
-        foreach (int c in Enumerable.Range(0, numCourses))
+        for (int c = 0; c < numCourses; c++)
         {
             if (!DfsGraph(preMap, visited, c))
             {
@@ -41,6 +41,7 @@ public static class CourseScheduleClass
         }
         return true;
     }
+
     public static bool DfsGraph(IDictionary<int, List<int>> preMap, HashSet<int> visited, int crs)
     {
         if (visited.Contains(crs))
