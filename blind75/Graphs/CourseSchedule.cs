@@ -35,9 +35,7 @@ public static class CourseScheduleClass
         for (int c = 0; c < numCourses; c++)
         {
             if (!DfsGraph(preMap, visited, c))
-            {
                 return false;
-            }
         }
         return true;
     }
@@ -45,23 +43,19 @@ public static class CourseScheduleClass
     public static bool DfsGraph(IDictionary<int, List<int>> preMap, HashSet<int> visited, int crs)
     {
         if (visited.Contains(crs))
-        {
             return false;
-        }
-        if (preMap[crs] == new List<int>())
-        {
+        if (preMap[crs].Count == 0)
             return true;
-        }
         visited.Add(crs);
-        foreach (var pre in preMap[crs])
+        foreach (int pre in preMap[crs])
         {
             if (!DfsGraph(preMap, visited, pre))
-            {
                 return false;
-            }
         }
+
         visited.Remove(crs);
-        preMap[crs] = new List<int>();
+        preMap[crs] = new();
+
         return true;
     }
 }
