@@ -1,4 +1,5 @@
 namespace blind75.Graphs;
+
 // Given a reference of a node in a connected undirected graph.
 // Return a deep copy (clone) of the graph.
 // Each node in the graph contains a value (int) and a list (List[Node]) of its neighbors.
@@ -13,7 +14,7 @@ namespace blind75.Graphs;
 
 public static class CloneGraphClass
 {
-    static Dictionary<Node, Node> map = new Dictionary<Node, Node>();
+    private static readonly Dictionary<Node, Node> map = [];
 
     public static Node? CloneGraph(Node? node)
     {

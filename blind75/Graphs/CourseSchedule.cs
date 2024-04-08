@@ -25,11 +25,11 @@ public static class CourseScheduleClass
 {
     public static bool CanFinish(int numCourses, int[][] prerequisites)
     {
-        Dictionary<int, List<int>> preMap = new();
-        HashSet<int> visited = new();
+        Dictionary<int, List<int>> preMap = [];
+        HashSet<int> visited = [];
         for (int i = 0; i < numCourses; i++)
         {
-            preMap.Add(i, new List<int>());
+            preMap.Add(i, []);
         }
 
         foreach (int[] course in prerequisites)
@@ -68,7 +68,7 @@ public static class CourseScheduleClass
             }
         }
         visited.Remove(crs);
-        preMap[crs] = new();
+        preMap[crs] = [];
         return true;
     }
 }
