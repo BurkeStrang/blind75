@@ -16,3 +16,4 @@ public static class BestTimeToBuyAndSell
         return maxProfit;
     }
 }
+

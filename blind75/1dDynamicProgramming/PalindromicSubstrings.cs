@@ -1,3 +1,5 @@
+namespace blind75.DynammicProgramming;
+
 // Given a string s, return the number of palindromic substrings in it.
 // A string is a palindrome when it reads the same backward as forward.
 // A substring is a contiguous sequence of characters within the string.
@@ -19,7 +21,8 @@ public static class PalindromicSubstringsClass
         }
         return count;
     }
-    public static int countPalindromes(String s, int L, int H)
+
+    public static int countPalindromes(string s, int L, int H)
     {
         int count = 0;
         while (L >= 0 && H < s.Length && s[L] == s[H])
@@ -31,3 +34,4 @@ public static class PalindromicSubstringsClass
         return count;
     }
 }
+

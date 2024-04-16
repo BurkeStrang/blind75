@@ -27,7 +27,9 @@ public static class WordBreakClass
                     dp[i] = dp[i + word.Length];
                 }
                 if (dp[i])
+                {
                     break;
+                }
             }
         }
         return dp[0];
