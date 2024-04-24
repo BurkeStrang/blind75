@@ -23,8 +23,8 @@ public static class MinimumWindowSubstringClass
         if (string.IsNullOrEmpty(t))
             return string.Empty;
 
-        Dictionary<char, int> countT = new();
-        Dictionary<char, int> window = new();
+        Dictionary<char, int> countT = [];
+        Dictionary<char, int> window = [];
 
         foreach (char c in t)
         {
@@ -41,7 +41,7 @@ public static class MinimumWindowSubstringClass
             char c = s[right];
             AddCharToDictionary(c, window);
 
-            if (countT.ContainsKey(c) && window[c] == countT[c])
+            if (countT.TryGetValue(c, out int value) && window[c] == value)
                 have++;
 
             while (have == need)
@@ -50,7 +50,7 @@ public static class MinimumWindowSubstringClass
                 var windowSize = right - left + 1;
                 if (windowSize < resultLength)
                 {
-                    res = new[] { left, right };
+                    res = [left, right];
                     resultLength = windowSize;
                 }
 
@@ -72,8 +72,8 @@ public static class MinimumWindowSubstringClass
 
     private static void AddCharToDictionary(char c, IDictionary<char, int> dict)
     {
-        if (dict.ContainsKey(c))
-            dict[c]++;
+        if (dict.TryGetValue(c, out int value))
+            dict[c] = ++value;
         else
             dict.Add(c, 1);
     }

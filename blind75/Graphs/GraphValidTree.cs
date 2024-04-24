@@ -1,4 +1,5 @@
-namespece blind75.Graphs;
+namespace blind75.Graphs;
+
 // Given n nodes labeled from 0 to n - 1 and a list of undirected edges (each edge is a pair of nodes),
 // write a function to check whether these edges make up a valid tree.
 
@@ -16,7 +17,7 @@ public static class GraphValidTree
 
         for (int i = 0; i < n; i++)
         {
-            adj[i] = new();
+            adj[i] = [];
         }
         foreach (var edge in edges)
         {
@@ -29,9 +30,7 @@ public static class GraphValidTree
 
         var res = DfsValidTree(adj, 0, visited);
 
-        if (visited.Any(c => !c))
-            return false;
-        return res;
+        return !visited.Any(c => !c) && res;
     }
 
     private static bool DfsValidTree(HashSet<int>[] adj, int current, bool[] visited)

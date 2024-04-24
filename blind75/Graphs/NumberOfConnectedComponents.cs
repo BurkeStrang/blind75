@@ -30,7 +30,6 @@ public static class NumberOfConnectedComponents
         foreach (int[] edge in edges)
             Union(edge[0], edge[1]);
 
-        s_rank.Dump();
         return s_noOfConnectedComponents;
     }
 

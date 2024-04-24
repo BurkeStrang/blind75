@@ -1,3 +1,4 @@
+namespace blind75.DynammicProgramming;
 // Input: n = 3
 // Output: 3
 // Explanation: There are three ways to climb to the top.
@@ -12,7 +13,7 @@ public class ClimbingStairsTests
     [InlineData(3, 3)]
     public void TestClimbingStairs(int n, int expected)
     {
-        int result = ClimbbingStairsClass.ClimbStairs(n);
+        int result = ClimbingStairsClass.ClimbStairs(n);
         Assert.Equal(expected, result);
     }
 }
