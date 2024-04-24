@@ -12,7 +12,7 @@ public class ClimbingStairsTests
     [InlineData(3, 3)]
     public void TestClimbingStairs(int n, int expected)
     {
-        int result = ClimbingStairsClass.ClimbStairs(n);
+        int result = ClimbbingStairsClass.ClimbStairs(n);
         Assert.Equal(expected, result);
     }
 }

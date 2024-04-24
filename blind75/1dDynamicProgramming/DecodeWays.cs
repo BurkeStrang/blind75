@@ -27,9 +27,7 @@ public static class DecodeWays
     public static int NumDecodings(string s)
     {
         if (s[0] == '0')
-        {
             return 0;
-        }
         int n = s.Length;
         int[] dp = new int[n + 1];
         dp[0] = 1;
@@ -40,11 +38,8 @@ public static class DecodeWays
             {
                 dp[i] = dp[i - 1];
             }
-            if (!int.TryParse(s.AsSpan(i - 2, 2), out int twoDigit))
-            {
-                continue;
-            }
-            if (twoDigit is >= 10 and <= 26)
+            int twoDigit = int.Parse(s.Substring(i - 2, 2));
+            if (twoDigit >= 10 && twoDigit <= 26)
             {
                 dp[i] += dp[i - 2];
             }
@@ -52,4 +47,3 @@ public static class DecodeWays
         return dp[n];
     }
 }
-

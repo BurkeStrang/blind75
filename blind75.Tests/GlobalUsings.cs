@@ -17,3 +17,4 @@ global using blind75.Tries;
 global using blind75.TwoPointers;
 global using Dumpify;
 global using Xunit;
+global using blind75.General;

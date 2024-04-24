@@ -37,9 +37,11 @@ public static class LongestCommonSubsequenceClass
                 {
                     dp[i, j] = Math.Max(dp[i - 1, j], dp[i, j - 1]);
                 }
+                dp[i, j] = text1[i - 1] == text2[j - 1]
+                    ? dp[i - 1, j - 1] + 1
+                    : Math.Max(dp[i - 1, j], dp[i, j - 1]);
             }
         }
         return dp[m, n];
     }
 }
-

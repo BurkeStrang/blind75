@@ -39,7 +39,7 @@ public static class WaterFlowClass
 
     public static IList<IList<int>> PacificAtlantic(int[][] heights)
     {
-        List<IList<int>> res = new();
+        List<IList<int>> res = [];
         int m = heights.Length, n = heights[0].Length;
         bool[,] isPacific = new bool[m, n];
         bool[,] isAtlantic = new bool[m, n];

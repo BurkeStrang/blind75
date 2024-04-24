@@ -22,6 +22,7 @@ public static class HouseRobber
     {
         int rob1 = 0, rob2 = 0;
 
+
         // Loop through the array of houses
         foreach (int num in nums)
         {

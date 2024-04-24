@@ -31,8 +31,7 @@ public static class HouseRobberII
 
     public static int GetMaxRobAmount(int[] nums, int start, int end)
     {
-        int rob1 = 0,
-            rob2 = 0;
+        int rob1 = 0, rob2 = 0;
 
         for (int i = start; i < end; i++)
         {

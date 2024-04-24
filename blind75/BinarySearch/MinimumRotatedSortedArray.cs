@@ -2,6 +2,7 @@ namespace blind75.BinarySearch;
 
 public static class MinimumRotatedSortedArrayClass
 {
+
     // Suppose an array of length n sorted in ascending order is rotated between 1 and n times.
     // For example, the array nums = [0,1,2,4,5,6,7] might become:
     // [4,5,6,7,0,1,2] if it was rotated 4 times.
@@ -13,26 +14,17 @@ public static class MinimumRotatedSortedArrayClass
 
     public static int FindMin(int[] nums)
     {
-        int left = 0;
-        int right = nums.Length - 1;
-
+        int left = 0, right = nums.Length - 1;
         while (left <= right)
         {
             if (nums[left] <= nums[right])
-            {
                 return nums[left];
-            }
             int mid = (left + right) / 2;
             if (nums[mid] >= nums[left])
-            {
                 left = mid + 1;
-            }
             else
-            {
                 right = mid;
-            }
         }
         return 0;
     }
 }
-
