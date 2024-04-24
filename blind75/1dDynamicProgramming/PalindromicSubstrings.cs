@@ -16,19 +16,19 @@ public static class PalindromicSubstringsClass
         int count = 0;
         for (int i = 0; i < s.Length; i++)
         {
-            count += countPalindromes(s, i, i);
-            count += countPalindromes(s, i, i + 1);
+            count += CountPalindromes(s, i, i);
+            count += CountPalindromes(s, i, i + 1);
         }
         return count;
     }
 
-    public static int countPalindromes(string s, int L, int H)
+    public static int CountPalindromes(string s, int l, int h)
     {
         int count = 0;
-        while (L >= 0 && H < s.Length && s[L] == s[H])
+        while (l >= 0 && h < s.Length && s[l] == s[h])
         {
-            L--;
-            H++;
+            l--;
+            h++;
             count++;
         }
         return count;
