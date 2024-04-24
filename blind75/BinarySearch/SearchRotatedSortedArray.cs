@@ -2,7 +2,6 @@ namespace blind75.BinarySearch;
 
 public static class SearchRotatedSortedArrayClass
 {
-
     // There is an integer array nums sorted in ascending order (with distinct values).
 
     // Prior to being passed to your function, nums is possibly rotated at an unknown pivot index k (1 <= k < nums.length)
@@ -31,13 +30,15 @@ public static class SearchRotatedSortedArrayClass
             {
                 if (target > nums[mid] || target < nums[low])
                     low = mid + 1;
-                else high = mid - 1;
+                else
+                    high = mid - 1;
             }
             else
             {
                 if (target < nums[mid] || target > nums[high])
                     high = mid - 1;
-                else low = mid + 1;
+                else
+                    low = mid + 1;
             }
         }
         return -1;

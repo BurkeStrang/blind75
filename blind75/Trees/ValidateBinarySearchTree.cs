@@ -16,7 +16,7 @@ public static class ValidateBinarySearchTreeClass
         Stack<TreeNode> stack = new();
         int? prev = null;
 
-        while (stack.Any() || root != null)
+        while (stack.Count != 0 || root != null)
         {
             while (root != null)
             {

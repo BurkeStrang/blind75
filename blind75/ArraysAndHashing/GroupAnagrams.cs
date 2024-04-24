@@ -14,17 +14,19 @@ public static class GroupAnagramsClass
 {
     public static IList<IList<string>> GroupAnagrams(string[] strs)
     {
-        Dictionary<string, List<string>> anagrams = new();
+        Dictionary<string, List<string>> anagrams = [];
         foreach (string str in strs)
         {
             char[] charArr = str.ToCharArray();
             Array.Sort(charArr);
             string sortedStr = new(charArr);
-            if (!anagrams.ContainsKey(sortedStr))
+            if (!anagrams.TryGetValue(sortedStr, out List<string>? value))
             {
-                anagrams.Add(sortedStr, new List<string>());
+                value = [];
+                anagrams.Add(sortedStr, value);
             }
-            anagrams[sortedStr].Add(str);
+
+            value.Add(str);
         }
         return anagrams.Values.ToList<IList<string>>();
     }

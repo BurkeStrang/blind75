@@ -14,36 +14,37 @@ public class Trie
         var cur = root;
         foreach (var c in word)
         {
-            if (!cur.childrenMap.ContainsKey(c))
+            if (!cur.childrenMap.TryGetValue(c, out TrieNode? value))
             {
-                cur.childrenMap[c] = new TrieNode();
+                value = new TrieNode();
+                cur.childrenMap[c] = value;
             }
-            cur = cur.childrenMap[c];
+            cur = value;
         }
         cur.isWord = true;
     }
 
     public bool Search(string word)
     {
-        var node = traverse(word);
+        var node = Traverse(word);
         return node != null && node.isWord;
     }
 
     public bool StartsWith(string prefix)
     {
-        var node = traverse(prefix);
+        var node = Traverse(prefix);
         return node != null;
     }
 
-    private TrieNode? traverse(string path)
+    private TrieNode? Traverse(string path)
     {
         var cur = root;
 
         foreach (var c in path)
         {
-            if (cur.childrenMap.ContainsKey(c))
+            if (cur.childrenMap.TryGetValue(c, out TrieNode? value))
             {
-                cur = cur.childrenMap[c];
+                cur = value;
             }
             else
             {

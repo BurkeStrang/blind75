@@ -24,7 +24,7 @@ public static class NumerberOfIslandsClass
         bool[,] visited = new bool[m, n];
         int numIslands = 0;
 
-        void dfs(int i, int j, char[][] grid)
+        void Dfs(int i, int j, char[][] grid)
         {
             if (i < 0 || i >= m)
             {
@@ -40,10 +40,10 @@ public static class NumerberOfIslandsClass
             }
             visited[i, j] = true;
 
-            dfs(i + 1, j, grid);
-            dfs(i - 1, j, grid);
-            dfs(i, j - 1, grid);
-            dfs(i, j + 1, grid);
+            Dfs(i + 1, j, grid);
+            Dfs(i - 1, j, grid);
+            Dfs(i, j - 1, grid);
+            Dfs(i, j + 1, grid);
         }
 
         for (int i = 0; i < m; i++)
@@ -53,7 +53,7 @@ public static class NumerberOfIslandsClass
                 if (visited[i, j] == false && grid[i][j] == '1')
                 {
                     numIslands++;
-                    dfs(i, j, grid);
+                    Dfs(i, j, grid);
                 }
             }
         }

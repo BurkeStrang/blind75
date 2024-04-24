@@ -24,7 +24,7 @@ public static class ThreeSumClass
 {
     public static IList<IList<int>> ThreeSum(int[] nums)
     {
-        List<IList<int>> res = new();
+        List<IList<int>> res = [];
 
         Array.Sort(nums);
 
@@ -38,7 +38,7 @@ public static class ThreeSumClass
 
     private static void TwoSum(int[] nums, int i, List<IList<int>> res)
     {
-        HashSet<int> set = new();
+        HashSet<int> set = [];
 
         for (int j = i + 1; j < nums.Length; j++)
         {

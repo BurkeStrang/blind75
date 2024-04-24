@@ -11,7 +11,7 @@ public static class SpiralMatrix
 {
     public static IList<int> SpiralOrder(int[][] matrix)
     {
-        IList<int> result = new List<int>();
+        List<int> result = [];
         if (matrix.Length == 0)
             return result;
         int rowStart = 0;

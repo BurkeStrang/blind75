@@ -6,7 +6,7 @@ public static class RemoveNthNodeClass
     // Given the head of a linked list, remove the nth node from the end of the list and return its head.
     public static ListNode? RemoveNthFromEnd(ListNode? head, int n)
     {
-        ListNode? dummy = new ListNode(0, head);
+        ListNode? dummy = new(0, head);
         ListNode? left = dummy;
         ListNode? right = head;
 

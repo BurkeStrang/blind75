@@ -16,7 +16,7 @@ public static class LongestPalindromeClass
         int h = 0;
         for (int i = 0; i < s.Length; i++)
         {
-            int len1 = Math.Max(lengthOfPalindrome(s, i, i), lengthOfPalindrome(s, i, i + 1));
+            int len1 = Math.Max(LengthOfPalindrome(s, i, i), LengthOfPalindrome(s, i, i + 1));
 
             if (len1 > h - l)
             {
@@ -27,14 +27,14 @@ public static class LongestPalindromeClass
         return s.Substring(l, h - l + 1);
     }
 
-    public static int lengthOfPalindrome(string s, int L, int H)
+    public static int LengthOfPalindrome(string s, int l, int h)
     {
-        while (L >= 0 && H < s.Length && s[L] == s[H])
+        while (l >= 0 && h < s.Length && s[l] == s[h])
         {
-            L--;
-            H++;
+            l--;
+            h++;
         }
-        return H - L - 1;
+        return h - l - 1;
     }
 }
 

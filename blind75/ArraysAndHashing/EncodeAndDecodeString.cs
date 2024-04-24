@@ -19,7 +19,7 @@ public static class Codec
 
     public static IList<string> Decode(string s)
     {
-        List<string> res = new();
+        List<string> res = [];
 
         int i = 0;
         while (i < s.Length)

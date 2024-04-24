@@ -20,7 +20,7 @@ public static class ValidSudokuClass
     {
         int n = grid.Length;
         int m = grid[0].Length;
-        HashSet<string> set = new();
+        HashSet<string> set = [];
         for (int i = 0; i < n; i++)
         {
             for (int j = 0; j < m; j++)

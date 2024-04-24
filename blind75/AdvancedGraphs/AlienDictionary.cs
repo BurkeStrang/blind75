@@ -58,7 +58,7 @@ public static class AlienDictionaryClass
         Dictionary<char, bool> visited = []; //false = visited, true = in the current path
         List<char> res = [];
 
-        bool dfs(char c)
+        bool Dfs(char c)
         {
             if (visited.TryGetValue(c, out bool v))
             {
@@ -69,7 +69,7 @@ public static class AlienDictionaryClass
 
             foreach (char neigh in adj[c])
             {
-                if (dfs(neigh))
+                if (Dfs(neigh))
                 {
                     return true;
                 }
@@ -83,7 +83,7 @@ public static class AlienDictionaryClass
 
         foreach (char c in adj.Keys)
         {
-            if (dfs(c))
+            if (Dfs(c))
             {
                 return "";
             }
@@ -93,4 +93,3 @@ public static class AlienDictionaryClass
         return string.Join("", res);
     }
 }
-

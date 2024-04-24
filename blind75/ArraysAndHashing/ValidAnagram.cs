@@ -18,15 +18,15 @@ public static class ValidAnagramClass
     {
         if (s.Length != t.Length)
             return false;
-        int[] Count = new int[26];
+        int[] count = new int[26];
         for (int i = 0; i < s.Length; i++)
         {
-            Count[s[i] - 'a']++;
-            Count[t[i] - 'a']--;
+            count[s[i] - 'a']++;
+            count[t[i] - 'a']--;
         }
         for (int i = 0; i < 26; i++)
         {
-            if (!(Count[i] == 0))
+            if (!(count[i] == 0))
                 return false;
         }
         return true;

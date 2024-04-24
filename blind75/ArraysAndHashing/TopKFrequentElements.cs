@@ -23,11 +23,10 @@ public static class TopKFrequentElementsClass
     {
         if (k == nums.Length)
             return nums;
-        Dictionary<int, int> frequencyMap = new();
+        Dictionary<int, int> frequencyMap = [];
         for (int i = 0; i < nums.Length; i++)
         {
-            if (!frequencyMap.ContainsKey(nums[i]))
-                frequencyMap.Add(nums[i], 0);
+            frequencyMap.TryAdd(nums[i], 0);
             frequencyMap[nums[i]]++;
         }
         PriorityQueue<int, int> pq = new(Comparer<int>.Create((x, y) => y.CompareTo(x)));

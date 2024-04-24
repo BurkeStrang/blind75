@@ -2,35 +2,35 @@ namespace blind75.Tries;
 
 public class WordDictionary
 {
-
-    public TrieNode root;
+    public TrieNode Root;
 
     public WordDictionary()
     {
-        root = new TrieNode();
+        Root = new TrieNode();
     }
 
     public void AddWord(string word)
     {
-        var current = root;
+        var current = Root;
         for (var i = 0; i < word.Length; i++)
         {
-            if (!current.childrenMap.ContainsKey(word[i]))
+            if (!current.childrenMap.TryGetValue(word[i], out TrieNode? value))
             {
                 var newNode = new TrieNode();
-                current.childrenMap.Add(word[i], newNode);
+                value = newNode;
+                current.childrenMap.Add(word[i], value);
             }
-            current = current.childrenMap[word[i]];
+            current = value;
         }
         current.EndOfWord = true;
     }
 
     public bool Search(string word)
     {
-        return dfs(0, root, word);
+        return Dfs(0, Root, word);
     }
 
-    private bool dfs(int index, TrieNode root, string word)
+    private static bool Dfs(int index, TrieNode root, string word)
     {
         var currentNode = root;
 
@@ -41,7 +41,7 @@ public class WordDictionary
             {
                 foreach (var (key, value) in currentNode.childrenMap)
                 {
-                    if (dfs(i + 1, value, word))
+                    if (Dfs(i + 1, value, word))
                     {
                         return true;
                     }
@@ -51,11 +51,11 @@ public class WordDictionary
             }
             else
             {
-                if (!currentNode.childrenMap.ContainsKey(letter))
+                if (!currentNode.childrenMap.TryGetValue(letter, out TrieNode? value))
                 {
                     return false;
                 }
-                currentNode = currentNode.childrenMap[letter];
+                currentNode = value;
             }
         }
         return currentNode.EndOfWord;

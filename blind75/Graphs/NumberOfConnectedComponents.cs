@@ -11,27 +11,27 @@ namespace blind75.Graphs;
 
 public static class NumberOfConnectedComponents
 {
-    private static int noOfConnectedComponents = 0;
+    private static int s_noOfConnectedComponents = 0;
 
     // this is an array that handles finding
-    private static int[]? rank;
+    private static int[]? s_rank;
 
     public static int CountComponents(int n, int[][] edges)
     {
         if (n == 0)
-            return noOfConnectedComponents;
+            return s_noOfConnectedComponents;
 
-        noOfConnectedComponents = n;
-        rank = new int[n];
+        s_noOfConnectedComponents = n;
+        s_rank = new int[n];
 
         for (int i = 0; i < n; i++)
-            rank[i] = i;
+            s_rank[i] = i;
 
         foreach (int[] edge in edges)
             Union(edge[0], edge[1]);
 
-        rank.Dump();
-        return noOfConnectedComponents;
+        s_rank.Dump();
+        return s_noOfConnectedComponents;
     }
 
     private static void Union(int x, int y)
@@ -41,16 +41,16 @@ public static class NumberOfConnectedComponents
 
         if (p1 != p2)
         {
-            rank![p1] = p2;
-            noOfConnectedComponents--;
+            s_rank![p1] = p2;
+            s_noOfConnectedComponents--;
         }
     }
 
     private static int Find(int n)
     {
-        if (rank![n] != n)
-            rank[n] = Find(rank[n]);
+        if (s_rank![n] != n)
+            s_rank[n] = Find(s_rank[n]);
 
-        return rank[n];
+        return s_rank[n];
     }
 }

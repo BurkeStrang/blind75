@@ -19,7 +19,7 @@ public static class InsertIntervals
 {
     public static int[][] Insert(int[][] intervals, int[] newInterval)
     {
-        List<int[]> result = new();
+        List<int[]> result = [];
         int i = 0;
         while (i < intervals.Length && intervals[i][1] < newInterval[0])
         {
@@ -38,6 +38,6 @@ public static class InsertIntervals
             result.Add(intervals[i]);
             i++;
         }
-        return result.ToArray();
+        return [.. result];
     }
 }

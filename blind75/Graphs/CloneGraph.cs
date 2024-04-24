@@ -14,20 +14,21 @@ namespace blind75.Graphs;
 
 public static class CloneGraphClass
 {
-    private static readonly Dictionary<Node, Node> map = [];
+    private static readonly Dictionary<Node, Node> Map = [];
 
     public static Node? CloneGraph(Node? node)
     {
         if (node is null)
             return null;
-        if (!map.ContainsKey(node))
+        if (!Map.TryGetValue(node, out Node? value))
         {
-            map.Add(node, new Node(node.val));
+            value = new Node(node.val);
+            Map.Add(node, value);
             foreach (Node? n in node.neighbors)
             {
-                map[node].neighbors.Add(CloneGraph(n));
+                Map[node].neighbors.Add(CloneGraph(n));
             }
         }
-        return map[node];
+        return value;
     }
 }

@@ -10,12 +10,12 @@ namespace blind75.Trees;
 
 public static class MaximumPathSumClass
 {
-    static int maxPathSum = int.MinValue;
+    static int s_maxPathSum = int.MinValue;
 
     public static int MaxPathSum(TreeNode root)
     {
         DfsMaxPathSum(root);
-        return maxPathSum;
+        return s_maxPathSum;
     }
 
     static int DfsMaxPathSum(TreeNode? root)
@@ -28,7 +28,7 @@ public static class MaximumPathSumClass
             currentMax = 0;
 
         currentMax = Math.Max(currentMax, Math.Max(leftMax + root.val, rightMax + root.val));
-        maxPathSum = Math.Max(maxPathSum, leftMax + root.val + rightMax);
+        s_maxPathSum = Math.Max(s_maxPathSum, leftMax + root.val + rightMax);
 
         return currentMax;
     }

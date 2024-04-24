@@ -7,23 +7,23 @@ namespace blind75.Trees;
 
 public static class LevelOrderTraversalClass
 {
-    private static List<IList<int>> res = new();
+    private static readonly List<IList<int>> Res = [];
 
     public static IList<IList<int>> LevelOrder(TreeNode? root)
     {
         if (root != null)
-            helper(root, 0);
-        return res;
+            Helper(root, 0);
+        return Res;
     }
 
-    public static void helper(TreeNode? root, int level)
+    public static void Helper(TreeNode? root, int level)
     {
-        if (res.Count == level)
-            res.Add(new List<int>());
-        res[level].Add(root!.val);
+        if (Res.Count == level)
+            Res.Add(new List<int>());
+        Res[level].Add(root!.val);
         if (root.left != null)
-            helper(root.left, level + 1);
+            Helper(root.left, level + 1);
         if (root.right != null)
-            helper(root.right, level + 1);
+            Helper(root.right, level + 1);
     }
 }

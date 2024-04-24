@@ -6,19 +6,20 @@ namespace blind75.Tries;
 
 public class WordSearchIIClass
 {
-    public TrieNode root = new TrieNode();
+    public TrieNode Root = new();
 
     public void AddWord(string word)
     {
-        var current = root;
+        var current = Root;
         for (var i = 0; i < word.Length; i++)
         {
-            if (!current.childrenMap.ContainsKey(word[i]))
+            if (!current.childrenMap.TryGetValue(word[i], out TrieNode? value))
             {
                 var child = new TrieNode();
-                current.childrenMap.Add(word[i], child);
+                value = child;
+                current.childrenMap.Add(word[i], value);
             }
-            current = current.childrenMap[word[i]];
+            current = value;
         }
         current.EndOfWord = true;
 
@@ -35,25 +36,25 @@ public class WordSearchIIClass
         var result = new HashSet<string>();
         var visited = new HashSet<(int, int)>();
 
-        void dfs(int row, int col, TrieNode node, string word)
+        void Dfs(int row, int col, TrieNode node, string word)
         {
 
             if (row < 0 || col < 0 || row >= rows || col >= cols ||
               visited.Contains((row, col)) ||
-              !node.childrenMap.ContainsKey(board[row][col]))
+              !node.childrenMap.TryGetValue(board[row][col], out TrieNode? value))
                 return;
 
             visited.Add((row, col));
-            node = node.childrenMap[board[row][col]];
+            node = value;
             word += board[row][col];
 
             if (node.EndOfWord)
                 result.Add(word);
 
-            dfs(row - 1, col, node, word);
-            dfs(row + 1, col, node, word);
-            dfs(row, col - 1, node, word);
-            dfs(row, col + 1, node, word);
+            Dfs(row - 1, col, node, word);
+            Dfs(row + 1, col, node, word);
+            Dfs(row, col - 1, node, word);
+            Dfs(row, col + 1, node, word);
 
             visited.Remove((row, col));
         }
@@ -63,7 +64,7 @@ public class WordSearchIIClass
             for (var col = 0; col < cols; col++)
             {
 
-                dfs(row, col, root, "");
+                Dfs(row, col, Root, "");
             }
         }
 

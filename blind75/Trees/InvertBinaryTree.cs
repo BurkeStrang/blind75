@@ -6,9 +6,7 @@ public static class InvertBinaryTreeClass
     {
         if (root is null)
             return root;
-        TreeNode? temp = root.right;
-        root.right = root.left;
-        root.left = temp;
+        (root.left, root.right) = (root.right, root.left);
         InvertTree(root!.left);
         InvertTree(root.right);
         return root;

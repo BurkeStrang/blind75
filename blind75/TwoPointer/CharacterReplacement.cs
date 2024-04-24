@@ -28,7 +28,7 @@ public static class CharacterReplacementClass
         {
             charCounts[s[right] - 'A']++;
             mostFrequentLetterCount = Math.Max(mostFrequentLetterCount, charCounts[s[right] - 'A']);
-            int lettersToChange = (right - left + 1) - mostFrequentLetterCount;
+            int lettersToChange = right - left + 1 - mostFrequentLetterCount;
             if (lettersToChange > k)
             {
                 // Window is invalid, decrease char count and move left pointer
@@ -36,7 +36,7 @@ public static class CharacterReplacementClass
                 left++;
             }
 
-            maxLength = Math.Max(maxLength, (right - left + 1));
+            maxLength = Math.Max(maxLength, right - left + 1);
         }
         return maxLength;
     }

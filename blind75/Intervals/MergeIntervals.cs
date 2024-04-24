@@ -17,10 +17,10 @@ public static class MergeIntervals
     {
         if (intervals.Length == 0)
         {
-            return Array.Empty<int[]>();
+            return [];
         }
         Array.Sort(intervals, (a, b) => a[0] - b[0]);
-        List<int[]> result = new();
+        List<int[]> result = [];
         int[] currentInterval = intervals[0];
         result.Add(currentInterval);
         foreach (int[] interval in intervals)
@@ -38,6 +38,6 @@ public static class MergeIntervals
                 result.Add(currentInterval);
             }
         }
-        return result.ToArray();
+        return [.. result];
     }
 }
