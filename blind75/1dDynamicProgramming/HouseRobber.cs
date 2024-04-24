@@ -20,8 +20,9 @@ public static class HouseRobber
 {
     public static int Rob(int[] nums)
     {
-        int rob1 = 0,
-            rob2 = 0;
+        var rob1 = 0;
+
+        var rob2 = 0;
 
         // Loop through the array of houses
         foreach (int num in nums)

@@ -9,8 +9,7 @@ namespace blind75.DynammicProgramming;
 // Explanation: There are two ways to climb to the top.
 // 1. 1 step + 1 step
 // 2. 2 steps
-
-public static class ClimbingStairsClass
+public static class ClimbbingStairsClass
 {
     public static int ClimbStairs(int n)
     {
