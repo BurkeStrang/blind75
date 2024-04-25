@@ -17,6 +17,7 @@ public static class LongestIncreasingSubsequence
         Array.Fill(dp, 1);
 
         // go through the array from right to left
+        // the first j will not be evaluated since it is greater than the length of the array
         // and compare the current element with the next elements
         // if the current element is less than the next element
         // then the current element is part of the increasing subsequence
@@ -27,9 +28,10 @@ public static class LongestIncreasingSubsequence
         // keep track of the maximum length of the increasing subsequence
         for (int i = nums.Length - 1; i >= 0; i--)
         {
-            Console.WriteLine($"i: {i}");
+            Console.WriteLine($"i: {i}, nums[i]: {nums[i]}, dp[i]: {dp[i]}");
             for (int j = i + 1; j < nums.Length; j++)
             {
+                //Console.WriteLine($"i: {i}, j: {j}, nums[i]: {nums[i]}, nums[j]: {nums[j]}, dp[i]: {dp[i]}, dp[j]: {dp[j]}");
                 if (nums[i] < nums[j])
                 {
                     dp[i] = Math.Max(dp[i], 1 + dp[j]);
