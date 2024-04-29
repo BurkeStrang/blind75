@@ -1,4 +1,4 @@
-namespace blind75.TwoPointers;
+namespace Blind75.TwoPointers;
 
 // a palindrome is a word, phrase, number, or other sequence of characters that reads the same forward and backward
 // Given a string s, return true if the s can be rearranged in a palindrome, and false otherwise.

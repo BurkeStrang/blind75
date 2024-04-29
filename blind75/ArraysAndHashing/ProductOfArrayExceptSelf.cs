@@ -1,4 +1,4 @@
-namespace blind75.ArraysAndHashing;
+namespace Blind75.ArraysAndHashing;
 
 // Given an array nums of n integers where n > 1,
 // return an array output such that output[i] is

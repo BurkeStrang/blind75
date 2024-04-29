@@ -13,7 +13,7 @@ Explanation:
 2 -> 10
 
 */
-namespace blind75.BitManipulation;
+namespace Blind75.BitManipulation;
 
 public static class CountingBits
 {

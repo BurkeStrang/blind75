@@ -1,4 +1,4 @@
-namespace blind75.LinkedList;
+namespace Blind75.LinkedList;
 
 public static class ReverseLinkedListClass
 {

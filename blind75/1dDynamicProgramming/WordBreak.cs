@@ -1,4 +1,4 @@
-namespace blind75.DynammicProgramming;
+namespace Blind75.DynammicProgramming;
 
 /*
 Given a string s and a dictionary of strings wordDict,

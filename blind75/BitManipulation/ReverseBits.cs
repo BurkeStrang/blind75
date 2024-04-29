@@ -1,4 +1,4 @@
-namespace blind75.BitManipulation;
+namespace Blind75.BitManipulation;
 
 public static class ReverseBitsClass
 {

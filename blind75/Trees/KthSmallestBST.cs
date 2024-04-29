@@ -1,4 +1,4 @@
-namespace blind75.Trees;
+namespace Blind75.Trees;
 
 // Given the root of a binary search tree, and an integer k,
 // return the kth smallest value (1-indexed) of all

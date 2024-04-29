@@ -6,7 +6,7 @@ determine if a person could attend all meetings.
 
 */
 
-namespace blind75.Intervals;
+namespace Blind75.Intervals;
 
 public static class MeetingRooms
 {

@@ -1,4 +1,4 @@
-namespace blind75.MathAndGeo;
+namespace Blind75.MathAndGeo;
 
 public static class CountPrimesClass
 {

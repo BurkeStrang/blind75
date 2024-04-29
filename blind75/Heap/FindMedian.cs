@@ -1,4 +1,4 @@
-namespace blind75.Heap;
+namespace Blind75.Heap;
 
 public class MedianFinder
 {

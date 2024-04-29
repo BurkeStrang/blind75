@@ -1,4 +1,4 @@
-namespace blind75.SlidingWindow;
+namespace Blind75.SlidingWindow;
 
 public static class BestTimeToBuyAndSell
 {

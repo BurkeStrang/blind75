@@ -1,4 +1,4 @@
-namespace blind75.Tries;
+namespace Blind75.Tries;
 
 public class Trie
 {

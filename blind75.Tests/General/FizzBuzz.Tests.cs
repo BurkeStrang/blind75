@@ -1,4 +1,4 @@
-namespace blind75.General;
+namespace Blind75.General;
 
 public class FizzBuzzTests
 {

@@ -1,4 +1,4 @@
-namespace blind75.Trees;
+namespace Blind75.Trees;
 
 public class SerializeDeserializeBinaryTree
 {

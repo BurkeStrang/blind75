@@ -1,4 +1,4 @@
-namespace blind75.TwoPointers;
+namespace Blind75.TwoPointers;
 
 /*
 

@@ -1,4 +1,4 @@
-namespace blind75.DynammicProgramming;
+namespace Blind75.DynammicProgramming;
 
 /* Given an integer array nums, find a
 subarray

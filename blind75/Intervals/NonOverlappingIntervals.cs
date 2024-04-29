@@ -10,7 +10,7 @@ Output: 1
 Explanation: [1,3] can be removed and the rest of the intervals are non-overlapping.
 */
 
-namespace blind75.Intervals;
+namespace Blind75.Intervals;
 
 public class NonOverlappingIntervals
 {

@@ -1,4 +1,4 @@
-namespace blind75.Graphs;
+namespace Blind75.Graphs;
 
 // You have a graph of n nodes.
 // You are given an integer n and an array edges where edges[i] = [ai, bi]

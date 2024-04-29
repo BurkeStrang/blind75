@@ -1,2 +1,2 @@
-global using blind75.Shared;
+global using Blind75.Shared;
 global using Dumpify;

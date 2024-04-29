@@ -1,4 +1,4 @@
-namespace blind75.Graphs;
+namespace Blind75.Graphs;
 
 // There is a new alien language which uses the latin alphabet.
 // However, the order among letters are unknown to you.

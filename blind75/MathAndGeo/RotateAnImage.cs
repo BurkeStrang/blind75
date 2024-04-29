@@ -4,7 +4,7 @@ You have to rotate the image in-place, which means you have to modify the input 
 DO NOT allocate another 2D matrix and do the rotation.
 */
 
-namespace blind75.MathAndGeo;
+namespace Blind75.MathAndGeo;
 
 public static class RotateAnImage
 {

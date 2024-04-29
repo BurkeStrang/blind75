@@ -1,4 +1,4 @@
-namespace blind75.BinarySearch;
+namespace Blind75.BinarySearch;
 
 public static class SearchRotatedSortedArrayClass
 {

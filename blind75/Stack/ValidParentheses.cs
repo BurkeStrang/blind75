@@ -1,4 +1,4 @@
-namespace blind75.Stack;
+namespace Blind75.Stack;
 
 /*
 

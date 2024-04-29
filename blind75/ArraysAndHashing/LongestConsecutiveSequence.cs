@@ -1,4 +1,4 @@
-namespace blind75.ArraysAndHashing;
+namespace Blind75.ArraysAndHashing;
 
 /*
 Given an unsorted array of integers nums, return the length of the longest consecutive elements sequence.

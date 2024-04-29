@@ -1,4 +1,4 @@
-namespace blind75.DynammicProgramming;
+namespace Blind75.DynammicProgramming;
 // Input: n = 3
 // Output: 3
 // Explanation: There are three ways to climb to the top.

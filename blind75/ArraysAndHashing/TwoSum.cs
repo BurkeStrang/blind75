@@ -1,4 +1,4 @@
-namespace blind75.ArraysAndHashing;
+namespace Blind75.ArraysAndHashing;
 
 /*
 

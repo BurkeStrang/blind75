@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace blind75.General;
+namespace Blind75.General;
 
 public static class FizzBuzz
 {

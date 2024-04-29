@@ -1,4 +1,4 @@
-namespace blind75.DynammicProgramming;
+namespace Blind75.DynammicProgramming;
 
 // Given a string s, return the longest palindromic substring in s.
 

@@ -1,4 +1,4 @@
-namespace blind75.Shared;
+namespace Blind75.Shared;
 
 public class TreeNode
 {

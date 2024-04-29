@@ -1,4 +1,4 @@
-namespace blind75.Graphs;
+namespace Blind75.Graphs;
 
 // There is an m x n rectangular island that borders both the Pacific Ocean and Atlantic Ocean.
 // The Pacific Ocean touches the island's left and top edges,

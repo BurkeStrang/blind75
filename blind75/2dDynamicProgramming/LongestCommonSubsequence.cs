@@ -1,4 +1,4 @@
-namespace blind75.DynammicProgramming;
+namespace Blind75.DynammicProgramming;
 
 /*
 Given two strings text1 and text2, return the length of their longest common subsequence.

@@ -12,7 +12,7 @@ so all numbers are in the range [0,3].
 
 */
 
-namespace blind75.BitManipulation;
+namespace Blind75.BitManipulation;
 
 public static class MissingNumberClass
 {
