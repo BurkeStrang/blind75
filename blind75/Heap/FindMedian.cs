@@ -2,26 +2,24 @@ namespace Blind75.Heap;
 
 public class MedianFinder
 {
-    private PriorityQueue<int, int> leftHeap = new(Comparer<int>.Create((a, b) => b - a));
-    private PriorityQueue<int, int> rightHeap = new();
-
+    private readonly PriorityQueue<int, int> _leftHeap = new(Comparer<int>.Create((a, b) => b - a));
+    private readonly PriorityQueue<int, int> _rightHeap = new();
 
     // T: log(n)
     public void AddNum(int num)
     {
-        if (leftHeap.Count == 0 || num > leftHeap.Peek())
-            rightHeap.Enqueue(num, num);
+        if (_leftHeap.Count == 0 || num > _leftHeap.Peek())
+            _rightHeap.Enqueue(num, num);
         else
-            leftHeap.Enqueue(num, num);
+            _leftHeap.Enqueue(num, num);
 
         Balance();
     }
 
     private void Balance()
     {
-        var (big, small) = leftHeap.Count > rightHeap.Count
-            ? (leftHeap, rightHeap)
-            : (rightHeap, leftHeap);
+        var (big, small) =
+            _leftHeap.Count > _rightHeap.Count ? (_leftHeap, _rightHeap) : (_rightHeap, _leftHeap);
 
         while (big.Count - small.Count > 1)
         {
@@ -33,11 +31,10 @@ public class MedianFinder
     // T: O(1)
     public double FindMedian()
     {
-        if (leftHeap.Count == rightHeap.Count)
-            return (leftHeap.Peek() + rightHeap.Peek()) / 2.0;
-
-        return leftHeap.Count > rightHeap.Count
-            ? leftHeap.Peek()
-            : rightHeap.Peek();
+        return _leftHeap.Count == _rightHeap.Count
+            ? (_leftHeap.Peek() + _rightHeap.Peek()) / 2.0
+            : _leftHeap.Count > _rightHeap.Count
+                ? _leftHeap.Peek()
+                : _rightHeap.Peek();
     }
 }
