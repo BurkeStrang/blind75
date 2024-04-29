@@ -1,5 +1,6 @@
 namespace Blind75.MathAndGeo;
 
+//e.g. CountPrimesClass.CountPrimes(10) => 4
 public static class CountPrimesClass
 {
     public static int CountPrimes(int n)
@@ -21,6 +22,8 @@ public static class CountPrimesClass
             return true;
         if (n % 2 == 0)
             return false;
+        // if n is not a prime, it can be factored into two factors a and b: n = a * b
+        // this is the same as a = b = sqrt(n)
         for (int i = 3; i <= Math.Sqrt(n); i += 2)
         {
             if (n % i == 0)

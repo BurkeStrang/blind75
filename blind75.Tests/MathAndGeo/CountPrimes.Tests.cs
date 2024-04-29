@@ -1,5 +1,13 @@
+namespace blind75.Tests.MathAndGeo;
+
 public class CountPrimesTests
 {
+    [Fact]
+    public void IsPrimeCorrect()
+    {
+        Assert.True(CountPrimesClass.IsPrime(5));
+    }
+
     [Fact]
     public void CountPrimesCorrect()
     {
