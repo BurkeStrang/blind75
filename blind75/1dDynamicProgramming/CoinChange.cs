@@ -23,8 +23,13 @@ public static class CoinChangeClass
         {
             for (int j = 0; j < coins.Length; j++)
             {
+                // only if the coin is less than the amount
                 if (coins[j] <= i)
                 {
+                    // this is the most important line
+                    // dp[i - coins[j]] + 1
+                    // this is the number of coins we need to make the amount
+                    // +1 is the current coin we are using
                     dp[i] = Math.Min(dp[i], dp[i - coins[j]] + 1);
                 }
             }
