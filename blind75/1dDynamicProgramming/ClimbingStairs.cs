@@ -24,8 +24,14 @@ public static class ClimbingStairsClass
         int one = 1;
         int two = 1;
 
+        // predecrement operator
+        // will decrement n before using it
+        // so if n = 2, the loop will run only once
+        // and if n = 3, the loop will run twice
         while (--n > 0)
         {
+            // one is the number of ways to reach the current step
+            // two is the number of ways to reach the previous step
             int temp = one;
             one += two;
             two = temp;
