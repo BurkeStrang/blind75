@@ -20,8 +20,8 @@ public static class Codec
     public static IList<string> Decode(string s)
     {
         List<string> res = [];
-
         int i = 0;
+
         while (i < s.Length)
         {
             if (!int.TryParse(s[i].ToString(), out int length) || !(s[i + 1] == '#'))

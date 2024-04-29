@@ -20,12 +20,13 @@ public static class GroupAnagramsClass
             char[] charArr = str.ToCharArray();
             Array.Sort(charArr);
             string sortedStr = new(charArr);
+            // try get value, if not present add new list
             if (!anagrams.TryGetValue(sortedStr, out List<string>? value))
             {
                 value = [];
                 anagrams.Add(sortedStr, value);
             }
-
+            // add new string to list
             value.Add(str);
         }
         return anagrams.Values.ToList<IList<string>>();
