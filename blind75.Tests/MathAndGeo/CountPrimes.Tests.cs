@@ -19,4 +19,9 @@ public class CountPrimesTests
     {
         Assert.Equal(0, CountPrimesClass.CountPrimes(2));
     }
+    [Fact]
+    public void CountPrimesCorrect3()
+    {
+        Assert.Equal(78, CountPrimesClass.CountPrimes(400));
+    }
 }
