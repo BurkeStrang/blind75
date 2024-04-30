@@ -4,7 +4,7 @@ namespace Blind75.Backtracking;
 // return a list of all unique combinations of candidates where the chosen numbers sum to target.
 // You may return the combinations in any order.
 
-// The same number may be chosen from candidates an unlimited number of times. 
+// The same number may be chosen from candidates an unlimited number of times.
 // Two combinations are unique if the frequency of at least one of the chosen numbers is different.
 
 // The test cases are generated such that the number of unique combinations that sum up to target
@@ -29,7 +29,14 @@ public static class CombinationSumClass
         return ans;
     }
 
-    public static void Backtrack(IList<int> path, int start, int curr, IList<IList<int>> ans, int[] candidates, int target)
+    public static void Backtrack(
+        IList<int> path,
+        int start,
+        int curr,
+        IList<IList<int>> ans,
+        int[] candidates,
+        int target
+    )
     {
         if (curr == target)
         {
@@ -47,6 +54,5 @@ public static class CombinationSumClass
                 path.Remove(path.Last());
             }
         }
-
     }
 }

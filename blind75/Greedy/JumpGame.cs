@@ -1,3 +1,4 @@
+namespace Blind75.Greedy;
 /*
 You are given an integer array nums.
 You are initially positioned at the array's first index,

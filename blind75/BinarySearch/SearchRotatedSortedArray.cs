@@ -22,7 +22,7 @@ public static class SearchRotatedSortedArrayClass
         int high = nums.Length - 1;
         while (low <= high)
         {
-            var mid = (low + high) / 2;
+            int mid = (low + high) / 2;
 
             if (nums[mid] == target)
                 return mid;
