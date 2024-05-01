@@ -6,6 +6,7 @@ public static class InvertBinaryTreeClass
     {
         if (root is null)
             return root;
+        // use tuple to swap left and right nodes
         (root.left, root.right) = (root.right, root.left);
         InvertTree(root!.left);
         InvertTree(root.right);

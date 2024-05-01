@@ -19,8 +19,8 @@ public static class ConstructBinaryTreeClass
         if (preStart > preorder.Length - 1 || inStart > inEnd)
             return null;
 
-        var rootNode = new TreeNode(preorder[preStart]);
-        var mid = Array.IndexOf(inorder, preorder[preStart]);
+        TreeNode rootNode = new(preorder[preStart]);
+        int mid = Array.IndexOf(inorder, preorder[preStart]);
 
         rootNode.left = BuildTreeHelper(preStart + 1, inStart, mid - 1, preorder, inorder);
         rootNode.right = BuildTreeHelper(preStart + mid - inStart + 1, mid + 1, inEnd, preorder, inorder);

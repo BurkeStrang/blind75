@@ -19,7 +19,7 @@ public static class LevelOrderTraversalClass
     public static void Helper(TreeNode? root, int level)
     {
         if (Res.Count == level)
-            Res.Add(new List<int>());
+            Res.Add([]);
         Res[level].Add(root!.val);
         if (root.left != null)
             Helper(root.left, level + 1);

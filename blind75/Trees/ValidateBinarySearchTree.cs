@@ -8,6 +8,9 @@ namespace Blind75.Trees;
 // The right subtree of a node contains only nodes with keys greater than the node's key.
 // Both the left and right subtrees must also be binary search trees.
 
+// Binary Search Trees are found in many data structures for efficient searching and sorting.
+// Sql Server uses BSTs for indexing, for example.
+
 public static class ValidateBinarySearchTreeClass
 {
 

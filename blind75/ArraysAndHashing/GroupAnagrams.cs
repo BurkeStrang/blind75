@@ -26,7 +26,7 @@ public static class GroupAnagramsClass
                 value = [];
                 anagrams.Add(sortedStr, value);
             }
-            // add new string to list
+            // add new string to list which is referenced in the out value
             value.Add(str);
         }
         return anagrams.Values.ToList<IList<string>>();

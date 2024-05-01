@@ -24,11 +24,12 @@ public static class TwoSumClass
         Dictionary<int, int> map = [];
         for (int i = 0; i < nums.Length; i++)
         {
-            if (map.ContainsKey(target - nums[i]))
+            if (map.TryGetValue(target - nums[i], out int index))
             {
-                return [map[target - nums[i]], i];
+                return [index, i];
             }
-            map[nums[i]] = i;
+            // key is the number, value is the index
+            map.Add(nums[i], i);
         }
         return [];
     }
