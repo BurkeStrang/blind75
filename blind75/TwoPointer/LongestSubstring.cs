@@ -17,7 +17,7 @@ Output: 2
 
 */
 
-public static class LongestSubstringClass
+public record LongestSubstringClass
 {
     public static int LengthOfLongestSubstring(string s)
     {
