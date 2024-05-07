@@ -1,4 +1,4 @@
-namespace blind75.ArraysAndHashing;
+namespace Blind75.ArraysAndHashing;
 
 public static class IsSubArrayTest
 {
@@ -41,5 +41,35 @@ public static class IsSubArrayTest
         int[] mainArray = [1, 2, 3, 4];
         int[] subArray = [1, 3];
         Assert.False(IsSubArray.IsSubArrayTwoPointer(mainArray, subArray));
+    }
+
+    [Fact]
+    public static void IsSubArrayTrueCheckEachElementInArray()
+    {
+        int[] mainArray = [1, 2, 3, 4];
+        int[] subArray = [1, 2];
+        Assert.True(IsSubArray.IsSubArrayCheckEachElementInArray(mainArray, subArray));
+    }
+
+    [Fact]
+    public static void IsSubArrayFalseCheckEachElementInArray()
+    {
+        int[] mainArray = [1, 2, 3, 4];
+        int[] subArray = [1, 3];
+        Assert.False(IsSubArray.IsSubArrayCheckEachElementInArray(mainArray, subArray));
+    }
+    [Fact]
+    public static void IsSubArrayTrueLinq()
+    {
+        int[] mainArray = [1, 2, 3, 4];
+        int[] subArray = [1, 2];
+        Assert.True(IsSubArray.IsSubArrayLinq(mainArray, subArray));
+    }
+    [Fact]
+    public static void IsSubArrayFalseLinq()
+    {
+        int[] mainArray = [1, 2, 3, 4];
+        int[] subArray = [1, 3];
+        Assert.False(IsSubArray.IsSubArrayLinq(mainArray, subArray));
     }
 }

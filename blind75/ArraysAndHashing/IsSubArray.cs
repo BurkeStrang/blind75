@@ -16,20 +16,43 @@ public static class IsSubArray
         return false;
     }
 
+    public static bool IsSubArrayCheckEachElementInArray(int[] mainArray, int[] subArray)
+    {
+        int front = 0;
+        int subLength = subArray.Length;
+        while (front + subLength < mainArray.Length)
+        {
+            int i = 0;
+            while (i < subLength && mainArray[front + i] == subArray[i])
+                i++;
+            if (i == subLength)
+                return true;
+            front++;
+        }
+        return false;
+    }
+
+    public static bool IsSubArrayLinq(int[] mainArray, int[] subArray)
+    {
+        return Enumerable
+            .Range(0, mainArray.Length - subArray.Length + 1)
+            .Any(start => subArray.SequenceEqual(mainArray.Skip(start).Take(subArray.Length)));
+    }
+
+
     public static bool IsSubArrayTwoPointer(int[] mainArray, int[] subArray)
     {
         // Two pointers to traverse the arrays
-        int i = 0, j = 0;
+        int i = 0,
+            j = 0;
 
         // Traverse both arrays simultaneously
         while (i < mainArray.Length && j < subArray.Length)
         {
-
             // If element matches
             // increment both pointers
             if (mainArray[i] == subArray[j])
             {
-
                 i++;
                 j++;
 
@@ -48,6 +71,5 @@ public static class IsSubArray
         }
 
         return false;
-
     }
 }

@@ -34,7 +34,7 @@ public static class TopKFrequentElementsClass
         {
             pq.Enqueue(key, frequencyMap[key]);
         }
-        // 3. return top k elements from Priority Queue
+
         int[] result = new int[k];
         for (int i = 0; i < k; i++)
         {
