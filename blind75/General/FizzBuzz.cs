@@ -26,4 +26,19 @@ public static class FizzBuzz
         }
         return output.ToString();
     }
+
+    public static IEnumerable<string> FizzBuzzLinq(int n)
+    {
+        return Enumerable
+            .Range(1, n)
+            .Select(i =>
+                (i % 3, i % 5) switch
+                {
+                    (0, 0) => "FizzBuzz",
+                    (0, _) => "Fizz",
+                    (_, 0) => "Buzz",
+                    _ => i.ToString()
+                }
+            );
+    }
 }
