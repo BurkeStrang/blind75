@@ -1,3 +1,5 @@
+namespace Blind75.TwoPointers;
+
 public class MinimumWindowSubstringTests
 {
     [Fact]

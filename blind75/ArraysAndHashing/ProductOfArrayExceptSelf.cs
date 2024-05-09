@@ -13,6 +13,8 @@ public static class ProductOfArrayExceptSelfClass
         int numsLength = nums.Length;
         int prefixProduct = 1;
         int suffixProduct = 1;
+        // the result array is not counted in the space complexity
+        // as it is the output
         int[] result = new int[numsLength];
         for (int i = 0; i < numsLength; i++)
         {

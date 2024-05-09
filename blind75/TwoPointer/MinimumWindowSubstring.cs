@@ -56,7 +56,7 @@ public static class MinimumWindowSubstringClass
 
                 // pop from the left of our window
                 window[s[left]]--;
-                if (countT.ContainsKey(s[left]) && window[s[left]] < countT[s[left]])
+                if (countT.TryGetValue(s[left], out int _) && window[s[left]] < countT[s[left]])
                 {
                     have--;
                 }
@@ -70,7 +70,7 @@ public static class MinimumWindowSubstringClass
             : s.Substring(res[0], res[1] - res[0] + 1);
     }
 
-    private static void AddCharToDictionary(char c, IDictionary<char, int> dict)
+    private static void AddCharToDictionary(char c, Dictionary<char, int> dict)
     {
         if (dict.TryGetValue(c, out int value))
             dict[c] = ++value;
