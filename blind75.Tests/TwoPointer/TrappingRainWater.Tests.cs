@@ -1,16 +1,15 @@
 namespace Blind75.TwoPointer;
 
-public class TwoSumInputIITests
+public class TrappingRainWaterTest
 {
     [Fact]
     public void ReturnsCorrectResult1()
     {
         // Arrange
-        int[] numbers = [2, 7, 11, 15];
-        int target = 9;
-        int[] expected = [1, 2];
+        int[] height = { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 };
+        int expected = 6;
         // Act
-        int[] result = TwoSumInputII.TwoSum(numbers, target);
+        int result = TrappingRainWater.Trap(height);
         // Assert
         Assert.Equal(expected, result);
     }
@@ -18,11 +17,10 @@ public class TwoSumInputIITests
     public void ReturnsCorrectResult2()
     {
         // Arrange
-        int[] numbers = [2, 3, 4];
-        int target = 6;
-        int[] expected = [1, 3];
+        int[] height = { 4, 2, 0, 3, 2, 5 };
+        int expected = 9;
         // Act
-        int[] result = TwoSumInputII.TwoSum(numbers, target);
+        int result = TrappingRainWater.Trap(height);
         // Assert
         Assert.Equal(expected, result);
     }

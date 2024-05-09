@@ -1,4 +1,4 @@
-namespace Blind75.TwoPointers;
+namespace Blind75.SlidingWindow;
 
 /*
 

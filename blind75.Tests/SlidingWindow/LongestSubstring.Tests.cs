@@ -1,3 +1,5 @@
+namespace Blind75.SlidingWindow;
+
 public class LongestSubstringTests
 {
     [Fact]
