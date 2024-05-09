@@ -47,7 +47,7 @@ public static class MinimumWindowSubstringClass
             while (have == need)
             {
                 // update our result
-                var windowSize = right - left + 1;
+                int windowSize = right - left + 1;
                 if (windowSize < resultLength)
                 {
                     res = [left, right];
