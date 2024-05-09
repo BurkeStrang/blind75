@@ -30,7 +30,6 @@ public static class DailyTemperatures
     public static int[] GetInts(int[] temperatures)
     {
         int[] result = new int[temperatures.Length];
-        Array.Fill(result, 0);
         Stack<int> stack = new();
 
         for (int i = 0; i < temperatures.Length; i++)
