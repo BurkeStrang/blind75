@@ -30,7 +30,7 @@ public class AddTwoNumbersTests
         // Act
         ListNode? result = AddTwoNumbersClass.AddTwoNumbers(l1, l2);
         // Assert
-        Assert.True(expected.AreEqual(result));
+        Assert.Equivalent(expected, result);
     }
     [Fact]
     public void Example2()
@@ -42,6 +42,6 @@ public class AddTwoNumbersTests
         // Act
         ListNode? result = AddTwoNumbersClass.AddTwoNumbers(l1, l2);
         // Assert
-        Assert.True(expected.AreEqual(result));
+        Assert.Equivalent(expected, result);
     }
 }
