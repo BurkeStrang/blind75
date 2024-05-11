@@ -54,7 +54,6 @@ public static class CopyListWithRandomPointer
         Dictionary<ListNode, ListNode> map = [];
         ListNode copy = new(head.val);
 
-
         map[head] = copy;
         ListNode? cur1 = head.next;
         ListNode? cur2 = copy;
@@ -76,17 +75,12 @@ public static class CopyListWithRandomPointer
         // second pass to update the random pointers
         while (cur2 != null)
         {
-            ListNode? random = cur1!.random != null
-                ? map[cur1.random]
-                : null;
+            ListNode? random = cur1!.random != null ? map[cur1.random] : null;
 
             cur2.random = random;
             cur1 = cur1.next;
             cur2 = cur2.next;
-
-
         }
         return copy;
     }
 }
-
