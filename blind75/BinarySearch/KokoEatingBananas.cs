@@ -34,8 +34,8 @@ public static class KokoEatingBananas
 {
     public static int MinEatingSpeed(int[] piles, int h)
     {
-        int left = 1,
-            right = piles.Max();
+        int left = 1;
+        int right = piles.Max();
         int result = right;
 
         while (left <= right)

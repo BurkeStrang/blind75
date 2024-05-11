@@ -45,20 +45,16 @@ public class TimeMap
     public void Set(string key, string value, int timestamp)
     {
         List<(int, string)> value1 = [];
-        if (!_dict.ContainsKey(key))
-        {
-            _dict.Add(key, value1);
-        }
+        _dict.TryAdd(key, value1);
         _dict[key].Add((timestamp, value));
     }
 
     public string Get(string key, int timestamp)
     {
-        if (!_dict.ContainsKey(key))
+        if (!_dict.TryGetValue(key, out List<(int timestamp, string value1)>? value))
         {
             return "";
         }
-        List<(int timestamp, string value1)> value = _dict[key];
 
         int left = 0;
         int right = value.Count;

@@ -29,7 +29,6 @@ nums2.length == n
 
 public static class MedianOfTwoSortedArrays
 {
-
     public static double FindMedianSortedArrays(int[] nums1, int[] nums2)
     {
         if (nums1.Length <= 0 && nums2.Length == 1)
@@ -63,14 +62,10 @@ public static class MedianOfTwoSortedArrays
 
             if (left1 <= right2 && left2 <= right1)
             {
-                if (total % 2 == 0)
-                {
-                    result = (Math.Max(left1, left2) + Math.Min(right1, right2)) / 2.0;
-                }
-                else
-                {
-                    result = Math.Max(left1, left2);
-                }
+                result =
+                    total % 2 == 0
+                        ? (Math.Max(left1, left2) + Math.Min(right1, right2)) / 2.0
+                        : Math.Max(left1, left2);
                 break;
             }
             else if (left1 > right2)
