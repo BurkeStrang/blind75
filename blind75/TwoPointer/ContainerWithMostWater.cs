@@ -23,9 +23,9 @@ public static class ContainerWithMostWaterClass
 {
     public static int MaxArea(int[] height)
     {
-        int left = 0,
-            right = height.Length - 1,
-            maxArea = 0;
+        int left = 0;
+        int right = height.Length - 1;
+        int maxArea = 0;
 
         while (left < right)
         {

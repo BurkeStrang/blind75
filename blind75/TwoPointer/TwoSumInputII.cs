@@ -38,14 +38,13 @@ public static class TwoSumInputII
         while (left < right)
         {
             int sum = numbers[left] + numbers[right];
-            if (sum > target)
-                right--;
-            else if (sum < target)
-                left++;
-            else
+            if (sum == target)
                 return [left + 1, right + 1];
-        }
-
+            else if (sum > target)
+                right--;
+            else
+                left++;
+        };
         return [];
     }
 }
