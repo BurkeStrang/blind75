@@ -36,8 +36,8 @@ public static class TwoSumInputII
     {
         // Using 2 pointers. Since sorted, if l+r > target, decrease r.
         // Else if l+r < target, increase l. Else, result is found.
-        int left = 0,
-            right = numbers.Length - 1;
+        int left = 0;
+        int right = numbers.Length - 1;
 
         while (left < right)
         {

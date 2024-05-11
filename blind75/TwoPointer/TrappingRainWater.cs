@@ -19,15 +19,16 @@ Output: 9
 
 public static class TrappingRainWater
 {
-
     public static int Trap(int[] height)
     {
+        if (height is null || height.Length == 0)
+            return 0;
 
-        if (height is null || height.Length == 0) return 0;
-
-        int left = 0, right = height.Length - 1;
-        int leftMax = height[left], rightMax = height[right];
-        var result = 0;
+        int left = 0;
+        int right = height.Length - 1;
+        int leftMax = height[left];
+        int rightMax = height[right];
+        int result = 0;
 
         while (left < right)
         {
