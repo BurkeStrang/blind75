@@ -31,6 +31,7 @@ public class LetterCombinationsOnPhoneTests
         // Assert
         Assert.Empty(result);
     }
+
     [Fact]
     public void Example3()
     {
