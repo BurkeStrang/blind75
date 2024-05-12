@@ -10,6 +10,7 @@ public class SubsetsIITests
         // Input: nums = [1,2,2]
         // Output: [[],[1],[1,2],[1,2,2],[2],[2,2]]
         int[] nums = [1, 2, 2];
+        ListComparer<int> listComparer = new();
         IList<IList<int>> expected = new List<IList<int>>
         {
             new List<int>(),
@@ -20,7 +21,7 @@ public class SubsetsIITests
             new List<int> { 2, 2 }
         };
         IList<IList<int>> actual = SubsetsII.Subsets(nums);
-        Assert.True(expected.SequenceEqual(actual, new ListComparer()));
+        Assert.True(expected.SequenceEqual(actual, listComparer));
     }
 
     [Fact]
@@ -31,12 +32,13 @@ public class SubsetsIITests
         // Input: nums = [0]
         // Output: [[],[0]]
         int[] nums = [0];
+        ListComparer<int> listComparer = new();
         IList<IList<int>> expected = new List<IList<int>>
         {
             new List<int>(),
             new List<int> { 0 }
         };
         IList<IList<int>> actual = SubsetsII.Subsets(nums);
-        Assert.True(expected.SequenceEqual(actual, new ListComparer()));
+        Assert.True(expected.SequenceEqual(actual, listComparer));
     }
 }

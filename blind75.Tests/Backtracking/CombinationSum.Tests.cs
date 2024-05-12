@@ -1,3 +1,5 @@
+namespace Blind75.Backtracking;
+
 public class CombinationSum
 {
     [Fact]
@@ -11,9 +13,7 @@ public class CombinationSum
         // These are the only two combinations.
         int[] candidates = [2, 3, 6, 7];
         int target = 7;
-        List<List<int>> res = new();
-        res.Add(new List<int>() { 2, 2, 3 });
-        res.Add(new List<int>() { 7 });
+        List<List<int>> res = [[2, 2, 3], [7]];
         Assert.Equivalent(res, CombinationSumClass.CombinationSum(candidates, target));
     }
 }

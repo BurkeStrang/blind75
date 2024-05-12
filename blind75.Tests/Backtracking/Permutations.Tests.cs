@@ -9,7 +9,7 @@ public class PermutationsTests
     {
         // Arrange
         int[] nums = [1, 2, 3];
-        ListComparer listComparer = new();
+        ListComparer<int> listComparer = new();
         // Act
         IList<IList<int>> result = Permutations.Permute(nums);
         // Assert
@@ -25,7 +25,7 @@ public class PermutationsTests
     {
         // Arrange
         int[] nums = [0, 1];
-        ListComparer listComparer = new();
+        ListComparer<int> listComparer = new();
         // Act
         IList<IList<int>> result = Permutations.Permute(nums);
         // Assert
@@ -37,7 +37,7 @@ public class PermutationsTests
     {
         // Arrange
         int[] nums = [1];
-        ListComparer listComparer = new();
+        ListComparer<int> listComparer = new();
         // Act
         IList<IList<int>> result = Permutations.Permute(nums);
         // Assert
