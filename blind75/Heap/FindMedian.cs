@@ -18,12 +18,12 @@ public class MedianFinder
 
     private void Balance()
     {
-        var (big, small) =
+        (PriorityQueue<int, int> big, PriorityQueue<int, int> small) =
             _leftHeap.Count > _rightHeap.Count ? (_leftHeap, _rightHeap) : (_rightHeap, _leftHeap);
 
         while (big.Count - small.Count > 1)
         {
-            var value = big.Dequeue();
+            int value = big.Dequeue();
             small.Enqueue(value, value);
         }
     }
