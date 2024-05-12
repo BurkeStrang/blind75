@@ -18,3 +18,5 @@ global using Blind75.TwoPointers;
 global using Dumpify;
 global using Xunit;
 global using Blind75.General;
+global using BenchmarkDotNet.Attributes;
+global using BenchmarkDotNet.Running;
