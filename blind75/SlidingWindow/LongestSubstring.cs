@@ -21,10 +21,10 @@ public record LongestSubstringClass
 {
     public static int LengthOfLongestSubstring(string s)
     {
-        var charSet = new HashSet<char>();
-        int left = 0,
-            right = 0,
-            maxLength = 0;
+        HashSet<char> charSet = [];
+        int left = 0;
+        int right = 0;
+        int maxLength = 0;
         while (right < s.Length)
         {
             if (!charSet.Contains(s[right]))

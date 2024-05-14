@@ -1,13 +1,15 @@
+namespace Blind75.Graphs;
+
 public class CloneGraph
 {
     [Fact]
     public void TestCloneGraph()
     {
         // Arrange
-        var node1 = new Node(1);
-        var node2 = new Node(2);
-        var node3 = new Node(3);
-        var node4 = new Node(4);
+        Node node1 = new(1);
+        Node node2 = new(2);
+        Node node3 = new(3);
+        Node node4 = new(4);
 
         node1.neighbors.Add(node2);
         node1.neighbors.Add(node4);
@@ -19,7 +21,7 @@ public class CloneGraph
         node4.neighbors.Add(node3);
 
         // Act
-        var clonedNode1 = CloneGraphClass.CloneGraph(node1);
+        Node? clonedNode1 = CloneGraphClass.CloneGraph(node1);
 
         // Assert
         Assert.NotSame(node1, clonedNode1);

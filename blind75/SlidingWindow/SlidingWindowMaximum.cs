@@ -32,11 +32,12 @@ public static class SlidingWindowMaximum
     {
         List<int> output = [];
         LinkedList<int> queue = new();
-        int left = 0,
-            right = 0;
+        int left = 0;
+        int right = 0;
 
         while (right < nums.Length)
         {
+            queue.Dump();
             // pop smaller values from queue
             while (queue.Count > 0 && nums[queue!.Last!.Value] < nums[right])
                 queue.RemoveLast();
