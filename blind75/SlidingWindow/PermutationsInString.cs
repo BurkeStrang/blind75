@@ -3,7 +3,6 @@ namespace Blind75.SlidingWindow;
 /*
 
 Given two strings s1 and s2, return true if s2 contains a permutation of s1, or false otherwise.
-
 In other words, return true if one of s1's permutations is the substring of s2.
 
 Example 1:
@@ -28,7 +27,8 @@ public static class PermutationsInString
     public static bool CheckInclusion(string s1, string s2)
     {
         {
-            if (s1.Length > s2.Length) return false;
+            if (s1.Length > s2.Length)
+                return false;
 
             int[] s1Count = Enumerable.Repeat(0, 26).ToArray();
             int[] s2Count = Enumerable.Repeat(0, 26).ToArray();
@@ -42,13 +42,15 @@ public static class PermutationsInString
             int matches = 0;
             for (int i = 0; i < 26; i++)
             {
-                if (s1Count[i] == s2Count[i]) matches++;
+                if (s1Count[i] == s2Count[i])
+                    matches++;
             }
 
             int left = 0;
             for (int right = s1.Length; right < s2.Length; right++)
             {
-                if (matches == 26) return true;
+                if (matches == 26)
+                    return true;
 
                 int index = s2[right] - 'a';
                 s2Count[index]++;

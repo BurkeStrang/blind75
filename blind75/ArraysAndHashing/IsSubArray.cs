@@ -39,6 +39,18 @@ public static class IsSubArray
             .Any(start => subArray.SequenceEqual(mainArray.Skip(start).Take(subArray.Length)));
     }
 
+    public static bool IsSubArrayStringJoin(int[] mainArray, int[] subArray)
+    {
+        return string.Join(",", mainArray).Contains(string.Join(",", subArray));
+    }
+
+    public static bool IsSubArrayHashSet(int[] mainArray, int[] subArray)
+    {
+        // will not work for duplicates
+        HashSet<int> mainSet = new(mainArray);
+        HashSet<int> subSet = new(subArray);
+        return subSet.IsSubsetOf(mainSet);
+    }
 
     public static bool IsSubArrayTwoPointer(int[] mainArray, int[] subArray)
     {

@@ -25,6 +25,7 @@ public record LongestSubstringClass
         int left = 0;
         int right = 0;
         int maxLength = 0;
+
         while (right < s.Length)
         {
             if (!charSet.Contains(s[right]))

@@ -37,7 +37,6 @@ public static class SlidingWindowMaximum
 
         while (right < nums.Length)
         {
-            queue.Dump();
             // pop smaller values from queue
             while (queue.Count > 0 && nums[queue!.Last!.Value] < nums[right])
                 queue.RemoveLast();
