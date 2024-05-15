@@ -11,6 +11,9 @@ namespace Blind75.Graphs;
 
 public static class NumberOfConnectedComponents
 {
+    // these static fields are set each time the CountComponents method is called
+    // so they are not thread safe
+    // but they should be fine in a single threaded environment
     private static int s_noOfConnectedComponents = 0;
 
     // this is an array that handles finding

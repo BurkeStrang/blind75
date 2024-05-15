@@ -46,7 +46,7 @@ public static class GraphValidTree
         HashSet<int> nextLevel = adj[current];
         foreach (int level in nextLevel)
         {
-            adj.Dump();
+            // remove visited node
             adj[level].Remove(current);
             if (!DfsValidTree(adj, level, visited))
             {
