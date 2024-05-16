@@ -41,6 +41,8 @@ public static class IsSubArray
 
     public static bool IsSubArrayStringJoin(int[] mainArray, int[] subArray)
     {
+        // this could probably work for many other types of problems
+        // keep this in mind
         return string.Join(",", mainArray).Contains(string.Join(",", subArray));
     }
 
