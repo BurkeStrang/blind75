@@ -6,7 +6,7 @@ public static class LongestPalindromeSubstring
     // still returns early if a palindrome is found
     // so it is only bad when there is no palindrome or the palindrome is at the end
     // this runs in O(n^3) time
-    // which is not ideal but it is a sta
+    // which is not ideal but it is a little more straightforward
     public static string LongestPalindrome(string s)
     {
         for (int length = s.Length; length > 0; length--)
