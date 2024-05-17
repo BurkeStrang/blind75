@@ -36,9 +36,15 @@ public static class LongestPalindromeSubstring
         return true;
     }
 
-    // basically for every character int the string we expand around it
+    // basically for every character in the string we expand around it
     // as far as we can go and it's still a palindrome
     // we do this for both odd and even length palindromes
+    // because the logic is different for each
+    // An odd-length palindrome has a single central character with
+    // a symmetric structure around it. For example: "racecar"
+    // An even-length palindrome has two central characters with
+    // a symmetric structure around them. For example: "noon"
+    // hence the i+1 in the even length palindrome
     public static string LongestPalindromeExpandAround(string s)
     {
         if (s == null || s.Length < 1) return "";
