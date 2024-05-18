@@ -38,21 +38,24 @@ All the pairs [ai, bi] are distinct.
 
 */
 
-public class CourseScheduleII
+public static class CourseScheduleII
 {
-    List<int>? _output = null;
+    private static List<int>? s_output = null;
 
-    public int[] FindOrder(int numCourses, int[][] prerequisites)
+    public static int[] FindOrder(int numCourses, int[][] prerequisites)
     {
         Dictionary<int, List<int>> preMap = [];
         HashSet<int> visited = [];
         HashSet<int> cycle = [];
-        _output = [];
+        s_output = [];
+
+        // Initialize the dictionary with an empty list for each course
         for (int i = 0; i < numCourses; i++)
         {
-            preMap.Add(i, []);
+            preMap[i] = [];
         }
 
+        // Fill the dictionary with the prerequisites
         foreach (int[] course in prerequisites)
         {
             int courseToTake = course[0];
@@ -60,43 +63,41 @@ public class CourseScheduleII
             preMap[courseToTake].Add(courseDependOn);
         }
 
-        foreach (int c in Enumerable.Range(0, numCourses))
+        // Perform DFS for each course
+        for (int c = 0; c < numCourses; c++)
         {
-            if (DfsGraphTopologicalSort(preMap, visited, cycle, c) == false)
+            if (!DfsGraphTopologicalSort(preMap, visited, cycle, c))
             {
                 return [];
             }
         }
-        return [.. _output];
+
+        return [.. s_output];
     }
 
-    public bool DfsGraphTopologicalSort(
-        IDictionary<int, List<int>> preMap,
+    private static bool DfsGraphTopologicalSort(
+        Dictionary<int, List<int>> preMap,
         HashSet<int> visited,
         HashSet<int> cycle,
-        int crs
-    )
+        int course)
     {
-        if (cycle.Contains(crs))
+        if (cycle.Contains(course))
             return false;
-        if (visited.Contains(crs))
+        if (visited.Contains(course))
             return true;
 
-        if (preMap[crs] == new List<int>())
+        cycle.Add(course);
+        foreach (int prereq in preMap[course])
         {
-            return true;
-        }
-        cycle.Add(crs);
-        foreach (int pre in preMap[crs])
-        {
-            if (!DfsGraphTopologicalSort(preMap, visited, cycle, pre))
+            if (!DfsGraphTopologicalSort(preMap, visited, cycle, prereq))
             {
                 return false;
             }
         }
-        cycle.Remove(crs);
-        visited.Add(crs);
-        _output?.Add(crs);
+
+        cycle.Remove(course);
+        visited.Add(course);
+        s_output?.Add(course);
         return true;
     }
 }

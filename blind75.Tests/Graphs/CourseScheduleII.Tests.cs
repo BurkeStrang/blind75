@@ -13,7 +13,7 @@ public class CourseScheduelIITests
         ];
         int[] expected = [0, 1];
         // Act
-        int[] actual = new CourseScheduleII().FindOrder(numCourses, prerequisites);
+        int[] actual = CourseScheduleII.FindOrder(numCourses, prerequisites);
         // Assert
         Assert.Equal(expected, actual);
     }
@@ -32,7 +32,7 @@ public class CourseScheduelIITests
         ];
         int[] expected = [0, 1, 2, 3];
         // Act
-        int[] actual = new CourseScheduleII().FindOrder(numCourses, prerequisites);
+        int[] actual = CourseScheduleII.FindOrder(numCourses, prerequisites);
         // Assert
         Assert.Equal(expected, actual);
     }
@@ -45,7 +45,7 @@ public class CourseScheduelIITests
         int[][] prerequisites = [];
         int[] expected = [0];
         // Act
-        int[] actual = new CourseScheduleII().FindOrder(numCourses, prerequisites);
+        int[] actual = CourseScheduleII.FindOrder(numCourses, prerequisites);
         // Assert
         Assert.Equal(expected, actual);
     }
