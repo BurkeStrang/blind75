@@ -11,12 +11,12 @@ public class WordDictionary
 
     public void AddWord(string word)
     {
-        var current = Root;
-        for (var i = 0; i < word.Length; i++)
+        TrieNode current = Root;
+        for (int i = 0; i < word.Length; i++)
         {
             if (!current.childrenMap.TryGetValue(word[i], out TrieNode? value))
             {
-                var newNode = new TrieNode();
+                TrieNode newNode = new();
                 value = newNode;
                 current.childrenMap.Add(word[i], value);
             }
@@ -32,14 +32,14 @@ public class WordDictionary
 
     private static bool Dfs(int index, TrieNode root, string word)
     {
-        var currentNode = root;
+        TrieNode currentNode = root;
 
-        for (var i = index; i < word.Length; i++)
+        for (int i = index; i < word.Length; i++)
         {
-            var letter = word[i];
+            char letter = word[i];
             if (letter == '.')
             {
-                foreach (var (key, value) in currentNode.childrenMap)
+                foreach ((char key, TrieNode value) in currentNode.childrenMap)
                 {
                     if (Dfs(i + 1, value, word))
                     {

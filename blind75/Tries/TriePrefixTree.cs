@@ -3,16 +3,16 @@ namespace Blind75.Tries;
 public class Trie
 {
 
-    private TrieNode root;
+    private readonly TrieNode _root;
     public Trie()
     {
-        root = new TrieNode();
+        _root = new TrieNode();
     }
 
     public void Insert(string word)
     {
-        var cur = root;
-        foreach (var c in word)
+        TrieNode cur = _root;
+        foreach (char c in word)
         {
             if (!cur.childrenMap.TryGetValue(c, out TrieNode? value))
             {
@@ -26,21 +26,21 @@ public class Trie
 
     public bool Search(string word)
     {
-        var node = Traverse(word);
+        TrieNode? node = Traverse(word);
         return node != null && node.isWord;
     }
 
     public bool StartsWith(string prefix)
     {
-        var node = Traverse(prefix);
+        TrieNode? node = Traverse(prefix);
         return node != null;
     }
 
     private TrieNode? Traverse(string path)
     {
-        var cur = root;
+        TrieNode cur = _root;
 
-        foreach (var c in path)
+        foreach (char c in path)
         {
             if (cur.childrenMap.TryGetValue(c, out TrieNode? value))
             {

@@ -10,12 +10,12 @@ public class WordSearchIIClass
 
     public void AddWord(string word)
     {
-        var current = Root;
-        for (var i = 0; i < word.Length; i++)
+        TrieNode current = Root;
+        for (int i = 0; i < word.Length; i++)
         {
             if (!current.childrenMap.TryGetValue(word[i], out TrieNode? value))
             {
-                var child = new TrieNode();
+                TrieNode child = new();
                 value = child;
                 current.childrenMap.Add(word[i], value);
             }
@@ -27,14 +27,14 @@ public class WordSearchIIClass
 
     public IList<string> FindWords(char[][] board, string[] words)
     {
-        foreach (var word in words)
+        foreach (string word in words)
             AddWord(word);
 
-        var rows = board.Length;
-        var cols = board[0].Length;
+        int rows = board.Length;
+        int cols = board[0].Length;
 
-        var result = new HashSet<string>();
-        var visited = new HashSet<(int, int)>();
+        HashSet<string> result = [];
+        HashSet<(int, int)> visited = [];
 
         void Dfs(int row, int col, TrieNode node, string word)
         {
@@ -59,9 +59,9 @@ public class WordSearchIIClass
             visited.Remove((row, col));
         }
 
-        for (var row = 0; row < rows; row++)
+        for (int row = 0; row < rows; row++)
         {
-            for (var col = 0; col < cols; col++)
+            for (int col = 0; col < cols; col++)
             {
 
                 Dfs(row, col, Root, "");
