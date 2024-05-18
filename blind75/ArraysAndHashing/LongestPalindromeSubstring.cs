@@ -74,32 +74,25 @@ public static class LongestPalindromeSubstring
     }
     public static string LongestPalindromeParallel(string s)
     {
-        string longestPalindrome = "";
-        SemaphoreSlim semaphore = new(1, 1);
-
-        Parallel.For(0, s.Length, (start) =>
+        for (int length = s.Length; length > 0; length--)
         {
-            for (int length = s.Length - start; length > 0; length--)
+            string result = "";
+            Parallel.For(0, s.Length - length + 1, (start, state) =>
             {
                 string substring = s.Substring(start, length);
                 if (IsPalindrome(substring))
                 {
-                    semaphore.Wait(); // Acquire the semaphore
-                    try
-                    {
-                        if (substring.Length > longestPalindrome.Length)
-                        {
-                            longestPalindrome = substring;
-                        }
-                    }
-                    finally
-                    {
-                        semaphore.Release(); // Release the semaphore
-                    }
+                    result = substring;
+                    state.Stop(); // Stop further parallel processing
                 }
-            }
-        });
+            });
 
-        return longestPalindrome;
+            if (result != "")
+                return result; // If we found a palindrome, return it
+        }
+
+        return "";
     }
+
+
 }
