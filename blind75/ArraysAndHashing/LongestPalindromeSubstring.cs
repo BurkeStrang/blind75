@@ -14,14 +14,14 @@ public static class LongestPalindromeSubstring
             for (int start = 0; start + length <= s.Length; start++)
             {
                 string substring = s.Substring(start, length);
-                if (IsPalindrom(substring))
+                if (IsPalindrome(substring))
                     return substring;
             }
         }
         return "";
     }
 
-    public static bool IsPalindrom(string s)
+    public static bool IsPalindrome(string s)
     {
         int front = 0;
         int back = s.Length - 1;
@@ -71,5 +71,35 @@ public static class LongestPalindromeSubstring
             right++;
         }
         return right - left - 1;
+    }
+    public static string LongestPalindromeParallel(string s)
+    {
+        string longestPalindrome = "";
+        SemaphoreSlim semaphore = new(1, 1);
+
+        Parallel.For(0, s.Length, (start) =>
+        {
+            for (int length = s.Length - start; length > 0; length--)
+            {
+                string substring = s.Substring(start, length);
+                if (IsPalindrome(substring))
+                {
+                    semaphore.Wait(); // Acquire the semaphore
+                    try
+                    {
+                        if (substring.Length > longestPalindrome.Length)
+                        {
+                            longestPalindrome = substring;
+                        }
+                    }
+                    finally
+                    {
+                        semaphore.Release(); // Release the semaphore
+                    }
+                }
+            }
+        });
+
+        return longestPalindrome;
     }
 }
