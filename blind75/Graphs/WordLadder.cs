@@ -92,7 +92,7 @@ public static class WordLadder
                     }
                 }
             }
-            result += 1;
+            result++;
         }
 
         return 0;
