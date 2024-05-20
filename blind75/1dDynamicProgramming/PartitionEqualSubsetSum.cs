@@ -24,40 +24,64 @@ Accepted: 0  |  Submitted: 1  |  Ac
 
 public class PartitionEqualSubsetSum
 {
-
+    // Main function to check if the array can be partitioned into two subsets with equal sum
     public static bool CanPartition(int[] nums)
     {
+        // Calculate the sum of all elements
         int sum = nums.Sum();
-        return sum % 2 == 0 && SubSetSum(nums, sum / 2);
+
+        // If the sum is odd, it can't be partitioned into two equal subsets
+        if (sum % 2 != 0)
+        {
+            return false;
+        }
+
+        // Check if there is a subset with sum equal to half of the total sum
+        return SubsetSum(nums, sum / 2);
     }
 
-    private static bool SubSetSum(int[] nums, int target)
+    // Helper function to check if there is a subset with the given target sum
+    private static bool SubsetSum(int[] nums, int target)
     {
+        // Create a 2D array to store results of subproblems
         bool[,] dp = new bool[nums.Length + 1, target + 1];
 
-        for (int i = 0; i < nums.Length + 1; i++)
+        // Initialize the dp array
+        for (int i = 0; i <= nums.Length; i++)
         {
-            for (int j = 0; j < target + 1; j++)
+            for (int j = 0; j <= target; j++)
             {
                 if (i == 0)
                 {
-                    dp[i, j] = false;
+                    dp[i, j] = false; // No elements to form any subset
                 }
                 if (j == 0)
                 {
-                    dp[i, j] = true;
+                    dp[i, j] = true; // Empty subset has sum 0
                 }
             }
         }
 
-        for (int i = 1; i < nums.Length + 1; i++)
+        // Fill the dp array
+        for (int i = 1; i <= nums.Length; i++)
         {
-            for (int j = 1; j < target + 1; j++)
+            for (int j = 1; j <= target; j++)
             {
-                dp[i, j] = nums[i - 1] <= j ? dp[i - 1, j] || dp[i - 1, j - nums[i - 1]] : dp[i - 1, j];
+                // If the current element is less than or equal to the target sum
+                if (nums[i - 1] <= j)
+                {
+                    // Include the current element or exclude it
+                    dp[i, j] = dp[i - 1, j] || dp[i - 1, j - nums[i - 1]];
+                }
+                else
+                {
+                    // Exclude the current element
+                    dp[i, j] = dp[i - 1, j];
+                }
             }
         }
 
+        // Return the result
         return dp[nums.Length, target];
     }
 }
