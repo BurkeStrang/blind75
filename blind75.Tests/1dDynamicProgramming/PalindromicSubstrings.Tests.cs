@@ -1,3 +1,5 @@
+namespace Blind75.DynamicProgramming;
+
 public class PalindromicSubstringsTests
 {
     [Fact]
@@ -10,9 +12,9 @@ public class PalindromicSubstringsTests
         // Input: s = "abc"
         // Output: 3
         // Explanation: Three palindromic strings: "a", "b", "c".
-        var s = "abc";
-        var expected = 3;
-        var result = PalindromicSubstringsClass.CountSubstrings(s);
+        string s = "abc";
+        int expected = 3;
+        int result = PalindromicSubstringsClass.CountSubstrings(s);
         Assert.Equal(expected, result);
     }
 }

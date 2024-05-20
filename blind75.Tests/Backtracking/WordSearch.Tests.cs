@@ -3,6 +3,7 @@
 
 public class WordSearch
 {
+    [Fact]
     public void WordSearchCorrect()
     {
         char[][] board = new char[3][];

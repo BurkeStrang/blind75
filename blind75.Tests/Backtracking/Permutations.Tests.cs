@@ -13,12 +13,12 @@ public class PermutationsTests
         // Act
         IList<IList<int>> result = Permutations.Permute(nums);
         // Assert
-        Assert.True(result.Contains([1, 2, 3], listComparer));
-        Assert.True(result.Contains([1, 3, 2], listComparer));
-        Assert.True(result.Contains([2, 1, 3], listComparer));
-        Assert.True(result.Contains([2, 3, 1], listComparer));
-        Assert.True(result.Contains([3, 1, 2], listComparer));
-        Assert.True(result.Contains([3, 2, 1], listComparer));
+        Assert.Contains([1, 2, 3], result, listComparer);
+        Assert.Contains([1, 3, 2], result, listComparer);
+        Assert.Contains([2, 1, 3], result, listComparer);
+        Assert.Contains([2, 3, 1], result, listComparer);
+        Assert.Contains([3, 1, 2], result, listComparer);
+        Assert.Contains([3, 2, 1], result, listComparer);
     }
     [Fact]
     public void Example2()
@@ -29,8 +29,8 @@ public class PermutationsTests
         // Act
         IList<IList<int>> result = Permutations.Permute(nums);
         // Assert
-        Assert.True(result.Contains([0, 1], listComparer));
-        Assert.True(result.Contains([1, 0], listComparer));
+        Assert.Contains([0, 1], result, listComparer);
+        Assert.Contains([1, 0], result, listComparer);
     }
     [Fact]
     public void Example3()
@@ -41,7 +41,7 @@ public class PermutationsTests
         // Act
         IList<IList<int>> result = Permutations.Permute(nums);
         // Assert
-        Assert.True(result.Contains([1], listComparer));
+        Assert.Contains([1], result, listComparer);
     }
     public class PermutationsBenchmarks
     {

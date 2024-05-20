@@ -32,8 +32,8 @@ public class NQueensTests
         // When
         IList<IList<string>> result = NQueens.SolveNQueens(n);
         // Then
-        Assert.Equal(1, result.Count);
-        Assert.Equal(1, result[0].Count);
+        Assert.Single(result);
+        Assert.Single(result[0]);
         Assert.Equal("Q", result[0][0]);
     }
 

@@ -12,8 +12,8 @@ public class PalindromPartitionTests
         // Act
         IList<IList<string>> result = PalindromePartition.Partition(s);
         // Assert
-        Assert.True(result.Contains(new List<string> { "a", "a", "b" }, listComparer));
-        Assert.True(result.Contains(new List<string> { "aa", "b" }, listComparer));
+        Assert.Contains(new List<string> { "a", "a", "b" }, result, listComparer);
+        Assert.Contains(new List<string> { "aa", "b" }, result, listComparer);
     }
     [Fact]
     public void Example2()
@@ -24,7 +24,7 @@ public class PalindromPartitionTests
         // Act
         IList<IList<string>> result = PalindromePartition.Partition(s);
         // Assert
-        Assert.True(result.Contains(new List<string> { "a" }, listComparer));
+        Assert.Contains(new List<string> { "a" }, result, listComparer);
     }
     [Fact]
     public void Example3()
@@ -35,10 +35,10 @@ public class PalindromPartitionTests
         // Act
         IList<IList<string>> result = PalindromePartition.Partition(s);
         // Assert
-        Assert.True(result.Contains(new List<string> { "a", "a", "b", "b" }, listComparer));
-        Assert.True(result.Contains(new List<string> { "aa", "b", "b" }, listComparer));
-        Assert.True(result.Contains(new List<string> { "a", "a", "bb" }, listComparer));
-        Assert.True(result.Contains(new List<string> { "aa", "bb" }, listComparer));
+        Assert.Contains(new List<string> { "a", "a", "b", "b" }, result, listComparer);
+        Assert.Contains(new List<string> { "aa", "b", "b" }, result, listComparer);
+        Assert.Contains(new List<string> { "a", "a", "bb" }, result, listComparer);
+        Assert.Contains(new List<string> { "aa", "bb" }, result, listComparer);
     }
     [Fact]
     public void Example4()
@@ -49,6 +49,6 @@ public class PalindromPartitionTests
         // Act
         IList<IList<string>> result = PalindromePartition.Partition(s);
         // Assert
-        Assert.True(result.Contains(new List<string> { "a", "b", "c" }, listComparer));
+        Assert.Contains(new List<string> { "a", "b", "c" }, result, listComparer);
     }
 }

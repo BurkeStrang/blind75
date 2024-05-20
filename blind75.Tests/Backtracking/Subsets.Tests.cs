@@ -12,14 +12,14 @@ public class SubsetsTests
         IList<IList<int>> result = subsetsClass.Subsets(nums);
         ListComparer<int> listComparer = new();
         // Assert
-        Assert.True(result.Contains([], listComparer));
-        Assert.True(result.Contains([1], listComparer));
-        Assert.True(result.Contains([2], listComparer));
-        Assert.True(result.Contains([1, 2], listComparer));
-        Assert.True(result.Contains([3], listComparer));
-        Assert.True(result.Contains([1, 3], listComparer));
-        Assert.True(result.Contains([2, 3], listComparer));
-        Assert.True(result.Contains([1, 2, 3], listComparer));
+        Assert.Contains([], result, listComparer);
+        Assert.Contains([1], result, listComparer);
+        Assert.Contains([2], result, listComparer);
+        Assert.Contains([1, 2], result, listComparer);
+        Assert.Contains([3], result, listComparer);
+        Assert.Contains([1, 3], result, listComparer);
+        Assert.Contains([2, 3], result, listComparer);
+        Assert.Contains([1, 2, 3], result, listComparer);
     }
 
     [Fact]
@@ -32,7 +32,7 @@ public class SubsetsTests
         // Act
         IList<IList<int>> result = subsetsClass.Subsets(nums);
         // Assert
-        Assert.True(result.Contains([], listComparer));
-        Assert.True(result.Contains([0], listComparer));
+        Assert.Contains([], result, listComparer);
+        Assert.Contains([0], result, listComparer);
     }
 }
