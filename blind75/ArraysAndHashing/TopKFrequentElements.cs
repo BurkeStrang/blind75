@@ -29,7 +29,8 @@ public static class TopKFrequentElementsClass
             frequencyMap.TryAdd(nums[i], 0);
             frequencyMap[nums[i]]++;
         }
-        // need to make sure I rember how to use the priority queue
+        // need to make sure I remember how to use the priority queue
+        // the default is min heap
         // Comparer<int>.Create((x, y) => y.CompareTo(x)) for max heap
         // Comparer<int>.Create((x, y) => x.CompareTo(y)) for min heap
         PriorityQueue<int, int> pq = new(Comparer<int>.Create((x, y) => y.CompareTo(x)));

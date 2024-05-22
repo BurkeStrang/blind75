@@ -16,12 +16,15 @@ public static class PalindromicSubstringsClass
         int count = 0;
         for (int i = 0; i < s.Length; i++)
         {
+            // even length palindrome
             count += CountPalindromes(s, i, i);
+            // odd length palindrome
             count += CountPalindromes(s, i, i + 1);
         }
         return count;
     }
 
+    // expand around center
     public static int CountPalindromes(string s, int l, int h)
     {
         int count = 0;
@@ -34,4 +37,3 @@ public static class PalindromicSubstringsClass
         return count;
     }
 }
-
