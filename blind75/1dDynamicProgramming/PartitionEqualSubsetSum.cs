@@ -18,7 +18,6 @@ Output: false
 Constraints:
 1 <= nums.length <= 100
 1 <= nums[i] <= 50
-Accepted: 0  |  Submitted: 1  |  Ac
 
 */
 

@@ -48,24 +48,33 @@ All the values of position are unique.
 
 public static class CarFleetClass
 {
-    public static int CarFleet(int target, int[] position, int[] speed)
+    public static int CarFleet(int target, int[] positions, int[] speeds)
     {
-        (int, int)[] pair = new (int, int)[position.Length];
-        for (int i = 0; i < position.Length; i++)
+        // Pair positions with their corresponding speeds
+        (int Position, int Speed)[] cars = new (int Position, int Speed)[positions.Length];
+        for (int i = 0; i < positions.Length; i++)
         {
-            pair[i] = (position[i], speed[i]);
+            cars[i] = (positions[i], speeds[i]);
         }
 
-        Stack<double> stack = new();
-        foreach ((int p, int s) in pair.OrderByDescending(i => i.Item1))
+        // Stack to keep track of time taken to reach target
+        Stack<double> fleetTimes = new();
+
+        // Sort cars by their starting positions in descending order
+        foreach ((int position, int speed) in cars.OrderByDescending(c => c.Position))
         {
-            stack.Push((target - p) / (double)s);
-            if (stack.Count >= 2 && stack.Peek() <= stack.Skip(1).First())
+            // Calculate the time taken for the current car to reach the target
+            double timeToTarget = (target - position) / (double)speed;
+            fleetTimes.Push(timeToTarget);
+
+            // If the current car's time is less than or equal to the car in front of it, they form a fleet
+            if (fleetTimes.Count >= 2 && fleetTimes.Peek() <= fleetTimes.Skip(1).First())
             {
-                stack.Pop();
+                fleetTimes.Pop(); // Remove the current car's time as it merges with the car in front
             }
         }
 
-        return stack.Count;
+        // The remaining elements in the stack represent distinct car fleets
+        return fleetTimes.Count;
     }
 }
