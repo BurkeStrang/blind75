@@ -1,3 +1,5 @@
+namespace Blind75.DynamicProgramming;
+
 public class HouseRobberIITests
 {
     [Fact]

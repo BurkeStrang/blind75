@@ -1,3 +1,5 @@
+namespace Blind75.DynammicProgramming;
+
 public class UniquePathsTest
 {
     [Fact]
