@@ -51,7 +51,6 @@ public static class TargetSum
             int ways = Dfs(index + 1, currentSum + nums[index]) + Dfs(index + 1, currentSum - nums[index]);
             // Store the result in the memoization dictionary
             mem[(index, currentSum)] = ways;
-            mem.Dump();
             return ways;
         }
         // Start the Depth-First Search (DFS) from the first number with a current sum of 0
