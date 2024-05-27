@@ -1,12 +1,25 @@
 namespace Blind75.SlidingWindow;
 
-public class BestTimeToBuyAndSellStock
+public class BestTimeToBuyAndSellStockTests
 {
     [Fact]
-    public void BestTimeToBuyAndSellStockValid()
+    public void Example1()
     {
-        int[] prices = [1, -1, 3, 5, 0, 1, 3, 2, 4];
-        int res = 6;
-        Assert.Equal(res, BestTimeToBuyAndSell.MaxProfit(prices));
+        // Arrange
+        int[] prices = [7, 1, 5, 3, 6, 4];
+        // Act
+        int result = BestTimeToBuyAndSellStock.MaxProfit(prices);
+        // Assert
+        Assert.Equal(5, result);
+    }
+    [Fact]
+    public void Example2()
+    {
+        // Arrange
+        int[] prices = [7, 6, 4, 3, 1];
+        // Act
+        int result = BestTimeToBuyAndSellStock.MaxProfit(prices);
+        // Assert
+        Assert.Equal(0, result);
     }
 }
