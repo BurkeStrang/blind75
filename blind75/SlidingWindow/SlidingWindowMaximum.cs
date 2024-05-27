@@ -32,8 +32,8 @@ public static class SlidingWindowMaximum
     {
         // Output list to store the maximum values of each window
         List<int> output = [];
-        // Queue to store indices of the array elements
-        LinkedList<int> deque = new();
+        // linklist with first and last pointers to store indices of the array elements
+        LinkedList<int> list = new();
 
         int left = 0;
         int right = 0;
@@ -41,19 +41,19 @@ public static class SlidingWindowMaximum
         while (right < nums.Length)
         {
             // Remove elements from the deque that are smaller than the current element
-            while (deque.Count > 0 && nums[deque!.Last!.Value] < nums[right])
-                deque.RemoveLast();
+            while (list.Count > 0 && nums[list!.Last!.Value] < nums[right])
+                list.RemoveLast();
             // Add the current element's index to the deque
-            deque.AddLast(right);
+            list.AddLast(right);
 
             // Remove the element from the deque if it's outside the window
-            if (left > deque!.First!.Value)
-                deque.RemoveFirst();
+            if (left > list!.First!.Value)
+                list.RemoveFirst();
 
             // Once we've hit the size of the window, start adding max values to the output
             if (right + 1 >= k)
             {
-                output.Add(nums[deque.First.Value]);
+                output.Add(nums[list.First.Value]);
                 left++;
             }
 
