@@ -54,6 +54,31 @@ public static class IsSubArray
         return subSet.IsSubsetOf(mainSet);
     }
 
+    public static bool IsSubArrayDoubleyLinkedList(int[] mainArray, int[] subArray)
+    {
+        // Initialize the sliding window
+        int subLen = subArray.Length;
+        LinkedList<int> slidingWindow = new(mainArray.Take(subLen));
+
+        // Check if the first window is the subArray
+        if (slidingWindow.SequenceEqual(subArray))
+            return true;
+
+        // Slide the window across the mainArray
+        // Already starts with the next element in the mainArray
+        while (subLen < mainArray.Length)
+        {
+            slidingWindow.RemoveFirst();
+            slidingWindow.AddLast(mainArray[subLen]);
+
+            if (slidingWindow.SequenceEqual(subArray))
+                return true;
+            subLen++;
+        }
+
+        return false;
+    }
+
     public static bool IsSubArrayTwoPointer(int[] mainArray, int[] subArray)
     {
         // Two pointers to traverse the arrays

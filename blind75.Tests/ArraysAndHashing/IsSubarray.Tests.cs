@@ -72,4 +72,19 @@ public static class IsSubArrayTest
         int[] subArray = [1, 3];
         Assert.False(IsSubArray.IsSubArrayLinq(mainArray, subArray));
     }
+
+    [Fact]
+    public static void IsSubArrayDoubleyLinkedList()
+    {
+        int[] mainArray = [1, 2, 3, 4];
+        int[] subArray = [1, 2];
+        Assert.True(IsSubArray.IsSubArrayDoubleyLinkedList(mainArray, subArray));
+    }
+    [Fact]
+    public static void IsSubArrayFalseDoubleyLinkedList()
+    {
+        int[] mainArray = [1, 2, 3, 4];
+        int[] subArray = [1, 3];
+        Assert.False(IsSubArray.IsSubArrayDoubleyLinkedList(mainArray, subArray));
+    }
 }

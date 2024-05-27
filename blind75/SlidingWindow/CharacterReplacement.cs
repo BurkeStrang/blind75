@@ -19,8 +19,8 @@ public static class CharacterReplacementClass
 {
     public static int CharacterReplacement(string s, int k)
     {
-        int left = 0,
-            maxLength = 0;
+        int left = 0;
+        int maxLength = 0;
         int mostFrequentLetterCount = 0;
         int[] charCounts = new int[26];
 
