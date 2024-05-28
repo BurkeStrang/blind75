@@ -29,6 +29,6 @@ public static class GroupAnagramsClass
             // add new string to list which is referenced in the out value
             value.Add(str);
         }
-        return anagrams.Values.ToList<IList<string>>();
+        return [.. anagrams.Values];
     }
 }
