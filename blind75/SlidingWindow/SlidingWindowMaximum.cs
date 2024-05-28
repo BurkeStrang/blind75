@@ -32,7 +32,7 @@ public static class SlidingWindowMaximum
     {
         // Output list to store the maximum values of each window
         List<int> output = [];
-        // linklist with first and last pointers to store indices of the array elements
+        // linkedlist with first and last pointers to store indices of the array elements
         LinkedList<int> list = new();
 
         int left = 0;
