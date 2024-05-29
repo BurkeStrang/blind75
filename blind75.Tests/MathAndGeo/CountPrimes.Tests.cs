@@ -1,4 +1,4 @@
-namespace blind75.Tests.MathAndGeo;
+namespace Blind75.MathAndGeo;
 
 public class CountPrimesTests
 {

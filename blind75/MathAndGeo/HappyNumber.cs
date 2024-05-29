@@ -33,12 +33,13 @@ public static class HappyNumber
 {
     public static bool IsHappy(int n)
     {
-        HashSet<int> set = [];
+        HashSet<int> seenNumbers = [];
 
-        while (!set.Contains(n))
+        while (!seenNumbers.Contains(n))
         {
-            set.Add(n);
-            n = SumOfSquare(n);
+            seenNumbers.Add(n);
+            n = CalculateSumOfSquares(n);
+
             if (n == 1)
                 return true;
         }
@@ -46,14 +47,15 @@ public static class HappyNumber
         return false;
     }
 
-    static int SumOfSquare(int x)
+    private static int CalculateSumOfSquares(int number)
     {
         int sum = 0;
 
-        for (int i = x; i > 0; i /= 10)
+        while (number > 0)
         {
-            int y = i % 10;
-            sum += y * y;
+            int digit = number % 10;
+            sum += digit * digit;
+            number /= 10;
         }
 
         return sum;
