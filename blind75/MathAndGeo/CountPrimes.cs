@@ -1,6 +1,7 @@
 namespace Blind75.MathAndGeo;
 
 //e.g. CountPrimesClass.CountPrimes(10) => 4
+
 public static class CountPrimesClass
 {
     public static int CountPrimes(int n)
