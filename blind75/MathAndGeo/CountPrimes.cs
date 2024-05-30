@@ -38,4 +38,33 @@ public static class CountPrimesClass
         }
         return true;
     }
+
+    public static int CountPrimesSieve(int n)
+    {
+        // If n is less than or equal to 2, there are no prime numbers less than n
+        if (n <= 2)
+            return 0;
+
+        int result = 0; // Variable to count the number of prime numbers
+        bool[] sieve = new bool[n]; // Boolean array to mark non-prime numbers, initialized to false
+
+        // Iterate through each number from 2 to n-1
+        for (int i = 2; i < n; i++)
+        {
+            // If sieve[i] is true, it means the number i has been marked as non-prime
+            if (sieve[i])
+                continue; // Skip the rest of the loop for this number
+
+            // If sieve[i] is still false, it means the number i is prime
+            result++; // Increment the count of prime numbers
+
+            // Mark all multiples of i as non-prime
+            for (int multiple = i * 2; multiple < n; multiple += i)
+            {
+                sieve[multiple] = true; // Mark the multiple of i as non-prime
+            }
+        }
+
+        return result; // Return the total count of prime numbers less than n
+    }
 }

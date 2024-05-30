@@ -60,11 +60,7 @@ public static class MultiplyStrings
     }
 
     private static string Reverse(string str)
-    {
-        char[] array = str.ToCharArray();
-        Array.Reverse(array);
-        return new string(array);
-    }
+        => new(str.Reverse().ToArray());
 
     private static string ConvertResultArrayToString(int[] result)
     {

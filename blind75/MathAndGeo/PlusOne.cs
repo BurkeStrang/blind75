@@ -39,22 +39,11 @@ public class PlusOneClass
 {
     public static int[] PlusOne(int[] digits)
     {
-        // Combine the digits into a single string
-        string numberString = string.Join("", digits);
-
-        // Convert the string to a long, add 1, then convert back to a string
-        string incrementedString = (long.Parse(numberString) + 1).ToString();
-
-        // Initialize an array to hold the resulting digits
-        int[] result = new int[incrementedString.Length];
-
-        // Convert each character in the incremented string back to an integer
-        for (int i = 0; i < incrementedString.Length; i++)
-        {
-            result[i] = incrementedString[i] - '0';
-        }
-
-        // Return the resulting array of digits
-        return result;
+        // turn to string
+        string stringDigits = string.Concat(digits);
+        // turn to long add one turn back to string
+        string plusOne = (long.Parse(stringDigits) + 1).ToString();
+        // turn to char subtrack '0' to get int then turn to array
+        return plusOne.Select(x => x - '0').ToArray();
     }
 }
