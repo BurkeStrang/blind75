@@ -1,6 +1,6 @@
 namespace Blind75.MathAndGeo;
 
-public class HappNumberTests
+public class HappyNumberTests
 {
     [Fact]
     public void Example1()

@@ -14,13 +14,21 @@ Example 1:
 Input: n = 19
 Output: true
 Explanation:
-12 + 92 = 82
-82 + 22 = 68
-62 + 82 = 100
-12 + 02 + 02 = 1
+1 + 81 = 82
+64 + 4 = 68
+36 + 64 = 100
+1 + 0 + 0 = 1
 
 Example 2:
 Input: n = 2
+Explanation:
+4
+16
+1 + 36 = 37
+9 + 49 = 58
+25 + 81 = 106
+1 + 0 + 36 = 37
+detect cycle
 Output: false
  
 
@@ -35,6 +43,7 @@ public static class HappyNumber
     {
         HashSet<int> seenNumbers = [];
 
+        // Detect cycle
         while (!seenNumbers.Contains(n))
         {
             seenNumbers.Add(n);

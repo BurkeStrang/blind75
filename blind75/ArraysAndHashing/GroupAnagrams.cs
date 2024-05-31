@@ -20,14 +20,10 @@ public static class GroupAnagramsClass
             char[] charArr = str.ToCharArray();
             Array.Sort(charArr);
             string sortedStr = new(charArr);
-            // try get value, if not present add new list
-            if (!anagrams.TryGetValue(sortedStr, out List<string>? value))
+            if (!anagrams.TryAdd(sortedStr, []))
             {
-                value = [];
-                anagrams.Add(sortedStr, value);
+                anagrams[sortedStr].Add(str);
             }
-            // add new string to list which is referenced in the out value
-            value.Add(str);
         }
         return [.. anagrams.Values];
     }

@@ -14,7 +14,7 @@ public static class Codec
     {
         // returns a single string with the length of the string followed
         // by the # symbol before the string in the list
-        return string.Concat(strs.SelectMany(s => $"{s.Length}#{s}"));
+        return string.Concat(strs.Select(s => $"{s.Length}#{s}"));
     }
 
     public static IList<string> Decode(string s)
@@ -24,10 +24,7 @@ public static class Codec
 
         while (i < s.Length)
         {
-            if (!int.TryParse(s[i].ToString(), out int length) || !(s[i + 1] == '#'))
-            {
-                throw new ArgumentException("Invalid Input");
-            }
+            int length = s[i] - '0';
             i += 2;
             res.Add(s.Substring(i, length));
             i += length;
