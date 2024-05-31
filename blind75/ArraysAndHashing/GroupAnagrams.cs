@@ -20,7 +20,7 @@ public static class GroupAnagramsClass
             char[] charArr = str.ToCharArray();
             Array.Sort(charArr);
             string sortedStr = new(charArr);
-            if (!anagrams.TryAdd(sortedStr, []))
+            if (!anagrams.TryAdd(sortedStr, [str]))
             {
                 anagrams[sortedStr].Add(str);
             }

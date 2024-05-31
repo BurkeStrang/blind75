@@ -21,15 +21,14 @@ public static class TwoSumClass
 {
     public static int[] TwoSum(int[] nums, int target)
     {
-        Dictionary<int, int> map = [];
+        Dictionary<int, int> dict = [];
+
         for (int i = 0; i < nums.Length; i++)
         {
-            if (map.TryGetValue(target - nums[i], out int index))
-            {
+            if (dict.TryGetValue(target - nums[i], out int index))
                 return [index, i];
-            }
-            // key is the number, value is the index
-            map.Add(nums[i], i);
+
+            dict.Add(nums[i], i);
         }
         return [];
     }
