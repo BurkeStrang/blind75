@@ -33,10 +33,11 @@ public static class TopKFrequentElementsClass
         // the default is min heap
         // Comparer<int>.Create((x, y) => y.CompareTo(x)) for max heap
         // Comparer<int>.Create((x, y) => x.CompareTo(y)) for min heap
-        PriorityQueue<int, int> pq = new(Comparer<int>.Create((x, y) => y.CompareTo(x)));
-        foreach (int key in frequencyMap.Keys)
+        PriorityQueue<int, int> pq = new(Comparer<int>.Create((x, y) => y - x));
+
+        foreach (KeyValuePair<int, int> map in frequencyMap)
         {
-            pq.Enqueue(key, frequencyMap[key]);
+            pq.Enqueue(map.Key, map.Value);
         }
 
         int[] result = new int[k];

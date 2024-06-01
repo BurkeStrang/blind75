@@ -9,7 +9,7 @@ Note: The solution set must not contain duplicate combinations.
 
 Example 1:
 Input: candidates = [10,1,2,7,6,1,5], target = 8
-Output: 
+Output:
 [
 [1,1,6],
 [1,2,5],
@@ -39,29 +39,34 @@ public class CombinationSumII
     {
         List<IList<int>> result = [];
         Array.Sort(candidates);
-
-        void Dfs(int pos, Stack<int> current, int target)
-        {
-            if (target == 0)
-                result.Add(current.ToList());
-            if (target <= 0)
-                return;
-
-            int prev = -1;
-
-            for (int i = pos; i < candidates.Length; i++)
-            {
-                if (candidates[i] == prev)
-                    continue;
-
-                current.Push(candidates[i]);
-                Dfs(i + 1, current, target - candidates[i]);
-                current.Pop();
-                prev = candidates[i];
-            }
-        }
-
-        Dfs(0, new Stack<int>(), target);
+        Dfs(0, new Stack<int>(), target, candidates, result);
         return result;
+    }
+
+    private static void Dfs(
+        int pos,
+        Stack<int> current,
+        int target,
+        int[] candidates,
+        IList<IList<int>> result
+    )
+    {
+        if (target == 0)
+            result.Add([.. current]);
+        if (target <= 0)
+            return;
+
+        int prev = -1;
+
+        for (int i = pos; i < candidates.Length; i++)
+        {
+            if (candidates[i] == prev)
+                continue;
+
+            current.Push(candidates[i]);
+            Dfs(i + 1, current, target - candidates[i], candidates, result);
+            current.Pop();
+            prev = candidates[i];
+        }
     }
 }

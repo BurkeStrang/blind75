@@ -12,7 +12,6 @@ namespace Blind75.Backtracking;
 
 
 // Example 1:
-
 // Input: candidates = [2,3,6,7], target = 7
 // Output: [[2,2,3],[7]]
 // Explanation:
@@ -24,12 +23,12 @@ public static class CombinationSumClass
 {
     public static IList<IList<int>> CombinationSum(int[] candidates, int target)
     {
-        IList<IList<int>> ans = new List<IList<int>>();
-        Backtrack(new List<int>(), 0, 0, ans, candidates, target);
+        IList<IList<int>> ans = [];
+        Backtrack([], 0, 0, ans, candidates, target);
         return ans;
     }
 
-    public static void Backtrack(
+    private static void Backtrack(
         IList<int> path,
         int start,
         int curr,
@@ -40,7 +39,7 @@ public static class CombinationSumClass
     {
         if (curr == target)
         {
-            ans.Add(path.ToList());
+            ans.Add([.. path]);
             return;
         }
 
@@ -51,7 +50,7 @@ public static class CombinationSumClass
             {
                 path.Add(num);
                 Backtrack(path, i, curr + num, ans, candidates, target);
-                path.Remove(path.Last());
+                path.Remove(path[^1]);
             }
         }
     }
