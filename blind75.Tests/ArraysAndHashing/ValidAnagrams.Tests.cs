@@ -1,3 +1,5 @@
+namespace Blind75.ArraysAndHashing;
+
 public class ValidAnagramsTests
 {
     [Fact]
