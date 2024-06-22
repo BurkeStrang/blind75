@@ -16,19 +16,19 @@ public static class LongestConsecutiveSequenceClass
     public static int LongestConsecutiveSequence(int[] nums)
     {
         HashSet<int> set = new(nums);
-        int longestStreak = 0;
+        int longestStreak = 1;
         foreach (int num in set)
         {
             if (!set.Contains(num - 1))
             {
+                int currStreak = 1;
                 int currentNum = num;
-                int currentStreak = 1;
                 while (set.Contains(currentNum + 1))
                 {
-                    currentNum += 1;
-                    currentStreak += 1;
+                    currentNum++;
+                    currStreak++;
                 }
-                longestStreak = Math.Max(longestStreak, currentStreak);
+                longestStreak = Math.Max(longestStreak, currStreak);
             }
         }
         return longestStreak;

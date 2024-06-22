@@ -35,9 +35,7 @@ public static class DiameterOfBinaryTreeClass
     private static int Dfs(TreeNode? current, ref int result)
     {
         if (current == null)
-        {
             return -1;
-        }
         int left = 1 + Dfs(current.left, ref result);
         int right = 1 + Dfs(current.right, ref result);
         result = Math.Max(result, left + right);

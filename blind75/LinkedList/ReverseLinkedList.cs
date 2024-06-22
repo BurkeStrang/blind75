@@ -24,9 +24,8 @@ public static class ReverseLinkedListClass
     public static ListNode? ReverseListRecursive(ListNode head)
     {
         if (head is null || head.next is null)
-        {
             return head;
-        }
+
         ListNode? p = ReverseListRecursive(head.next);
         head.next.next = head;
         head.next = null;

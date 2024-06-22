@@ -3,10 +3,10 @@ namespace Blind75.Heap;
 public class KthLargestElementInStreamTests
 {
     [Fact]
-    public void example1()
+    public void Example1()
     {
         // Arrange
-        KthLargest sut = new(3, new int[] { 4, 5, 8, 2 });
+        KthLargest sut = new(3, [4, 5, 8, 2]);
         // Act
         int result1 = sut.Add(3);
         int result2 = sut.Add(5);

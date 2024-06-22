@@ -19,14 +19,16 @@ public static class IsSubArray
     public static bool IsSubArrayCheckEachElementInArray(int[] mainArray, int[] subArray)
     {
         int front = 0;
-        int subLength = subArray.Length;
-        while (front + subLength < mainArray.Length)
+        while(front + subArray.Length < mainArray.Length)
         {
             int i = 0;
-            while (i < subLength && mainArray[front + i] == subArray[i])
-                i++;
-            if (i == subLength)
-                return true;
+            while(i < subArray.Length)
+            {
+                if(subArray[i] != mainArray[i + front])
+                    break;
+                if(++i == subArray.Length)
+                    return true;
+            }
             front++;
         }
         return false;

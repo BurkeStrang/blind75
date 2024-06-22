@@ -1,3 +1,5 @@
+using System.Collections;
+
 namespace Blind75.Heap;
 
 /*
@@ -35,25 +37,15 @@ Constraints:
 
 public class LastStoneWeightClass
 {
-    private readonly PriorityQueue<int, int> _pq = new(new MaxHeapComparer());
+    private readonly PriorityQueue<int, int> _pq = new(Comparer<int>.Create((x,y) => y - x));
 
     // T: O(NLogN)
     public int LastStoneWeight(int[] stones)
     {
-        AddStones(stones);
+        foreach(int stone in stones)
+            _pq.Enqueue(stone, stone);
         ComputeLastStoneWeight();
         return _pq.Count == 0 ? 0 : _pq.Dequeue();
-    }
-
-
-    private void AddStones(int[] stones)
-    {
-        stones.ToList().ForEach(stone => _pq.Enqueue(stone, stone));
-        /* foreach (int stone in stones)
-        {
-            // T: Heapify is O(N) for every enqueued item
-            _pq.Enqueue(stone, stone);
-        } */
     }
 
     // T: O(NLogN), to get max value its O(LogN) and we perform this for N items => O(NLogN)
@@ -69,14 +61,6 @@ public class LastStoneWeightClass
                 int diff = y - x;
                 _pq.Enqueue(diff, diff);
             }
-        }
-    }
-
-    public class MaxHeapComparer : IComparer<int>
-    {
-        public int Compare(int x, int y)
-        {
-            return y - x;
         }
     }
 }

@@ -12,23 +12,20 @@ public static class Codec
 {
     public static string Encode(IList<string> strs)
     {
-        // returns a single string with the length of the string followed
-        // by the # symbol before the string in the list
-        return string.Concat(strs.Select(s => $"{s.Length}#{s}"));
+        return string.Join("", strs.Select(s => $"{s.Length}#{s}"));
     }
 
     public static IList<string> Decode(string s)
     {
-        List<string> res = [];
+        List<string> result = [];
         int i = 0;
-
         while (i < s.Length)
         {
-            int length = s[i] - '0';
-            i += 2;
-            res.Add(s.Substring(i, length));
-            i += length;
+            int delimiter = s.IndexOf('#', i);
+            int length = int.Parse(s[i..delimiter]);
+            result.Add(s.Substring(delimiter + 1, length));
+            i = delimiter + 1 + length;
         }
-        return res;
+        return result;
     }
 }

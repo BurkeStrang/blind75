@@ -1,3 +1,5 @@
+namespace Blind75.ArraysAndHashing;
+
 public class TopKFrequentElementsTests
 {
     [Fact]
@@ -17,6 +19,7 @@ public class TopKFrequentElementsTests
         int[] expected = [1];
         Assert.Equal(expected, TopKFrequentElementsClass.TopKFrequent(nums, k));
     }
+
     [Fact]
     public void ReturnTopKElementsWhenKIsThree()
     {
@@ -26,4 +29,3 @@ public class TopKFrequentElementsTests
         Assert.Equal(expected, TopKFrequentElementsClass.TopKFrequent(nums, k));
     }
 }
-

@@ -42,30 +42,30 @@ public static class RotateAnImage
 {
     public static void Rotate(int[][] matrix)
     {
-        Console.WriteLine($"  Start Matrix:");
-        matrix.ToList().ForEach(row => Console.WriteLine("  " + string.Join(",", row)));
+        // Console.WriteLine($"  Start Matrix:");
+        // matrix.ToList().ForEach(row => Console.WriteLine("  " + string.Join(",", row)));
         int n = matrix.Length;
         for (int i = 0; i < n / 2; i++)
         {
             for (int j = i; j < n - i - 1; j++)
             {
-                Console.WriteLine($"  ---------------------------------");
-                Console.WriteLine($"  Inner For loop i: {i}, j: {j}");
-                Console.WriteLine($"  ---------------------------------");
+                // Console.WriteLine($"  ---------------------------------");
+                // Console.WriteLine($"  Inner For loop i: {i}, j: {j}");
+                // Console.WriteLine($"  ---------------------------------");
                 int temp = matrix[i][j];
-                Console.WriteLine($" 1.  setting matrix[{i}][{j}] <== matrix[{n - j - 1}][{i}] so {temp} <== {matrix[n - j - 1][i]}");
-                Console.WriteLine($" 2.  setting matrix[{n - j - 1}][{i}] <== matrix[{n - i - 1}][{n - j - 1}] so {matrix[n - j - 1][i]} <== {matrix[n - i - 1][n - j - 1]}");
-                Console.WriteLine($" 3.  setting matrix[{n - i - 1}][{n - j - 1}] <== matrix[{j}][{n - i - 1}] so {matrix[n - i - 1][n - j - 1]} <== {matrix[j][n - i - 1]}");
-                Console.WriteLine($" 4.  setting matrix[{j}][{n - i - 1}] <== matrix[{i}][{j}] so {matrix[j][n - i - 1]} <== {temp}");
+                // Console.WriteLine($" 1.  setting matrix[{i}][{j}] <== matrix[{n - j - 1}][{i}] so {temp} <== {matrix[n - j - 1][i]}");
+                // Console.WriteLine($" 2.  setting matrix[{n - j - 1}][{i}] <== matrix[{n - i - 1}][{n - j - 1}] so {matrix[n - j - 1][i]} <== {matrix[n - i - 1][n - j - 1]}");
+                // Console.WriteLine($" 3.  setting matrix[{n - i - 1}][{n - j - 1}] <== matrix[{j}][{n - i - 1}] so {matrix[n - i - 1][n - j - 1]} <== {matrix[j][n - i - 1]}");
+                // Console.WriteLine($" 4.  setting matrix[{j}][{n - i - 1}] <== matrix[{i}][{j}] so {matrix[j][n - i - 1]} <== {temp}");
                 matrix[i][j] = matrix[n - j - 1][i];
                 matrix[n - j - 1][i] = matrix[n - i - 1][n - j - 1];
                 matrix[n - i - 1][n - j - 1] = matrix[j][n - i - 1];
                 matrix[j][n - i - 1] = temp;
 
-                Console.WriteLine();
-                Console.WriteLine($"      Current Inner Loop Matrix:");
-                matrix.ToList().ForEach(row => Console.WriteLine("                " + string.Join(",", row)));
-                Console.WriteLine();
+                // Console.WriteLine();
+                // Console.WriteLine($"      Current Inner Loop Matrix:");
+                // matrix.ToList().ForEach(row => Console.WriteLine("                " + string.Join(",", row)));
+                // Console.WriteLine();
             }
         }
     }

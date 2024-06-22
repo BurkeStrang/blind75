@@ -4,7 +4,7 @@ namespace Blind75.SlidingWindow;
 public class SlidingWindowMaximumTests
 {
     [Fact]
-    public void ReturnsMaximumSlidingWindow()
+    public void Example1()
     {
         int[] nums = [1, 3, -1, -3, 5, 3, 6, 7];
         int k = 3;
@@ -13,7 +13,7 @@ public class SlidingWindowMaximumTests
         Assert.Equal(expected, result);
     }
     [Fact]
-    public void ReturnsMaximumSlidingWindow2()
+    public void Example2()
     {
         int[] nums = [1];
         int k = 1;

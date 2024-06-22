@@ -36,12 +36,13 @@ public class KClosestPointToOrigin
             long x = point[0];
             long y = point[1];
 
+            // this is the key to sort the points by distance from origin (0,0)
             return (point, x * x + y * y);
         });
 
-        int[][] result = new int[k][];
         // T: O(n)
         PriorityQueue<int[], long> queue = new(items);
+        int[][] result = new int[k][];
 
         // T: O(k log(n))
         for (int i = 0; i < k; i++)

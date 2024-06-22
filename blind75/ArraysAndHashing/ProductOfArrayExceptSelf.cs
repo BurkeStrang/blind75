@@ -19,14 +19,14 @@ public static class ProductOfArrayExceptSelfClass
         for (int i = 0; i < numsLength; i++)
         {
             result[i] = prefixProduct;
-            prefixProduct *= nums[i];
+            prefixProduct = prefixProduct * nums[i];
             // result = [1,1,2,6]
             // prefixProduct = 1,2,6,24
         }
         for (int i = numsLength - 1; i >= 0; i--)
         {
-            result[i] *= suffixProduct;
-            suffixProduct *= nums[i];
+            result[i] = result[i] * suffixProduct;
+            suffixProduct = suffixProduct * nums[i];
             // result = [24,12,8,6]
             // suffixProduct = 1,4,12,24
         }

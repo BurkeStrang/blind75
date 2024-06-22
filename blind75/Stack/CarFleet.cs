@@ -70,6 +70,7 @@ public static class CarFleetClass
             // If the current car's time is less than or equal to the car in front of it, they form a fleet
             if (fleetTimes.Count >= 2 && fleetTimes.Peek() <= fleetTimes.Skip(1).First())
             {
+                // fleetTimes.Skip(1).First().Dump();
                 fleetTimes.Pop(); // Remove the current car's time as it merges with the car in front
             }
         }

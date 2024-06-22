@@ -17,13 +17,9 @@ public static class GroupAnagramsClass
         Dictionary<string, List<string>> anagrams = [];
         foreach (string str in strs)
         {
-            char[] charArr = str.ToCharArray();
-            Array.Sort(charArr);
-            string sortedStr = new(charArr);
+            string sortedStr = string.Concat(str.Order());
             if (!anagrams.TryAdd(sortedStr, [str]))
-            {
                 anagrams[sortedStr].Add(str);
-            }
         }
         return [.. anagrams.Values];
     }

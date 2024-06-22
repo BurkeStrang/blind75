@@ -44,6 +44,11 @@ point.length == 2
 0 <= x, y <= 1000
 At most 3000 calls in total will be made to add and count.
 
+ * Your DetectSquares object will be instantiated and called as such:
+ * DetectSquares obj = new DetectSquares();
+ * obj.Add(point);
+ * int param_2 = obj.Count(point);
+ 
 */
 
 public class DetectSquares
@@ -80,9 +85,3 @@ public class DetectSquares
     }
 }
 
-/**
- * Your DetectSquares object will be instantiated and called as such:
- * DetectSquares obj = new DetectSquares();
- * obj.Add(point);
- * int param_2 = obj.Count(point);
- */

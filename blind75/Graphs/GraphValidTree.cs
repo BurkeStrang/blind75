@@ -4,6 +4,7 @@ namespace Blind75.Graphs;
 // write a function to check whether these edges make up a valid tree.
 // A valid tree is a connected graph with no cycle.
 
+// Example 1:
 // Input: n = 5 edges = [[0, 1], [0, 2], [0, 3], [1, 4]]
 // Output: true.
 

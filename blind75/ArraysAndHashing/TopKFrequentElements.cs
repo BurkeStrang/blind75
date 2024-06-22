@@ -21,30 +21,11 @@ public static class TopKFrequentElementsClass
 {
     public static int[] TopKFrequent(int[] nums, int k)
     {
-        if (k == nums.Length)
-            return nums;
-        Dictionary<int, int> frequencyMap = [];
-        for (int i = 0; i < nums.Length; i++)
-        {
-            frequencyMap.TryAdd(nums[i], 0);
-            frequencyMap[nums[i]]++;
-        }
-        // need to make sure I remember how to use the priority queue
-        // the default is min heap
-        // Comparer<int>.Create((x, y) => y.CompareTo(x)) for max heap
-        // Comparer<int>.Create((x, y) => x.CompareTo(y)) for min heap
-        PriorityQueue<int, int> pq = new(Comparer<int>.Create((x, y) => y - x));
 
-        foreach (KeyValuePair<int, int> map in frequencyMap)
-        {
-            pq.Enqueue(map.Key, map.Value);
-        }
+        IEnumerable<(int Key, int Count)> frequencyMap = nums.GroupBy(x => x).Select(x => (x.Key, x.Count()));
+        PriorityQueue<int, int> pq = new(frequencyMap, Comparer<int>.Create((x, y) => y - x));
+        IEnumerable<int> res = Enumerable.Range(0, k).Select(x => pq.Dequeue());
 
-        int[] result = new int[k];
-        for (int i = 0; i < k; i++)
-        {
-            result[i] = pq.Dequeue();
-        }
-        return result;
+        return [.. res];
     }
 }

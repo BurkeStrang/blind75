@@ -16,17 +16,14 @@ public static class ValidAnagramClass
 {
     public static bool IsAnagram(string s, string t)
     {
-        if (s.Length != t.Length)
-            return false;
+        List<char> sList = [.. s];
 
-        int[] charChecker = new int[26];
-
-        for (int i = 0; i < s.Length; i++)
+        foreach (char c in t)
         {
-            charChecker[s[i] - 'a']++;
-            charChecker[t[i] - 'a']--;
+            if (!sList.Contains(c))
+                return false;
+            sList.Remove(c);
         }
-
-        return charChecker.All(c => c == 0);
+        return sList.Count == 0;
     }
 }

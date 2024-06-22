@@ -44,6 +44,6 @@ public class PlusOneClass
         // turn to long add one turn back to string
         string plusOne = (long.Parse(stringDigits) + 1).ToString();
         // turn to char subtrack '0' to get int then turn to array
-        return plusOne.Select(x => x - '0').ToArray();
+        return [.. plusOne.Select(x => x - '0')];
     }
 }

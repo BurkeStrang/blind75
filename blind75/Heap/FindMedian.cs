@@ -2,7 +2,9 @@ namespace Blind75.Heap;
 
 public class MedianFinder
 {
+    // max heap
     private readonly PriorityQueue<int, int> _leftHeap = new(Comparer<int>.Create((a, b) => b - a));
+    // min heap
     private readonly PriorityQueue<int, int> _rightHeap = new();
 
     // T: log(n)

@@ -30,20 +30,17 @@ public static class MultiplyStrings
         if (num1 == "0" || num2 == "0")
             return "0";
 
-        int m = num1.Length;
-        int n = num2.Length;
-
         // Array to store the multiplication result
-        int[] result = new int[m + n];
+        int[] result = new int[num1.Length + num2.Length];
 
         // Reverse the input strings
         num1 = Reverse(num1);
         num2 = Reverse(num2);
 
         // Perform multiplication digit by digit
-        for (int i = 0; i < m; i++)
+        for (int i = 0; i < num1.Length; i++)
         {
-            for (int j = 0; j < n; j++)
+            for (int j = 0; j < num2.Length; j++)
             {
                 int digit1 = num1[i] - '0';
                 int digit2 = num2[j] - '0';
@@ -60,7 +57,7 @@ public static class MultiplyStrings
     }
 
     private static string Reverse(string str)
-        => new(str.Reverse().ToArray());
+        => new([.. str.Reverse()]);
 
     private static string ConvertResultArrayToString(int[] result)
     {
@@ -78,6 +75,6 @@ public static class MultiplyStrings
             str.Append(result[i]);
         }
 
-        return str.Length == 0 ? "0" : str.ToString();
+        return str.Length == 0 ? "0" : $"{str}";
     }
 }

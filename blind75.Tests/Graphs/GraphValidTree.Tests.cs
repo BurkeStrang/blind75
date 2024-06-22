@@ -1,9 +1,9 @@
 namespace Blind75.Graphs;
 
-public class GraphValid
+public class GraphValidTreeTests
 {
     [Fact]
-    public void GraphValidCorrect()
+    public void Example1()
     {
         int n = 5;
         int[][] edges = [[0, 1], [0, 2], [0, 3], [1, 4]];

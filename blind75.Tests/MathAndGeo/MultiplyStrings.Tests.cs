@@ -1,6 +1,6 @@
 namespace Blind75.MathAndGeo;
 
-public class MulitplyStringsTests
+public class MultiplyStringsTests
 {
     [Fact]
     public void Example1()
@@ -32,6 +32,16 @@ public class MulitplyStringsTests
         string num2 = "30000000000000";
         // Act and Assert
         string exp = "1500000000000000000000000000";
+        Assert.Equal(exp, MultiplyStrings.Multiply(num1, num2));
+    }
+    [Fact]
+    public void Example4()
+    {
+        // Arrange
+        string num1 = "11";
+        string num2 = "11";
+        // Act and Assert
+        string exp = "121";
         Assert.Equal(exp, MultiplyStrings.Multiply(num1, num2));
     }
 }

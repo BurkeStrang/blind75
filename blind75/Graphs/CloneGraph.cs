@@ -25,9 +25,7 @@ public static class CloneGraphClass
             value = new Node(node.val);
             Map.Add(node, value);
             foreach (Node? n in node.neighbors)
-            {
                 Map[node].neighbors.Add(CloneGraph(n));
-            }
         }
         return value;
     }

@@ -9,9 +9,7 @@ public static class MergeKSortedListClass
     public static ListNode? MergeKLists(ListNode?[] lists)
     {
         if (lists?.Length == 0)
-        {
             return null;
-        }
 
         while (lists?.Length > 1)
         {
