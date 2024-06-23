@@ -18,13 +18,13 @@ public static class Codec
     public static IList<string> Decode(string s)
     {
         List<string> result = [];
-        int i = 0;
-        while (i < s.Length)
+
+        for(int i = 0; i < s.Length;)
         {
-            int delimiter = s.IndexOf('#', i);
-            int length = int.Parse(s[i..delimiter]);
-            result.Add(s.Substring(delimiter + 1, length));
-            i = delimiter + 1 + length;
+            int hashIndex = s.IndexOf('#', i);
+            int length = int.Parse(s[i..hashIndex++]);
+            i = hashIndex + length;
+            result.Add(s[hashIndex..i]);
         }
         return result;
     }

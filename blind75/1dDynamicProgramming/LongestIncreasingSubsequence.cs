@@ -11,10 +11,9 @@ Explanation: The longest increasing subsequence is [2,3,7,101], therefore the le
 
 public static class LongestIncreasingSubsequence
 {
-    public static int LengthOfLIS(int[] nums)
+    public static int LengthOfLIS(Span<int> nums)
     {
-        int[] dp = new int[nums.Length];
-        Array.Fill(dp, 1);
+        int[] dp = Enumerable.Repeat(1, nums.Length).ToArray();
 
         // go through the array from right to left
         // the first j will not be evaluated since it is greater than the length of the array
