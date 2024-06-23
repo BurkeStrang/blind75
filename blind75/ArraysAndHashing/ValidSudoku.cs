@@ -14,28 +14,36 @@ A Sudoku board (partially filled) could be valid but is not necessarily solvable
 Only the filled cells need to be validated according to the mentioned rules.
 
  */
-public static class ValidSudokuClass
+public class ValidSudokuClass
 {
     public static bool ValidSudoku(int[][] grid)
     {
-        HashSet<string> set = [];
+        HashSet<Cell> set = [];
         for (int i = 0; i < grid.Length; i++)
         {
             for (int j = 0; j < grid[0].Length; j++)
             {
+                // don't check empty cells which are 0
+                // they will cause false negatives
                 if (grid[i][j] != 0)
                 {
-                    string row = "row" + i + " " + grid[i][j];
-                    string col = "col" + j + " " + grid[i][j];
-                    string box = "box" + i / 3 + " " + j / 3 + " " + grid[i][j];
-                    if (set.Contains(row) || set.Contains(col) || set.Contains(box))
+                    Cell row = new(CellType.Row, (i, 0), grid[i][j]);
+                    Cell col = new(CellType.Col, (0, j), grid[i][j]);
+                    Cell box = new(CellType.Box, (i / 3, j / 3), grid[i][j]);
+                    if (!set.Add(row) || !set.Add(col) || !set.Add(box))
                         return false;
-                    set.Add(row);
-                    set.Add(col);
-                    set.Add(box);
                 }
             }
         }
         return true;
     }
+
+    private enum CellType
+    {
+        Row,
+        Col,
+        Box
+    }
+
+    private record struct Cell(CellType Type, (int, int) Cord, int Value);
 }

@@ -16,14 +16,28 @@ public static class ValidAnagramClass
 {
     public static bool IsAnagram(string s, string t)
     {
-        List<char> sList = [.. s];
+        Dictionary<char, int> sMap = s.GroupBy(c => c).ToDictionary(g => g.Key, g => g.Count());
 
         foreach (char c in t)
         {
-            if (!sList.Contains(c))
+            if (!sMap.TryGetValue(c, out int value) || value == 0)
                 return false;
-            sList.Remove(c);
+            sMap[c] = --value;
         }
-        return sList.Count == 0;
+        return sMap.Values.All(v => v == 0);
+    }
+
+    public static bool IsAnagramArray(string s, string t)
+    {
+        // assumes only lowercase letters
+        int[] chars = new int[26];
+
+        for (int i = 0; i < s.Length; i++)
+        {
+            chars[s[i] - 'a']++;
+            chars[t[i] - 'a']--;
+        }
+
+        return chars.All(c => c == 0);
     }
 }

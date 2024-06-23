@@ -1,4 +1,4 @@
-namespace Blind75.ArraysAndHashing;
+namespace Blind75.DynamicProgramming;
 
 public class MaxSubArrayTests
 {

@@ -2,13 +2,13 @@ namespace Blind75.ArraysAndHashing;
 
 public static class IsSubArray
 {
-    public static bool IsSubArraySegment(int[] mainArray, int[] subArray)
+    public static bool IsSubArraySegment(Span<int> mainArray, Span<int> subArray)
     {
         int front = 0;
         int subLength = subArray.Length;
         while (front + subLength < mainArray.Length)
         {
-            ArraySegment<int> segment = new(mainArray, front, subLength);
+            Span<int> segment = mainArray.Slice(front, subLength);
             if (subArray.SequenceEqual(segment))
                 return true;
             front++;
@@ -19,14 +19,14 @@ public static class IsSubArray
     public static bool IsSubArrayCheckEachElementInArray(int[] mainArray, int[] subArray)
     {
         int front = 0;
-        while(front + subArray.Length < mainArray.Length)
+        while (front + subArray.Length < mainArray.Length)
         {
             int i = 0;
-            while(i < subArray.Length)
+            while (i < subArray.Length)
             {
-                if(subArray[i] != mainArray[i + front])
+                if (subArray[i] != mainArray[i + front])
                     break;
-                if(++i == subArray.Length)
+                if (++i == subArray.Length)
                     return true;
             }
             front++;
@@ -54,6 +54,20 @@ public static class IsSubArray
         HashSet<int> mainSet = new(mainArray);
         HashSet<int> subSet = new(subArray);
         return subSet.IsSubsetOf(mainSet);
+    }
+
+    public static bool IsSubArrayHashing(int[] mainArray, Span<int> subArray)
+    {
+        Dictionary<int, int> dict = mainArray
+            .GroupBy(num => num)
+            .ToDictionary(group => group.Key, group => group.Count());
+        foreach (int num in subArray)
+        {
+            if (!dict.TryGetValue(num, out int value) || value == 0)
+                return false;
+            dict[num] = --value;
+        }
+        return true;
     }
 
     public static bool IsSubArrayDoubleyLinkedList(int[] mainArray, int[] subArray)

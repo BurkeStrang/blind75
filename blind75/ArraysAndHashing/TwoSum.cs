@@ -25,8 +25,7 @@ public static class TwoSumClass
 
         for(int i = 0; i < nums.Length; i++)
         {
-            int complement = target - nums[i];
-            if(dict.TryGetValue(complement, out int index))
+            if(dict.TryGetValue(target - nums[i], out int index))
                 return [index, i];
             dict.Add(nums[i],i);
         }

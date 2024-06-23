@@ -21,11 +21,9 @@ public static class TopKFrequentElementsClass
 {
     public static int[] TopKFrequent(int[] nums, int k)
     {
-
-        IEnumerable<(int Key, int Count)> frequencyMap = nums.GroupBy(x => x).Select(x => (x.Key, x.Count()));
+        IEnumerable<(int Key, int Count)> frequencyMap = nums.GroupBy(x => x)
+            .Select(x => (x.Key, x.Count()));
         PriorityQueue<int, int> pq = new(frequencyMap, Comparer<int>.Create((x, y) => y - x));
-        IEnumerable<int> res = Enumerable.Range(0, k).Select(x => pq.Dequeue());
-
-        return [.. res];
+        return [.. Enumerable.Range(0, k).Select(x => pq.Dequeue())];
     }
 }

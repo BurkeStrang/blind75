@@ -49,8 +49,8 @@ public static class LongestPalindromeSubstring
     {
         if (s == null || s.Length < 1)
             return "";
-        int start = 0,
-            end = 0;
+        int start = 0;
+        int end = 0;
         for (int i = 0; i < s.Length; i++)
         {
             int len1 = ExpandAroundCenter(s, i, i);
