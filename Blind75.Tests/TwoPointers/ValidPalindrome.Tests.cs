@@ -16,4 +16,12 @@ public class ValidPalindromeTests
         string s = "This is not a palindrome";
         Assert.False(ValidPalindrome.IsPalindrome(s));
     }
+
+    [Fact]
+    public void ReturnsTrueIfPalindrome2()
+    {
+        // Arrange
+        string s = "race car";
+        Assert.True(ValidPalindrome.IsPalindrome(s));
+    }
 }

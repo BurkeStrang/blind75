@@ -33,6 +33,9 @@ public static class ContainerWithMostWaterClass
             int area = (right - left) * minHeight;
             maxArea = Math.Max(maxArea, area);
 
+            // The if statement checks if the height at the left pointer is equal to the minHeight.
+            // If it is, it increments the left pointer. If it's not, it decrements the right pointer.
+            // The reason for this is that we're trying to find a potentially higher line to increase the area.
             if (height[left] == minHeight)
                 left++;
             else

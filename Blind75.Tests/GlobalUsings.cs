@@ -20,3 +20,4 @@ global using Xunit;
 global using Blind75.General;
 global using BenchmarkDotNet.Attributes;
 global using BenchmarkDotNet.Running;
+global using FluentAssertions;

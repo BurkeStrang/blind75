@@ -19,7 +19,7 @@ The distinct triplets are [-1,0,1] and [-1,-1,2].
 Notice that the order of the output and the order of the triplets does not matter.
 
 */
-
+// -4, -1, -1, 0, 1, 2
 public static class ThreeSumClass
 {
     public static IList<IList<int>> ThreeSum(int[] nums)
@@ -27,7 +27,6 @@ public static class ThreeSumClass
         List<IList<int>> res = [];
 
         Array.Sort(nums);
-
         for (int i = 0; i < nums.Length - 1; i++)
         {
             if (i == 0 || nums[i - 1] != nums[i])
@@ -42,7 +41,7 @@ public static class ThreeSumClass
 
         for (int j = i + 1; j < nums.Length; j++)
         {
-            int complement = -nums[i] - nums[j];
+            int complement = (nums[i] + nums[j]) * -1;
             if (set.Contains(complement))
             {
                 res.Add([nums[i], nums[j], complement]);
