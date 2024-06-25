@@ -1,3 +1,5 @@
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+
 namespace Blind75.TwoPointers;
 
 /*
@@ -52,7 +54,6 @@ public static class TrappingRainWater
                 result += rightMax - height[right];
             }
         }
-
         return result;
     }
 }

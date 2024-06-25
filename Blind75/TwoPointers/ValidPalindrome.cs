@@ -6,21 +6,23 @@ namespace Blind75.TwoPointers;
 // Input: s = 'race car'
 // Output: true
 
-public static class ValidPalindrome
+public static partial class ValidPalindrome
 {
     public static bool IsPalindrome(string s)
     {
-        s = s.Replace(" ", "").ToLowerInvariant();
+        s = NotCharacterOrNumber().Replace(s, "").ToLowerInvariant();
+        // s = string.Concat(s.Where(char.IsLetterOrDigit)).ToLowerInvariant();
         int left = 0;
         int right = s.Length - 1;
 
         while (left <= right)
         {
-            if (s[left] != s[right])
+            if (s[left++] != s[right--])
                 return false;
-            left++;
-            right--;
         }
         return true;
     }
+
+    [GeneratedRegex("[^a-zA-Z0-9]")]
+    private static partial Regex NotCharacterOrNumber();
 }

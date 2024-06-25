@@ -1,4 +1,4 @@
-namespace Blind75.SlidingWindow;
+namespace Blind75.Tests.SlidingWindow;
 
 public class BestTimeToBuyAndSellStockTests
 {
