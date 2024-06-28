@@ -30,17 +30,14 @@ public static class TwoSumInputII
 {
     public static int[] TwoSum(int[] numbers, int target)
     {
-        // Using 2 pointers. Since sorted, if l+r > target, decrease r.
-        // Else if l+r < target, increase l. Else, result is found.
-        // This is basically binary search
         int left = 0;
         int right = numbers.Length - 1;
 
-        while (left <= right)
+        while (left < right)
         {
             int sum = numbers[left] + numbers[right];
-            if (sum == target)
-                return [++left, ++right];
+            if (target == sum)
+                return [left + 1, right + 1];
             if (sum < target)
                 left++;
             else

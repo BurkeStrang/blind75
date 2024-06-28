@@ -40,7 +40,6 @@ public static class ValidPalindromeII
             else
                 return IsPalindrome(s, left + 1, right) || IsPalindrome(s, left, right - 1);
         }
-
         return true;
     }
 

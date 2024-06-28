@@ -15,7 +15,7 @@ public static partial class ValidPalindrome
         int left = 0;
         int right = s.Length - 1;
 
-        while (left <= right)
+        while (left < right)
         {
             if (s[left++] != s[right--])
                 return false;
@@ -23,6 +23,9 @@ public static partial class ValidPalindrome
         return true;
     }
 
+    // more flexible than IsLetterOrDigit
+    // but comes at a performance cost
+    // useful for more realworld scenarios
     [GeneratedRegex("[^a-zA-Z0-9]")]
     private static partial Regex NotCharacterOrNumber();
 }

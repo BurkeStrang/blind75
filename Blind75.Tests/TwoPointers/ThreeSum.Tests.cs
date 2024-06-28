@@ -46,7 +46,10 @@ public class ThreeSumTests
     public void ReturnsExpectedThreeSumForAllZeroes()
     {
         int[] nums = [0, 0, 0, 0];
-        List<IList<int>> expected = [[0, 0, 0]];
+        List<IList<int>> expected =
+        [
+            [0, 0, 0]
+        ];
         IList<IList<int>> result = ThreeSumClass.ThreeSum(nums);
         Assert.Equal(expected, result);
     }
@@ -71,5 +74,4 @@ public class ThreeSumTests
         // fluent assertion that collections are equivalent in any order
         result.Should().BeEquivalentTo(expected);
     }
-
 }
