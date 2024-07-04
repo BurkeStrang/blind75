@@ -31,25 +31,25 @@ public class KClosestPointToOrigin
 {
     public static int[][] KClosest(int[][] points, int k)
     {
-        IEnumerable<(int[] point, long)> items = points.Select(point =>
-        {
-            long x = point[0];
-            long y = point[1];
-
-            // this is the key to sort the points by distance from origin (0,0)
-            return (point, x * x + y * y);
-        });
-
-        // T: O(n)
-        PriorityQueue<int[], long> queue = new(items);
+        PriorityQueue<int[], long> queue = new(CalcDistance(points));
         int[][] result = new int[k][];
 
         // T: O(k log(n))
         for (int i = 0; i < k; i++)
-        {
             result[i] = queue.Dequeue();
-        }
 
         return result;
     }
+
+    private static readonly Func<int[][], IEnumerable<(int[] point, long)>> CalcDistance = points =>
+        points.Select(point =>
+        {
+            long x = point[0];
+            long y = point[1];
+            // this is the key to sort the points by distance from origin (0,0)
+            // the distance is the square root of sum of squares of x and y
+            // but we can avoid square root as we are only interested in sorting
+            // and the square root is a monotonically increasing (if x < y then sqrt(x) < sqrt(y)) function
+            return (Point: point, Distance: x * x + y * y);
+        });
 }

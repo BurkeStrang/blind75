@@ -73,9 +73,7 @@ public class DetectSquares
         {
             // Check if (x, y) can form a diagonal of a square with (px, py)
             if (Math.Abs(px - x) != Math.Abs(py - y) || x == px || y == py)
-            {
                 continue;
-            }
             // Calculate the number of squares that can be formed
             result +=
                 _pointsCounter.GetValueOrDefault((px, y), 0)

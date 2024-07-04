@@ -2,41 +2,41 @@ namespace Blind75.Heap;
 
 public class MedianFinder
 {
-    // max heap
-    private readonly PriorityQueue<int, int> _leftHeap = new(Comparer<int>.Create((a, b) => b - a));
-    // min heap
-    private readonly PriorityQueue<int, int> _rightHeap = new();
+    private readonly PriorityQueue<int, int> _maxHeap = new(Comparer<int>.Create((a, b) => b - a));
+    private readonly PriorityQueue<int, int> _minHeap = new();
 
-    // T: log(n)
     public void AddNum(int num)
     {
-        if (_leftHeap.Count == 0 || num > _leftHeap.Peek())
-            _rightHeap.Enqueue(num, num);
+        if (_maxHeap.Count == 0 || num < _maxHeap.Peek())
+            _maxHeap.Enqueue(num, num);
         else
-            _leftHeap.Enqueue(num, num);
+            _minHeap.Enqueue(num, num);
 
-        Balance();
+        BalanceHeaps();
     }
 
-    private void Balance()
+    private void BalanceHeaps()
     {
-        (PriorityQueue<int, int> big, PriorityQueue<int, int> small) =
-            _leftHeap.Count > _rightHeap.Count ? (_leftHeap, _rightHeap) : (_rightHeap, _leftHeap);
+        PriorityQueue<int, int> biggerHeap = _maxHeap.Count > _minHeap.Count ? _maxHeap : _minHeap;
+        PriorityQueue<int, int> smallerHeap = _maxHeap.Count > _minHeap.Count ? _minHeap : _maxHeap;
 
-        while (big.Count - small.Count > 1)
+        if (biggerHeap.Count - smallerHeap.Count > 1)
         {
-            int value = big.Dequeue();
-            small.Enqueue(value, value);
+            int value = biggerHeap.Dequeue();
+            smallerHeap.Enqueue(value, value);
         }
     }
 
-    // T: O(1)
     public double FindMedian()
     {
-        return _leftHeap.Count == _rightHeap.Count
-            ? (_leftHeap.Peek() + _rightHeap.Peek()) / 2.0
-            : _leftHeap.Count > _rightHeap.Count
-                ? _leftHeap.Peek()
-                : _rightHeap.Peek();
+        if (_maxHeap.Count > _minHeap.Count)
+        {
+            return _maxHeap.Peek();
+        }
+        else if(_maxHeap.Count < _minHeap.Count)
+        {
+            return _minHeap.Peek();
+        }
+        return (_maxHeap.Peek() + _minHeap.Peek()) / 2.0;
     }
 }

@@ -40,15 +40,11 @@ public static class RemoveDuplicates
 {
     public static int RemoveDuplicatesMethod(int[] nums)
     {
-        if (nums.Length == 0)
-            return 0;
-
-        int i = 0;
-        for (int j = 1; j < nums.Length; j++)
-        {
-            if (nums[j] != nums[i])
-                nums[++i] = nums[j];
-        }
-        return ++i;
+        int duplicateReplacer = 0; 
+        for(int i = 1; i < nums.Length; i++)
+            if(nums[duplicateReplacer]!=nums[i])
+                nums[++duplicateReplacer] = nums[i];
+        // indexed at 0 so add 1
+        return duplicateReplacer + 1;
     }
 }

@@ -6,7 +6,7 @@ You are given an array of CPU tasks, each represented by letters A to Z, and a c
 Each cycle or interval allows the completion of one task.
 Tasks can be completed in any order, but there's a constraint:
 identical tasks must be separated by at least n intervals due to cooling time.
-​Return the minimum number of intervals required to complete all tasks.
+Return the minimum number of intervals required to complete all tasks.
 
 Example 1:
 Input: tasks = ["A","A","A","B","B","B"], n = 2
@@ -36,44 +36,34 @@ tasks[i] is an uppercase English letter.
 
 */
 
-public class TaskScheduler
+public static class TaskScheduler
 {
-    private PriorityQueue<FreqClass, int> _pq = new(new MaxHeap());
-    private readonly Dictionary<char, int> _dictionary = [];
-
-    public int LeastInterval(char[] tasks, int n)
+    public static int LeastInterval(char[] tasks, int n)
     {
         // Count tasks in the array
         if (n == 0)
             return tasks.Length;
-        foreach (char task in tasks)
-        {
-            if (_dictionary.TryGetValue(task, out int value))
-            {
-                _dictionary[task] = ++value;
-            }
-            else
-                _dictionary.Add(task, 1);
-        }
 
-        _pq = new PriorityQueue<FreqClass, int>(new MaxHeap());
+        IEnumerable<(FreqClass, int)> frequencies = tasks
+            .GroupBy(x => x)
+            .Select(x => (new FreqClass(x.Count(), n, x.First()), x.Count()));
+
+        PriorityQueue<FreqClass, int> pq = new(frequencies, Comparer<int>.Create((a, b) => b - a));
 
         int time = 0;
 
-        AddItemsToPQ();
-
-        while (_pq.Count > 0)
+        while (pq.Count > 0)
         {
             List<FreqClass> list = [];
             int cnt = 0;
             for (int i = 0; i < n + 1; i++)
             {
-                if (_pq.Count > 0)
+                if (pq.Count > 0)
                 {
-                    FreqClass item = _pq.Dequeue();
+                    FreqClass item = pq.Dequeue(); // Dequeue returns a reference to the existing object
                     cnt++;
                     //Console.WriteLine($"Dequeued {item.Task} with frequency : {item.Frequency}");
-                    item.Frequency--;
+                    item.Frequency--; // Modify the Frequency property directly
                     if (item.Frequency > 0)
                         list.Add(item);
                 }
@@ -83,36 +73,20 @@ public class TaskScheduler
             {
                 FreqClass item = list[i];
                 //Console.WriteLine($"Enqueued {item.Task} with frequency : {item.Frequency}");
-                _pq.Enqueue(item, item.Frequency);
+                pq.Enqueue(item, item.Frequency); // Re-enqueue the modified object
             }
 
-            time += _pq.Count == 0 ? cnt : n + 1;
+            time += pq.Count == 0 ? cnt : n + 1;
             //Console.WriteLine($"Done with iteration, current time: {time}");
         }
 
         return time;
     }
 
-    private void AddItemsToPQ()
-    {
-        foreach (KeyValuePair<char, int> keyValuePair in _dictionary)
-        {
-            _pq.Enqueue(new FreqClass(keyValuePair.Value, 0, keyValuePair.Key), keyValuePair.Value);
-        }
-    }
-
-    public class MaxHeap : IComparer<int>
-    {
-        public int Compare(int x, int y)
-        {
-            return y - x;
-        }
-    }
-
-    public class FreqClass(int frequency, int idleTime, char task)
+    private class FreqClass(int frequency, int idleTime, char task)
     {
         public int Frequency = frequency;
-        public int IdleTime = idleTime;
-        public char Task = task;
+        public int IdleTime  = idleTime;
+        public char Task  = task;
     }
 }

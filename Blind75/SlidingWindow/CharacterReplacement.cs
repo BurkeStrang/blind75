@@ -26,8 +26,7 @@ public static class CharacterReplacementClass
 
         for (int right = 0; right < s.Length; right++)
         {
-            charCounts[s[right] - 'A']++;
-            mostFrequentLetterCount = Math.Max(mostFrequentLetterCount, charCounts[s[right] - 'A']);
+            mostFrequentLetterCount = Math.Max(mostFrequentLetterCount, ++charCounts[s[right] - 'A']);
             int lettersToChange = right - left + 1 - mostFrequentLetterCount;
             if (lettersToChange > k)
             {

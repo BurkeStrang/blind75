@@ -47,32 +47,27 @@ public static class LongestPalindromeSubstring
     // hence the i+1 in the even length palindrome
     public static string LongestPalindromeExpandAround(string s)
     {
-        if (s == null || s.Length < 1)
-            return "";
-        int start = 0;
-        int end = 0;
+        ReadOnlySpan<char> max = [];
+        if (s is null || s.Length < 1)
+            return max.ToString();
         for (int i = 0; i < s.Length; i++)
         {
-            int len1 = ExpandAroundCenter(s, i, i);
-            int len2 = ExpandAroundCenter(s, i, i + 1);
-            int len = Math.Max(len1, len2);
-            if (len > end - start)
-            {
-                start = i - (len - 1) / 2;
-                end = i + len / 2;
-            }
+            ReadOnlySpan<char> odd = ExpandAroundCenter(s, i, i);
+            ReadOnlySpan<char> even = ExpandAroundCenter(s, i, i + 1);
+            ReadOnlySpan<char> currentMax = odd.Length > even.Length ? odd : even;
+            max = currentMax.Length > max.Length ? currentMax : max;
         }
-        return s.Substring(start, end - start + 1);
+        return max.ToString();
     }
 
-    public static int ExpandAroundCenter(string s, int left, int right)
+    public static ReadOnlySpan<char> ExpandAroundCenter(ReadOnlySpan<char> s, int left, int right)
     {
         while (left >= 0 && right < s.Length && s[left] == s[right])
         {
             left--;
             right++;
         }
-        return right - left - 1;
+        return s.Slice(left + 1, right - left - 1);
     }
 
     public static string LongestPalindromeParallel(string s)

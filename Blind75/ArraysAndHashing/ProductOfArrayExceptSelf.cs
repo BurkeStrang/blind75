@@ -8,6 +8,8 @@ public static class ProductOfArrayExceptSelfClass
 {
     // uses O(n) time and O(1) space
     // ueses prefix and suffix product
+    // don't use divison operator
+
     public static int[] ProductOfArrayExceptSelf(int[] nums)
     {
         int numsLength = nums.Length;

@@ -15,22 +15,22 @@ public static class LongestConsecutiveSequenceClass
 {
     public static int LongestConsecutiveSequence(int[] nums)
     {
+        int max = 1;
+        int iterator = 0;
         HashSet<int> set = new(nums);
-        int longestStreak = 1;
-        foreach (int num in set)
+
+        while (iterator < nums.Length)
         {
-            if (!set.Contains(num - 1))
+            if (!set.Contains(nums[iterator] - 1))
             {
-                int currStreak = 1;
-                int currentNum = num;
-                while (set.Contains(currentNum + 1))
-                {
-                    currentNum++;
-                    currStreak++;
-                }
-                longestStreak = Math.Max(longestStreak, currStreak);
+                int currentNum = nums[iterator];
+                int currenSequence = 1;
+                while (set.Contains(++currentNum))
+                    currenSequence++;
+                max = Math.Max(max, currenSequence);
             }
+            iterator++;
         }
-        return longestStreak;
+        return max;
     }
 }

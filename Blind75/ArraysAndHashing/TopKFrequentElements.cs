@@ -1,3 +1,5 @@
+using System.Collections;
+
 namespace Blind75.ArraysAndHashing;
 
 /*
@@ -21,9 +23,27 @@ public static class TopKFrequentElementsClass
 {
     public static int[] TopKFrequent(int[] nums, int k)
     {
-        IEnumerable<(int Key, int Count)> frequencyMap = nums.GroupBy(x => x)
-            .Select(x => (x.Key, x.Count()));
-        PriorityQueue<int, int> pq = new(frequencyMap, Comparer<int>.Create((x, y) => y - x));
-        return [.. Enumerable.Range(0, k).Select(x => pq.Dequeue())];
+        Dictionary<int, int> frequency = [];
+
+        foreach (int num in nums)
+        {
+            if (!frequency.TryAdd(num, 1))
+                frequency[num]++;
+        }
+
+        PriorityQueue<int, int> pq = new(Comparer<int>.Create((x, y) => y - x));
+
+        foreach (KeyValuePair<int, int> item in frequency)
+        {
+            pq.Enqueue(item.Key, item.Value);
+        }
+
+        int[] res = new int[k];
+
+        for(int i = 0; i < k; i++)
+        {
+            res[i] = pq.Dequeue();
+        }
+        return res;
     }
 }

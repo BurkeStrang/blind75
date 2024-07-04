@@ -11,6 +11,8 @@ public class ProductOfArrayExceptSelfTests
     }
 
     [Fact]
+    // this is technically not within constraint bounds but confirms you are not using the division operator
+    // if you are not using division and yours fails this disregard
     public void ReturnsCorrectArrayValuesWhenNegative()
     {
         int[] nums = [-1, 1, 0, -3, 3];

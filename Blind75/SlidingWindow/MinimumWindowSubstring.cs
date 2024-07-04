@@ -72,9 +72,7 @@ public static class MinimumWindowSubstringClass
 
     private static void AddCharToDictionary(char c, Dictionary<char, int> dict)
     {
-        if (dict.TryGetValue(c, out int value))
-            dict[c] = ++value;
-        else
-            dict.Add(c, 1);
+        if(!dict.TryAdd(c, 1))
+            dict[c]++;
     }
 }

@@ -43,17 +43,13 @@ At most 3 * 104 calls will be made to postTweet, getNewsFeed, follow, and unfoll
 
 public class Twitter
 {
-    private readonly PriorityQueue<TweetInfo, int> _pq;
-    private int _time;
-    private readonly Dictionary<int, HashSet<int>> _followers;
-    private readonly Dictionary<int, List<Tweet>> _tweets;
+    private readonly PriorityQueue<TweetInfo, int> _pq = new(Comparer<int>.Create((x,y) => y -x));
+    private int _time = 0;
+    private readonly Dictionary<int, HashSet<int>> _followers = [];
+    private readonly Dictionary<int, List<Tweet>> _tweets = [];
 
     public Twitter()
     {
-        _time = 0;
-        _pq = new PriorityQueue<TweetInfo, int>(new MaxHeap());
-        _followers = [];
-        _tweets = [];
     }
 
     //T: O(1)
@@ -147,18 +143,6 @@ public class Twitter
             FolloweeId = followeeId;
             Time = time;
             TweetId = tweetId;
-        }
-    }
-
-    public class MaxHeap : IComparer<int>
-    {
-        public int Compare(int x, int y)
-        {
-            return x < y
-                ? 1
-                : x > y
-                    ? -1
-                    : 0;
         }
     }
 }

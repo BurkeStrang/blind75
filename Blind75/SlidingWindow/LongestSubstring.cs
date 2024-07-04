@@ -21,25 +21,22 @@ public record LongestSubstringClass
 {
     public static int LengthOfLongestSubstring(string s)
     {
-        HashSet<char> charSet = [];
+        HashSet<char> set = [];
+        int max = 0;
         int left = 0;
         int right = 0;
-        int maxLength = 0;
 
-        while (right < s.Length)
+        while(right < s.Length)
         {
-            if (!charSet.Contains(s[right]))
+            if (!set.Contains(s[right]))
             {
-                charSet.Add(s[right]);
-                right++;
-                maxLength = Math.Max(maxLength, charSet.Count);
+                set.Add(s[right++]);
+                max = Math.Max(max, set.Count);
             }
             else
-            {
-                charSet.Remove(s[left]);
-                left++;
-            }
+                set.Remove(s[left++]);
+            // set.Dump();
         }
-        return maxLength;
+        return max;
     }
 }

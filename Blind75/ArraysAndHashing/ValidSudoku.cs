@@ -18,32 +18,22 @@ public class ValidSudokuClass
 {
     public static bool ValidSudoku(int[][] grid)
     {
-        HashSet<Cell> set = [];
-        for (int i = 0; i < grid.Length; i++)
+        HashSet<string> set = [];
+        for (int row = 0; row < grid.Length; row++)
         {
-            for (int j = 0; j < grid[0].Length; j++)
+            for (int col = 0; col < grid[0].Length; col++)
             {
-                // don't check empty cells which are 0
-                // they will cause false negatives
-                if (grid[i][j] != 0)
+                if (grid[row][col] != 0)
                 {
-                    Cell row = new(CellType.Row, (i, 0), grid[i][j]);
-                    Cell col = new(CellType.Col, (0, j), grid[i][j]);
-                    Cell box = new(CellType.Box, (i / 3, j / 3), grid[i][j]);
-                    if (!set.Add(row) || !set.Add(col) || !set.Add(box))
+                    string rowCheck = $"row | {row} | {grid[row][col]}";
+                    string colCheck = $"col | {col} | {grid[row][col]}";
+                    string blockCheck = $"block | {row / 3}, {col / 3} | {grid[row][col]}";
+
+                    if (!set.Add(rowCheck) || !set.Add(colCheck) || !set.Add(blockCheck))
                         return false;
                 }
             }
         }
         return true;
     }
-
-    private enum CellType
-    {
-        Row,
-        Col,
-        Box
-    }
-
-    private record struct Cell(CellType Type, (int Row, int Col) Cord, int Value);
 }

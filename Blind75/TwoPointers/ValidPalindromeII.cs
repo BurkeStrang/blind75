@@ -43,7 +43,7 @@ public static class ValidPalindromeII
         return true;
     }
 
-    private static bool IsPalindrome(string s, int left, int right)
+    private static bool IsPalindrome(ReadOnlySpan<char> s, int left, int right)
     {
         while (left < right)
         {

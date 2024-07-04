@@ -25,15 +25,15 @@ public static class IntersectionOfTwoArrays
 {
     public static int[] Intersect(int[] nums1, int[] nums2)
     {
-        // return [.. nums1.Intersect(nums2)];
-        HashSet<int> first = new(nums1);
+        HashSet<int> intersect = [];
+        HashSet<int> nums = new(nums1);
 
-        List<int> intersection = [];
-        foreach (int num in nums2)
+        for(int i = 0; i < nums2.Length; i++)
         {
-            if (first.Remove(num))
-                intersection.Add(num);
+            if(nums.Contains(nums2[i]))
+                intersect.Add(nums2[i]);
         }
-        return [.. intersection];
+
+        return [..intersect];
     }
 }

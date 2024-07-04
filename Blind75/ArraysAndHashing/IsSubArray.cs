@@ -2,14 +2,13 @@ namespace Blind75.ArraysAndHashing;
 
 public static class IsSubArray
 {
-    public static bool IsSubArraySegment(Span<int> mainArray, Span<int> subArray)
+    public static bool IsSubArraySegment(ReadOnlySpan<int> mainArray, ReadOnlySpan<int> subArray)
     {
         int front = 0;
         int subLength = subArray.Length;
         while (front + subLength < mainArray.Length)
         {
-            Span<int> segment = mainArray.Slice(front, subLength);
-            if (subArray.SequenceEqual(segment))
+            if (subArray.SequenceEqual(mainArray.Slice(front, subLength)))
                 return true;
             front++;
         }
@@ -19,14 +18,15 @@ public static class IsSubArray
     public static bool IsSubArrayCheckEachElementInArray(int[] mainArray, int[] subArray)
     {
         int front = 0;
-        while (front + subArray.Length < mainArray.Length)
+        int subLength = subArray.Length;
+
+        while(front + subLength < mainArray.Length)
         {
             int i = 0;
-            while (i < subArray.Length)
+            while(subArray[i] == mainArray[i + front])
             {
-                if (subArray[i] != mainArray[i + front])
-                    break;
-                if (++i == subArray.Length)
+                i++;
+                if(i == subLength)
                     return true;
             }
             front++;

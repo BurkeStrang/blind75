@@ -62,11 +62,12 @@ public class LongestPalindromeSubstringClass
     {
         // Arrange
         string s = "babad";
-        string expected = "aba";
+        string expected1 = "aba";
+        string expected2 = "bab";
         // Act
         string actual = LongestPalindromeSubstring.LongestPalindromeExpandAround(s);
         // Assert
-        Assert.Equal(expected, actual);
+        actual.Should().BeOneOf(expected1,expected2);
     }
     [Fact]
     public void Example7()
@@ -96,6 +97,18 @@ public class LongestPalindromeSubstringClass
         // Arrange
         string s = "racecar";
         string expected = "racecar";
+        // Act
+        string actual = LongestPalindromeSubstring.LongestPalindromeExpandAround(s);
+        // Assert
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact]
+    public void Example10()
+    {
+        // Arrange
+        string s = "noon";
+        string expected = "noon";
         // Act
         string actual = LongestPalindromeSubstring.LongestPalindromeExpandAround(s);
         // Assert

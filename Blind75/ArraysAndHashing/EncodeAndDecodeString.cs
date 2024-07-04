@@ -10,22 +10,19 @@ namespace Blind75.ArraysAndHashing;
 
 public static class Codec
 {
-    public static string Encode(IList<string> strs)
-    {
-        return string.Join("", strs.Select(s => $"{s.Length}#{s}"));
-    }
+    public static string Encode(IList<string> strs) =>
+        string.Join("", strs.Select(s => $"{s.Length}#{s}"));
 
     public static IList<string> Decode(string s)
     {
-        List<string> result = [];
-
-        for(int i = 0; i < s.Length;)
+        int i = 0;
+        IList<string> res = [];
+        while(i < s.Length)
         {
-            int hashIndex = s.IndexOf('#', i);
-            int length = int.Parse(s[i..hashIndex++]);
-            i = hashIndex + length;
-            result.Add(s[hashIndex..i]);
+            int length = s[i++] - '0';
+            res.Add(s.Substring(++i,length));
+            i += length;
         }
-        return result;
+        return res;
     }
 }

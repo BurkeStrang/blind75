@@ -24,34 +24,27 @@ public static class ThreeSumClass
 {
     public static IList<IList<int>> ThreeSum(int[] nums)
     {
-        List<IList<int>> res = [];
-
+        IList<IList<int>> res = [];
         Array.Sort(nums);
-        for (int i = 0; i < nums.Length - 1; i++)
+        for(int i = 0; i < nums.Length - 1; i++)
         {
-            // goes for the first element always
-            // and then skips the duplicates
-            if (i == 0 || nums[i - 1] != nums[i])
+            if(i == 0 || nums[i-1] != nums[i])
                 TwoSum(nums, i, res);
         }
         return res;
     }
 
-    private static void TwoSum(int[] nums, int i, List<IList<int>> res)
+    private static void TwoSum(int[] nums, int i, IList<IList<int>> res)
     {
         HashSet<int> set = [];
-
-        for (int j = i + 1; j < nums.Length; j++)
+        for(int j = i + 1; j < nums.Length; j++)
         {
-            // creates a complement thats counterpart will equal 0
             int complement = (nums[i] + nums[j]) * -1;
-
-            if (set.Contains(complement))
+            if(set.Contains(complement))
             {
                 res.Add([nums[i], nums[j], complement]);
-                // skips the duplicates
-                while (j + 1 < nums.Length && nums[j] == nums[j + 1])
-                    ++j;
+                while(j + 1 < nums.Length && nums[j] == nums[j + 1])
+                    j++;
             }
             set.Add(nums[j]);
         }

@@ -14,13 +14,13 @@ public static class GroupAnagramsClass
 {
     public static IList<IList<string>> GroupAnagrams(string[] strs)
     {
-        Dictionary<string, List<string>> anagrams = [];
-        foreach (string str in strs)
+        Dictionary<string, IList<string>> map = [];
+        foreach (string word in strs)
         {
-            string sortedStr = string.Concat(str.Order());
-            if (!anagrams.TryAdd(sortedStr, [str]))
-                anagrams[sortedStr].Add(str);
+            string ordered = string.Concat(word.Order());
+            if (!map.TryAdd(ordered, [word]))
+                map[ordered].Add(word);
         }
-        return [.. anagrams.Values];
+        return map.Select(x => x.Value).ToList();
     }
 }
