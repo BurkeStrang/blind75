@@ -11,15 +11,14 @@ namespace Blind75.BitManipulation;
 public static class NumberOfOneBits
 {
     public static int HammingWeight(uint n)
-    {
-        string binary = Convert.ToString(n, 2);
-        int hammingWeight = 0;
-        for (int i = 0; i < binary.Length; i++)
-        {
-            hammingWeight += binary[i] - '0';
-        }
-        return hammingWeight;
-    }
+        => Convert.ToString(n, 2).Count(c => c == '1');
+        // string binary = Convert.ToString(n, 2);
+        // int hammingWeight = 0;
+        // for (int i = 0; i < binary.Length; i++)
+        // {
+        //     hammingWeight += binary[i] - '0';
+        // }
+        // return hammingWeight;
 
     public static int AlterNateHammingWeight(uint n)
     {

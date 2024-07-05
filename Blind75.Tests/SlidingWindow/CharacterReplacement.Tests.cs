@@ -1,4 +1,4 @@
-namespace Blind75.SlidingWindow;
+namespace Blind75.Tests.SlidingWindow;
 
 public class CharacterReplacementTests
 {
@@ -8,7 +8,7 @@ public class CharacterReplacementTests
         int k = 2;
         string s = "ABAB";
         int res = CharacterReplacementClass.CharacterReplacement(s, k);
-        Assert.Equal(4, res);
+        res.Should().Be(4);
     }
 
     [Fact]
@@ -17,6 +17,6 @@ public class CharacterReplacementTests
         int k = 1;
         string s = "AABABBA";
         int res = CharacterReplacementClass.CharacterReplacement(s, k);
-        Assert.Equal(4, res);
+        res.Should().Be(4);
     }
 }

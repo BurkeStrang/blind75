@@ -9,10 +9,15 @@ You can perform this operation at most k times.
 Return the length of the longest substring containing the same letter you can get after performing the above operations.
 
 Example 1:
-
 Input: s = "ABAB", k = 2
 Output: 4
 Explanation: Replace the two 'A's with two 'B's or vice versa.
+
+Example 2:
+Input: s = "AABABBA", k = 1
+Output: 4
+Explanation: Replace the 'B' in the 2 index with 'A' and form "AAAABBA"
+or one 'A' in the middle with 'B' and form "AABBBBA".
 
 */
 public static class CharacterReplacementClass
@@ -20,23 +25,23 @@ public static class CharacterReplacementClass
     public static int CharacterReplacement(string s, int k)
     {
         int left = 0;
-        int maxLength = 0;
-        int mostFrequentLetterCount = 0;
-        int[] charCounts = new int[26];
+        int[] characters = new int[26];
+        int maxCharacter = 0; 
+        int maxWithReplacment = 0;
 
-        for (int right = 0; right < s.Length; right++)
+        for(int right = 0; right < s.Length; right++)
         {
-            mostFrequentLetterCount = Math.Max(mostFrequentLetterCount, ++charCounts[s[right] - 'A']);
-            int lettersToChange = right - left + 1 - mostFrequentLetterCount;
-            if (lettersToChange > k)
+            maxCharacter = Math.Max(maxCharacter, ++characters[s[right]-'A']);
+            int numOfChanges = right - left + 1 - maxCharacter;
+
+            if(numOfChanges > k)
             {
-                // Window is invalid, decrease char count and move left pointer
-                charCounts[s[left] - 'A']--;
+                // remove characters that are out of window
+                characters[s[left]-'A']--;
                 left++;
             }
-
-            maxLength = Math.Max(maxLength, right - left + 1);
+            maxWithReplacment = Math.Max(maxWithReplacment, right - left + 1);
         }
-        return maxLength;
+        return maxWithReplacment;
     }
 }
