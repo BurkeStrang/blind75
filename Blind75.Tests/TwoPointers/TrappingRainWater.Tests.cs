@@ -3,7 +3,7 @@ namespace Blind75.Tests.TwoPointers;
 public class TrappingRainWaterTest
 {
     [Fact]
-    public void ReturnsCorrectResult1()
+    public void Example1()
     {
         // Arrange
         int[] height = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1];
@@ -11,7 +11,7 @@ public class TrappingRainWaterTest
         // Act
         int result = TrappingRainWater.Trap(height);
         // Assert
-        Assert.Equal(expected, result);
+        result.Should().Be(expected);
     }
     [Fact]
     public void ReturnsCorrectResult2()
@@ -22,6 +22,6 @@ public class TrappingRainWaterTest
         // Act
         int result = TrappingRainWater.Trap(height);
         // Assert
-        Assert.Equal(expected, result);
+        result.Should().Be(expected);
     }
 }

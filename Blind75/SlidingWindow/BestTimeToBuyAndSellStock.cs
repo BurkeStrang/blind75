@@ -29,15 +29,14 @@ public static class BestTimeToBuyAndSellStock
 {
     public static int MaxProfit(int[] prices)
     {
-        int max = 0;
-        int min = int.MaxValue;
+        int maxProfit = 0;
+        int minPrice = int.MaxValue;
 
         foreach(int price in prices)
         {
-            min = Math.Min(min, price);
-            max = Math.Max(max, price - min);
+            minPrice = Math.Min(minPrice, price);
+            maxProfit = Math.Max(maxProfit, price - minPrice);
         }
-
-        return max;
+        return maxProfit;
     }
 }

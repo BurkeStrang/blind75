@@ -36,7 +36,7 @@ public static class TwoSumInputII
         while (left < right)
         {
             int sum = numbers[left] + numbers[right];
-            if (target == sum)
+            if (sum == target)
                 return [left + 1, right + 1];
             if (sum < target)
                 left++;
