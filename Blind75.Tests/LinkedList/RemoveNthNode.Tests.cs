@@ -1,7 +1,10 @@
+namespace Blind75.Tests.LinkedList;
+
+
 public class RemoveNthNode
 {
     [Fact]
-    public void RemoveNthNodeCorrect()
+    public void Example1()
     {
         ListNode originalList = new ListNode(0);
         originalList.next = new ListNode(1);
@@ -19,6 +22,17 @@ public class RemoveNthNode
         expectedList.next.next.next.next = new ListNode(4);
         expectedList.next.next.next.next.next = new ListNode(11);
 
-        Assert.Equivalent(expectedList, RemoveNthNodeClass.RemoveNthFromEnd(originalList, 2));
+        ListNode? res = RemoveNthNodeClass.RemoveNthFromEnd(originalList, 2);
+        expectedList.Should().BeEquivalentTo(res);
+    }
+
+    [Fact]
+    public void Example2()
+    {
+        ListNode originalList = new(0);
+        ListNode? expectedList = null;
+
+        ListNode? res = RemoveNthNodeClass.RemoveNthFromEnd(originalList,1);
+        res.Should().BeEquivalentTo(expectedList);
     }
 }

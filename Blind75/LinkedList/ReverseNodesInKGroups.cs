@@ -64,11 +64,8 @@ public static class ReverseNodesInKGroups
 
     private static ListNode? GetKth(ListNode? curr, int k)
     {
-        while (curr != null && k > 0)
-        {
+        while (curr != null && k-- > 0)
             curr = curr.next;
-            k -= 1;
-        }
 
         return curr;
     }

@@ -53,9 +53,7 @@ public class LRUCache(int capacity)
     public int Get(int key)
     {
         if (!_dict.TryGetValue(key, out LinkedListNode<(int key, int value)>? value))
-        {
             return -1;
-        }
 
         LinkedListNode<(int key, int value)> node = value;
         _values.Remove(node);
@@ -77,10 +75,9 @@ public class LRUCache(int capacity)
         }
 
         LinkedListNode<(int key, int value)>? existingNode = _dict.GetValueOrDefault(key);
+
         if (existingNode != null)
-        {
             _values.Remove(existingNode);
-        }
 
         _values.AddFirst((key, value));
         LinkedListNode<(int key, int value)>? firstNode = _values.First;

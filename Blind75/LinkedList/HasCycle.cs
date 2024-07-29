@@ -4,14 +4,14 @@ public static class HasCycleClass
 {
     public static bool HasCycle(ListNode head)
     {
-        ListNode? fast = head;
         ListNode? slow = head;
+        ListNode? fast = head;
 
-        while (fast != null && fast.next != null)
+        while(fast.next is not null && fast.next!.next is not null)
         {
-            fast = fast?.next?.next;
-            slow = slow?.next;
-            if (slow == fast)
+            slow = slow!.next;
+            fast = fast.next.next;
+            if(fast == slow)
                 return true;
         }
         return false;

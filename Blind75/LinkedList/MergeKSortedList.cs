@@ -8,20 +8,10 @@ public static class MergeKSortedListClass
 {
     public static ListNode? MergeKLists(ListNode?[] lists)
     {
-        if (lists?.Length == 0)
-            return null;
-
-        while (lists?.Length > 1)
+        for (int i = 1; i < lists.Length; i++)
         {
-            ListNode?[] mergedLists = new ListNode[(lists.Length + 1) / 2];
-            for (int i = 0; i < lists.Length; i += 2)
-            {
-                ListNode? l1 = lists[i];
-                ListNode? l2 = (i + 1 < lists.Length) ? lists[i + 1] : null;
-                mergedLists[i / 2] = MergeTwoListClass.MergeTwoLists(l1, l2);
-            }
-            lists = mergedLists;
+            lists[0] = MergeTwoListClass.MergeTwoLists(lists[0], lists[i]);
         }
-        return lists?[0];
+        return lists[0];
     }
 }

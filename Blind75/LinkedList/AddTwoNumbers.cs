@@ -37,20 +37,19 @@ public static class AddTwoNumbersClass
         ListNode current = sumList;
         int carry = 0;
 
-        while (l1 != null || l2 != null || carry == 1)
+        while(l1 is not null || l2 is not null || carry == 1)
         {
-            int v1 = l1 == null ? 0 : l1.val;
-            int v2 = l2 == null ? 0 : l2.val;
-            int sum = v1 + v2 + carry;
+            int l1v = l1 is null ? 0 : l1.val;
+            int l2v = l2 is null ? 0 : l2.val;
+            int sum = l1v + l2v + carry;
             carry = sum > 9 ? 1 : 0;
             sum %= 10;
-            current.next = new ListNode(sum);
 
+            current.next = new(sum);
             current = current.next;
             l1 = l1?.next;
             l2 = l2?.next;
         }
-
         return sumList.next;
     }
 }

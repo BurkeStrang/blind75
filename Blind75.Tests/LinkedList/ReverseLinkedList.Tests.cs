@@ -1,16 +1,55 @@
+namespace Blind75.Tests.LinkedList;
+
 public class ReverseLinkedList
 {
     [Fact]
     public void ReverseLinkedListCorrect()
     {
-        ListNode list = new ListNode(0);
-        list.next = new ListNode(1);
-        list.next.next = new ListNode(2);
+        ListNode list = new(0)
+        {
+            next = new(1)
+            {
+                next = new(2)
+            }
 
-        ListNode reversedList = new ListNode(2);
-        reversedList.next = new ListNode(1);
-        reversedList.next.next = new ListNode(0);
+        };
 
-        Assert.Equivalent(reversedList, ReverseLinkedListClass.ReverseList(list));
+        ListNode reversedList = new(2)
+        {
+            next = new(1)
+            {
+                next = new(0)
+            }
+        };
+
+        reversedList.Should().BeEquivalentTo(ReverseLinkedListClass.ReverseList(list));
+    }
+
+    [Fact]
+    public void ReverseLinkedListEmpty()
+    {
+        ListNode? list = null;
+        ListNode? reversedList = null;
+        reversedList!.Should().BeEquivalentTo(ReverseLinkedListClass.ReverseList(list));
+    }
+
+    [Fact]
+    public void ReverseLinkedListRecursiveCorrect()
+    {
+        ListNode list = new(0)
+        {
+            next = new(1)
+            {
+                next = new(2)
+            }
+        };
+        ListNode reversedList = new(2)
+        {
+            next = new(1)
+            {
+                next = new(0)
+            }
+        };
+        reversedList.Should().BeEquivalentTo(ReverseLinkedListClass.ReverseListRecursive(list));
     }
 }

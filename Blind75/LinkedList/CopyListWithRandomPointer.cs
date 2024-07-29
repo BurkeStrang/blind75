@@ -73,7 +73,7 @@ public static class CopyListWithRandomPointer
         cur2 = copy;
 
         // second pass to update the random pointers
-        while (cur2 != null)
+        while (cur2 is not null)
         {
             ListNode? random = cur1!.random != null ? map[cur1.random] : null;
 

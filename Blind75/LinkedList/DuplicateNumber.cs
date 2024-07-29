@@ -43,13 +43,16 @@ public static class DuplicateNumber
 
     private static int FloydAlgorithm(int[] nums)
     {
+        // Console.WriteLine("--------------------------");
         int slow = 0;
         int fast = 0;
 
+        // this is where the cycle is detected 
         while (true)
         {
             slow = nums[slow];
             fast = nums[nums[fast]];
+            // Console.WriteLine($"slow: {slow}, fast: {fast}");
             if (slow == fast)
                 break;
         }

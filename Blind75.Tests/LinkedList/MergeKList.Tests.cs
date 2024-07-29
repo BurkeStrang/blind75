@@ -1,3 +1,5 @@
+namespace Blind75.Tests.LinkedList;
+
 public class MergeKList
 {
     [Fact]

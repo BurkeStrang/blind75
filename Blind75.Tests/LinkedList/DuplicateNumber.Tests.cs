@@ -1,4 +1,4 @@
-namespace Blind75.LinkedList;
+namespace Blind75.Tests.LinkedList;
 
 public class DuplicateNumberTests
 {
@@ -10,7 +10,7 @@ public class DuplicateNumberTests
         // Act
         int result = DuplicateNumber.FindDuplicate(nums);
         // Assert
-        Assert.Equal(2, result);
+        result.Should().Be(2);
     }
     [Fact]
     public void FindDuplicate_Example2()

@@ -1,4 +1,4 @@
-namespace Blind75.LinkedList;
+namespace Blind75.Tests.LinkedList;
 
 public class AddTwoNumbersTests
 {
