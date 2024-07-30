@@ -12,6 +12,11 @@ public static class ContainsDuplicateClass
     public static bool ContainsDuplicate(int[] nums)
     {
         HashSet<int> set = [];
-        return nums.Any(x => !set.Add(x));
+        foreach(int num in nums)
+        {
+            if(!set.Add(num))
+                return true;
+        }
+        return false;
     }
 }

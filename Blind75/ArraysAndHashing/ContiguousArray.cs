@@ -20,7 +20,9 @@ public static class ContiguousArray
 {
     public static int FindMaxLength(int[] nums)
     {
-        Dictionary<int, int> dict = new() { [0] = -1 };
+        Dictionary<int, int> dict = [];
+        // fake value
+        dict.Add(0,-1);
         int zeros = 0;
         int ones = 0;
         int max = 0;
