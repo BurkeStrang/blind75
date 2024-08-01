@@ -11,7 +11,7 @@ namespace Blind75.ArraysAndHashing;
 public static class Codec
 {
     public static string Encode(IList<string> strs) =>
-        string.Concat(strs.Select(s => $"{s.Length}#{s}"));
+        string.Concat(strs.SelectMany(s => $"{s.Length}#{s}"));
 
     public static IList<string> Decode(string s)
     {
