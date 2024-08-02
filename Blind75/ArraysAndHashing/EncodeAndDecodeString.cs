@@ -17,10 +17,11 @@ public static class Codec
     {
         int i = 0;
         IList<string> res = [];
-        while(i < s.Length)
+        while (i < s.Length)
         {
+            // skips the next character so could be anything
             int length = s[i++] - '0';
-            res.Add(s.Substring(++i,length));
+            res.Add(s.Substring(++i, length));
             i += length;
         }
         return res;
