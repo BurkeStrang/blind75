@@ -11,6 +11,7 @@ public static class ContainsDuplicateClass
 {
     public static bool ContainsDuplicate(int[] nums)
     {
+        // this is a test
         HashSet<int> set = [];
         return !nums.All(set.Add);
     }
