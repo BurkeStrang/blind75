@@ -16,15 +16,15 @@ public static class GroupAnagramsClass
     {
         IList<IList<string>> res = [];
 
-        Dictionary<IOrderedEnumerable<char>, IList<string>> dictionary = [];
+        Dictionary<string, IList<string>> dictionary = [];
 
         foreach (string s in strs)
         {
-            IOrderedEnumerable<char> key = s.Order();
+            string key = string.Concat(s.Order());
             if (!dictionary.TryAdd(key, [s]))
                 dictionary[key].Add(s);
         }
-        foreach (KeyValuePair<IOrderedEnumerable<char>, IList<string>> list in dictionary)
+        foreach (KeyValuePair<string, IList<string>> list in dictionary)
         {
             res.Add(list.Value);
         }
