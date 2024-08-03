@@ -14,14 +14,14 @@ public static class UniqueInOrderKata
 {
     public static IEnumerable<T> UniqueInOrder<T>(IEnumerable<T> iterable)
     {
+        using IEnumerator<T> enumerator = iterable.GetEnumerator();
         T? previous = default;
-        foreach (T current in iterable)
+
+        while (enumerator.MoveNext())
         {
-            if (!current!.Equals(previous))
-            {
-                previous = current;
-                yield return current;
-            }
+            if (!previous!.Equals(enumerator.Current))
+                yield return enumerator.Current;
+            previous = enumerator.Current;
         }
     }
 }
