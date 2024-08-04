@@ -30,8 +30,6 @@ public static class ConcatenationOfArray
 {
     public static int[] GetConcatenation(int[] nums)
     {
-        List<int> numsList = new(nums);
-        numsList.AddRange(nums);
-        return [..numsList];
+        return [..nums.Concat(nums)];
     }
 }
