@@ -1,4 +1,4 @@
-namespace Blind75.ArraysAndHashing; 
+namespace Blind75.ArraysAndHashing;
 
 // Given an integer array nums of length n, you want to create an array
 // ans of length 2n where ans[i] == nums[i] and ans[i + n] == nums[i] for 0 <= i < n (0-indexed).
@@ -28,8 +28,5 @@ namespace Blind75.ArraysAndHashing;
 
 public static class ConcatenationOfArray
 {
-    public static int[] GetConcatenation(int[] nums)
-    {
-        return [..nums.Concat(nums)];
-    }
+    public static int[] GetConcatenation(int[] nums) => [.. nums.Concat(nums)];
 }
