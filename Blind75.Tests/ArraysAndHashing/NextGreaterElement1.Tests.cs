@@ -3,7 +3,7 @@ namespace Blind75.Tests.ArraysAndHashing;
 public class NextGreaterElement1Tests
 {
     [Fact]
-    public void Test1()
+    public void Example1()
     {
         // Arrange
         int[] nums1 = [4, 1, 2];
@@ -12,10 +12,10 @@ public class NextGreaterElement1Tests
         // Act
         int[] actual = NextGreater.NextGreaterElement(nums1, nums2);
         // Assert
-        Assert.Equal(expected, actual);
+        actual.Should().BeEquivalentTo(expected);
     }
     [Fact]
-    public void Test2()
+    public void Example2()
     {
         // Arrange
         int[] nums1 = [2, 4];
@@ -24,6 +24,6 @@ public class NextGreaterElement1Tests
         // Act
         int[] actual = NextGreater.NextGreaterElement(nums1, nums2);
         // Assert
-        Assert.Equal(expected, actual);
+        actual.Should().BeEquivalentTo(expected);
     }
 }

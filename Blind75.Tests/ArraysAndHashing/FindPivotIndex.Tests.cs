@@ -3,7 +3,7 @@ namespace Blind75.Tests.ArraysAndHashing;
 public class FindPivotIndexTests
 {
     [Fact]
-    public void Test1()
+    public void Example1()
     {
         // Arrange
         int[] nums = [1, 7, 3, 6, 5, 6];
@@ -14,7 +14,7 @@ public class FindPivotIndexTests
         Assert.Equal(expected, actual);
     }
     [Fact]
-    public void Test2()
+    public void Example2()
     {
         // Arrange
         int[] nums = [1, 2, 3];
