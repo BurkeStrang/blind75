@@ -34,7 +34,7 @@ public class MyHashSet
 
     public MyHashSet()
     {
-        _set = new bool[1_000_001];
+        _set = new bool[107];
     }
 
     public void Add(int key)

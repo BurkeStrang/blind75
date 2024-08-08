@@ -29,5 +29,9 @@ public class DesignHashSetTests
         Assert.False(hashSet.Contains(2));
         hashSet.Add(1);
         Assert.True(hashSet.Contains(1));
+        hashSet.Add(106);
+        Assert.True(hashSet.Contains(106));
+        hashSet.Add(0);
+        Assert.True(hashSet.Contains(0));
     }
 }
