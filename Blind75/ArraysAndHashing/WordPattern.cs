@@ -15,6 +15,10 @@ namespace Blind75.ArraysAndHashing;
 // Input: pattern = "aaaa", s = "dog cat cat dog"
 // Output: false
 //
+// Example 4:
+// Input: pattern = "ab", s = "dog dog"
+// Output: false
+//
 // Constraints:
 // 1 <= pattern.length <= 300
 // pattern contains only lower-case English letters.
@@ -27,24 +31,22 @@ public static class WordPatternClass
 {
     public static bool WordPattern(string pattern, string s)
     {
-        string[] words = s.Split(' ');
+        string[] words = s.Split(" ");
         if (pattern.Length != words.Length)
             return false;
-        Dictionary<char, string> dict = [];
-        HashSet<string> set = [];
+        Dictionary<char, string> charToWord = [];
+        Dictionary<string, char> wordToChar = [];
         for (int i = 0; i < pattern.Length; i++)
         {
-            char c = pattern[i];
-            if (dict.TryGetValue(c, out string? value))
+            if (!charToWord.TryAdd(pattern[i], words[i]))
             {
-                if (value != words[i])
+                if (charToWord[pattern[i]] != words[i])
                     return false;
             }
-            else
+            if (!wordToChar.TryAdd(words[i], pattern[i]))
             {
-                if (!set.Add(words[i]))
+                if (wordToChar[words[i]] != pattern[i])
                     return false;
-                dict[c] = words[i];
             }
         }
         return true;

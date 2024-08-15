@@ -28,19 +28,20 @@ public class IsomorphicStrings
     {
         if (s.Length != t.Length)
             return false;
+
         Dictionary<char, char> sToT = [];
         Dictionary<char, char> tToS = [];
+
         for (int i = 0; i < s.Length; i++)
         {
-            char sChar = s[i];
-            char tChar = t[i];
-            if (sToT.TryGetValue(sChar, out char sValue) && sValue != tChar)
-                return false;
-            if (tToS.TryGetValue(tChar, out char tValue) && tValue != sChar)
-                return false;
-            sToT[sChar] = tChar;
-            tToS[tChar] = sChar;
+            if (!sToT.TryAdd(s[i], t[i]))
+                if (sToT[s[i]] != t[i])
+                    return false;
+            if (!tToS.TryAdd(t[i], s[i]))
+                if (tToS[t[i]] != s[i])
+                    return false;
         }
+
         return true;
     }
 }

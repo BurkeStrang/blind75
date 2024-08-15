@@ -38,9 +38,7 @@ public static class NextGreater
         foreach (int num in nums2)
         {
             while (stack.Count > 0 && stack.Peek() < num)
-            {
                 dict.Add(stack.Pop(), num);
-            }
             stack.Push(num);
         }
         int[] result = new int[nums1.Length];

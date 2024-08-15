@@ -48,15 +48,10 @@ public static class RemoveElementClass
 {
     public static int RemoveElement(int[] nums, int val)
     {
-        int i = 0;
+        int notEqualIndex = 0;
         foreach (int num in nums)
-        {
             if (num != val)
-            {
-                nums[i] = num;
-                i++;
-            }
-        }
-        return i;
+                nums[notEqualIndex++] = num;
+        return notEqualIndex;
     }
 }

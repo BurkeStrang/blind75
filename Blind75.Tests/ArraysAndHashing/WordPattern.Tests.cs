@@ -10,6 +10,7 @@ public class WordPatternTests
         bool expected = true;
         Assert.Equal(expected, WordPatternClass.WordPattern(pattern, s));
     }
+
     [Fact]
     public void Example2()
     {
@@ -18,6 +19,7 @@ public class WordPatternTests
         bool expected = false;
         Assert.Equal(expected, WordPatternClass.WordPattern(pattern, s));
     }
+
     [Fact]
     public void Example3()
     {
@@ -26,6 +28,7 @@ public class WordPatternTests
         bool expected = false;
         Assert.Equal(expected, WordPatternClass.WordPattern(pattern, s));
     }
+
     [Fact]
     public void Example4()
     {
@@ -33,5 +36,19 @@ public class WordPatternTests
         string s = "dog dog dog dog";
         bool expected = true;
         Assert.Equal(expected, WordPatternClass.WordPattern(pattern, s));
+    }
+
+    [Fact]
+    public void WordPattern_TwoDifferentCharsSameWord_ReturnsFalse()
+    {
+        // Arrange
+        string pattern = "ab";
+        string s = "dog dog";
+
+        // Act
+        bool result = WordPatternClass.WordPattern(pattern, s);
+
+        // Assert
+        Assert.False(result);
     }
 }

@@ -25,21 +25,18 @@ public static class NumberOfGoodPairs
 {
     public static int NumIdenticalPairs(int[] nums)
     {
-        int result = 0;
         Dictionary<int, int> dict = [];
+        int res = 0;
         foreach (int num in nums)
         {
-            if (dict.TryGetValue(num, out int value))
+            if (dict.TryGetValue(num, out int count))
             {
-                result += value;
+                res += count;
                 dict[num]++;
             }
             else
-            {
-                dict[num] = 1;
-            }
+                dict.Add(num, 1);
         }
-        return result;
+        return res;
     }
 }
-

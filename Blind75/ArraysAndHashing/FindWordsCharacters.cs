@@ -1,7 +1,7 @@
 namespace Blind75.ArraysAndHashing;
 
 // You are given an array of strings words and a string chars.
-// A string is good if it can be formed by characters from chars (each character can only be used once).
+// A string is good if it can be formed by characters from chars (each character can only be used once (per word)).
 // Return the sum of lengths of all good strings in words.
 //
 // Example 1:
@@ -23,44 +23,26 @@ public static class FindWordsCharacters
 {
     public static int CountCharacters(string[] words, string chars)
     {
-        int result = 0;
-        Dictionary<char, int> dict = [];
+        int charMatchCount = 0;
+        int[] charCount = new int[26];
         foreach (char c in chars)
-        {
-            if (!dict.TryAdd(c, 1))
-                dict[c]++;
-        }
+            charCount[c - 'a']++;
+
         foreach (string word in words)
         {
-            Dictionary<char, int> temp = [];
-            bool good = true;
+            int[] tempCharCount = (int[])charCount.Clone();
+            int charLength = 0;
             foreach (char c in word)
             {
-                if (dict.TryGetValue(c, out int value))
+                if (tempCharCount[c - 'a'] > 0)
                 {
-                    if (temp.TryGetValue(c, out int count))
-                    {
-                        if (count == value)
-                        {
-                            good = false;
-                            break;
-                        }
-                        temp[c]++;
-                    }
-                    else
-                    {
-                        temp[c] = 1;
-                    }
-                }
-                else
-                {
-                    good = false;
-                    break;
+                    charLength++;
+                    tempCharCount[c - 'a']--;
                 }
             }
-            if (good)
-                result += word.Length;
+            if (charLength == word.Length)
+                charMatchCount += charLength;
         }
-        return result;
+        return charMatchCount;
     }
 }

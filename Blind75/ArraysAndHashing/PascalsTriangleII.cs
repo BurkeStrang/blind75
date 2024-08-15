@@ -29,9 +29,7 @@ public static class PascalsTriangleII
         {
             result.Add(1);
             for (int j = i - 1; j > 0; j--)
-            {
                 result[j] += result[j - 1];
-            }
         }
         return result;
     }

@@ -23,12 +23,7 @@ public static class MaximumNumberOfBalloons
 {
     public static int MaxNumberOfBalloons(string text)
     {
-        Dictionary<char, int> dict = [];
-        foreach (char c in text)
-        {
-            if(!dict.TryAdd(c, 1))
-                dict[c]++;
-        }
+        Dictionary<char, int> dict = text.GroupBy(c => c).ToDictionary(c => c.Key, c => c.Count());
         int min = int.MaxValue;
         min = Math.Min(min, dict.GetValueOrDefault('b', 0));
         min = Math.Min(min, dict.GetValueOrDefault('a', 0));

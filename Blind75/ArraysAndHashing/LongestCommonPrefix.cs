@@ -17,9 +17,9 @@ namespace Blind75.ArraysAndHashing;
 // 0 <= strs[i].length <= 200
 // strs[i] consists of only lowercase English letters.
 
-public static class LongestCommonPrefixClass
+public class LongestCommonPrefixClass
 {
-    public static string LongestCommonPrefix(string[] strs)
+    public static string LongestCommonPrefix(Span<string> strs)
     {
         if (strs.Length == 0)
             return "";
@@ -28,6 +28,7 @@ public static class LongestCommonPrefixClass
         {
             while (!strs[i].StartsWith(prefix))
             {
+                // replace with the prefix minus the last character
                 prefix = prefix[..^1];
                 if (prefix == "")
                     return "";
