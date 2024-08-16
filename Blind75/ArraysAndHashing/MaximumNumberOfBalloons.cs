@@ -23,13 +23,13 @@ public static class MaximumNumberOfBalloons
 {
     public static int MaxNumberOfBalloons(string text)
     {
-        Dictionary<char, int> dict = text.GroupBy(c => c).ToDictionary(c => c.Key, c => c.Count());
-        int min = int.MaxValue;
-        min = Math.Min(min, dict.GetValueOrDefault('b', 0));
-        min = Math.Min(min, dict.GetValueOrDefault('a', 0));
-        min = Math.Min(min, dict.GetValueOrDefault('l', 0) / 2);
-        min = Math.Min(min, dict.GetValueOrDefault('o', 0) / 2);
-        min = Math.Min(min, dict.GetValueOrDefault('n', 0));
-        return min;
+        // balloon
+        Dictionary<char, int> dict = text.GroupBy(x => x).ToDictionary(x => x.Key, x => x.Count());
+        int b = dict.GetValueOrDefault('b',0);
+        int a = Math.Min(dict.GetValueOrDefault('a',0),b);
+        int l = Math.Min(dict.GetValueOrDefault('l', 0)/2,a);
+        int o = Math.Min(dict.GetValueOrDefault('o', 0)/2,l);
+        int n = Math.Min(dict.GetValueOrDefault('n',0),o);
+        return n;
     }
 }

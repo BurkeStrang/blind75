@@ -21,6 +21,9 @@ namespace Blind75.ArraysAndHashing;
 
 public static class MajorityElementClass
 {
+    // this solutions does not confirm if the majority element exists
+    // it assumes that the majority element always exists in the array
+    // it uses Boyer-Moore Voting Algorithm
     public static int MajorityElement(int[] nums)
     {
         int majorityElement = 0;
