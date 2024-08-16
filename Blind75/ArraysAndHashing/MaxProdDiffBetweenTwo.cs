@@ -27,23 +27,29 @@ public static class MaxProdDiffBetweenTwo
 {
     public static int MaxProductDifference(int[] nums)
     {
-        int max1 = 0,
-            max2 = 0,
-            min1 = 10001,
-            min2 = 10001;
+        int largest = 0,
+            secondLargest = 0,
+            secondSmallest = 10001,
+            smallest = 10001;
         for (int i = 0; i < nums.Length; i++)
         {
-            if (nums[i] > max1 || nums[i] > max2)
+            // secondLargest may be larger than largest in some scenarios
+            if (nums[i] > largest || nums[i] > secondLargest)
             {
-                max2 = Math.Max(max1, max2);
-                max1 = nums[i];
+                // this is second largest
+                secondLargest = Math.Max(largest, secondLargest);
+                // this is largest
+                largest = nums[i];
             }
-            if (nums[i] < min1 || nums[i] < min2)
+            // secondSmallest may be smaller than smallest in some scenarios
+            if (nums[i] < smallest || nums[i] < secondSmallest)
             {
-                min2 = Math.Min(min1, min2);
-                min1 = nums[i];
+                // this is the smallest
+                smallest = Math.Min(secondSmallest, smallest);
+                // this is second smallest
+                secondSmallest = nums[i];
             }
         }
-        return (max1 * max2) - (min1 * min2);
+        return (largest * secondLargest) - (secondSmallest * smallest);
     }
 }
