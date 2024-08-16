@@ -20,14 +20,30 @@ namespace Blind75.ArraysAndHashing;
 //
 // Constraints:
 //
-// 4 <= nums.length <= 104
-// 1 <= nums[i] <= 104
+// 4 <= nums.length <= 10^4
+// 1 <= nums[i] <= 10^4
 
 public static class MaxProdDiffBetweenTwo
 {
     public static int MaxProductDifference(int[] nums)
     {
-        Array.Sort(nums);
-        return nums[^1] * nums[^2] - nums[0] * nums[1];
+        int max1 = 0,
+            max2 = 0,
+            min1 = 10001,
+            min2 = 10001;
+        for (int i = 0; i < nums.Length; i++)
+        {
+            if (nums[i] > max1 || nums[i] > max2)
+            {
+                max2 = Math.Max(max1, max2);
+                max1 = nums[i];
+            }
+            if (nums[i] < min1 || nums[i] < min2)
+            {
+                min2 = Math.Min(min1, min2);
+                min1 = nums[i];
+            }
+        }
+        return (max1 * max2) - (min1 * min2);
     }
 }
