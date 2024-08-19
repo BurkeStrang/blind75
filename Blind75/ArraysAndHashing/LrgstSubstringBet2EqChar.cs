@@ -31,14 +31,8 @@ public static class LrgstSubstringBet2EqChar
         Dictionary<char, int> dict = [];
         for (int i = 0; i < s.Length; i++)
         {
-            if (dict.TryGetValue(s[i], out int value))
-            {
-                max = Math.Max(max, i - value - 1);
-            }
-            else
-            {
-                dict[s[i]] = i;
-            }
+            if (!dict.TryAdd(s[i], i))
+                max = Math.Max(max, i - dict[s[i]] - 1);
         }
         return max;
     }
