@@ -1,4 +1,4 @@
-namespace Blind75.ArraysAndHashing;
+namespace Blind75.TwoPointers;
 
 /*
 
@@ -36,9 +36,9 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 */
 
-public static class RemoveDuplicates
+public static class RemoveDups
 {
-    public static int RemoveDuplicatesMethod(int[] nums)
+    public static int RemoveDuplicates(int[] nums)
     {
         int duplicateReplacer = 0;
         for (int i = 1; i < nums.Length; i++)
