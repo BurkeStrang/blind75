@@ -22,6 +22,8 @@ public static class SrtArray
 {
     public static int[] SortArray(int[] nums)
     {
+        // this is using count sort but I need to understand when to use this or other sorting algorithms
+        //
         // Intuition
         // Counting Sort is an efficient algorithm for sorting integers when the range of values (k)
         // is not significantly larger than the number of elements (n).
@@ -34,6 +36,7 @@ public static class SrtArray
         // It then modifies the count array such that each element at each index stores the sum of previous counts.
         // This modification helps to place the elements in the correct positions in the output array.
         // Finally, it builds the output array by placing each element at its correct position and decreases the count by one.
+
         int minValue = nums.Min();
         int maxValue = nums.Max();
         int range = maxValue - minValue + 1;
