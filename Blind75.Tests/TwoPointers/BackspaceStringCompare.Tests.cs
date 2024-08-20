@@ -14,4 +14,14 @@ public class BackspaceStringCompareTests
         // Assert
         Assert.Equal(expected, actual);
     }
+
+    [Fact]
+    public void Extra()
+    {
+        // Arrange
+        // Act
+        bool actual = BackspaceStringCompare.BackspaceCompare("xywrrmp", "xywrrmu#p");
+        // Assert
+        Assert.True(actual);
+    }
 }
