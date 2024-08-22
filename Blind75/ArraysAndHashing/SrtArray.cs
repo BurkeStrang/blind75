@@ -97,23 +97,6 @@ public static class SrtArray
         }
     }
 
-    static void BubbleSort(int[] array)
-    {
-        int n = array.Length;
-        for (int i = 0; i < n - 1; i++)
-        {
-            // Last i elements are already sorted
-            for (int j = 0; j < n - i - 1; j++)
-            {
-                if (array[j] > array[j + 1])
-                {
-                    // Swap array[j] and array[j+1]
-                    (array[j + 1], array[j]) = (array[j], array[j + 1]);
-                }
-            }
-        }
-    }
-
     static void QuickSort(int[] array, int low, int high)
     {
         if (low < high)
@@ -147,5 +130,22 @@ public static class SrtArray
         // Swap array[i+1] with the pivot element
         (array[high], array[i + 1]) = (array[i + 1], array[high]);
         return i + 1; // Return the partitioning index
+    }
+
+    static void BubbleSort(int[] array)
+    {
+        int n = array.Length;
+        for (int i = 0; i < n - 1; i++)
+        {
+            // Last i elements are already sorted
+            for (int j = 0; j < n - i - 1; j++)
+            {
+                if (array[j] > array[j + 1])
+                {
+                    // Swap array[j] and array[j+1]
+                    (array[j + 1], array[j]) = (array[j], array[j + 1]);
+                }
+            }
+        }
     }
 }
