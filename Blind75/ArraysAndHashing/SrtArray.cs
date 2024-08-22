@@ -22,46 +22,130 @@ public static class SrtArray
 {
     public static int[] SortArray(int[] nums)
     {
-        // this is using count sort but I need to understand when to use this or other sorting algorithms
-        //
-        // Intuition
-        // Counting Sort is an efficient algorithm for sorting integers when the range of values (k)
-        // is not significantly larger than the number of elements (n).
-        //
-        // Approach
-        // First, it finds the minimum and maximum values in the input array to determine the range of the numbers.
-        // It creates a count array to store the count of each unique number in the input array.
-        // The size of the count array is determined by the range of numbers.
-        // It fills the count array with the occurrences of each number.
-        // It then modifies the count array such that each element at each index stores the sum of previous counts.
-        // This modification helps to place the elements in the correct positions in the output array.
-        // Finally, it builds the output array by placing each element at its correct position and decreases the count by one.
+        MergeSort(nums, 0, nums.Length - 1);
+        QuickSort(nums, 0, nums.Length - 1);
+        BubbleSort(nums);
+        return nums;
+    }
 
-        int minValue = nums.Min();
-        int maxValue = nums.Max();
-        int range = maxValue - minValue + 1;
-        int[] count = new int[range];
-        int[] output = new int[nums.Length];
-
-        // Count the occurrences of each number
-        foreach (int num in nums)
+    static void MergeSort(int[] array, int left, int right)
+    {
+        if (left < right)
         {
-            count[num - minValue]++;
+            int middle = left + (right - left) / 2;
+
+            // Sort first half
+            MergeSort(array, left, middle);
+            // Sort second half
+            MergeSort(array, middle + 1, right);
+
+            // Merge the sorted halves
+            Merge(array, left, middle, right);
+        }
+    }
+
+    static void Merge(int[] array, int left, int middle, int right)
+    {
+        // Find sizes of two subarrays to be merged
+        int n1 = middle - left + 1;
+        int n2 = right - middle;
+
+        // Create temp arrays
+        int[] l = new int[n1];
+        int[] r = new int[n2];
+
+        // Copy data to temp arrays L[] and R[]
+        Array.Copy(array, left, l, 0, n1);
+        Array.Copy(array, middle + 1, r, 0, n2);
+
+        // Merge the temp arrays
+
+        int i = 0,
+            j = 0;
+
+        // Initial index of merged subarray
+        int k = left;
+        while (i < n1 && j < n2)
+        {
+            if (l[i] <= r[j])
+            {
+                array[k] = l[i];
+                i++;
+            }
+            else
+            {
+                array[k] = r[j];
+                j++;
+            }
+            k++;
         }
 
-        // Update the count array to hold the actual positions
-        for (int i = 1; i < count.Length; i++)
+        // Copy the remaining elements of l[], if any
+        while (i < n1)
         {
-            count[i] += count[i - 1];
+            array[k] = l[i];
+            i++;
+            k++;
         }
 
-        // Build the output array
-        for (int i = nums.Length - 1; i >= 0; i--)
+        // Copy the remaining elements of r[], if any
+        while (j < n2)
         {
-            output[count[nums[i] - minValue] - 1] = nums[i];
-            count[nums[i] - minValue]--;
+            array[k] = r[j];
+            j++;
+            k++;
+        }
+    }
+
+    static void BubbleSort(int[] array)
+    {
+        int n = array.Length;
+        for (int i = 0; i < n - 1; i++)
+        {
+            // Last i elements are already sorted
+            for (int j = 0; j < n - i - 1; j++)
+            {
+                if (array[j] > array[j + 1])
+                {
+                    // Swap array[j] and array[j+1]
+                    (array[j + 1], array[j]) = (array[j], array[j + 1]);
+                }
+            }
+        }
+    }
+
+    static void QuickSort(int[] array, int low, int high)
+    {
+        if (low < high)
+        {
+            // Partition the array and get the pivot index
+            int pivotIndex = Partition(array, low, high);
+
+            // Recursively sort elements before and after partition
+            QuickSort(array, low, pivotIndex - 1);
+            QuickSort(array, pivotIndex + 1, high);
+        }
+    }
+
+    static int Partition(int[] array, int low, int high)
+    {
+        // Select the pivot element (we'll use the last element)
+        int pivot = array[high];
+        int i = low - 1; // Index of the smaller element
+
+        for (int j = low; j < high; j++)
+        {
+            // If the current element is smaller than or equal to the pivot
+            if (array[j] <= pivot)
+            {
+                i++;
+                // Swap array[i] with array[j]
+                (array[j], array[i]) = (array[i], array[j]);
+            }
         }
 
-        return output;
+        // Swap array[i+1] with the pivot element
+        (array[high], array[i + 1]) = (array[i + 1], array[high]);
+        return i + 1; // Return the partitioning index
     }
 }
