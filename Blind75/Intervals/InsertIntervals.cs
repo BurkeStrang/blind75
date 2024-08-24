@@ -1,3 +1,5 @@
+namespace Blind75.Intervals;
+
 /*
 You are given an array of non-overlapping intervals intervals
 where intervals[i] = [starti, endi] represent the start and the end
@@ -13,7 +15,6 @@ Example 1:
 
 Input: intervals = [[1,3],[6,9]], newInterval = [2,5]
 Output: [[1,5],[6,9]] */
-namespace Blind75.Intervals;
 
 public static class InsertIntervals
 {

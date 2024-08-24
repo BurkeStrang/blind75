@@ -26,18 +26,18 @@ public static class CharacterReplacementClass
     {
         int left = 0;
         int[] characters = new int[26];
-        int maxCharacter = 0; 
+        int maxCharacter = 0;
         int maxWithReplacment = 0;
 
-        for(int right = 0; right < s.Length; right++)
+        for (int right = 0; right < s.Length; right++)
         {
-            maxCharacter = Math.Max(maxCharacter, ++characters[s[right]-'A']);
+            maxCharacter = Math.Max(maxCharacter, ++characters[s[right] - 'A']);
             int numOfChanges = right - left + 1 - maxCharacter;
 
-            if(numOfChanges > k)
+            if (numOfChanges > k)
             {
                 // remove characters that are out of window
-                characters[s[left]-'A']--;
+                characters[s[left] - 'A']--;
                 left++;
             }
             maxWithReplacment = Math.Max(maxWithReplacment, right - left + 1);
