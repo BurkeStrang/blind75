@@ -61,6 +61,7 @@ public static class BrickWall
             for (int i = 0; i < row.Count - 1; i++)
             {
                 edge += row[i];
+                // edge.Dump();
                 edgeCount[edge] = edgeCount.GetValueOrDefault(edge) + 1;
                 maxCount = Math.Max(maxCount, edgeCount[edge]);
             }

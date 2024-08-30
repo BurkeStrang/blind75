@@ -22,28 +22,27 @@ The number of nodes in the tree is in the range [0, 5000].
 
 */
 
-public class BalancedBinaryTreeClass
+public static class BalancedBinaryTreeClass
 {
-    private bool _result = true;
-
-    public bool IsBalanced(TreeNode? root)
+    public static bool IsBalanced(TreeNode? root)
     {
-        Dfs(root);
-        return _result;
+        // If the tree is empty or
+        // the height difference between left and right subtrees is less than or equal to 1
+        return root is null
+            || (
+                Math.Abs(Height(root.left) - Height(root.right)) <= 1
+                && IsBalanced(root.left)
+                && IsBalanced(root.right)
+            );
     }
 
-    private int Dfs(TreeNode? root)
+    private static int Height(TreeNode? node)
     {
-        if (root == null)
-        {
+        // If the node is null, return -1 as the height
+        if (node is null)
             return -1;
-        }
 
-        int leftDepth = Dfs(root.left);
-        int rightDepth = Dfs(root.right);
-
-        _result = _result && (Math.Abs(rightDepth - leftDepth) <= 1);
-
-        return Math.Max(leftDepth, rightDepth) + 1;
+        // The height of a node is the maximum height of its two children plus 1
+        return Math.Max(Height(node.left), Height(node.right)) + 1;
     }
 }

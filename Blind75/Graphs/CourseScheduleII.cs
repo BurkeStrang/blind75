@@ -40,7 +40,7 @@ All the pairs [ai, bi] are distinct.
 
 public static class CourseScheduleII
 {
-    private static List<int>? s_output = null;
+    private static List<int>? s_output;
 
     public static int[] FindOrder(int numCourses, int[][] prerequisites)
     {
@@ -51,9 +51,7 @@ public static class CourseScheduleII
 
         // Initialize the dictionary with an empty list for each course
         for (int i = 0; i < numCourses; i++)
-        {
             preMap[i] = [];
-        }
 
         // Fill the dictionary with the prerequisites
         foreach (int[] course in prerequisites)
@@ -67,11 +65,8 @@ public static class CourseScheduleII
         for (int c = 0; c < numCourses; c++)
         {
             if (!DfsGraphTopologicalSort(preMap, visited, cycle, c))
-            {
                 return [];
-            }
         }
-
         return [.. s_output];
     }
 
@@ -79,7 +74,8 @@ public static class CourseScheduleII
         Dictionary<int, List<int>> preMap,
         HashSet<int> visited,
         HashSet<int> cycle,
-        int course)
+        int course
+    )
     {
         if (cycle.Contains(course))
             return false;
@@ -90,9 +86,7 @@ public static class CourseScheduleII
         foreach (int prereq in preMap[course])
         {
             if (!DfsGraphTopologicalSort(preMap, visited, cycle, prereq))
-            {
                 return false;
-            }
         }
 
         cycle.Remove(course);

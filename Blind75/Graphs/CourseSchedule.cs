@@ -28,9 +28,7 @@ public static class CourseScheduleClass
         Dictionary<int, List<int>> preMap = [];
         HashSet<int> visited = [];
         for (int i = 0; i < numCourses; i++)
-        {
             preMap.Add(i, []);
-        }
 
         foreach (int[] course in prerequisites)
         {
@@ -39,33 +37,31 @@ public static class CourseScheduleClass
             preMap[courseToTake].Add(courseDependOn);
         }
 
-        foreach (int c in Enumerable.Range(0, numCourses))
+        foreach (int course in Enumerable.Range(0, numCourses))
         {
-            if (!DfsGraph(preMap, visited, c))
-            {
+            if (!DfsGraph(preMap, visited, course))
                 return false;
-            }
         }
         return true;
     }
 
-    public static bool DfsGraph(IDictionary<int, List<int>> preMap, HashSet<int> visited, int crs)
+    public static bool DfsGraph(IDictionary<int, List<int>> preMap, HashSet<int> visited, int course)
     {
-        if (visited.Contains(crs))
+        if (visited.Contains(course))
             return false;
 
-        if (preMap[crs].Count == 0)
+        if (preMap[course].Count == 0)
             return true;
 
-        visited.Add(crs);
+        visited.Add(course);
 
-        foreach (int pre in preMap[crs])
+        foreach (int pre in preMap[course])
         {
             if (!DfsGraph(preMap, visited, pre))
                 return false;
         }
-        visited.Remove(crs);
-        preMap[crs] = [];
+        // visited.Remove(course);
+        // preMap[course] = [];
         return true;
     }
 }
