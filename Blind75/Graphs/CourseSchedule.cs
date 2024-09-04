@@ -60,8 +60,8 @@ public static class CourseScheduleClass
             if (!DfsGraph(preMap, visited, pre))
                 return false;
         }
-        // visited.Remove(course);
-        // preMap[course] = [];
+        visited.Remove(course);
+        preMap[course] = [];
         return true;
     }
 }
