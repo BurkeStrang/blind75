@@ -8,18 +8,18 @@ namespace Blind75.ArraysAndHashing;
 //
 // Example 1:
 // Input: paths = [["London","New York"],["New York","Lima"],["Lima","Sao Paulo"]]
-// Output: "Sao Paulo" 
+// Output: "Sao Paulo"
 // Explanation: Starting at "London" city you will reach "Sao Paulo" city which is the destination city.
 // Your trip consist of: "London" -> "New York" -> "Lima" -> "Sao Paulo".
 //
 // Example 2:
 // Input: paths = [["B","C"],["D","B"],["C","A"]]
 // Output: "A"
-// Explanation: All possible trips are: 
-// "D" -> "B" -> "C" -> "A". 
-// "B" -> "C" -> "A". 
-// "C" -> "A". 
-// "A". 
+// Explanation: All possible trips are:
+// "D" -> "B" -> "C" -> "A".
+// "B" -> "C" -> "A".
+// "C" -> "A".
+// "A".
 // Clearly the destination city is "A".
 //
 // Example 3:
@@ -38,14 +38,10 @@ public static class DestinationCity
     {
         HashSet<string> from = [];
         foreach (IList<string> path in paths)
-        {
-            from.Add(path[0]);
-        }
+            from.Add(path.First());
         foreach (IList<string> path in paths)
-        {
-            if (!from.Contains(path[1]))
-                return path[1];
-        }
+            if (!from.Contains(path.Last()))
+                return path.Last();
         return "";
     }
 }
