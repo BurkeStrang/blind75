@@ -29,7 +29,7 @@ public static class ContainsDuplicateII
         Dictionary<int, int> dict = [];
         for (int i = 0; i < nums.Length; i++)
         {
-            if (dict.TryGetValue(nums[i], out int value) && i - value <= k)
+            if (dict.TryGetValue(nums[i], out int index) && i - index <= k)
                 return true;
             dict[nums[i]] = i;
         }
