@@ -13,7 +13,7 @@ public class FrequencyOfMostFrequentTests
         // Act
         int actual = FrequencyOfMostFrequent.MaxFrequency(nums, k);
         // Assert
-        Assert.Equal(expected, actual);
+        actual.Should().Be(expected);
     }
 
     [Fact]
@@ -27,7 +27,7 @@ public class FrequencyOfMostFrequentTests
         // Act
         int actual = FrequencyOfMostFrequent.MaxFrequency(nums, k);
         // Assert
-        Assert.Equal(expected, actual);
+        actual.Should().Be(expected);
     }
 
     [Fact]
@@ -41,6 +41,6 @@ public class FrequencyOfMostFrequentTests
         // Act
         int actual = FrequencyOfMostFrequent.MaxFrequency(nums, k);
         // Assert
-        Assert.Equal(expected, actual);
+        actual.Should().Be(expected);
     }
 }

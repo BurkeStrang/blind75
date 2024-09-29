@@ -37,22 +37,25 @@ which is -10000 <= Node.val <= 10000
 public class CountGoodNodesInBinaryTree
 {
     private int _goodNodeCount = 0;
+
     public void Dfs(TreeNode? cur, int pathMax)
     {
-        if (cur == null) return;
+        if (cur == null)
+            return;
+
         if (cur.val >= pathMax)
         {
             pathMax = cur.val;
             _goodNodeCount++;
         }
+
         Dfs(cur.left, pathMax);
         Dfs(cur.right, pathMax);
-
     }
+
     public int GoodNodes(TreeNode? root)
     {
         Dfs(root, int.MinValue);
         return _goodNodeCount;
     }
 }
-

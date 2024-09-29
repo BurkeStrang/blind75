@@ -33,23 +33,25 @@ public static class AddTwoNumbersClass
 {
     public static ListNode? AddTwoNumbers(ListNode? l1, ListNode? l2)
     {
-        ListNode sumList = new();
-        ListNode current = sumList;
+        ListNode dummy = new(0);
+        ListNode res = dummy;
         int carry = 0;
 
         while(l1 is not null || l2 is not null || carry == 1)
         {
-            int l1v = l1 is null ? 0 : l1.val;
-            int l2v = l2 is null ? 0 : l2.val;
-            int sum = l1v + l2v + carry;
-            carry = sum > 9 ? 1 : 0;
-            sum %= 10;
+            int num1 = l1 is null ? 0 : l1.val;
+            int num2 = l2 is null ? 0 : l2.val;
 
-            current.next = new(sum);
-            current = current.next;
+            int sum = num1 + num2 + carry;
+
+            carry = sum > 9 ? 1 : 0;
+            int val = sum % 10;
+
+            dummy.next = new ListNode(val);
+            dummy = dummy.next;
             l1 = l1?.next;
             l2 = l2?.next;
         }
-        return sumList.next;
+        return res.next;
     }
 }

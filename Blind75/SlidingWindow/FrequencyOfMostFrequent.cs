@@ -34,6 +34,9 @@ public static class FrequencyOfMostFrequent
     {
         Array.Sort(nums);
 
+        Console.WriteLine($"    nums: {string.Join(", ", nums)}");
+        Console.WriteLine($"    k: {k}");
+
         int maxFrequency = 0; // Maximum frequency of most frequent element
         int remainingDifference = 0; // The remaining difference that can be added to the elements
         int endIndex = nums.Length - 1; // The end index of the sliding window
@@ -42,6 +45,10 @@ public static class FrequencyOfMostFrequent
         while (startIndex >= 0)
         {
             int cost = nums[endIndex] - nums[startIndex]; // The cost to make all elements in the window equal
+
+            Console.WriteLine($"    startIndex: {startIndex}, endIndex: {endIndex}");
+            Console.WriteLine($"    cost: {cost}, remainingDifference: {remainingDifference}");
+            Console.WriteLine($"    maxFrequency: {maxFrequency}");
 
             if (remainingDifference + cost <= k)
             {
@@ -54,6 +61,7 @@ public static class FrequencyOfMostFrequent
                 remainingDifference -= (endIndex - startIndex - 1) * (nums[endIndex] - nums[endIndex - 1]); // Update the remaining difference
                 --endIndex; // Move the end index of the window
             }
+
         }
         return maxFrequency;
     }

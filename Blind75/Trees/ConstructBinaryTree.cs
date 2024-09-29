@@ -6,11 +6,11 @@ namespace Blind75.Trees;
 
 public static class ConstructBinaryTreeClass
 {
-
     public static TreeNode? BuildTree(int[] preorder, int[] inorder)
     {
         return BuildTreeHelper(0, 0, inorder.Length - 1, preorder, inorder);
     }
+
     private static TreeNode? BuildTreeHelper(int preStart, int inStart, int inEnd, int[] preorder, int[] inorder)
     {
         if (preorder.Length == 0 && inorder.Length == 0)
