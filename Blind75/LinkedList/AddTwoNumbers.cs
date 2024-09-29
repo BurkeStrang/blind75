@@ -33,6 +33,7 @@ public static class AddTwoNumbersClass
 {
     public static ListNode? AddTwoNumbers(ListNode? l1, ListNode? l2)
     {
+        // if listnodes were not in reverse order I would have to reverse them first
         ListNode dummy = new(0);
         ListNode res = dummy;
         int carry = 0;
