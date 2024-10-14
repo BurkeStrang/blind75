@@ -48,7 +48,7 @@ public static class CopyListWithRandomPointer
 {
     public static ListNode? CopyRandomList(ListNode head)
     {
-        if (head == null)
+        if (head is null)
             return null;
 
         Dictionary<ListNode, ListNode> map = [];
@@ -59,7 +59,7 @@ public static class CopyListWithRandomPointer
         ListNode? cur2 = copy;
 
         // first pass to create the nodes
-        while (cur1 != null)
+        while (cur1 is not null)
         {
             ListNode next2 = new(cur1.val);
             cur2.next = next2;

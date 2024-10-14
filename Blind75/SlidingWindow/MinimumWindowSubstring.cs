@@ -23,56 +23,66 @@ public static class MinimumWindowSubstringClass
         if (string.IsNullOrEmpty(t))
             return string.Empty;
 
-        Dictionary<char, int> countT = [];
-        Dictionary<char, int> window = [];
+        // Initialize dictionaries to count characters in t and the current window in s
+        Dictionary<char, int> targetCharCount = [];
+        Dictionary<char, int> windowCharCount = [];
 
+        // Populate targetCharCount with characters from t
         foreach (char c in t)
         {
-            AddCharToDictionary(c, countT);
+            if (!targetCharCount.TryAdd(c, 1))
+                targetCharCount[c]++;
         }
 
-        int have = 0;
-        int need = countT.Count;
+        int matchedChars = 0;
+        int requiredChars = targetCharCount.Count;
         int left = 0;
-        int[] res = [-1, -1];
-        int resultLength = int.MaxValue;
+        int[] result = [-1, -1];
+        int minLength = int.MaxValue;
+
+        // Expand the window by moving the right pointer
         for (int right = 0; right < s.Length; right++)
         {
-            char c = s[right];
-            AddCharToDictionary(c, window);
+            char currentChar = s[right];
 
-            if (countT.TryGetValue(c, out int value) && window[c] == value)
-                have++;
+            if (!windowCharCount.TryAdd(currentChar, 1))
+                windowCharCount[currentChar]++;
 
-            while (have == need)
+            // Check if the current character matches the required count in t
+            if (
+                targetCharCount.TryGetValue(currentChar, out int targetCount)
+                && windowCharCount[currentChar] == targetCount
+            )
             {
-                // update our result
+                matchedChars++;
+            }
+
+            // Contract the window from the left as long as it contains all characters from t
+            while (matchedChars == requiredChars)
+            {
+                // Update the result if the current window is smaller
                 int windowSize = right - left + 1;
-                if (windowSize < resultLength)
+                if (windowSize < minLength)
                 {
-                    res = [left, right];
-                    resultLength = windowSize;
+                    result[0] = left;
+                    result[1] = right;
+                    minLength = windowSize;
                 }
 
-                // pop from the left of our window
-                window[s[left]]--;
-                if (countT.TryGetValue(s[left], out int _) && window[s[left]] < countT[s[left]])
+                // Remove the leftmost character from the window
+                windowCharCount[s[left]]--;
+                if (
+                    targetCharCount.TryGetValue(s[left], out int _)
+                    && windowCharCount[s[left]] < targetCharCount[s[left]]
+                )
                 {
-                    have--;
+                    matchedChars--;
                 }
 
                 left++;
             }
         }
 
-        return resultLength == int.MaxValue
-            ? string.Empty
-            : s.Substring(res[0], res[1] - res[0] + 1);
-    }
-
-    private static void AddCharToDictionary(char c, Dictionary<char, int> dict)
-    {
-        if(!dict.TryAdd(c, 1))
-            dict[c]++;
+        return minLength == int.MaxValue ? string.Empty : s.Substring(result[0], result[1] - result[0] + 1);
     }
 }

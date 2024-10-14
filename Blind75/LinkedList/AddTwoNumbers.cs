@@ -38,7 +38,7 @@ public static class AddTwoNumbersClass
         ListNode res = dummy;
         int carry = 0;
 
-        while(l1 is not null || l2 is not null || carry == 1)
+        while (l1 is not null || l2 is not null || carry == 1)
         {
             int num1 = l1 is null ? 0 : l1.val;
             int num2 = l2 is null ? 0 : l2.val;
