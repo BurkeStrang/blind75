@@ -1,4 +1,4 @@
-namespace Blind75.Tests.LinkedList;
+namespace Blind75.LinkedList;
 
 // Given the head of a sorted linked list,
 // delete all duplicates such that each element appears only once.
@@ -22,9 +22,7 @@ public static class RemoveDuplicatesFromSortedList
     public static ListNode? DeleteDuplicates(ListNode head)
     {
         if (head is null || head.next == null)
-        {
             return head;
-        }
 
         ListNode current = head;
 
@@ -40,6 +38,6 @@ public static class RemoveDuplicatesFromSortedList
             }
         }
         return head;
-    }
+     }
 }
 

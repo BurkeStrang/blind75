@@ -21,15 +21,15 @@ namespace Blind75.LinkedList;
 
 public static class MiddleOfLinkedList
 {
-    public static ListNode MiddleNode(ListNode head)
+    public static ListNode? MiddleNode(ListNode head)
     {
-        ListNode slow = head;
-        ListNode fast = head;
+        ListNode? slow = head;
+        ListNode? fast = head;
 
         while (fast != null && fast.next != null)
         {
-            slow = slow.next!;
-            fast = fast.next.next!;
+            slow = slow?.next;
+            fast = fast.next.next;
         }
         return slow;
     }

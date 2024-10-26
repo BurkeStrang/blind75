@@ -30,7 +30,7 @@ public class ReverseLinkedList
     {
         ListNode? list = null;
         ListNode? reversedList = null;
-        reversedList!.Should().BeEquivalentTo(ReverseLinkedListClass.ReverseList(list));
+        reversedList.Should().BeEquivalentTo(ReverseLinkedListClass.ReverseList(list));
     }
 
     [Fact]

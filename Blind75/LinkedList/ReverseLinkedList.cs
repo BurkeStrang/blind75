@@ -1,7 +1,10 @@
 namespace Blind75.LinkedList;
 
 // 0 -> 1 -> 2
-// 2 -> 1 -> 0
+// prev
+// 0 -> null
+// 1 -> 0 -> null
+// 2 -> 1 -> 0 -> null
 
 public static class ReverseLinkedListClass
 {
