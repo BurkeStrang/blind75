@@ -25,7 +25,7 @@ s consists of lowercase English letters.
 
 public static class ValidPalindromeII
 {
-    public static bool ValidPalindrome(string s)
+    public static bool ValidPalindrome(ReadOnlySpan<char> s)
     {
         int left = 0;
         int right = s.Length - 1;
