@@ -27,4 +27,17 @@ public class MinDiffBetHighLowKScoreTests
         // Assert
         actual.Should().Be(expected);
     }
+
+    [Fact]
+    public void Example3()
+    {
+        // Arrange
+        int[] nums = [9, 4, 1, 7];
+        int k = 3;
+        int expected = 5;
+        // Act
+        int actual = MinDiffBetHighLowKScore.MinDifference(nums, k);
+        // Assert
+        actual.Should().Be(expected);
+    }
 }

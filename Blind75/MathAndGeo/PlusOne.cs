@@ -39,11 +39,15 @@ public class PlusOneClass
 {
     public static int[] PlusOne(int[] digits)
     {
-        // turn to string
-        string stringDigits = string.Concat(digits);
-        // turn to long add one turn back to string
-        string plusOne = (long.Parse(stringDigits) + 1).ToString();
-        // turn to char subtrack '0' to get int then turn to array
-        return [.. plusOne.Select(x => x - '0')];
+        for (int i = digits.Length - 1; i >= 0; i--)
+        {
+            if (digits[i] < 9)
+            {
+                digits[i]++;
+                return digits;
+            }
+            digits[i] = 0;
+        }
+        return digits;
     }
 }

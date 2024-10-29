@@ -1,4 +1,4 @@
-namespace Blind75.MathAndGeo;
+namespace Blind75.Tests.MathAndGeo;
 
 public class HappyNumberTests
 {

@@ -42,8 +42,6 @@ public static class HappyNumber
     public static bool IsHappy(int n)
     {
         HashSet<int> seenNumbers = [];
-
-        // Detect cycle
         while (!seenNumbers.Contains(n))
         {
             seenNumbers.Add(n);
@@ -52,21 +50,18 @@ public static class HappyNumber
             if (n == 1)
                 return true;
         }
-
         return false;
     }
 
     private static int CalculateSumOfSquares(int number)
     {
         int sum = 0;
-
         while (number > 0)
         {
             int digit = number % 10;
             sum += digit * digit;
             number /= 10;
         }
-
         return sum;
     }
 }
