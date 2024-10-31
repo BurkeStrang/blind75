@@ -48,6 +48,9 @@ public class PlusOneClass
             }
             digits[i] = 0;
         }
-        return digits;
+        // only gets here if all digits are 9
+        int[] newDigits = new int[digits.Length + 1];
+        newDigits[0] = 1;
+        return newDigits;
     }
 }

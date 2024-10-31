@@ -56,8 +56,7 @@ public static class MultiplyStrings
         return ConvertResultArrayToString(result);
     }
 
-    private static string Reverse(string str)
-        => new([.. str.Reverse()]);
+    private static string Reverse(string str) => string.Concat(str.Reverse());
 
     private static string ConvertResultArrayToString(int[] result)
     {
