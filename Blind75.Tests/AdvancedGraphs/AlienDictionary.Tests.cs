@@ -1,3 +1,5 @@
+namespace Blind75.Tests.AdvancedGraphs;
+
 // Input：["wrt","wrf","er","ett","rftt"]
 // Output："wertf"
 // Explanation：
@@ -13,7 +15,7 @@ public class AlienDictionaryTest
     [Fact]
     public void AlienDictionaryCorrect()
     {
-        string[] input = new string[] { "wrt", "wrf", "er", "ett", "rftt" };
+        string[] input = ["wrt", "wrf", "er", "ett", "rftt"];
         string exp = "wertf";
 
         Assert.Equal(exp, AlienDictionaryClass.AlienOrder(input));
