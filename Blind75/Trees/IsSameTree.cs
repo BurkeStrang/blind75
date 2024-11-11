@@ -4,13 +4,7 @@ public static class IsSameTreeClass
 {
     public static bool IsSameTree(TreeNode? p, TreeNode? q)
     {
-        return p == null && q == null
-            || (
-                p != null
-                && q != null
-                && p.val == q.val
-                && IsSameTree(p.left, q.left)
-                && IsSameTree(p.right, q.right)
-            );
+        return p is null && q is null
+            || (IsSameTree(p?.left, q?.left) && IsSameTree(p?.right, q?.right) && p?.val == q?.val);
     }
 }

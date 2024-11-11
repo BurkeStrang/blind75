@@ -1,3 +1,4 @@
+using static System.Math;
 namespace Blind75.MathAndGeo;
 
 /*
@@ -72,7 +73,7 @@ public class DetectSquares
         foreach ((int x, int y) in _points)
         {
             // Check if (x, y) can form a diagonal of a square with (px, py)
-            if (Math.Abs(px - x) != Math.Abs(py - y) || x == px || y == py)
+            if (Abs(px - x) != Abs(py - y) || x == px || y == py)
                 continue;
             // Calculate the number of squares that can be formed
             result +=
@@ -82,4 +83,3 @@ public class DetectSquares
         return result;
     }
 }
-

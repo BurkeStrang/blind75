@@ -1,16 +1,10 @@
 namespace Blind75.Shared;
 
-public class TreeNode
+public class TreeNode(int val = 0, TreeNode? left = null, TreeNode? right = null)
 {
-    public int val;
-    public TreeNode? left;
-    public TreeNode? right;
-    public TreeNode(int val = 0, TreeNode? left = null, TreeNode? right = null)
-    {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
+#pragma warning disable IDE1006 // Naming Styles
+    public int val = val;
+    public TreeNode? left = left;
+    public TreeNode? right = right;
+#pragma warning restore IDE1006 // Naming Styles
 }
-
-

@@ -11,7 +11,13 @@ public static class ConstructBinaryTreeClass
         return BuildTreeHelper(0, 0, inorder.Length - 1, preorder, inorder);
     }
 
-    private static TreeNode? BuildTreeHelper(int preStart, int inStart, int inEnd, int[] preorder, int[] inorder)
+    private static TreeNode? BuildTreeHelper(
+        int preStart,
+        int inStart,
+        int inEnd,
+        int[] preorder,
+        int[] inorder
+    )
     {
         if (preorder.Length == 0 && inorder.Length == 0)
             return null;
@@ -23,7 +29,13 @@ public static class ConstructBinaryTreeClass
         int mid = Array.IndexOf(inorder, preorder[preStart]);
 
         rootNode.left = BuildTreeHelper(preStart + 1, inStart, mid - 1, preorder, inorder);
-        rootNode.right = BuildTreeHelper(preStart + mid - inStart + 1, mid + 1, inEnd, preorder, inorder);
+        rootNode.right = BuildTreeHelper(
+            preStart + mid - inStart + 1,
+            mid + 1,
+            inEnd,
+            preorder,
+            inorder
+        );
 
         return rootNode;
     }

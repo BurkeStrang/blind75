@@ -1,3 +1,4 @@
+using static System.Math;
 namespace Blind75.MathAndGeo;
 
 /*
@@ -32,7 +33,7 @@ public static class Pow
     {
         // C# Implementation
         // Math.Pow(x, n);
-        double result = Helper(x, Math.Abs(n));
+        double result = Helper(x, Abs(n));
         return n > 0 ? result : 1 / result;
     }
 

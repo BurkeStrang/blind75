@@ -3,7 +3,8 @@ namespace Blind75.Trees;
 /*
 
 Given a binary tree root,
-a node X in the tree is named good if in the path from root to X there are no nodes with a value greater than X.
+a node X in the tree is named good if in the path from root to X,
+there are no nodes with a value greater than X.
 Return the number of good nodes in the binary tree.
 
 Example 1:
@@ -40,9 +41,10 @@ public class CountGoodNodesInBinaryTree
 
     public void Dfs(TreeNode? cur, int pathMax)
     {
-        if (cur == null)
+        if (cur is null)
             return;
 
+        // any node with value greater than or equal to pathMax
         if (cur.val >= pathMax)
         {
             pathMax = cur.val;

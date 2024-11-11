@@ -1,4 +1,4 @@
-namespace Blind75.Trees;
+namespace Blind75.Tests.Trees;
 
 public class CountGoodNodesInBinaryTreeTests
 {
@@ -10,8 +10,8 @@ public class CountGoodNodesInBinaryTreeTests
         TreeNode root =
             new(3)
             {
-                left = new TreeNode(1) { left = new TreeNode(3) },
-                right = new TreeNode(4) { left = new TreeNode(1), right = new TreeNode(5) }
+                left = new(1) { left = new(3) },
+                right = new(4) { left = new(1), right = new(5) },
             };
         // Act
         int result = sut.GoodNodes(root);
@@ -27,8 +27,8 @@ public class CountGoodNodesInBinaryTreeTests
         TreeNode root =
             new(3)
             {
-                left = new TreeNode(3) { right = new TreeNode(2) },
-                right = new TreeNode(4)
+                left = new(3) { right = new(2) },
+                right = new(4),
             };
         // Act
         int result = sut.GoodNodes(root);

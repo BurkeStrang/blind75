@@ -8,10 +8,8 @@ public static class LowestCommonAncestorClass
             pVal = p?.val,
             qVal = q?.val;
 
-        return pVal > parentVal && qVal > parentVal
-            ? LowestCommonAncestor(root?.right, p, q)
-            : pVal < parentVal && qVal < parentVal
-                ? LowestCommonAncestor(root?.left, p, q)
-                : root;
+        return pVal > parentVal && qVal > parentVal ? LowestCommonAncestor(root?.right, p, q)
+            : pVal < parentVal && qVal < parentVal ? LowestCommonAncestor(root?.left, p, q)
+            : root;
     }
 }

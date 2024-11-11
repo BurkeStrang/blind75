@@ -1,4 +1,4 @@
-namespace Blind75.Trees;
+namespace Blind75.Tests.Trees;
 
 public class DiameterOfBinaryTreeTests
 {
