@@ -18,14 +18,15 @@ namespace Blind75.Trees;
 // org [1, 2, 3, 4, 5, 6, 8, 7]
 // tree structure
 // only what you can see from the right side
-//                     1      <---
+//
+//                     1         <---
 //                  /     \
 //                /        \
-//              2           3   <---
+//              2           3    <---
 //            /  \         / \
 //           4    5       6   8  <---
-//                 \
-//                  7          <---
+//              /
+//             7                 <---
 
 public class RightSideViewClass
 {

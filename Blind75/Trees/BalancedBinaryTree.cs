@@ -1,5 +1,7 @@
 namespace Blind75.Trees;
 
+using static System.Math;
+
 /*
 
 Given a binary tree, determine if it is height-balanced
@@ -30,7 +32,7 @@ public static class BalancedBinaryTreeClass
         // the height difference between left and right subtrees is less than or equal to 1
         return root is null
             || (
-                Math.Abs(Height(root.left) - Height(root.right)) <= 1
+                Abs(Height(root.left) - Height(root.right)) <= 1
                 && IsBalanced(root.left)
                 && IsBalanced(root.right)
             );
@@ -43,6 +45,6 @@ public static class BalancedBinaryTreeClass
             return -1;
 
         // The height of a node is the maximum height of its two children plus 1
-        return Math.Max(Height(node.left), Height(node.right)) + 1;
+        return Max(Height(node.left), Height(node.right)) + 1;
     }
 }

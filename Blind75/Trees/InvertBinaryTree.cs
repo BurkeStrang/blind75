@@ -1,5 +1,23 @@
 namespace Blind75.Trees;
 
+// Example 1:
+// input: [4,2,7,1,3,6,9]
+//
+//       4
+//      / \
+//     2   7
+//    / \ / \
+//   1  3 6  9
+//
+// output: [4,7,2,9,6,3,1]
+//
+//      4
+//     / \
+//    7   2
+//   / \ / \
+//  9  6 3  1
+//
+
 public static class InvertBinaryTreeClass
 {
     public static TreeNode? InvertTree(TreeNode? root)
