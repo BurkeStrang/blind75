@@ -1,14 +1,20 @@
+namespace Blind75.Tests.Trees;
+
 public class MaximumPathSum
 {
     [Fact]
     public void ConstructBinaryTreeCorrect()
     {
 
-        TreeNode? root = new(3);
-        root.left = new TreeNode(9);
-        root.right = new TreeNode(20);
-        root.right.left = new TreeNode(15);
-        root.right.right = new TreeNode(7);
+        TreeNode? root = new(3)
+        {
+            left = new TreeNode(9),
+            right = new TreeNode(20)
+            {
+                left = new TreeNode(15),
+                right = new TreeNode(7)
+            }
+        };
 
         int expected = 9 + 3 + 20 + 15;
 

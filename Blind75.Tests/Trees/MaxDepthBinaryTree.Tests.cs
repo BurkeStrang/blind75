@@ -1,11 +1,15 @@
+namespace Blind75.Tests.Trees;
+
 public class MaxDepthBinaryTree
 {
     [Fact]
     public void MaxDepthBinaryTreeCorrect()
     {
-        TreeNode? orig = new TreeNode(0);
-        orig.left = new TreeNode(1);
-        orig.right = new TreeNode(2);
+        TreeNode? orig = new(0)
+        {
+            left = new TreeNode(1),
+            right = new TreeNode(2)
+        };
         orig.left.left = new TreeNode(3);
 
         int res = MaxDepthBinaryTreeClass.MaxDepth(orig);
