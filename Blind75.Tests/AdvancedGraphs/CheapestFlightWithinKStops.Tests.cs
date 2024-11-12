@@ -1,4 +1,4 @@
-namespace Blind75.Graphs;
+namespace Blind75.Tests.AdvancedGraphs;
 
 public class CheapestFlightWithinKStopsTests
 {
