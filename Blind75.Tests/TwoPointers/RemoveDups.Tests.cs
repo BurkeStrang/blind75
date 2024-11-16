@@ -9,9 +9,8 @@ public class RemoveDupsTests
         int expected = 2;
         int[] expectedArray = [1, 2];
         int result = RemoveDups.RemoveDuplicates(nums);
-        Assert.Equal(expected, result);
-        for (int i = 0; i < expected; i++)
-            Assert.Equal(expectedArray[i], nums[i]);
+        result.Should().Be(expected);
+        nums.Take(expected).Should().BeEquivalentTo(expectedArray);
     }
 
     [Fact]
@@ -21,9 +20,8 @@ public class RemoveDupsTests
         int expected = 5;
         int[] expectedArray = [0, 1, 2, 3, 4];
         int result = RemoveDups.RemoveDuplicates(nums);
-        Assert.Equal(expected, result);
-        for (int i = 0; i < expected; i++)
-            Assert.Equal(expectedArray[i], nums[i]);
+        result.Should().Be(expected);
+        nums.Take(expected).Should().BeEquivalentTo(expectedArray);
     }
 
     [Fact]
@@ -34,8 +32,8 @@ public class RemoveDupsTests
         int[] expectedArray = [1];
         int result = RemoveDups.RemoveDuplicates(nums);
         Assert.Equal(expected, result);
-        for (int i = 0; i < expected; i++)
-            Assert.Equal(expectedArray[i], nums[i]);
+        result.Should().Be(expected);
+        nums.Take(expected).Should().BeEquivalentTo(expectedArray);
     }
 
     [Fact]
@@ -46,7 +44,7 @@ public class RemoveDupsTests
         int[] expectedArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
         int result = RemoveDups.RemoveDuplicates(nums);
         Assert.Equal(expected, result);
-        for (int i = 0; i < expected; i++)
-            Assert.Equal(expectedArray[i], nums[i]);
+        result.Should().Be(expected);
+        nums.Take(expected).Should().BeEquivalentTo(expectedArray);
     }
 }

@@ -10,8 +10,8 @@ public static partial class ValidPalindrome
 {
     public static bool IsPalindrome(string s)
     {
-        s = NotCharacterOrNumber().Replace(s, "").ToLowerInvariant();
-        // s = string.Concat(s.Where(char.IsLetterOrDigit)).ToLowerInvariant();
+        // s = NotCharacterOrNumber.Replace(s, "").ToLowerInvariant();
+        s = string.Concat(s.Where(char.IsLetterOrDigit)).ToLowerInvariant();
         int left = 0;
         int right = s.Length - 1;
 
@@ -26,6 +26,6 @@ public static partial class ValidPalindrome
     // more flexible than IsLetterOrDigit
     // but comes at a performance cost
     // useful for more realworld scenarios
-    [GeneratedRegex("[^a-zA-Z0-9]")]
-    private static partial Regex NotCharacterOrNumber();
+    // [GeneratedRegex("[^a-zA-Z0-9]")]
+    // private static partial Regex NotCharacterOrNumber { get; }
 }

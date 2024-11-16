@@ -29,24 +29,23 @@ public static class FindFirstPalindrome
 {
     public static string FirstPalindrome(string[] words)
     {
-        foreach (string word in words)
-        {
-            if (IsPalindrome(word))
+        foreach(string word in words)
+            if(word.IsPalindrome())
                 return word;
-        }
         return "";
     }
 
-    private static bool IsPalindrome(string word)
+    private static bool IsPalindrome(this string word)
     {
-        int left = 0;
-        int right = word.Length - 1;
-        while (left < right)
+        int low = 0;
+        int high = word.Length-1;
+
+        while(low < high)
         {
-            if (word[left] != word[right])
+            if(word[low] != word[high])
                 return false;
-            left++;
-            right--;
+            low++;
+            high--;
         }
         return true;
     }

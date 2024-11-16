@@ -23,11 +23,12 @@ public static class Move0s
     public static void MoveZeroes(int[] nums)
     {
         int zeroIndex = 0;
-        foreach (int num in nums)
-            if (num != 0)
-                nums[zeroIndex++] = num;
-
-        for (int i = nums.Length - 1; i > nums.Length - zeroIndex; i--)
-            nums[i] = 0;
+        for (int i = 1; i < nums.Length; i++)
+        {
+            if (nums[i] != 0)
+                nums[++zeroIndex] = nums[i];
+        }
+        for (int j = nums.Length - 1; j > zeroIndex; j--)
+            nums[j] = 0;
     }
 }
