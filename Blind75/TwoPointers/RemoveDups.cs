@@ -40,12 +40,12 @@ public static class RemoveDups
 {
     public static int RemoveDuplicates(int[] nums)
     {
-        int current = 0;
-        for (int i = 1; i < nums.Length; i++)
+        int k = 0;
+        for(int i = 1; i < nums.Length; i++)
         {
-            if (nums[i] != nums[current])
-                nums[++current] = nums[i];
+            if(nums[k] != nums[i])
+                nums[++k] = nums[i];
         }
-        return current + 1;
+        return k+1;
     }
 }

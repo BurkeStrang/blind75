@@ -17,20 +17,20 @@ namespace Blind75.TwoPointers;
 //
 // 1 <= nums.length <= 5000
 // 0 <= nums[i] <= 5000
-
 public static class SortEvenOddParity
 {
     public static int[] SortArrayByParity(int[] nums)
     {
         int left = 0;
         int right = nums.Length - 1;
-        while (left < right)
+
+        while(left < right)
         {
-            if (nums[left] % 2 != 0 && nums[right] % 2 == 0)
-                (nums[right], nums[left]) = (nums[left], nums[right]);
-            if (nums[left] % 2 == 0)
+            if(nums[left] % 2 != 0 && nums[right] % 2 == 0)
+                (nums[left], nums[right]) = (nums[right], nums[left]);
+            if(nums[left] % 2 == 0)
                 left++;
-            if (nums[right] % 2 != 0)
+            if(nums[right] % 2 != 0)
                 right--;
         }
         return nums;

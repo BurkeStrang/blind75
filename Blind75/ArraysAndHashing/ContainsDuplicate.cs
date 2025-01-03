@@ -13,10 +13,8 @@ public static class ContainsDuplicateClass
     {
         HashSet<int> set = [];
         foreach(int num in nums)
-        {
             if(!set.Add(num))
                 return true;
-        }
         return false;
     }
 }

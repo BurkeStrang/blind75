@@ -1,3 +1,5 @@
+using static System.Math;
+
 namespace Blind75.Heap;
 
 /*
@@ -38,55 +40,35 @@ tasks[i] is an uppercase English letter.
 
 public static class TaskScheduler
 {
+    /// <summary>
+    /// Calculates the least amount of time needed to execute all the tasks.
+    /// </summary>
+    /// <param name="tasks">
+    /// An array of tasks that need to be executed.
+    /// </param>
+    /// <param name="n">The cooldown period between two identical tasks.
+    /// </param>
+    /// <returns>
+    /// The least amount of time needed to execute all the tasks.
+    /// </returns>
     public static int LeastInterval(char[] tasks, int n)
     {
-        // Count tasks in the array
-        if (n == 0)
-            return tasks.Length;
+        if (tasks == null || tasks.Length == 0)
+            return 0;
 
-        IEnumerable<(FreqClass, int)> frequencies = tasks
-            .GroupBy(x => x)
-            .Select(x => (new FreqClass(x.Count(), n, x.First()), x.Count()));
+        PriorityQueue<int, int> pq = new(tasks.GroupBy(c => c)
+                .Select(c => (c.Count(), c.Count())),
+                    Comparer<int>.Create((a, b) => b - a));
 
-        PriorityQueue<FreqClass, int> pq = new(frequencies, Comparer<int>.Create((a, b) => b - a));
+        int maxFreq = pq.Dequeue();
+        int idleTime = (maxFreq - 1) * n;
 
-        int time = 0;
-
-        while (pq.Count > 0)
+        while (pq.Count > 0 && idleTime > 0)
         {
-            List<FreqClass> list = [];
-            int cnt = 0;
-            for (int i = 0; i < n + 1; i++)
-            {
-                if (pq.Count > 0)
-                {
-                    FreqClass item = pq.Dequeue(); // Dequeue returns a reference to the existing object
-                    cnt++;
-                    //Console.WriteLine($"Dequeued {item.Task} with frequency : {item.Frequency}");
-                    item.Frequency--; // Modify the Frequency property directly
-                    if (item.Frequency > 0)
-                        list.Add(item);
-                }
-            }
-
-            for (int i = 0; i < list.Count; i++)
-            {
-                FreqClass item = list[i];
-                //Console.WriteLine($"Enqueued {item.Task} with frequency : {item.Frequency}");
-                pq.Enqueue(item, item.Frequency); // Re-enqueue the modified object
-            }
-
-            time += pq.Count == 0 ? cnt : n + 1;
-            //Console.WriteLine($"Done with iteration, current time: {time}");
+            int currenCount = pq.Dequeue();
+            if (currenCount > 0)
+                idleTime -= Min(maxFreq - 1, currenCount);
         }
-
-        return time;
-    }
-
-    private class FreqClass(int frequency, int idleTime, char task)
-    {
-        public int Frequency = frequency;
-        public int IdleTime  = idleTime;
-        public char Task  = task;
+        return tasks.Length + Max(0, idleTime);
     }
 }

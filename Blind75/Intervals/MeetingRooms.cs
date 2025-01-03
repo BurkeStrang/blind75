@@ -1,3 +1,5 @@
+namespace Blind75.Intervals;
+
 /*
 
 Given an array of meeting time intervals consisting of start and end times
@@ -6,7 +8,6 @@ determine if a person could attend all meetings.
 
 */
 
-namespace Blind75.Intervals;
 
 public static class MeetingRooms
 {
