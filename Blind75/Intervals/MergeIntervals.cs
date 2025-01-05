@@ -23,6 +23,7 @@ public static class MergeIntervals
         // now that array is sorted get the first smallest interval
         // look at the next interval first element and see if it is less than the second element in
         // the current if it is update it to the second element in the next element
+        // also check if the second element in the next interval is greater than the second element in the current interval
         // else add the next interval to the array
 
         Array.Sort(intervals, (a, b) => a[0] - b[0]);
@@ -32,11 +33,11 @@ public static class MergeIntervals
         for (int i = 1; i < intervals.Length; i++)
         {
             if (intervals[i][0] <= current[1])
-                current[1] = intervals[i][1];
+                current[1] = Max(current[1], intervals[i][1]);
             else
             {
                 current = intervals[i];
-                resList.Add(current);
+                resList.Add(intervals[i]);
             }
         }
         return [.. resList];

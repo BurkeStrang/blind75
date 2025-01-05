@@ -37,8 +37,8 @@ public static class InsertIntervals
         // Merge all overlapping intervals with the new interval
         while (i < n && intervals[i][0] <= newInterval[1])
         {
-            newInterval[0] = Math.Min(newInterval[0], intervals[i][0]);
-            newInterval[1] = Math.Max(newInterval[1], intervals[i][1]);
+            newInterval[0] = Min(newInterval[0], intervals[i][0]);
+            newInterval[1] = Max(newInterval[1], intervals[i][1]);
             i++;
         }
         resList.Add(newInterval);

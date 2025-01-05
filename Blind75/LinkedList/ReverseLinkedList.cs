@@ -16,12 +16,16 @@ public static class ReverseLinkedListClass
         while (dummy is not null)
         {
             // don't loose next for iterator
+            // 1
             ListNode? iterator = dummy.next;
-            // 1. set next equal to previous
+            // set next equal to previous
+            // null
             dummy.next = prev;
-            // 2. set previous equal to current
+            // set previous equal to current
+            // 1 -> null
             prev = dummy;
             // iterator
+            // 
             dummy = iterator;
         }
 
