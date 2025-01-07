@@ -11,22 +11,18 @@ public static class ReverseLinkedListClass
     public static ListNode? ReverseList(ListNode? head)
     {
         ListNode? prev = null;
-        ListNode? dummy = head;
+        ListNode? curr = head;
 
-        while (dummy is not null)
+        while (curr is not null)
         {
             // don't loose next for iterator
-            // 1
-            ListNode? iterator = dummy.next;
+            ListNode? next = curr.next;
             // set next equal to previous
-            // null
-            dummy.next = prev;
+            curr.next = prev;
             // set previous equal to current
-            // 1 -> null
-            prev = dummy;
+            prev = curr;
             // iterator
-            // 
-            dummy = iterator;
+            curr = next;
         }
 
         return prev;
