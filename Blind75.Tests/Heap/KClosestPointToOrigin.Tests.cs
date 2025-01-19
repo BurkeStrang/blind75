@@ -1,4 +1,4 @@
-namespace Blind75.Heap;
+namespace Blind75.Tests.Heap;
 
 public class KClosestPointToOrginTests
 {
@@ -11,7 +11,7 @@ public class KClosestPointToOrginTests
         // Act
         int[][] result = KClosestPointToOrigin.KClosest(points, k);
         // Assert
-        Assert.Equal(new int[][] { [-2, 2] }, result);
+        Assert.Equal([[-2, 2]], result);
     }
     [Fact]
     public void Example2()
@@ -22,6 +22,6 @@ public class KClosestPointToOrginTests
         // Act
         int[][] result = KClosestPointToOrigin.KClosest(points, k);
         // Assert
-        Assert.Equal(new int[][] { [3, 3], [-2, 4] }, result);
+        Assert.Equal([[3, 3], [-2, 4]], result);
     }
 }
