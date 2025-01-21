@@ -17,16 +17,13 @@ public static class FindKPairsWithSum
         List<int[]> result = [];
         PriorityQueue<(int i, int j), int> minQueue = new();
 
-        // create a min heap with the sum of the first element of list1 and all elements of list2
         for (int i = 0; i < Min(k, list1.Length); i++)
             minQueue.Enqueue((i, 0), list1[i] + list2[0]);
 
         while (minQueue.Count > 0 && result.Count < k)
         {
-            minQueue.Peek().Dump();
             (int i, int j) = minQueue.Dequeue();
             result.Add([list1[i], list2[j]]);
-            result.Dump();
 
             if (j + 1 < list2.Length)
                 minQueue.Enqueue((i, j + 1), list1[i] + list2[j + 1]);
