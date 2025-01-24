@@ -21,13 +21,13 @@ public static class TwoSumClass
 {
     public static int[] TwoSum(int[] nums, int target)
     {
-        Dictionary<int,int> dict = [];
-
-        for(int i = 0; i < nums.Length; i++)
+        Dictionary<int, int> dict = [];
+        for (int i = 0; i < nums.Length; i++)
         {
-            if(dict.TryGetValue(target - nums[i], out int index))
-                return [index, i];
-            dict.Add(nums[i],i);
+            int check = target - nums[i];
+            if (dict.TryGetValue(check, out int value))
+                return [value, i];
+            dict.Add(nums[i], i);
         }
         return [];
     }

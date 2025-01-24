@@ -21,27 +21,20 @@ public static class TopKFrequentElementsClass
 {
     public static int[] TopKFrequent(int[] nums, int k)
     {
-        Dictionary<int, int> frequency = [];
-
+        Dictionary<int, int> dict = [];
         foreach (int num in nums)
-        {
-            if (!frequency.TryAdd(num, 1))
-                frequency[num]++;
-        }
+            if (!dict.TryAdd(num, 1))
+                dict[num]++;
 
-        PriorityQueue<int, int> pq = new(Comparer<int>.Create((x, y) => y - x));
+        PriorityQueue<int, int> minHeap = new();
 
-        foreach (KeyValuePair<int, int> item in frequency)
-        {
-            pq.Enqueue(item.Key, item.Value);
-        }
+        foreach (KeyValuePair<int, int> dic in dict)
+            minHeap.Enqueue(dic.Key, dic.Value * -1);
 
         int[] res = new int[k];
-
-        for(int i = 0; i < k; i++)
-        {
-            res[i] = pq.Dequeue();
-        }
+        int i = 0;
+        while (i < k)
+            res[i++] = minHeap.Dequeue();
         return res;
     }
 }

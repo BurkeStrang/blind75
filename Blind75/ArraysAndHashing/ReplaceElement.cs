@@ -34,7 +34,7 @@ public static class ReplaceElement
         {
             int temp = arr[i];
             arr[i] = max;
-            max = Math.Max(max, temp);
+            max = Max(max, temp);
         }
         return arr;
     }

@@ -17,7 +17,7 @@ public static class LongestConsecutiveSequenceClass
     {
         int max = 1;
         int iterator = 0;
-        HashSet<int> set = new(nums);
+        HashSet<int> set = [.. nums];
 
         while (iterator < nums.Length)
         {
@@ -27,7 +27,7 @@ public static class LongestConsecutiveSequenceClass
                 int currenSequence = 1;
                 while (set.Contains(++currentNum))
                     currenSequence++;
-                max = Math.Max(max, currenSequence);
+                max = Max(max, currenSequence);
             }
             iterator++;
         }

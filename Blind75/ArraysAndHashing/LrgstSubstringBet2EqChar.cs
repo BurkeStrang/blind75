@@ -28,11 +28,11 @@ public static class LrgstSubstringBet2EqChar
     public static int MaxLengthBetweenEqualCharacters(string s)
     {
         int max = -1;
-        Dictionary<char, int> dict = [];
+        Dictionary<int, int> dict = [];
         for (int i = 0; i < s.Length; i++)
         {
             if (!dict.TryAdd(s[i], i))
-                max = Math.Max(max, i - dict[s[i]] - 1);
+                max = Max(max, i - dict[s[i]] - 1);
         }
         return max;
     }

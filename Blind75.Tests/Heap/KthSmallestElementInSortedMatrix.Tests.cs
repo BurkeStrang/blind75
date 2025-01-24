@@ -31,13 +31,13 @@ public class KthSmallestElementInSortedMatrixTests
             [6, 7, 12],
             [11, 14, 14]
         ];
-        int k = 3;
+        int k = 6;
 
         // Act
         int result = KthSmallestElementInSortedMatrix.KthSmallestNumber(matrix, k);
 
         // Assert
-        Assert.Equal(5, result);
+        Assert.Equal(11, result);
     }
 
     [Fact]

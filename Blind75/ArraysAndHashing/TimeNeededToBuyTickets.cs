@@ -35,23 +35,22 @@ public static class TimeNeededToBuyTickets
 {
     public static int BuyTicket(int[] tickets, int k)
     {
-        int n = tickets.Length;
-        int[] copy = new int[n];
-        Array.Copy(tickets, copy, n);
         int time = 0;
-        while (copy[k] > 0)
+
+        for (int i = 0; i < tickets.Length; i++)
         {
-            for (int i = 0; i < n; i++)
+            if (i <= k)
             {
-                if (copy[i] > 0)
-                {
-                    copy[i]--;
-                    time++;
-                    if (i == k && copy[k] == 0)
-                        return time;
-                }
+                // Everyone before or at position k contributes fully
+                time += Min(tickets[i], tickets[k]);
+            }
+            else
+            {
+                // Everyone after position k only contributes until tickets[k] are processed
+                time += Min(tickets[i], tickets[k] - 1);
             }
         }
+
         return time;
     }
 }
