@@ -28,7 +28,7 @@ public static class KthLargestElementInArray
         PriorityQueue<int, int> pq =
             new(nums.Select(n => (n, n)), Comparer<int>.Create((a, b) => b - a));
 
-        while (k-- > 1)
+        while (--k> 0)
             pq.Dequeue();
 
         return pq.Dequeue();
