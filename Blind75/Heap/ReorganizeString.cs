@@ -33,7 +33,7 @@ public static class ReorganizeString
 
             // decrement frequency
             // set prev char
-            // if freq > 0, add to heap
+            // if freq > 0, set curr to prev
             // else, set prev to null char
             prev = --charFreq[curr] > 0 ? curr : '\0';
         }
