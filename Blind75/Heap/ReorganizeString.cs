@@ -10,29 +10,32 @@ public static class ReorganizeString
     /// <returns>The reorganized string or an empty string if not possible.</returns>
     public static string Reorganize(string s)
     {
-        Dictionary<char, int> charFrequency = [];
+        Dictionary<char, int> charFreq = [];
         foreach (char c in s)
-            if (!charFrequency.TryAdd(c, 1))
-                charFrequency[c]++;
+            if (!charFreq.TryAdd(c, 1))
+                charFreq[c]++;
 
-        PriorityQueue<char, int> maxHeap = new(charFrequency
+        PriorityQueue<char, int> maxHeap = new(charFreq
                 .Select(c => (c.Key, c.Value)),
                     Comparer<int>.Create((a, b) => b.CompareTo(a)));
 
         StringBuilder sb = new();
-        // null character to indicate no previous character
-        char previousChar = '\0';
+        // null char to indicate no prev char
+        char prev = '\0';
 
         while (maxHeap.Count > 0)
         {
-            char currentChar = maxHeap.Dequeue();
-            sb.Append(currentChar);
+            char curr = maxHeap.Dequeue();
+            sb.Append(curr);
 
-            if (previousChar > '\0' && charFrequency[previousChar] > 0)
-                maxHeap.Enqueue(previousChar, charFrequency[previousChar]);
+            if (prev > '\0' && charFreq[prev] > 0)
+                maxHeap.Enqueue(prev, charFreq[prev]);
 
-            charFrequency[currentChar]--;
-            previousChar = charFrequency[currentChar] > 0 ? currentChar : '\0';
+            // decrement frequency
+            // set prev char
+            // if freq > 0, add to heap
+            // else, set prev to null char
+            prev = --charFreq[curr] > 0 ? curr : '\0';
         }
 
         string res = sb.ToString();
