@@ -20,9 +20,9 @@ public static class HouseRobberII
 {
     public static int Rob(int[] nums)
     {
-        return Math.Max(
+        return Max(
             nums[0],
-            Math.Max(
+            Max(
                 GetMaxRobAmount(nums, 0, nums.Length - 1),
                 GetMaxRobAmount(nums, 1, nums.Length)
             )
@@ -35,7 +35,7 @@ public static class HouseRobberII
 
         for (int i = start; i < end; i++)
         {
-            int temp = Math.Max(nums[i] + rob1, rob2);
+            int temp = Max(nums[i] + rob1, rob2);
             rob1 = rob2;
             rob2 = temp;
         }

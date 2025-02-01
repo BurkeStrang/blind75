@@ -1,4 +1,4 @@
-namespace Blind75.Tests.ArraysAndHashing;
+namespace Blind75.Tests.Heap;
 
 public class TopKFrequentElementsTests
 {

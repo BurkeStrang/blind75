@@ -27,7 +27,7 @@ public static class HouseRobber
         foreach (int num in nums)
         {
             // Get the max amount of money you can rob
-            int temp = Math.Max(num + rob1, rob2);
+            int temp = Max(num + rob1, rob2);
             rob1 = rob2;
             rob2 = temp;
         }
