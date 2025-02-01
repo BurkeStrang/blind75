@@ -25,10 +25,9 @@ public static class KthLargestElementInArray
 {
     public static int FindKthLargest(int[] nums, int k)
     {
-        PriorityQueue<int, int> pq =
-            new(nums.Select(n => (n, n)), Comparer<int>.Create((a, b) => b - a));
+        PriorityQueue<int, int> pq = new(nums.Select(x => (x, -x)));
 
-        while (k-- > 1)
+        while (--k > 0)
             pq.Dequeue();
 
         return pq.Dequeue();
