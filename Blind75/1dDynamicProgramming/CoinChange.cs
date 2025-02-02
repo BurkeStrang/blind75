@@ -30,7 +30,7 @@ public static class CoinChangeClass
                     // dp[i - coins[j]] + 1
                     // this is the number of coins we need to make the amount
                     // +1 is the current coin we are using
-                    dp[i] = Math.Min(dp[i], dp[i - coins[j]] + 1);
+                    dp[i] = Min(dp[i], dp[i - coins[j]] + 1);
                 }
             }
         }

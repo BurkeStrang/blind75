@@ -64,7 +64,6 @@ public static class SearchTwoDMatrix
             else
                 return true;
         }
-
         return false;
     }
 }

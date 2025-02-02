@@ -13,7 +13,7 @@ public static class LongestIncreasingSubsequence
 {
     public static int LengthOfLIS(Span<int> nums)
     {
-        int[] dp = Enumerable.Repeat(1, nums.Length).ToArray();
+        int[] dp = [.. Enumerable.Repeat(1, nums.Length)];
 
         // go through the array from right to left
         // the first j will not be evaluated since it is greater than the length of the array
@@ -32,7 +32,7 @@ public static class LongestIncreasingSubsequence
                 //Console.WriteLine($"i: {i}, j: {j}, nums[i]: {nums[i]}, nums[j]: {nums[j]}, dp[i]: {dp[i]}, dp[j]: {dp[j]}");
                 if (nums[i] < nums[j])
                 {
-                    dp[i] = Math.Max(dp[i], 1 + dp[j]);
+                    dp[i] = Max(dp[i], 1 + dp[j]);
                 }
             }
         }

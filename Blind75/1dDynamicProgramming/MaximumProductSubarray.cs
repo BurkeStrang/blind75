@@ -24,9 +24,9 @@ public static class MaximumProductSubarray
         for (int i = 1; i < nums.Length; i++)
         {
             int temp = max;
-            max = Math.Max(Math.Max(max * nums[i], min * nums[i]), nums[i]);
-            min = Math.Min(Math.Min(temp * nums[i], min * nums[i]), nums[i]);
-            result = Math.Max(max, result);
+            max = Max(Max(max * nums[i], min * nums[i]), nums[i]);
+            min = Min(Min(temp * nums[i], min * nums[i]), nums[i]);
+            result = Max(max, result);
         }
         return result;
     }

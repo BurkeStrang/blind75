@@ -33,8 +33,8 @@ public static class MaxSubArrayClass
         int sum = nums[0];
         for (int i = 1; i < nums.Length; i++)
         {
-            sum = Math.Max(nums[i], sum + nums[i]);
-            max = Math.Max(max, sum);
+            sum = Max(nums[i], sum + nums[i]);
+            max = Max(max, sum);
         }
         return max;
     }
