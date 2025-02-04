@@ -16,7 +16,7 @@ public static class SearchRotatedSortedArrayClass
     // nums = [4,5,6,7,0,1,2] target = 5
     // mid = 3{7}
     // standard binary search but then you do an extra check to see if mid is in rotation
-    public static int Search(int[] nums, int target)
+    public static int Search(ReadOnlySpan<int> nums, int target)
     {
         int low = 0;
         int high = nums.Length - 1;

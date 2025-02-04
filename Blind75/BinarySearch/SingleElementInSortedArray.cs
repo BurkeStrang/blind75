@@ -21,8 +21,8 @@ public static class SingleElementInSortedArray
             else
                 r = mid;
         }
-        return nums[l];
 
+        return nums[l];
     }
 }
 
