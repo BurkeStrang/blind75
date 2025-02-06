@@ -39,7 +39,7 @@ public static class Permutations
     {
         if (start == arr.Length)
         {
-            List<int> list = arr.Select(t => t).ToList();
+            List<int> list = [.. arr.Select(t => t)];
             res.Add(list);
             return;
         }

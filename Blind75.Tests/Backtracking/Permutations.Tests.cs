@@ -1,6 +1,4 @@
-
-
-namespace Blind75.Backtracking;
+namespace Blind75.Tests.Backtracking;
 
 public class PermutationsTests
 {

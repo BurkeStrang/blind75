@@ -29,7 +29,7 @@ public class SubsetsClass
     {
         if (i >= nums.Length)
         {
-            _result.Add(new List<int>(_subset));
+            _result.Add([.. _subset]);
             return;
         }
         _subset.Add(nums[i]);
