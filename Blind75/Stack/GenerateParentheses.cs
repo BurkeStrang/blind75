@@ -37,13 +37,13 @@ public static class GenerateParentheses
             {
                 seq.Append('(');
                 Backtrack(open + 1, close);
-                seq.Remove(seq.Length - 1, 1);
+                seq.Length--;
             }
             if (close < open)
             {
                 seq.Append(')');
                 Backtrack(open, close + 1);
-                seq.Remove(seq.Length - 1, 1);
+                seq.Length--;
             }
         }
 

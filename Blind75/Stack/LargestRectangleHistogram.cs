@@ -36,7 +36,7 @@ public static class LargestRectangleHistogram
             {
                 int currHeight = heights[stack.Pop()];
                 int prevIndex = stack.Count == 0 ? -1 : stack.Peek();
-                max = Math.Max(max, currHeight * (i - 1 - prevIndex));
+                max = Max(max, currHeight * (i - 1 - prevIndex));
             }
             stack.Push(i);
         }
