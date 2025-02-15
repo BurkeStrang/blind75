@@ -1,4 +1,4 @@
-namespace Blind75.Stack;
+namespace Blind75.Tests.Stack;
 
 public class CarFleetTest
 {

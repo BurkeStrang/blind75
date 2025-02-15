@@ -40,7 +40,6 @@ public static class LargestRectangleHistogram
             }
             stack.Push(i);
         }
-
         return max;
     }
 }
