@@ -27,29 +27,37 @@ public class SubsetsClass
 
     private void Backtrack(int i, int[] nums)
     {
-        WriteLine($"  i: {i}, subsets: [{string.Join(",", _subset)}]");
+        WriteLine($"Entering Backtrack: i={i}, current subset=[{string.Join(",", _subset)}]");
+
         if (i >= nums.Length)
         {
             _result.Add([.. _subset]);
-            WriteLine($"  result: [{string.Join(",", _result.Select(subset => $"[{string.Join(",", subset)}]"))}]");
+            WriteLine($"  Adding to result: [{string.Join(",", _subset)}]");
+            WriteLine($"  Current result: [{string.Join(";", _result.Select(subset => $"[{string.Join(",", subset)}]"))}]");
             return;
-
         }
+
+        // Decision to include nums[i]
         _subset.Add(nums[i]);
+        WriteLine($"  Include: {nums[i]}, subset: [{string.Join(",", _subset)}]");
         Backtrack(i + 1, nums);
-        _subset.Remove(nums[i]);
+
+        // Decision to exclude nums[i]
+        _subset.RemoveAt(_subset.Count - 1);
+        WriteLine($"  Exclude: {nums[i]}, backtrack, subset: [{string.Join(",", _subset)}]");
         Backtrack(i + 1, nums);
+
+        WriteLine($"Exiting Backtrack: i={i}, current subset=[{string.Join(",", _subset)}]");
     }
 
     public IList<IList<int>> Subsets(int[] nums)
     {
+        WriteLine("Starting Subsets method");
         WriteLine("----------------------");
-        WriteLine("----------------------");
-        WriteLine($"  nums: [{string.Join(",", nums)}]");
-        WriteLine("----------------------");
+        WriteLine($"Initial nums: [{string.Join(",", nums)}]");
         Backtrack(0, nums);
         WriteLine("----------------------");
-        WriteLine("----------------------");
+        WriteLine("Completed Subsets method");
         return _result;
     }
 }
