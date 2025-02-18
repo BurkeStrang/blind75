@@ -27,10 +27,13 @@ public class SubsetsClass
 
     private void Backtrack(int i, int[] nums)
     {
+        WriteLine($"  i: {i}, subsets: [{string.Join(",", _subset)}]");
         if (i >= nums.Length)
         {
             _result.Add([.. _subset]);
+            WriteLine($"  result: [{string.Join(",", _result.Select(subset => $"[{string.Join(",", subset)}]"))}]");
             return;
+
         }
         _subset.Add(nums[i]);
         Backtrack(i + 1, nums);
@@ -40,7 +43,13 @@ public class SubsetsClass
 
     public IList<IList<int>> Subsets(int[] nums)
     {
+        WriteLine("----------------------");
+        WriteLine("----------------------");
+        WriteLine($"  nums: [{string.Join(",", nums)}]");
+        WriteLine("----------------------");
         Backtrack(0, nums);
+        WriteLine("----------------------");
+        WriteLine("----------------------");
         return _result;
     }
 }
