@@ -26,10 +26,18 @@ public class CountPrimesTests
         Assert.Equal(78, CountPrimesClass.CountPrimes(400));
     }
 
-    // Sieve
+    // Sieve of Eratosthenes
     [Fact]
     public void CountPrimesSieve_Example1()
     {
+        // 2,3,5,7
         Assert.Equal(4, CountPrimesClass.CountPrimesSieve(10));
+    }
+
+    [Fact]
+    public void CountPrimesSieve_Example2()
+    {
+        // 2
+        Assert.Equal(3, CountPrimesClass.CountPrimesSieve(6));
     }
 }

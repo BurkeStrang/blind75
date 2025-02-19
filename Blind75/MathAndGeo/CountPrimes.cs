@@ -40,17 +40,23 @@ public static class CountPrimesClass
             return 0;
 
         int result = 0;
-        bool[] sieve = new bool[n];
+        // this is the sieve
+        // 0 and 1 are not prime and not included in counts
+        // although they are in the array
+        // set to false for all values on initialization
+        bool[] notPrimes = new bool[n];
 
         for (int i = 2; i < n; i++)
         {
-            if (sieve[i])
+            if (notPrimes[i])
                 continue;
+            // will only be counted if not a multiple seen before
             result++;
-
-            for (int multiple = i * 2; multiple < n; multiple += i)
+            // every multiple of a prime is not prime and set to true
+            for (int multiple = i + i; multiple < n; multiple += i)
             {
-                sieve[multiple] = true;
+                notPrimes[multiple] = true;
+                // notPrimes.Dump();
             }
         }
         return result;
