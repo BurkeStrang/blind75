@@ -16,13 +16,13 @@ public static class WordSearchClass
     //S: O(m+n) is for the visited array
     public static bool Exist(char[][] board, string word)
     {
-        var rows = board.Length;
-        var cols = board[0].Length;
-        var visited = new bool[rows, cols];
+        int rows = board.Length;
+        int cols = board[0].Length;
+        bool[,] visited = new bool[rows, cols];
 
-        for (var i = 0; i < rows; i++)
+        for (int i = 0; i < rows; i++)
         {
-            for (var j = 0; j < cols; j++)
+            for (int j = 0; j < cols; j++)
             {
                 if (board[i][j] == word[0] && Search(i, j, 0, word, board, visited))
                     return true;
@@ -34,8 +34,8 @@ public static class WordSearchClass
 
     public static bool Search(int r, int c, int index, string word, char[][] board, bool[,] visited)
     {
-        var rows = board.Length;
-        var cols = board[0].Length;
+        int rows = board.Length;
+        int cols = board[0].Length;
 
         if (index == word.Length)
             return true;
@@ -43,7 +43,7 @@ public static class WordSearchClass
             return false;
 
         visited[r, c] = true;
-        var result =
+        bool result =
             Search(r + 1, c, index + 1, word, board, visited)
             || Search(r - 1, c, index + 1, word, board, visited)
             || Search(r, c + 1, index + 1, word, board, visited)

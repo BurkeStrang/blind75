@@ -13,6 +13,11 @@ public class ConstructBinaryTree
         TreeNode? expected = new(3) { left = new(9), right = new(20) };
         expected.right.left = new(15);
         expected.right.right = new(7);
+        //     3
+        //    / \
+        //   9  20
+        //  / \ / \
+        //      15 7
 
         Assert.Equivalent(expected, ConstructBinaryTreeClass.BuildTree(preorder, inorder));
     }

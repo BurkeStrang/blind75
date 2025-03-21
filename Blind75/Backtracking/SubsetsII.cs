@@ -33,7 +33,7 @@ public static class SubsetsII
 
     private static void BackTrack(List<IList<int>> list, List<int> curr, int[] nums, int start)
     {
-        list.Add(new List<int>(curr));
+        list.Add([.. curr]);
         for (int i = start; i < nums.Length; i++)
         {
             if (i > start && nums[i] == nums[i - 1])

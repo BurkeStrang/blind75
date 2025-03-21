@@ -7,9 +7,8 @@ public class SubsetsTests
     {
         // Arrange
         int[] nums = [1, 2, 3];
-        SubsetsClass subsetsClass = new();
         // Act
-        IList<IList<int>> result = subsetsClass.Subsets(nums);
+        IList<IList<int>> result = SubsetsClass.Subsets(nums);
         ListComparer<int> listComparer = new();
         // Assert
         Assert.Contains([], result, listComparer);
@@ -27,10 +26,9 @@ public class SubsetsTests
     {
         // Arrange
         int[] nums = [0];
-        SubsetsClass subsetsClass = new();
         ListComparer<int> listComparer = new();
         // Act
-        IList<IList<int>> result = subsetsClass.Subsets(nums);
+        IList<IList<int>> result = SubsetsClass.Subsets(nums);
         // Assert
         Assert.Contains([], result, listComparer);
         Assert.Contains([0], result, listComparer);

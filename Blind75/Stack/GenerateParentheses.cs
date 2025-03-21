@@ -24,7 +24,7 @@ public static class GenerateParentheses
     {
         List<string> result = [];
         char[] current = new char[n * 2];
-        WriteLine($"n: {n}");
+        // WriteLine($"n: {n}");
         Backtrack(result, current, 0, 0, 0, n);
         return result;
     }
@@ -37,8 +37,8 @@ public static class GenerateParentheses
         int closeCount,
         int n)
     {
-        WriteLine($"index: {index}, openCount: {openCount}, closeCount: {closeCount}");
-        WriteLine($"current: {new string(current)}");
+        // WriteLine($"index: {index}, openCount: {openCount}, closeCount: {closeCount}");
+        // WriteLine($"current: {new string(current)}");
         // If we've placed 2*n characters, we have a valid combination
         if (index == 2 * n)
         {

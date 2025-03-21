@@ -30,25 +30,25 @@ public static class Permutations
 {
     public static IList<IList<int>> Permute(int[] nums)
     {
-        List<IList<int>> result = [];
-        PermuteRecurse(result, nums, 0);
-        return result;
+        List<IList<int>> res = [];
+        PermuteRecurse(res, nums, 0);
+        return res;
     }
 
-    private static void PermuteRecurse(List<IList<int>> res, int[] arr, int start)
+    private static void PermuteRecurse(List<IList<int>> res, int[] nums, int start)
     {
-        if (start == arr.Length)
+        if (start == nums.Length)
         {
-            List<int> list = [.. arr.Select(t => t)];
+            List<int> list = [.. nums.Select(t => t)];
             res.Add(list);
             return;
         }
 
-        for (int i = start; i < arr.Length; i++)
+        for (int i = start; i < nums.Length; i++)
         {
-            (arr[start], arr[i]) = (arr[i], arr[start]);
-            PermuteRecurse(res, arr, start + 1);
-            (arr[start], arr[i]) = (arr[i], arr[start]);
+            (nums[start], nums[i]) = (nums[i], nums[start]);
+            PermuteRecurse(res, nums, start + 1);
+            (nums[start], nums[i]) = (nums[i], nums[start]);
         }
     }
 }

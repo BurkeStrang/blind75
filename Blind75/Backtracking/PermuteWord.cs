@@ -21,10 +21,8 @@ public static class PermuteWord
         for (int i = start; i < word.Length; i++)
         {
             (word[start], word[i]) = (word[i], word[start]);
-            WriteLine($"  word:{string.Join(",", word)}, start:{start}, i:{i} ");
             PermuteRecurse(res, word, start + 1);
             (word[start], word[i]) = (word[i], word[start]);
-            WriteLine($"  word:{string.Join(",", word)}, start:{start}, i:{i} ");
         }
     }
 }
