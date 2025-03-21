@@ -25,17 +25,21 @@ public static class SubsetsClass
 {
     public static IList<IList<int>> Subsets(int[] nums)
     {
-        List<IList<int>> res = [];
-        List<int> path = [];
+        int totalSubsets = 1 << nums.Length; // 2^n subsets
+        List<IList<int>> res = new(totalSubsets);
+        int[] path = new int[nums.Length]; // Fixed-size array
+        int pathLength = 0;
 
         void Backtrack(int start)
         {
-            res.Add([.. path]);
+            res.Add([.. path[..pathLength]]);
+            // convert path to a list and add to result
+            // only add elements up to pathLength
             for (int i = start; i < nums.Length; i++)
             {
-                path.Add(nums[i]);
+                path[pathLength++] = nums[i]; // Add element and increment length
                 Backtrack(i + 1);
-                path.RemoveAt(path.Count - 1);
+                pathLength--; // Decrement length to backtrack
             }
         }
 
