@@ -24,4 +24,15 @@ public class BinarySearchTests
         // Assert
         Assert.Equal(-1, result);
     }
+    [Fact]
+    public void Example3()
+    {
+        // Arrange
+        int[] nums = { 5 };
+        int target = 5;
+        // Act
+        int result = BinarySearch.Search(nums, target);
+        // Assert
+        Assert.Equal(0, result);
+    }
 }

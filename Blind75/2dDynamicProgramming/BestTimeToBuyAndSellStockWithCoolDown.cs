@@ -36,9 +36,9 @@ public static class BestTimeToBuyAndSellStockWithCoolDown
         {
             int prevSold = sold;
             sold = hold + prices[i];
-            hold = Math.Max(hold, rest - prices[i]);
-            rest = Math.Max(rest, prevSold);
+            hold = Max(hold, rest - prices[i]);
+            rest = Max(rest, prevSold);
         }
-        return Math.Max(sold, rest);
+        return Max(sold, rest);
     }
 }

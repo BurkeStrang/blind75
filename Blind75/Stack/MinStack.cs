@@ -55,7 +55,7 @@ public class MinStack
     public void Push(int val)
     {
         _stack.Push(val);
-        int min = Math.Min(val, _minStack.Count != 0 ? _minStack.Peek() : val);
+        int min = Min(val, _minStack.Count != 0 ? _minStack.Peek() : val);
         _minStack.Push(min);
     }
 

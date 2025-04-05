@@ -25,22 +25,23 @@ public static class SubsetsII
     //T: O(N*2^N)
     public static IList<IList<int>> Subsets(int[] nums)
     {
-        List<IList<int>> list = [];
         Array.Sort(nums);
-        BackTrack(list, [], nums, 0);
-        return list;
-    }
+        List<IList<int>> res = [];
+        List<int> path = [];
 
-    private static void BackTrack(List<IList<int>> list, List<int> curr, int[] nums, int start)
-    {
-        list.Add([.. curr]);
-        for (int i = start; i < nums.Length; i++)
+        void Backtrack(int start)
         {
-            if (i > start && nums[i] == nums[i - 1])
-                continue;
-            curr.Add(nums[i]);
-            BackTrack(list, curr, nums, i + 1);
-            curr.RemoveAt(curr.Count - 1);
+            res.Add([.. path]);
+            for (int i = start; i < nums.Length; i++)
+            {
+                if (i > start && nums[i] == nums[i - 1])
+                    continue;
+                path.Add(nums[i]);
+                Backtrack(i + 1);
+                path.RemoveAt(path.Count - 1);
+            }
         }
+        Backtrack(0);
+        return res;
     }
 }

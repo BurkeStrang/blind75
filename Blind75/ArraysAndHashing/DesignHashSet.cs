@@ -39,12 +39,12 @@ public class MyHashSet
 
     public void Add(int key)
     {
-        _set[key] = true;
+        _set[key]= true;
     }
 
     public void Remove(int key)
     {
-        _set[key] = false;
+        _set[key]= false;
     }
 
     public bool Contains(int key)

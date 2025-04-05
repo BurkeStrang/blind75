@@ -31,7 +31,7 @@ public static class PalindromePartition
         {
             if (i >= s.Length)
             {
-                result.Add(stack.ToList());
+                result.Add([.. stack]);
                 return;
             }
 

@@ -31,12 +31,12 @@ namespace Blind75.ArraysAndHashing;
 public class EncodeAndDecodeTinyUrl
 {
     private readonly Dictionary<string, string> _shortKey = [];
-    private Guid _unique = Guid.NewGuid();
+    private Guid _unique = Guid.CreateVersion7();
 
     public string Encode(string longUrl)
     {
         string shortUrl = "https://tiny.com/" + _unique;
-        _unique = Guid.NewGuid();
+        _unique = Guid.CreateVersion7();
         _shortKey.Add(shortUrl, longUrl);
         return shortUrl;
     }

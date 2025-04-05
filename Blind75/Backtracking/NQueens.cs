@@ -34,11 +34,11 @@ public static class NQueens
             board.Add(new StringBuilder(n));
             board[i].Append('.', n);
         }
-        BacktrackingNQueens(n, 0, board, result, [], [], []);
+        BackTrack(n, 0, board, result, [], [], []);
         return result;
     }
 
-    private static void BacktrackingNQueens(
+    private static void BackTrack(
         int n,
         int row,
         IList<StringBuilder> board,
@@ -50,7 +50,7 @@ public static class NQueens
     {
         if (n == 0)
         {
-            result.Add(board.Select(s => s.ToString()).ToList());
+            result.Add([.. board.Select(s => s.ToString())]);
             return;
         }
         if (row == board.Count)
@@ -59,9 +59,9 @@ public static class NQueens
         for (int c = 0; c < board.Count; c++)
         {
             (int i, int j) column = (0, c);
-            int m = Math.Min(row, c);
+            int m = Min(row, c);
             (int i, int j) diag1 = (row - m, c - m);
-            m = Math.Min(row, board.Count - 1 - c);
+            m = Min(row, board.Count - 1 - c);
             (int i, int j) diag2 = (row - m, c + m);
 
             if (
@@ -76,7 +76,7 @@ public static class NQueens
             negativeDiag.Add(diag2);
 
             board[row][c] = 'Q';
-            BacktrackingNQueens(n - 1, row + 1, board, result, col, positiveDiag, negativeDiag);
+            BackTrack(n - 1, row + 1, board, result, col, positiveDiag, negativeDiag);
 
             board[row][c] = '.';
             col.Remove(column);

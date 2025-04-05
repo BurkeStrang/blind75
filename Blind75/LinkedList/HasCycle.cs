@@ -7,7 +7,7 @@ public static class HasCycleClass
         ListNode? slow = head;
         ListNode? fast = head;
 
-        while(fast.next is not null && fast.next!.next is not null)
+        while(fast != null && fast.next != null)
         {
             slow = slow!.next;
             fast = fast.next.next;

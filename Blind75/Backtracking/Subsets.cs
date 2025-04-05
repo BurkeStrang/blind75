@@ -1,6 +1,5 @@
 namespace Blind75.Backtracking;
 
-
 /*
 
 Given an integer array nums of unique elements, return all possible subsets (the power set).
@@ -25,25 +24,25 @@ public static class SubsetsClass
 {
     public static IList<IList<int>> Subsets(int[] nums)
     {
-        int totalSubsets = 1 << nums.Length; // 2^n subsets
-        List<IList<int>> res = new(totalSubsets);
-        int[] path = new int[nums.Length]; // Fixed-size array
-        int pathLength = 0;
+        List<IList<int>> res = [];
+        List<int> path = [];
 
         void Backtrack(int start)
         {
-            res.Add([.. path[..pathLength]]);
-            // convert path to a list and add to result
-            // only add elements up to pathLength
+            // WriteLine($"res: [{string.Join(",", path)}]");
+            res.Add([.. path]);
             for (int i = start; i < nums.Length; i++)
             {
-                path[pathLength++] = nums[i]; // Add element and increment length
+                // WriteLine($"before:  i: {i}, start: {start}, path: [{string.Join(",", path)}]");
+                path.Add(nums[i]);
                 Backtrack(i + 1);
-                pathLength--; // Decrement length to backtrack
+                // WriteLine($"middle:  i: {i}, start: {start}, path: [{string.Join(",", path)}]");
+                path.RemoveAt(path.Count - 1);
+                // WriteLine($"after:  i: {i}, start: {start}, path: [{string.Join(",", path)}]");
             }
         }
-
         Backtrack(0);
+        // WriteLine($"res: [{string.Join(", ", res.Select(subset => $"[{string.Join(",", subset)}]"))}]");
         return res;
     }
 }
