@@ -16,7 +16,7 @@ public static class LetterCasePermutations
 
     private static void BackTrack(char[] chars, int index, IList<string> res)
     {
-        WriteLine($"[{string.Join(",", chars)}]");
+        // WriteLine($"[{string.Join(",", chars)}]");
         if (index == chars.Length)
         {
             res.Add(new string(chars));

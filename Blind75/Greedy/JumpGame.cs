@@ -27,14 +27,14 @@ public static class JumpGame
     public static bool CanJump(int[] nums)
     {
         int lastPos = nums.Length - 1;
-        WriteLine($" Input: [{string.Join(", ", nums)}]");
+        // WriteLine($" Input: [{string.Join(", ", nums)}]");
         for (int i = lastPos; i >= 0; i--)
         {
             if (i + nums[i] >= lastPos)
             {
                 lastPos = i;
             }
-            WriteLine($"  i: {i}, nums[i]: {nums[i]}, lastPos: {lastPos}");
+            // WriteLine($"  i: {i}, nums[i]: {nums[i]}, lastPos: {lastPos}");
         }
         return lastPos == 0;
     }
