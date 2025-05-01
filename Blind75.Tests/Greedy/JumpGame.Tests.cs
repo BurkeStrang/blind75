@@ -1,9 +1,9 @@
-namespace Blind75.Greedy;
+namespace Blind75.Tests.Greedy;
 
 public class JumpGameTests
 {
     [Fact]
-    public void CanJumpWhenCalledReturnsTrueIfCanReachLastIndex()
+    public void Example1()
     {
         // Arrange
         int[] nums = [2, 3, 1, 1, 4];
@@ -14,7 +14,7 @@ public class JumpGameTests
     }
 
     [Fact]
-    public void CanJumpWhenCalledReturnsFalseIfCannotReachLastIndex()
+    public void Example2()
     {
         // Arrange
         int[] nums = [3, 2, 1, 0, 4];

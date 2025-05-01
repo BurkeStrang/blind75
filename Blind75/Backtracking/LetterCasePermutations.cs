@@ -16,6 +16,7 @@ public static class LetterCasePermutations
 
     private static void BackTrack(char[] chars, int index, IList<string> res)
     {
+        WriteLine($"[{string.Join(",", chars)}]");
         if (index == chars.Length)
         {
             res.Add(new string(chars));
@@ -30,5 +31,31 @@ public static class LetterCasePermutations
             BackTrack(chars, index + 1, res);
             chars[index] ^= (char)32; // Revert case
         }
+    }
+
+    public static IList<string> LetterCasePermutationIter(string s)
+    {
+        Queue<string> queue = new();
+        queue.Enqueue(s);
+
+        for (int i = 0; i < s.Length; i++)
+        {
+            if (char.IsLetter(s[i]))
+            {
+                int size = queue.Count;
+                for (int j = 0; j < size; j++)
+                {
+                    string current = queue.Dequeue();
+                    char[] chars = current.ToCharArray();
+
+                    chars[i] = char.ToLower(chars[i]);
+                    queue.Enqueue(new string(chars));
+
+                    chars[i] = char.ToUpper(chars[i]);
+                    queue.Enqueue(new string(chars));
+                }
+            }
+        }
+        return [.. queue];
     }
 }

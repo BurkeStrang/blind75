@@ -1,13 +1,25 @@
-namespace Blind75.Greedy;
+namespace Blind75.Tests.Greedy;
 
 public class JumpGameIITests
 {
-    [Theory]
-    [InlineData(new int[] { 2, 3, 1, 1, 4 }, 2)]
-    [InlineData(new int[] { 2, 3, 0, 1, 4 }, 2)]
-    public void Jump_ShouldReturnMinimumNumberOfJumps(int[] nums, int expected)
+    [Fact]
+    public void Example1()
     {
         // Arrange
+        int[] nums = [2, 3, 1, 1, 4];
+        int expected = 2;
+        // Act
+        int actual = JumpGameII.Jump(nums);
+        // Assert
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact]
+    public void Example2()
+    {
+        // Arrange
+        int[] nums = [2, 3, 0, 1, 4];
+        int expected = 2;
         // Act
         int actual = JumpGameII.Jump(nums);
         // Assert
