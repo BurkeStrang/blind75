@@ -33,23 +33,19 @@ public static class JumpGameII
     {
         int left = 0;
         int right = 0;
-        int res = 0;
-
-        WriteLine($" nums: {string.Join(", ", nums)}");
+        int result = 0;
 
         while (right < nums.Length - 1)
         {
             int maxJump = 0;
             for (int i = left; i <= right; i++)
             {
-                maxJump = Max(maxJump, i + nums[i]);
-                WriteLine($" i: {i},  maxJump: {maxJump}, left: {left}, right: {right}, res: {res}");
+                maxJump = Max(maxJump, nums[i] + i);
             }
             left = right + 1;
             right = maxJump;
-            res++;
-            WriteLine($"  maxJump: {maxJump}, left: {left}, right: {right}, res: {res}");
+            result++;
         }
-        return res;
+        return result;
     }
 }
