@@ -33,19 +33,19 @@ public static class JumpGameII
     {
         int left = 0;
         int right = 0;
-        int result = 0;
+        int res = 0;
 
-        while (right < nums.Length - 1)
+        while(right < nums.Length - 1)
         {
             int maxJump = 0;
-            for (int i = left; i <= right; i++)
+            for(int i = left; i <= right; i++)
             {
-                maxJump = Max(maxJump, nums[i] + i);
+                maxJump = Max(maxJump, i + nums[i]);
             }
             left = right + 1;
             right = maxJump;
-            result++;
+            res++;
         }
-        return result;
+        return res;
     }
 }
