@@ -1,0 +1,217 @@
+#!/bin/bash
+
+# Practice script for Blind75 coding problems
+# Usage: ./practice <folder_name> [restore]
+# Example: ./practice Graphs
+# Example: ./practice Graphs restore
+
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+BLIND75_DIR="$SCRIPT_DIR/Blind75"
+BACKUP_DIR="$SCRIPT_DIR/.practice_backup"
+
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+usage() {
+    echo "Usage: $0 <folder_name> [command]"
+    echo ""
+    echo "Commands:"
+    echo "  practice (default)  # Remove implementations for practice"
+    echo "  restore            # Restore original implementations"
+    echo "  test               # Run tests for the folder"
+    echo ""
+    echo "Available folders:"
+    find "$BLIND75_DIR" -maxdepth 1 -type d -not -path "$BLIND75_DIR" -not -name "bin" -not -name "obj" -not -name "Shared" | \
+        sed "s|$BLIND75_DIR/||" | sort
+    echo ""
+    echo "Examples:"
+    echo "  $0 Graphs                # Start practicing graph problems"
+    echo "  $0 Graphs test           # Test your graph implementations"
+    echo "  $0 Graphs restore        # Restore original implementations"
+    echo "  $0 restore               # Restore all files from backup"
+}
+
+log_info() {
+    echo -e "${BLUE}[INFO]${NC} $1"
+}
+
+log_success() {
+    echo -e "${GREEN}[SUCCESS]${NC} $1"
+}
+
+log_warning() {
+    echo -e "${YELLOW}[WARNING]${NC} $1"
+}
+
+log_error() {
+    echo -e "${RED}[ERROR]${NC} $1"
+}
+
+
+# Function to remove method implementations
+remove_implementations() {
+    local file="$1"
+    local temp_file="${file}.tmp"
+    
+    log_info "Processing $(basename "$file")"
+    
+    # Use the Python script to remove method bodies
+    if python3 "$SCRIPT_DIR/remove_method_bodies.py" "$file" "$temp_file"; then
+        mv "$temp_file" "$file"
+        log_success "Removed implementations from $(basename "$file")"
+    else
+        log_error "Failed to process $(basename "$file")"
+        if [ -f "$temp_file" ]; then
+            rm "$temp_file"
+        fi
+        return 1
+    fi
+}
+
+# Function to backup original files
+backup_files() {
+    local folder="$1"
+    local folder_path="$BLIND75_DIR/$folder"
+    
+    if [ ! -d "$folder_path" ]; then
+        log_error "Folder '$folder' not found in $BLIND75_DIR"
+        return 1
+    fi
+    
+    mkdir -p "$BACKUP_DIR/$folder"
+    
+    log_info "Backing up files from $folder"
+    find "$folder_path" -name "*.cs" -exec cp {} "$BACKUP_DIR/$folder/" \;
+    log_success "Backup completed to $BACKUP_DIR/$folder"
+}
+
+# Function to restore files from backup
+restore_files() {
+    local folder="$1"
+    
+    if [ "$folder" = "all" ]; then
+        log_info "Restoring all files from backup"
+        if [ -d "$BACKUP_DIR" ]; then
+            # Restore all folders
+            for backup_folder in "$BACKUP_DIR"/*; do
+                if [ -d "$backup_folder" ]; then
+                    folder_name=$(basename "$backup_folder")
+                    target_folder="$BLIND75_DIR/$folder_name"
+                    if [ -d "$target_folder" ]; then
+                        log_info "Restoring $folder_name"
+                        cp "$backup_folder"/*.cs "$target_folder/"
+                    fi
+                fi
+            done
+            log_success "All files restored from backup"
+        else
+            log_warning "No backup directory found"
+        fi
+    else
+        local backup_folder="$BACKUP_DIR/$folder"
+        local target_folder="$BLIND75_DIR/$folder"
+        
+        if [ ! -d "$backup_folder" ]; then
+            log_error "No backup found for folder '$folder'"
+            return 1
+        fi
+        
+        if [ ! -d "$target_folder" ]; then
+            log_error "Target folder '$folder' not found"
+            return 1
+        fi
+        
+        log_info "Restoring files from backup for $folder"
+        cp "$backup_folder"/*.cs "$target_folder/"
+        log_success "Files restored for $folder"
+    fi
+}
+
+# Function to start practice mode
+start_practice() {
+    local folder="$1"
+    local folder_path="$BLIND75_DIR/$folder"
+    
+    # Backup first
+    backup_files "$folder"
+    
+    log_info "Starting practice mode for $folder"
+    
+    # Process each .cs file in the folder
+    find "$folder_path" -name "*.cs" | while read -r file; do
+        remove_implementations "$file"
+    done
+    
+    log_success "Practice mode enabled for $folder"
+    echo ""
+    echo -e "${GREEN}🎯 Ready to practice!${NC}"
+    echo -e "${BLUE}📁 Folder:${NC} $folder"
+    echo -e "${BLUE}📝 Files:${NC} $(find "$folder_path" -name "*.cs" | wc -l) problem files"
+    echo ""
+    echo -e "${YELLOW}💡 Usage tips:${NC}"
+    echo "  • Implement the method bodies in the .cs files"
+    echo "  • Run './practice $folder test' to test your implementations"
+    echo "  • Run 'dotnet test --filter \"*$folder*\"' to test your implementations manually"
+    echo "  • Run '$0 $folder restore' to get the original solutions back"
+    echo "  • Run 'dotnet test --filter \"SpecificTestName\"' to test individual problems"
+    echo ""
+}
+
+# Function to run tests for a specific folder
+run_tests() {
+    local folder="$1"
+    log_info "Running tests for $folder"
+    echo ""
+    
+    # Build first to show compilation errors clearly
+    log_info "Building project..."
+    if dotnet build --verbosity quiet 2>/dev/null; then
+        log_success "Build successful, running tests..."
+        echo ""
+        dotnet test --filter "*$folder*" --verbosity normal
+    else
+        log_warning "Build failed - showing compilation errors:"
+        echo ""
+        dotnet build
+    fi
+}
+
+# Main script logic
+if [ $# -eq 0 ]; then
+    usage
+    exit 1
+fi
+
+if [ "$1" = "restore" ]; then
+    restore_files "all"
+    exit 0
+fi
+
+FOLDER="$1"
+COMMAND="${2:-practice}"
+
+# Validate folder exists
+if [ ! -d "$BLIND75_DIR/$FOLDER" ]; then
+    log_error "Folder '$FOLDER' not found!"
+    echo ""
+    usage
+    exit 1
+fi
+
+case "$COMMAND" in
+    "restore")
+        restore_files "$FOLDER"
+        ;;
+    "test")
+        run_tests "$FOLDER"
+        ;;
+    "practice"|*)
+        start_practice "$FOLDER"
+        ;;
+esac
