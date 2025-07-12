@@ -67,7 +67,7 @@ public class LongestPalindromeSubstringClass
         // Act
         string actual = LongestPalindromeSubstring.LongestPalindromeExpandAround(s);
         // Assert
-        actual.Should().BeOneOf(expected1,expected2);
+        actual.ShouldBeOneOf(expected1, expected2);
     }
     [Fact]
     public void Example7()

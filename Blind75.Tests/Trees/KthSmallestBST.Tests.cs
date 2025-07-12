@@ -9,7 +9,7 @@ public class KthSmallestBST
 
         int exp = 1;
         int res = KthSmallestBSTClass.KthSmallest(root, 1);
-        res.Should().Be(exp);
+        res.ShouldBe(exp);
     }
 
     [Fact]
@@ -27,6 +27,6 @@ public class KthSmallestBST
             };
         int exp = 3;
         int res = KthSmallestBSTClass.KthSmallest(root, 3);
-        res.Should().Be(exp);
+        res.ShouldBe(exp);
     }
 }

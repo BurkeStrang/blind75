@@ -11,7 +11,7 @@ public class SrtColorsTests
         // Act
         SrtColors.SortColors(nums);
         // Assert
-        nums.Should().BeEquivalentTo(expected);
+        nums.ShouldBeEquivalentTo(expected);
     }
 
     [Fact]
@@ -23,6 +23,6 @@ public class SrtColorsTests
         // Act
         SrtColors.SortColors(nums);
         // Assert
-        nums.Should().BeEquivalentTo(expected);
+        nums.ShouldBeEquivalentTo(expected);
     }
 }

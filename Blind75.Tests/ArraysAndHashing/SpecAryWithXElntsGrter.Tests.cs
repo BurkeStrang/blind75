@@ -11,7 +11,7 @@ public class SpecAryWithXElntsGrterTests
         // Act
         int actual = SpecAryWithXElntsGrter.SpecialArray(nums);
         // Assert
-        actual.Should().Be(expected);
+        actual.ShouldBe(expected);
     }
     [Fact]
     public void Example2()
@@ -22,7 +22,7 @@ public class SpecAryWithXElntsGrterTests
         // Act
         int actual = SpecAryWithXElntsGrter.SpecialArray(nums);
         // Assert
-        actual.Should().Be(expected);
+        actual.ShouldBe(expected);
     }
     [Fact]
     public void Example3()
@@ -33,6 +33,6 @@ public class SpecAryWithXElntsGrterTests
         // Act
         int actual = SpecAryWithXElntsGrter.SpecialArray(nums);
         // Assert
-        actual.Should().Be(expected);
+        actual.ShouldBe(expected);
     }
 }

@@ -8,7 +8,7 @@ public class CharacterReplacementTests
         int k = 2;
         string s = "ABAB";
         int res = CharacterReplacementClass.CharacterReplacement(s, k);
-        res.Should().Be(4);
+        res.ShouldBe(4);
     }
 
     [Fact]
@@ -17,6 +17,6 @@ public class CharacterReplacementTests
         int k = 1;
         string s = "AABABBA";
         int res = CharacterReplacementClass.CharacterReplacement(s, k);
-        res.Should().Be(4);
+        res.ShouldBe(4);
     }
 }

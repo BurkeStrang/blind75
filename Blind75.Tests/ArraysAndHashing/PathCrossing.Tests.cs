@@ -11,6 +11,6 @@ public class PathCrossingTests
         // Act
         bool result = PathCrossing.IsPathCrossing(path);
         // Assert
-        result.Should().Be(expected);
+        result.ShouldBe(expected);
     }
 }

@@ -13,7 +13,7 @@ public class FindAllDupsInArrayTests
         // Act
         IList<int> result = FindAllDupsInArray.FindDuplicates(nums);
         // Assert
-        result.Should().BeEquivalentTo(expected);
+        result.ShouldBeEquivalentTo(expected);
     }
 
     [Fact]
@@ -25,7 +25,7 @@ public class FindAllDupsInArrayTests
         // Act
         IList<int> result = FindAllDupsInArray.FindDuplicates(nums);
         // Assert
-        result.Should().BeEquivalentTo(expected);
+        result.ShouldBeEquivalentTo(expected);
     }
 
     [Fact]
@@ -37,6 +37,6 @@ public class FindAllDupsInArrayTests
         // Act
         IList<int> result = FindAllDupsInArray.FindDuplicates(nums);
         // Assert
-        result.Should().BeEquivalentTo(expected);
+        result.ShouldBeEquivalentTo(expected);
     }
 }

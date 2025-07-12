@@ -12,7 +12,7 @@ public class IsSubsequenceTests
         // Act
         bool actual = IsSubsequenceClass.IsSubsequence(s, t);
         // Assert
-        actual.Should().Be(expected);
+        actual.ShouldBe(expected);
     }
     [Fact]
     public void Example2()
@@ -24,7 +24,7 @@ public class IsSubsequenceTests
         // Act
         bool actual = IsSubsequenceClass.IsSubsequence(s, t);
         // Assert
-        actual.Should().Be(expected);
+        actual.ShouldBe(expected);
     }
     // negative test case
     [Fact]
@@ -37,7 +37,7 @@ public class IsSubsequenceTests
         // Act
         bool actual = IsSubsequenceClass.IsSubsequence(s, t);
         // Assert
-        actual.Should().Be(expected);
+        actual.ShouldBe(expected);
     }
     [Fact]
     public void Example4()
@@ -49,6 +49,6 @@ public class IsSubsequenceTests
         // Act
         bool actual = IsSubsequenceClass.IsSubsequence(s, t);
         // Assert
-        actual.Should().Be(expected);
+        actual.ShouldBe(expected);
     }
 }

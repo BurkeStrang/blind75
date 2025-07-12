@@ -12,7 +12,7 @@ public class EncodeAndDecodeTinyUrlTests
         string tiny = obj.Encode(url);
         string ans = obj.Decode(tiny);
         // Assert
-        ans.Should().Be(url);
+        ans.ShouldBe(url);
     }
 
     [Fact]
@@ -25,6 +25,6 @@ public class EncodeAndDecodeTinyUrlTests
         string tiny = obj.Encode(url);
         string ans = obj.Decode(tiny);
         // Assert
-        ans.Should().Be(url);
+        ans.ShouldBe(url);
     }
 }

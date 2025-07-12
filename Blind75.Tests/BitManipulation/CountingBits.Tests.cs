@@ -10,7 +10,7 @@ public class CountingBitsTests
         // Act
         int[] result = CountingBits.CountBits(n);
         // Assert
-        result.Should().Equal([0, 1, 1]);
+        result.ShouldBe([0, 1, 1]);
     }
 
     [Fact]
@@ -21,6 +21,6 @@ public class CountingBitsTests
         // Act
         int[] result = CountingBits.CountBits(n);
         // Assert
-        result.Should().Equal([0, 1, 1, 2, 1, 2]);
+        result.ShouldBe([0, 1, 1, 2, 1, 2]);
     }
 }

@@ -11,7 +11,7 @@ public class ConcetenationOfArrayTests
         // Act
         int[] actual = ConcatenationOfArray.GetConcatenation(nums);
         // Assert
-        actual.Should().BeEquivalentTo(expected);
+        actual.ShouldBeEquivalentTo(expected);
     }
     [Fact]
     public void Example2()
@@ -22,6 +22,6 @@ public class ConcetenationOfArrayTests
         // Act
         int[] actual = ConcatenationOfArray.GetConcatenation(nums);
         // Assert
-        actual.Should().BeEquivalentTo(expected);
+        actual.ShouldBeEquivalentTo(expected);
     }
 }

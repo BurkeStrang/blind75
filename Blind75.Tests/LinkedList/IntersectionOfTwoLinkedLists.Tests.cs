@@ -15,7 +15,7 @@ public class IntersectionOfTwoLinkedListsTests
         ListNode? result = IntersectionOfTwoLinkedLists.GetIntersectionNode(headA, headB);
 
         // Assert
-        result.Should().BeEquivalentTo(expected);
+        result.ShouldBeEquivalentTo(expected);
     }
 
     [Fact]
@@ -31,7 +31,7 @@ public class IntersectionOfTwoLinkedListsTests
         ListNode? result = IntersectionOfTwoLinkedLists.GetIntersectionNode(headA, headB);
 
         // Assert
-        result.Should().BeEquivalentTo(expected);
+        result.ShouldBeEquivalentTo(expected);
     }
 
     [Fact]
@@ -46,6 +46,6 @@ public class IntersectionOfTwoLinkedListsTests
         ListNode? result = IntersectionOfTwoLinkedLists.GetIntersectionNode(headA, headB);
 
         // Assert
-        result.Should().BeEquivalentTo(expected);
+        result.ShouldBeEquivalentTo(expected);
     }
 }

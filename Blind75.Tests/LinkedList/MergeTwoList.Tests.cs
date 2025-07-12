@@ -47,7 +47,7 @@ public class MergeTwoList
 
         ListNode? res = MergeTwoListClass.MergeTwoLists(list1, list2);
 
-        res.Should().BeEquivalentTo(expectedList);
+        res.ShouldBeEquivalentTo(expectedList);
 
         // Assert.Equivalent(expectedList, MergeTwoListClass.MergeTwoLists(list1, list2));
     }

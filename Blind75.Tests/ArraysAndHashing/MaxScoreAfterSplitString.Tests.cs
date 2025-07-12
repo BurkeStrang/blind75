@@ -12,6 +12,6 @@ public class MaxScoreAfterSplitStringTests
         // Act
         int result = MaxScoreAfterSplitString.MaxScore(s);
         // Assert
-        result.Should().Be(expected);
+        result.ShouldBe(expected);
     }
 }

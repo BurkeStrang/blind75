@@ -12,6 +12,6 @@ public class LargestSame3DigitNumberTests
         // Act
         string result = LargestSame3DigitNumber.LargestGoodInteger(num);
         // Assert
-        result.Should().Be(expected);
+        result.ShouldBe(expected);
     }
 }

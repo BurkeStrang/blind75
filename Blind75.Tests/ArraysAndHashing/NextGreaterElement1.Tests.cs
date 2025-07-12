@@ -12,7 +12,7 @@ public class NextGreaterElement1Tests
         // Act
         int[] actual = NextGreater.NextGreaterElement(nums1, nums2);
         // Assert
-        actual.Should().BeEquivalentTo(expected);
+        actual.ShouldBeEquivalentTo(expected);
     }
     [Fact]
     public void Example2()
@@ -24,6 +24,6 @@ public class NextGreaterElement1Tests
         // Act
         int[] actual = NextGreater.NextGreaterElement(nums1, nums2);
         // Assert
-        actual.Should().BeEquivalentTo(expected);
+        actual.ShouldBeEquivalentTo(expected);
     }
 }

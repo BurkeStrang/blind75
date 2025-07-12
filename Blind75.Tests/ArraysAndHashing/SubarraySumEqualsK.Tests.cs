@@ -9,7 +9,7 @@ public class SubarraySumEqualsKTests
         int k = 2;
         int expected = 2;
         int actual = SubarraySumEqualsK.SubarraySum(nums, k);
-        actual.Should().Be(expected);
+        actual.ShouldBe(expected);
     }
     [Fact]
     public void Example2()
@@ -18,6 +18,6 @@ public class SubarraySumEqualsKTests
         int k = 3;
         int expected = 2;
         int actual = SubarraySumEqualsK.SubarraySum(nums, k);
-        actual.Should().Be(expected);
+        actual.ShouldBe(expected);
     }
 }

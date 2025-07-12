@@ -24,7 +24,7 @@ public class ReverseLinkedListIITests
         };
 
         ListNode? actual = ReverseLinkedListII.ReverseBetween(head, 1, 2);
-        actual.Should().BeEquivalentTo(expected);
+        actual.ShouldBeEquivalentTo(expected);
 
     }
 }

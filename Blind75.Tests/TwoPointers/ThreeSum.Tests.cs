@@ -8,11 +8,11 @@ public class ThreeSumTests
         int[] nums = [-1, 0, 1, 2, -1, -4];
         List<IList<int>> expected =
         [
-            [-1, 1, 0],
-            [-1, 2, -1]
+            [-1, -1, 2],
+            [-1, 0, 1]
         ];
         IList<IList<int>> result = ThreeSumClass.ThreeSum(nums);
-        Assert.Equal(expected, result);
+        result.ShouldBeEquivalentTo(expected);
     }
 
     [Fact]
@@ -72,6 +72,6 @@ public class ThreeSumTests
         ];
         IList<IList<int>> result = ThreeSumClass.ThreeSum(nums);
         // fluent assertion that collections are equivalent in any order
-        result.Should().BeEquivalentTo(expected);
+        result.ShouldBeEquivalentTo(expected);
     }
 }

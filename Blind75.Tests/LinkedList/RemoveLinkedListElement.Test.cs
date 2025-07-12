@@ -12,7 +12,7 @@ public class RemoveLinkedListElementTest
         // Act
         ListNode? result = RemoveLinkedListElement.RemoveElements(head, val);
         // Assert
-        result.Should().BeEquivalentTo(expected);
+        result.ShouldBeEquivalentTo(expected);
     }
 
     [Fact]
@@ -25,7 +25,7 @@ public class RemoveLinkedListElementTest
         // Act
         ListNode? result = RemoveLinkedListElement.RemoveElements(head!, val);
         // Assert
-        result.Should().BeEquivalentTo(expected);
+        result.ShouldBeEquivalentTo(expected);
     }
 
     [Fact]
@@ -38,6 +38,6 @@ public class RemoveLinkedListElementTest
         // Act
         ListNode? result = RemoveLinkedListElement.RemoveElements(head, val);
         // Assert
-        result.Should().BeEquivalentTo(expected);
+        result.ShouldBeEquivalentTo(expected);
     }
 }

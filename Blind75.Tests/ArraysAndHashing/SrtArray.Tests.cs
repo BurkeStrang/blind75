@@ -1,7 +1,6 @@
 namespace Blind75.Tests.ArraysAndHashing
 {
     using Blind75.ArraysAndHashing;
-    using FluentAssertions;
     using Xunit;
 
     public class SrtArrayTests
@@ -15,7 +14,7 @@ namespace Blind75.Tests.ArraysAndHashing
             // Act
             int[] result = SrtArray.SortArray(nums);
             // Assert
-            result.Should().BeEquivalentTo(expected);
+            result.ShouldBeEquivalentTo(expected);
         }
 
         [Fact]
@@ -27,7 +26,7 @@ namespace Blind75.Tests.ArraysAndHashing
             // Act
             int[] result = SrtArray.SortArray(nums);
             // Assert
-            result.Should().BeEquivalentTo(expected);
+            result.ShouldBeEquivalentTo(expected);
         }
     }
 }

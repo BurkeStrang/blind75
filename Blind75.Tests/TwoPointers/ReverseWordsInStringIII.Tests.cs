@@ -11,6 +11,6 @@ public class ReverseWordsInStringIIITests
         // Act
         string result = ReverseWordsInStringIII.ReverseWords(s);
         // Assert
-        expected.Should().Be(result);
+        expected.ShouldBe(result);
     }
 }

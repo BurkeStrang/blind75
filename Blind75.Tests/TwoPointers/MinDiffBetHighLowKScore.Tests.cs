@@ -12,7 +12,7 @@ public class MinDiffBetHighLowKScoreTests
         // Act
         int actual = MinDiffBetHighLowKScore.MinDifference(nums, k);
         // Assert
-        actual.Should().Be(expected);
+        actual.ShouldBe(expected);
     }
 
     [Fact]
@@ -25,7 +25,7 @@ public class MinDiffBetHighLowKScoreTests
         // Act
         int actual = MinDiffBetHighLowKScore.MinDifference(nums, k);
         // Assert
-        actual.Should().Be(expected);
+        actual.ShouldBe(expected);
     }
 
     [Fact]
@@ -38,6 +38,6 @@ public class MinDiffBetHighLowKScoreTests
         // Act
         int actual = MinDiffBetHighLowKScore.MinDifference(nums, k);
         // Assert
-        actual.Should().Be(expected);
+        actual.ShouldBe(expected);
     }
 }

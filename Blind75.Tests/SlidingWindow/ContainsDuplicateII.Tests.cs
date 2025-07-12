@@ -16,6 +16,6 @@ public class ContainsDuplicateIITests
         // Act
         bool actual = ContainsDuplicateII.ContainsNearbyDuplicate(nums, k);
         // Assert
-        actual.Should().Be(expected);
+        actual.ShouldBe(expected);
     }
 }

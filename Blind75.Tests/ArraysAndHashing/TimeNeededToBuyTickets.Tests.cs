@@ -12,7 +12,7 @@ public class TimeNeededToBuyTicketsTests
         // Act
         int actual = TimeNeededToBuyTickets.BuyTicket(tickets, k);
         // Assert
-        actual.Should().Be(expected);
+        actual.ShouldBe(expected);
     }
     [Fact]
     public void Example2()
@@ -24,6 +24,6 @@ public class TimeNeededToBuyTicketsTests
         // Act
         int actual = TimeNeededToBuyTickets.BuyTicket(tickets, k);
         // Assert
-        actual.Should().Be(expected);
+        actual.ShouldBe(expected);
     }
 }

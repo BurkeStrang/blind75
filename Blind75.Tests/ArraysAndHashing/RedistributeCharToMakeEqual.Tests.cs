@@ -13,6 +13,6 @@ public class RedistributeCharToMakeEqualTests
         // Act
         bool actual = RedistributeCharToMakeEqual.MakeEqual(words);
         // Assert
-        actual.Should().Be(expected);
+        actual.ShouldBe(expected);
     }
 }

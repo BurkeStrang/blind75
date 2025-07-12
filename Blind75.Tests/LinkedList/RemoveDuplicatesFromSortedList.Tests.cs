@@ -8,7 +8,7 @@ public class RemoveDuplicatesFromSortedListTests
         ListNode? input = new(1, new(1, new(2)));
         ListNode? expected = new(1, new(2));
         ListNode? result = RemoveDuplicatesFromSortedList.DeleteDuplicates(input);
-        result.Should().BeEquivalentTo(expected);
+        result.ShouldBeEquivalentTo(expected);
     }
 
     [Fact]
@@ -17,6 +17,6 @@ public class RemoveDuplicatesFromSortedListTests
         ListNode? input = new(1, new(1, new(2, new(3, new(3)))));
         ListNode? expected = new(1, new(2, new(3)));
         ListNode? result = RemoveDuplicatesFromSortedList.DeleteDuplicates(input);
-        result.Should().BeEquivalentTo(expected);
+        result.ShouldBeEquivalentTo(expected);
     }
 }

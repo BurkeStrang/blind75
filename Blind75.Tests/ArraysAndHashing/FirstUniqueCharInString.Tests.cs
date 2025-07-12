@@ -11,7 +11,7 @@ public class FirstUniqueCharInStringTests
         // Act
         int result = FirstUniqueCharInString.FirstUniqChar(s);
         // Assert
-        result.Should().Be(expected);
+        result.ShouldBe(expected);
     }
 
     [Fact]
@@ -23,7 +23,7 @@ public class FirstUniqueCharInStringTests
         // Act
         int result = FirstUniqueCharInString.FirstUniqChar(s);
         // Assert
-        result.Should().Be(expected);
+        result.ShouldBe(expected);
     }
 
     [Fact]
@@ -35,6 +35,6 @@ public class FirstUniqueCharInStringTests
         // Act
         int result = FirstUniqueCharInString.FirstUniqChar(s);
         // Assert
-        result.Should().Be(expected);
+        result.ShouldBe(expected);
     }
 }

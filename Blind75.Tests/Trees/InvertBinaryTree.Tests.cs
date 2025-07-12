@@ -19,7 +19,7 @@ public class InvertBinaryTree
             };
         TreeNode? res = InvertBinaryTreeClass.InvertTree(orig);
 
-        inv.Should().BeEquivalentTo(res);
+        inv.ShouldBeEquivalentTo(res);
     }
 
     [Fact]
@@ -37,6 +37,6 @@ public class InvertBinaryTree
 
         TreeNode? res = InvertBinaryTreeClass.InvertTree(orig);
 
-        inv.Should().BeEquivalentTo(res);
+        inv.ShouldBeEquivalentTo(res);
     }
 }

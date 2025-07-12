@@ -11,7 +11,7 @@ public class Move0sTests
         // Act
         Move0s.MoveZeroes(input);
         // Assert
-        expected.Should().BeEquivalentTo(input);
+        input.ShouldBeEquivalentTo(expected);
     }
 
     [Fact]
@@ -23,6 +23,6 @@ public class Move0sTests
         // Act
         Move0s.MoveZeroes(input);
         // Assert
-        expected.Should().BeEquivalentTo(input);
+        input.ShouldBeEquivalentTo(expected);
     }
 }

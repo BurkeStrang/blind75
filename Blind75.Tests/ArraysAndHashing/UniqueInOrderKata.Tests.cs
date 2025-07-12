@@ -9,7 +9,7 @@ public class UniqueInOrderKataTests
     {
         IEnumerable<char> expected = "";
         IEnumerable<char> res = "";
-        res.Should().Equal(expected);
+        res.ShouldBe(expected);
     }
 
     [Fact]
@@ -17,7 +17,7 @@ public class UniqueInOrderKataTests
     {
         IEnumerable<char> expected = "ABCDAB";
         IEnumerable<char> res = UniqueInOrderKata.UniqueInOrder("AAAABBBCCDAABBB");
-        res.Should().Equal(expected);
+        res.ShouldBe(expected);
     }
 
     [Fact]
@@ -27,6 +27,6 @@ public class UniqueInOrderKataTests
         IEnumerable<int> res = UniqueInOrderKata.UniqueInOrder(
             [1, 2, 2, 2, 3, 3, 4, 4, 1, 1, 1, 1]
         );
-        res.Should().Equal(expected);
+        res.ShouldBe(expected);
     }
 }

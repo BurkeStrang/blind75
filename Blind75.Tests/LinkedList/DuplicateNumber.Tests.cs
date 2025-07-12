@@ -10,7 +10,7 @@ public class DuplicateNumberTests
         // Act
         int result = DuplicateNumber.FindDuplicate(nums);
         // Assert
-        result.Should().Be(2);
+        result.ShouldBe(2);
     }
     [Fact]
     public void FindDuplicate_Example2()

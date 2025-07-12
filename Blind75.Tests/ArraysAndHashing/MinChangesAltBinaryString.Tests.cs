@@ -12,6 +12,6 @@ public class MinChangesAltBinaryStringTests
         // Act
         int actual = MinChangesAltBinaryString.MinOperations(s);
         // Assert
-        actual.Should().Be(expected);
+        actual.ShouldBe(expected);
     }
 }

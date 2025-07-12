@@ -10,6 +10,6 @@ public class MaxProdDiffBetweenTwoTests
 
         int res = MaxProdDiffBetweenTwo.MaxProductDifference(nums);
 
-        res.Should().Be(expected);
+        res.ShouldBe(expected);
     }
 }

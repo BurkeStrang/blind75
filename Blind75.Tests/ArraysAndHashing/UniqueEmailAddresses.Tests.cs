@@ -16,7 +16,7 @@ public class UniqueEmailAddressesTests
 
         // Act
         int actual = UniqueEmailAddresses.NumUniqueEmails(emails);
-        actual.Should().Be(expected);
+        actual.ShouldBe(expected);
     }
 
     [Fact]
@@ -28,6 +28,6 @@ public class UniqueEmailAddressesTests
 
         // Act
         int actual = UniqueEmailAddresses.NumUniqueEmails(emails);
-        actual.Should().Be(expected);
+        actual.ShouldBe(expected);
     }
 }

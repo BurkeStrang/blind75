@@ -11,7 +11,7 @@ public class ReverseStringTests
         // Act
         ReverseString.Reverse(s);
         // Assert
-        s.Should().Equal(expected);
+        s.ShouldBe(expected);
     }
 
     [Fact]
@@ -23,6 +23,6 @@ public class ReverseStringTests
         // Act
         ReverseString.Reverse(s);
         // Assert
-        s.Should().Equal(expected);
+        s.ShouldBe(expected);
     }
 }

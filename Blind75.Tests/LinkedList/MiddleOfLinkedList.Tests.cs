@@ -11,7 +11,7 @@ public class MiddleOfLinkedListTests
         // Act
         ListNode? result = MiddleOfLinkedList.MiddleNode(head);
         // Assert
-        expected.Should().BeEquivalentTo(result);
+        expected.ShouldBeEquivalentTo(result);
     }
 
     [Fact]
@@ -23,6 +23,6 @@ public class MiddleOfLinkedListTests
         // Act
         ListNode? result = MiddleOfLinkedList.MiddleNode(head);
         // Assert
-        expected.Should().BeEquivalentTo(result);
+        expected.ShouldBeEquivalentTo(result);
     }
 }

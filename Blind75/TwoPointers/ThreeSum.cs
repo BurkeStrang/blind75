@@ -25,30 +25,45 @@ public static class ThreeSumClass
     public static IList<IList<int>> ThreeSum(int[] nums)
     {
         Array.Sort(nums);
-        IList<IList<int>> res = [];
+        IList<IList<int>> result = [];
 
-        for (int i = 0; i < nums.Length - 1; i++)
-            if(i == 0 || nums[i-1] != nums[i])
-                TwoSum(nums, i, res);
-        return res;
-    }
-
-    private static void TwoSum(int[] nums, int i, IList<IList<int>> res)
-    {
-        HashSet<int> set = [];
-
-        for (int j = i + 1; j < nums.Length; j++)
+        for (int i = 0; i < nums.Length - 2; i++)
         {
-            int complement = (nums[i] + nums[j]) * -1;
+            // Skip duplicate values for the first element
+            if (i > 0 && nums[i] == nums[i - 1])
+                continue;
 
-            if (set.Contains(complement))
+            int left = i + 1;
+            int right = nums.Length - 1;
+
+            while (left < right)
             {
-                res.Add([nums[i], nums[j], complement]);
-                while( j < nums.Length - 1 && nums[j] == nums[j+1])
-                    j++;
-            }
+                int sum = nums[i] + nums[left] + nums[right];
 
-            set.Add(nums[j]);
+                if (sum == 0)
+                {
+                    result.Add([nums[i], nums[left], nums[right]]);
+
+                    // Skip duplicate values for left and right pointers
+                    while (left < right && nums[left] == nums[left + 1])
+                        left++;
+                    while (left < right && nums[right] == nums[right - 1])
+                        right--;
+
+                    left++;
+                    right--;
+                }
+                else if (sum < 0)
+                {
+                    left++;
+                }
+                else
+                {
+                    right--;
+                }
+            }
         }
+
+        return result;
     }
 }

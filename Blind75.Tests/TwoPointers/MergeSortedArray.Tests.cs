@@ -14,7 +14,7 @@ public class MergeSortedArrayTests
         // Act
         MergeSortedArray.Merge(nums1, m, nums2, n);
         // Assert
-        nums1.Should().BeEquivalentTo(expected);
+        nums1.ShouldBeEquivalentTo(expected);
     }
 
     [Fact]
@@ -29,6 +29,6 @@ public class MergeSortedArrayTests
         // Act
         MergeSortedArray.Merge(nums1, m, nums2, n);
         // Assert
-        nums1.Should().BeEquivalentTo(expected);
+        nums1.ShouldBeEquivalentTo(expected);
     }
 }

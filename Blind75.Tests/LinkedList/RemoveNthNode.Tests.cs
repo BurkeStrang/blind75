@@ -23,7 +23,7 @@ public class RemoveNthNode
         expectedList.next.next.next.next.next = new ListNode(11);
 
         ListNode? res = RemoveNthNodeClass.RemoveNthFromEnd(originalList, 2);
-        expectedList.Should().BeEquivalentTo(res);
+        expectedList.ShouldBeEquivalentTo(res);
     }
 
     [Fact]
@@ -33,6 +33,6 @@ public class RemoveNthNode
         ListNode? expectedList = null;
 
         ListNode? res = RemoveNthNodeClass.RemoveNthFromEnd(originalList,1);
-        res.Should().BeEquivalentTo(expectedList);
+        res.ShouldBeEquivalentTo(expectedList);
     }
 }

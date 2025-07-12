@@ -24,7 +24,7 @@ public class SwapNodesInParsTests
         };
 
         ListNode? actual = SwapNodesInPairs.SwapPairs(head);
-        actual.Should().BeEquivalentTo(expected);
+        actual.ShouldBeEquivalentTo(expected);
 
     }
 }

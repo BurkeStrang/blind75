@@ -11,7 +11,7 @@ public class PascalTriangleTests
         // Act
         IList<IList<int>> actual = PascalTriangle.Generate(numRows);
         // Assert
-        expected.Should().BeEquivalentTo(actual);
+        expected.ShouldBeEquivalentTo(actual);
     }
     [Fact]
     public void Example2()
@@ -22,6 +22,6 @@ public class PascalTriangleTests
         // Act
         IList<IList<int>> actual = PascalTriangle.Generate(numRows);
         // Assert
-        expected.Should().BeEquivalentTo(actual);
+        expected.ShouldBeEquivalentTo(actual);
     }
 }

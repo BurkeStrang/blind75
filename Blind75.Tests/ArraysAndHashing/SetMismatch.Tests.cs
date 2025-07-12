@@ -11,7 +11,7 @@ public class SetMismatchTests
         // Act
         int[] result = SetMismatch.FindErrorNums(nums);
         // Assert
-        result.Should().BeEquivalentTo(expected);
+        result.ShouldBeEquivalentTo(expected);
     }
 
     [Fact]
@@ -23,7 +23,7 @@ public class SetMismatchTests
         // Act
         int[] result = SetMismatch.FindErrorNums(nums);
         // Assert
-        result.Should().BeEquivalentTo(expected);
+        result.ShouldBeEquivalentTo(expected);
     }
 
     [Fact]
@@ -35,6 +35,6 @@ public class SetMismatchTests
         // Act
         int[] result = SetMismatch.FindErrorNums(nums);
         // Assert
-        result.Should().BeEquivalentTo(expected);
+        result.ShouldBeEquivalentTo(expected);
     }
 }

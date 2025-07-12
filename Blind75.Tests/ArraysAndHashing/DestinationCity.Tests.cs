@@ -15,7 +15,7 @@ public class DestinationCityTests
         // Act
         string result = DestinationCity.DestCity(paths);
         // Assert
-        result.Should().Be("Sao Paulo");
+        result.ShouldBe("Sao Paulo");
     }
     [Fact]
     public void Example2()
@@ -30,7 +30,7 @@ public class DestinationCityTests
         // Act
         string result = DestinationCity.DestCity(paths);
         // Assert
-        result.Should().Be("A");
+        result.ShouldBe("A");
     }
     [Fact]
     public void Example3()
@@ -43,6 +43,6 @@ public class DestinationCityTests
         // Act
         string result = DestinationCity.DestCity(paths);
         // Assert
-        result.Should().Be("Z");
+        result.ShouldBe("Z");
     }
 }

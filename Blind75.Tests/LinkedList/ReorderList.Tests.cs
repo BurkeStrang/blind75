@@ -35,6 +35,6 @@ public class ReorderList
 
         ReorderListClass.ReorderList(list);
 
-        list.Should().BeEquivalentTo(expectedlist);
+        list.ShouldBeEquivalentTo(expectedlist);
     }
 }

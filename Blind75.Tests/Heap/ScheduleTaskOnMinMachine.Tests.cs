@@ -10,6 +10,6 @@ public class ScheduleTaskOnMinMachineTests
 
         int result = ScheduleTaskOnMinMachine.Tasks(input);
 
-        result.Should().Be(expected);
+        result.ShouldBe(expected);
     }
 }
