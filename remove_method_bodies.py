@@ -38,28 +38,6 @@ def generate_throw_statement():
 def remove_method_implementations(content):
     """Remove implementations from all public methods."""
     
-    # Add using System if not present
-    if 'using System;' not in content:
-        # Find the first namespace or using statement
-        lines = content.split('\n')
-        insert_index = 0
-        for i, line in enumerate(lines):
-            if line.strip().startswith('namespace ') or line.strip().startswith('using '):
-                insert_index = i
-                break
-        
-        # Insert using System at the top
-        if insert_index == 0 or lines[insert_index].strip().startswith('namespace '):
-            lines.insert(insert_index, 'using System;')
-            lines.insert(insert_index + 1, '')
-        else:
-            # Find a good spot among other using statements
-            while insert_index < len(lines) and lines[insert_index].strip().startswith('using '):
-                insert_index += 1
-            lines.insert(insert_index, 'using System;')
-        
-        content = '\n'.join(lines)
-    
     # Pattern to match method signatures and their bodies
     # This is a complex pattern that handles nested braces
     method_pattern = r'''

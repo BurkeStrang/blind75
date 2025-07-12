@@ -34,6 +34,7 @@ The `practice` script helps you practice Blind75 coding problems by:
 | `./practice <folder> test` | Run tests for your implementations |
 | `./practice <folder> restore` | Restore original implementations |
 | `./practice restore` | Restore all backed up files |
+| `./practice clean` | Remove all backup files and clean up |
 
 ## 📁 Available Categories
 
@@ -77,6 +78,13 @@ When you run `./practice <folder> restore`, the script:
 - Restores original implementations from backup
 - Preserves your practice session state
 
+### 4. Clean Mode
+When you run `./practice clean`, the script:
+- Shows all backed up folders
+- Asks for confirmation before deletion
+- Removes the entire `.practice_backup/` directory
+- Frees up disk space and starts fresh
+
 ## 💡 Example Workflow
 
 ```bash
@@ -94,6 +102,9 @@ When you run `./practice <folder> restore`, the script:
 
 # 5. When done, restore original solutions to compare
 ./practice Graphs restore
+
+# 6. Clean up all backup files when finished
+./practice clean
 ```
 
 ## 🧪 Testing Individual Problems

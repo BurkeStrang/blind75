@@ -25,6 +25,7 @@ usage() {
     echo "  practice (default)  # Remove implementations for practice"
     echo "  restore            # Restore original implementations"
     echo "  test               # Run tests for the folder"
+    echo "  clean              # Remove backup folder and clean up"
     echo ""
     echo "Available folders:"
     find "$BLIND75_DIR" -maxdepth 1 -type d -not -path "$BLIND75_DIR" -not -name "bin" -not -name "obj" -not -name "Shared" | \
@@ -35,6 +36,7 @@ usage() {
     echo "  $0 Graphs test           # Test your graph implementations"
     echo "  $0 Graphs restore        # Restore original implementations"
     echo "  $0 restore               # Restore all files from backup"
+    echo "  $0 clean                 # Remove all backup files"
 }
 
 log_info() {
@@ -182,6 +184,34 @@ run_tests() {
     fi
 }
 
+# Function to clean up backup folders
+clean_backups() {
+    if [ -d "$BACKUP_DIR" ]; then
+        log_info "Removing backup directory: $BACKUP_DIR"
+        
+        # Show what will be removed
+        echo ""
+        echo -e "${YELLOW}The following backup folders will be removed:${NC}"
+        find "$BACKUP_DIR" -type d -mindepth 1 -maxdepth 1 | sed 's|.*/||' | sort | sed 's/^/  • /'
+        echo ""
+        
+        # Ask for confirmation
+        read -p "Are you sure you want to delete all backups? (y/N): " -n 1 -r
+        echo ""
+        
+        if [[ $REPLY =~ ^[Yy]$ ]]; then
+            rm -rf "$BACKUP_DIR"
+            log_success "Backup directory removed successfully"
+            echo ""
+            log_info "You can now start fresh practice sessions"
+        else
+            log_info "Cleanup cancelled"
+        fi
+    else
+        log_warning "No backup directory found at $BACKUP_DIR"
+    fi
+}
+
 # Main script logic
 if [ $# -eq 0 ]; then
     usage
@@ -190,6 +220,11 @@ fi
 
 if [ "$1" = "restore" ]; then
     restore_files "all"
+    exit 0
+fi
+
+if [ "$1" = "clean" ]; then
+    clean_backups
     exit 0
 fi
 
@@ -210,6 +245,9 @@ case "$COMMAND" in
         ;;
     "test")
         run_tests "$FOLDER"
+        ;;
+    "clean")
+        clean_backups
         ;;
     "practice"|*)
         start_practice "$FOLDER"
