@@ -35,12 +35,12 @@ Constraints:
 
 public class LastStoneWeightClass
 {
-    private readonly PriorityQueue<int, int> _pq = new(Comparer<int>.Create((x,y) => y - x));
+    private readonly PriorityQueue<int, int> _pq = new(Comparer<int>.Create((x, y) => y - x));
 
     // T: O(NLogN)
     public int LastStoneWeight(int[] stones)
     {
-        foreach(int stone in stones)
+        foreach (int stone in stones)
             _pq.Enqueue(stone, stone);
         ComputeLastStoneWeight();
         return _pq.Count == 0 ? 0 : _pq.Dequeue();

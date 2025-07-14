@@ -28,11 +28,11 @@ public class MonotonicArray
         bool increasing = true;
         bool decreasing = true;
 
-        for(int i = 1; i < nums.Length; i++)
+        for (int i = 1; i < nums.Length; i++)
         {
-            if(increasing && nums[i-1] > nums[i])
+            if (increasing && nums[i - 1] > nums[i])
                 increasing = false;
-            if(decreasing && nums[i-1] < nums[i])
+            if (decreasing && nums[i - 1] < nums[i])
                 decreasing = false;
         }
 

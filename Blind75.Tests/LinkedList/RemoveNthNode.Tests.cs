@@ -32,7 +32,7 @@ public class RemoveNthNode
         ListNode originalList = new(0);
         ListNode? expectedList = null;
 
-        ListNode? res = RemoveNthNodeClass.RemoveNthFromEnd(originalList,1);
+        ListNode? res = RemoveNthNodeClass.RemoveNthFromEnd(originalList, 1);
         res.ShouldBeEquivalentTo(expectedList);
     }
 }

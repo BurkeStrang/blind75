@@ -32,7 +32,7 @@ public static class BestTimeToBuyAndSellStock
         int maxProfit = 0;
         int minPrice = int.MaxValue;
 
-        foreach(int price in prices)
+        foreach (int price in prices)
         {
             minPrice = Math.Min(minPrice, price);
             maxProfit = Math.Max(maxProfit, price - minPrice);

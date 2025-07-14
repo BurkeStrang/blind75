@@ -21,6 +21,6 @@ public static class GroupAnagramsClass
             if (!map.TryAdd(ordered, [word]))
                 map[ordered].Add(word);
         }
-        return [..map.Select(x => x.Value)];
+        return [.. map.Select(x => x.Value)];
     }
 }

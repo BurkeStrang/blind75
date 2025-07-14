@@ -33,7 +33,7 @@ public class MedianFinder
         {
             return _maxHeap.Peek();
         }
-        else if(_maxHeap.Count < _minHeap.Count)
+        else if (_maxHeap.Count < _minHeap.Count)
         {
             return _minHeap.Peek();
         }

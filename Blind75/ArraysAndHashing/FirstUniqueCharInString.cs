@@ -26,7 +26,7 @@ public static class FirstUniqueCharInString
         Dictionary<char, int> charCount = [];
         for (int i = 0; i < s.Length; i++)
         {
-            if(!charCount.TryAdd(s[i], 1))
+            if (!charCount.TryAdd(s[i], 1))
                 charCount[s[i]]++;
         }
         for (int i = 0; i < s.Length; i++)

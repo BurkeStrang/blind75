@@ -47,10 +47,10 @@ public static class TrappingRainWater
 
         int res = 0;
 
-        while(left < right)
+        while (left < right)
         {
 
-            if(leftMax < rightMax)
+            if (leftMax < rightMax)
             {
                 left++;
                 leftMax = Math.Max(leftMax, height[left]);

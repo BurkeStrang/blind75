@@ -15,10 +15,10 @@ public class ClosestElementsFinderTests
     [Fact]
     public void Example2()
     {
-        int[] nums = [0,1,1,1,2,3,6,7,8,9];
+        int[] nums = [0, 1, 1, 1, 2, 3, 6, 7, 8, 9];
         int k = 9;
         int target = 4;
-        List<int> expected = [0,1,1,1,2,3,6,7,8];
+        List<int> expected = [0, 1, 1, 1, 2, 3, 6, 7, 8];
         List<int> actual = ClosestElementsFinder.FindClosestElements(nums, k, target);
         Assert.Equal(expected, actual);
     }
@@ -36,7 +36,7 @@ public class ClosestElementsFinderTests
     [Fact]
     public void Example4()
     {
-        int[] nums = [1,1,1,10,10,10];
+        int[] nums = [1, 1, 1, 10, 10, 10];
         int k = 1;
         int target = 9;
         List<int> expected = [10];

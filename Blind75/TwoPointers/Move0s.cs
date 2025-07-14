@@ -23,7 +23,7 @@ public static class Move0s
     public static void MoveZeroes(int[] nums)
     {
         int writeIndex = 0;
-        
+
         for (int readIndex = 0; readIndex < nums.Length; readIndex++)
         {
             if (nums[readIndex] != 0)
@@ -32,7 +32,7 @@ public static class Move0s
                 writeIndex++;
             }
         }
-        
+
         for (int i = writeIndex; i < nums.Length; i++)
         {
             nums[i] = 0;

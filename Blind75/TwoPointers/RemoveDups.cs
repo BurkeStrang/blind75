@@ -41,11 +41,11 @@ public static class RemoveDups
     public static int RemoveDuplicates(int[] nums)
     {
         int k = 0;
-        for(int i = 1; i < nums.Length; i++)
+        for (int i = 1; i < nums.Length; i++)
         {
-            if(nums[k] != nums[i])
+            if (nums[k] != nums[i])
                 nums[++k] = nums[i];
         }
-        return k+1;
+        return k + 1;
     }
 }

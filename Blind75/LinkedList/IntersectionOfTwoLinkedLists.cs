@@ -48,7 +48,7 @@ namespace Blind75.LinkedList;
 
 public static class IntersectionOfTwoLinkedLists
 {
-// Input: intersectVal = 8, listA = [4,1,8,4,5], listB = [5,6,1,8,4,5], skipA = 2, skipB = 3
+    // Input: intersectVal = 8, listA = [4,1,8,4,5], listB = [5,6,1,8,4,5], skipA = 2, skipB = 3
     public static ListNode? GetIntersectionNode(ListNode headA, ListNode headB)
     {
         ListNode? pA = headA;

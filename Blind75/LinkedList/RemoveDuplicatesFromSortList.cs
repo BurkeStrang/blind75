@@ -38,6 +38,6 @@ public static class RemoveDuplicatesFromSortedList
             }
         }
         return head;
-     }
+    }
 }
 

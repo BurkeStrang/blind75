@@ -28,15 +28,15 @@ public static class NumSubArysSizeKAndAvgGrThanThresh
         int sum = arr.Take(k).Sum();
         int count = 0;
 
-        if(sum/k >= threshold)
+        if (sum / k >= threshold)
             count++;
 
-        for(int i = k; i < arr.Length; i++)
+        for (int i = k; i < arr.Length; i++)
         {
             sum += arr[i];
-            sum -= arr[i-k];
+            sum -= arr[i - k];
 
-            if(sum/k >= threshold)
+            if (sum / k >= threshold)
                 count++;
         }
         return count;

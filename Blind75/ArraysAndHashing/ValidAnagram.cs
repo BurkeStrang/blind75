@@ -16,7 +16,7 @@ public static class ValidAnagramClass
 {
     public static bool IsAnagram(string s, string t)
     {
-        if(s.Length != t.Length)
+        if (s.Length != t.Length)
             return false;
 
         Dictionary<char, int> sMap = s.GroupBy(c => c).ToDictionary(g => g.Key, g => g.Count());

@@ -29,8 +29,8 @@ public static class FindFirstPalindrome
 {
     public static string FirstPalindrome(string[] words)
     {
-        foreach(string word in words)
-            if(word.IsPalindrome())
+        foreach (string word in words)
+            if (word.IsPalindrome())
                 return word;
         return "";
     }
@@ -38,11 +38,11 @@ public static class FindFirstPalindrome
     private static bool IsPalindrome(this string word)
     {
         int low = 0;
-        int high = word.Length-1;
+        int high = word.Length - 1;
 
-        while(low < high)
+        while (low < high)
         {
-            if(word[low] != word[high])
+            if (word[low] != word[high])
                 return false;
             low++;
             high--;

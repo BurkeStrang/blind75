@@ -25,7 +25,7 @@ public static class PalindromeLinkedList
         ListNode? fast = head;
         ListNode? slow = head;
 
-        while(fast is not null && fast?.next is not null)
+        while (fast is not null && fast?.next is not null)
         {
             slow = slow?.next!;
             fast = fast?.next!?.next!;
@@ -34,9 +34,9 @@ public static class PalindromeLinkedList
         ListNode? reverserdList = ReverseLinkedListClass.ReverseList(slow);
 
         //compare to first half
-        while(reverserdList is not null)
+        while (reverserdList is not null)
         {
-            if(reverserdList!?.val != head!?.val)
+            if (reverserdList!?.val != head!?.val)
                 return false;
             reverserdList = reverserdList?.next;
             head = head!?.next;

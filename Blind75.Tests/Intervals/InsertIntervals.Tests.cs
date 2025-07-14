@@ -78,7 +78,7 @@ public class InsertIntervalsTests
         // Arrange
         int[][] intervals = [[1, 3], [6, 9]];
         int[] newInterval = [0, 12];
-        int[][] expected = [[0,12]];
+        int[][] expected = [[0, 12]];
         // Act
         int[][] result = InsertIntervals.Insert(intervals, newInterval);
         // Assert

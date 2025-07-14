@@ -8,7 +8,8 @@ public static class SerializeDeserializeBinaryTreeClass
     public static string serialize(TreeNode? root)
     {
         encodedList = new List<string>();
-        void dfs(TreeNode? root)
+
+        static void dfs(TreeNode? root)
         {
             if (root == null)
             {

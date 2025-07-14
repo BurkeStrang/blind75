@@ -20,7 +20,7 @@ public class IntersectionOfTwoArraysTests
         int[] nums2 = [2, 2];
         int[] expected = [2];
         int[] result = IntersectionOfTwoArrays.Intersect(nums1, nums2);
-        Assert.Equal(expected, result );
+        Assert.Equal(expected, result);
     }
 
 

@@ -28,12 +28,12 @@ public static class IntersectionOfTwoArrays
         HashSet<int> intersect = [];
         HashSet<int> nums = new(nums1);
 
-        for(int i = 0; i < nums2.Length; i++)
+        for (int i = 0; i < nums2.Length; i++)
         {
-            if(nums.Contains(nums2[i]))
+            if (nums.Contains(nums2[i]))
                 intersect.Add(nums2[i]);
         }
 
-        return [..intersect];
+        return [.. intersect];
     }
 }

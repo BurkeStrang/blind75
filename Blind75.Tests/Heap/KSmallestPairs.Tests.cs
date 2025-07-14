@@ -30,12 +30,12 @@ public class KSmallestPairsTests
         int[] list2 = [1, 2, 3];
         int k = 2;
         int[][] result = FindKPairsWithSum.KSmallestPairs(list1, list2, k);
-        
+
         result.Length.ShouldBe(2);
-        result[0].ShouldBeEquivalentTo(new int[] {1, 1});
-        
-        bool secondElementIsValid = result[1].SequenceEqual(new int[] {1, 2}) || 
-                                   result[1].SequenceEqual(new int[] {2, 1});
+        result[0].ShouldBeEquivalentTo(new int[] { 1, 1 });
+
+        bool secondElementIsValid = result[1].SequenceEqual(new int[] { 1, 2 }) ||
+                                   result[1].SequenceEqual(new int[] { 2, 1 });
         secondElementIsValid.ShouldBeTrue();
     }
 }

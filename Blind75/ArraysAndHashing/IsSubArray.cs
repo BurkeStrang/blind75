@@ -20,13 +20,13 @@ public static class IsSubArray
         int front = 0;
         int subLength = subArray.Length;
 
-        while(front + subLength < mainArray.Length)
+        while (front + subLength < mainArray.Length)
         {
             int i = 0;
-            while(subArray[i] == mainArray[i + front])
+            while (subArray[i] == mainArray[i + front])
             {
                 i++;
-                if(i == subLength)
+                if (i == subLength)
                     return true;
             }
             front++;

@@ -13,7 +13,7 @@ public class RemoveElement
         int actual = RemoveElementClass.RemoveElement(nums, val);
         // Assert
         expected.ShouldBe(actual);
-        nums[..actual].ShouldBeEquivalentTo(new int[] {2, 2});
+        nums[..actual].ShouldBeEquivalentTo(new int[] { 2, 2 });
     }
     [Fact]
     public void Example2()
@@ -26,6 +26,6 @@ public class RemoveElement
         int actual = RemoveElementClass.RemoveElement(nums, val);
         // Assert
         expected.ShouldBe(actual);
-        nums[..actual].ShouldBeEquivalentTo(new int[] {0, 1, 3, 0, 4});
+        nums[..actual].ShouldBeEquivalentTo(new int[] { 0, 1, 3, 0, 4 });
     }
 }

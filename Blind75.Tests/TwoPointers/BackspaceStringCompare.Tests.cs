@@ -10,7 +10,7 @@ public class BackspaceStringCompareTests
     {
         // Arrange
         // Act
-        bool actual = BackspaceStringCompare.BackspaceCompare(s,t);
+        bool actual = BackspaceStringCompare.BackspaceCompare(s, t);
         // Assert
         Assert.Equal(expected, actual);
     }

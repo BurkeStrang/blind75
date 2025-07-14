@@ -1,7 +1,7 @@
 namespace Blind75.Tests.LinkedList;
 
-public class RemoveLinkedListElementTest 
-{ 
+public class RemoveLinkedListElementTest
+{
     [Fact]
     public void Example1()
     {

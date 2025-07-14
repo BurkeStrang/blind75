@@ -6,7 +6,7 @@ public class Move0sTests
     public void Example1()
     {
         // Arrange
-        int[] input =  [ 0, 1, 0, 3, 12 ];
+        int[] input = [0, 1, 0, 3, 12];
         int[] expected = [1, 3, 12, 0, 0];
         // Act
         Move0s.MoveZeroes(input);
@@ -18,7 +18,7 @@ public class Move0sTests
     public void Example2()
     {
         // Arrange
-        int[] input =  [ 0 ];
+        int[] input = [0];
         int[] expected = [0];
         // Act
         Move0s.MoveZeroes(input);
