@@ -82,55 +82,149 @@ def remove_method_implementations(content):
     brace_count = 0
     i = 0
     
+    def is_class_declaration(line):
+        """Check if a line is a class declaration (including primary constructors)"""
+        stripped = line.strip()
+        # Match class declarations with or without primary constructors
+        return bool(re.match(r'^\s*(?:public|private|protected|internal)?\s*(?:abstract|sealed|static)?\s*(?:partial\s+)?class\s+\w+', stripped))
+    
+    def is_method_signature(line):
+        """Check if a line looks like a method signature"""
+        stripped = line.strip()
+        # Skip class declarations
+        if is_class_declaration(line):
+            return False
+        
+        # Look for method signatures (but not class constructors in class declaration)
+        # Improved pattern to handle arrays, generics, and complex return types
+        method_pattern = r'^\s*(?:public|private|protected|internal)\s+(?:static\s+)?(?:virtual\s+)?(?:override\s+)?(?:async\s+)?(?!class\s+)[A-Za-z_][A-Za-z0-9_<>\[\],\s\?]*\s+[A-Za-z_][A-Za-z0-9_]*\s*\([^)]*\)\s*$'
+        return bool(re.match(method_pattern, stripped))
+    
+    def is_expression_bodied_method(line):
+        """Check if a line contains an expression-bodied method (using =>)"""
+        stripped = line.strip()
+        # Skip class declarations
+        if is_class_declaration(line):
+            return False
+        
+        # Look for method signatures with => (expression-bodied methods)
+        method_pattern = r'^\s*(?:public|private|protected|internal)\s+(?:static\s+)?(?:virtual\s+)?(?:override\s+)?(?:async\s+)?(?!class\s+)[A-Za-z_][A-Za-z0-9_<>\[\],\s\?]*\s+[A-Za-z_][A-Za-z0-9_]*\s*\([^)]*\)\s*=>'
+        return bool(re.match(method_pattern, stripped))
+    
     while i < len(lines):
         line = lines[i]
         
         if not in_method:
-            # Look for method signatures
-            if re.search(r'^\s*(?:public|private|protected|internal)\s+(?:static\s+)?(?:virtual\s+)?(?:override\s+)?(?:async\s+)?[^{;]+\([^)]*\)\s*$', line):
-                # This looks like a method signature, check if next non-empty line has opening brace
-                method_signature = [line]
+            # Check for expression-bodied methods first
+            if is_expression_bodied_method(line):
+                # Extract the method signature part (before =>)
+                arrow_pos = line.find('=>')
+                signature_part = line[:arrow_pos].strip()
+                
+                # Check if it already throws NotImplementedException
+                if 'throw new NotImplementedException()' in line:
+                    result_lines.append(line)
+                else:
+                    # Replace with traditional method body
+                    result_lines.append(signature_part)
+                    result_lines.append('    {')
+                    result_lines.append('        throw new NotImplementedException();')
+                    result_lines.append('    }')
+                    
+                    # Skip any remaining parts of the expression (could span multiple lines)
+                    # Find the end of the expression (semicolon)
+                    if ';' not in line:
+                        i += 1
+                        while i < len(lines) and ';' not in lines[i]:
+                            i += 1
+            # Check if this is a method signature that might have => on next line
+            elif is_method_signature(line):
+                # Look ahead to see if next lines contain =>
                 j = i + 1
-                while j < len(lines) and lines[j].strip() == '':
-                    method_signature.append(lines[j])
+                found_arrow = False
+                temp_lines = [line]
+                
+                while j < len(lines) and j <= i + 3:  # Look ahead up to 3 lines
+                    temp_lines.append(lines[j])
+                    if '=>' in lines[j]:
+                        found_arrow = True
+                        break
+                    if lines[j].strip() == '{':
+                        # Traditional method body
+                        break
                     j += 1
-                if j < len(lines) and lines[j].strip() == '{':
-                    # Found a method!
-                    method_signature.append(lines[j])
-                    
-                    # Check if body already has NotImplementedException
-                    method_body_preview = ""
-                    for k in range(j + 1, min(j + 5, len(lines))):
-                        method_body_preview += lines[k]
-                    
-                    if 'throw new NotImplementedException()' in method_body_preview:
-                        # Already has NotImplementedException, keep as is
-                        result_lines.extend(method_signature)
+                
+                if found_arrow:
+                    # This is an expression-bodied method split across lines
+                    # Check if it already throws NotImplementedException
+                    full_expression = '\n'.join(temp_lines)
+                    if 'throw new NotImplementedException()' in full_expression:
+                        result_lines.extend(temp_lines)
                         i = j
-                        in_method = True
-                        brace_count = 1
+                        # Skip any remaining parts of the expression
+                        if ';' not in lines[j]:
+                            i += 1
+                            while i < len(lines) and ';' not in lines[i]:
+                                i += 1
                     else:
-                        # Replace with NotImplementedException
-                        signature_str = '\n'.join(method_signature[:-1])  # All but the opening brace
-                        result_lines.append(signature_str)
+                        # Replace with traditional method body
+                        result_lines.append(line)
                         result_lines.append('    {')
                         result_lines.append('        throw new NotImplementedException();')
                         result_lines.append('    }')
                         
-                        # Skip the original method body
-                        i = j + 1  # Start after opening brace
-                        brace_count = 1
-                        while i < len(lines) and brace_count > 0:
-                            if '{' in lines[i]:
-                                brace_count += lines[i].count('{')
-                            if '}' in lines[i]:
-                                brace_count -= lines[i].count('}')
+                        # Skip the original expression
+                        i = j
+                        if ';' not in lines[j]:
                             i += 1
-                        i -= 1  # Adjust for the outer loop increment
+                            while i < len(lines) and ';' not in lines[i]:
+                                i += 1
                 else:
-                    # Not a method, add normally
-                    result_lines.extend(method_signature)
-                    i = j - 1
+                    # Traditional method signature, handle normally
+                    # This looks like a method signature, check if next non-empty line has opening brace
+                    method_signature = [line]
+                    j = i + 1
+                    while j < len(lines) and lines[j].strip() == '':
+                        method_signature.append(lines[j])
+                        j += 1
+                    if j < len(lines) and lines[j].strip() == '{':
+                        # Found a method!
+                        method_signature.append(lines[j])
+                        
+                        # Check if body already has NotImplementedException
+                        method_body_preview = ""
+                        for k in range(j + 1, min(j + 5, len(lines))):
+                            if k < len(lines):
+                                method_body_preview += lines[k]
+                        
+                        if 'throw new NotImplementedException()' in method_body_preview:
+                            # Already has NotImplementedException, keep as is
+                            result_lines.extend(method_signature)
+                            i = j
+                            in_method = True
+                            brace_count = 1
+                        else:
+                            # Replace with NotImplementedException
+                            signature_str = '\n'.join(method_signature[:-1])  # All but the opening brace
+                            result_lines.append(signature_str)
+                            result_lines.append('    {')
+                            result_lines.append('        throw new NotImplementedException();')
+                            result_lines.append('    }')
+                            
+                            # Skip the original method body
+                            i = j + 1  # Start after opening brace
+                            brace_count = 1
+                            while i < len(lines) and brace_count > 0:
+                                if '{' in lines[i]:
+                                    brace_count += lines[i].count('{')
+                                if '}' in lines[i]:
+                                    brace_count -= lines[i].count('}')
+                                i += 1
+                            i -= 1  # Adjust for the outer loop increment
+                    else:
+                        # Not a method, add normally
+                        result_lines.extend(method_signature)
+                        i = j - 1
             else:
                 result_lines.append(line)
         else:
