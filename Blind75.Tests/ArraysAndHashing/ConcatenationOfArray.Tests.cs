@@ -1,6 +1,6 @@
 namespace Blind75.Tests.ArraysAndHashing;
 
-public class ConcetenationOfArrayTests
+public class ConcatenationOfArrayTests
 {
     [Fact]
     public void Example1()

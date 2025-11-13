@@ -10,10 +10,17 @@ public class FindDisappeardInArrayTests
         Assert.Equal(expected, FindDisappeardInArray.FindDisappearedNumbers(nums));
     }
     [Fact]
-    public void Example()
+    public void Exampl2()
     {
         int[] nums = [1, 1];
         int[] expected = [2];
+        Assert.Equal(expected, FindDisappeardInArray.FindDisappearedNumbers(nums));
+    }
+    [Fact]
+    public void Example3()
+    {
+        int[] nums = [2,2,2];
+        int[] expected = [1,3];
         Assert.Equal(expected, FindDisappeardInArray.FindDisappearedNumbers(nums));
     }
 }

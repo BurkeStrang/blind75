@@ -6,7 +6,7 @@ public static class IsSubArrayTest
     public static void IsSubArrayTrue()
     {
         int[] mainArray = [1, 2, 3, 4];
-        int[] subArray = [1, 2];
+        int[] subArray = [3, 4];
 
         Assert.True(IsSubArray.IsSubArraySegment(mainArray, subArray));
 
