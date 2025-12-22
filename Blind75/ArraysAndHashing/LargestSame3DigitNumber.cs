@@ -32,11 +32,13 @@ public static class LargestSame3DigitNumber
 {
     public static string LargestGoodInteger(string num)
     {
+        int max = int.MinValue;
         for (int i = 0; i < num.Length - 2; i++)
         {
             if (num[i] == num[i + 1] && num[i] == num[i + 2])
-                return num.Substring(i, 3);
+                max = Max(max, int.Parse(char.ToString(num[i])));
         }
-        return "";
+        string res = $"{max}{max}{max}";
+        return max == int.MinValue ? "" : res;
     }
 }

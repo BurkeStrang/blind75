@@ -6,7 +6,7 @@ public static class IsSubArray
     {
         int front = 0;
         int subLength = subArray.Length;
-        while (front + subLength < mainArray.Length)
+        while (front + subLength <= mainArray.Length)
         {
             if (subArray.SequenceEqual(mainArray.Slice(front, subLength)))
                 return true;
