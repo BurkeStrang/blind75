@@ -14,4 +14,16 @@ public class PartitionLabelTests
         // Assert
         result.ShouldBeEquivalentTo(expected);
     }
+
+    [Fact]
+    public void Example2()
+    {
+        // Arrange
+        string input = "eccbbbbdec";
+        List<int> expected = [10];
+        // Act
+        List<int> result = PartitionLabel.PartitionLabels(input);
+        // Assert
+        result.ShouldBeEquivalentTo(expected);
+    }
 }
