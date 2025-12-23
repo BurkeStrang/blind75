@@ -20,7 +20,7 @@ public static class IsSubArray
         int front = 0;
         int subLength = subArray.Length;
 
-        while (front + subLength < mainArray.Length)
+        while (front + subLength <= mainArray.Length)
         {
             int i = 0;
             while (subArray[i] == mainArray[i + front])
@@ -38,7 +38,10 @@ public static class IsSubArray
     {
         return Enumerable
             .Range(0, mainArray.Length - subArray.Length + 1)
-            .Any(start => subArray.SequenceEqual(mainArray.Skip(start).Take(subArray.Length)));
+            .Any(start =>
+                    subArray.SequenceEqual(mainArray
+                        .Skip(start)
+                        .Take(subArray.Length)));
     }
 
     public static bool IsSubArrayStringJoin(int[] mainArray, int[] subArray)
@@ -51,8 +54,8 @@ public static class IsSubArray
     public static bool IsSubArrayHashSet(int[] mainArray, int[] subArray)
     {
         // will not work for duplicates
-        HashSet<int> mainSet = new(mainArray);
-        HashSet<int> subSet = new(subArray);
+        HashSet<int> mainSet = [.. mainArray];
+        HashSet<int> subSet = [.. subArray];
         return subSet.IsSubsetOf(mainSet);
     }
 
