@@ -1,5 +1,4 @@
 global using BenchmarkDotNet.Attributes;
-global using BenchmarkDotNet.Running;
 global using Blind75.ArraysAndHashing;
 global using Blind75.Backtracking;
 global using Blind75.BinarySearch;
@@ -18,6 +17,5 @@ global using Blind75.Stack;
 global using Blind75.Trees;
 global using Blind75.Tries;
 global using Blind75.TwoPointers;
-global using Dumpify;
 global using Shouldly;
 global using Xunit;
