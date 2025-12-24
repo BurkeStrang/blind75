@@ -1,3 +1,18 @@
+namespace Blind75.TwoPointers;
+
+// Given a string s, partition it into as many parts as possible so that each letter appears in at most one part.
+// Return a list of integers representing the size of these parts.
+//
+// **Constraints:**
+// - Each letter should appear in only one part.
+// - The concatenation of all parts should be equal to s.
+//
+// **Example:**
+// Input: s = "ababcbacadefegdehijhklij"  
+// Output: [9,7,8]  
+// Explanation:  
+// The partitions are "ababcbaca", "defegde", "hijhklij". Each letter appears in at most one part.
+
 public static class PartitionLabel
 {
     public static List<int> PartitionLabels(string s)
