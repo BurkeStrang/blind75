@@ -38,9 +38,7 @@ public static class MinDiffBetHighLowKScore
         Array.Sort(nums);
         int res = int.MaxValue;
         for (int i = 0; i <= nums.Length - k; i++)
-        {
-            res = Math.Min(res, nums[i + k - 1] - nums[i]);
-        }
+            res = Min(res, nums[i + k - 1] - nums[i]);
         return res;
     }
 }
