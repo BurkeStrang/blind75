@@ -27,12 +27,12 @@ namespace Blind75.TwoPointers;
 
 public static class BackspaceStringCompare
 {
-    public static bool BackspaceCompare(string s, string t) => ProcessString(s) == ProcessString(t);
+    public static bool BackspaceCompare(string s, string t)
+        => ProcessString(s) == ProcessString(t);
 
     private static string ProcessString(string str)
     {
         StringBuilder result = new();
-
         foreach (char c in str)
         {
             if (c == '#')
@@ -43,7 +43,6 @@ public static class BackspaceStringCompare
             else
                 result.Append(c);
         }
-
         return $"{result}";
     }
 }
