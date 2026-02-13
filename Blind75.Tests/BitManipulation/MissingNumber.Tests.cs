@@ -1,10 +1,12 @@
+namespace Blind75.Tests.BitManipulation;
+
 public class MissingNumberTests
 {
     [Fact]
     public void MissingNumberWhenCalledReturnsMissingNumber()
     {
         // Arrange
-        int[] nums = new int[] { 3, 0, 1 };
+        int[] nums = [3, 0, 1];
         // Act
         int result = MissingNumberClass.MissingNumber(nums);
         // Assert
@@ -15,7 +17,7 @@ public class MissingNumberTests
     public void MissingNumberWhenCalledReturnsMissingNumber2()
     {
         // Arrange
-        int[] nums = new int[] { 9, 6, 4, 2, 3, 5, 7, 0, 1 };
+        int[] nums = [9, 6, 4, 2, 3, 5, 7, 0, 1];
         // Act
         int result = MissingNumberClass.MissingNumber(nums);
         // Assert

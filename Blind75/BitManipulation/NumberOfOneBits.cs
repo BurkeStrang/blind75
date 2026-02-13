@@ -5,20 +5,25 @@ it has (also known as the Hamming weight).
 Input: n = 00000000000000000000000000001011
 Output: 3
 Explanation: The input binary string 00000000000000000000000000001011 has a total of three '1' bits.
+
+
+| Type   | Bit width |
+| ------ | --------- |
+| byte   | 8         |
+| ushort | 16        |
+| uint   | 32        |
+| ulong  | 64        |
 */
+using System.Numerics;
+
 namespace Blind75.BitManipulation;
 
 public static class NumberOfOneBits
 {
     public static int HammingWeight(uint n)
-        => Convert.ToString(n, 2).Count(c => c == '1');
-    // string binary = Convert.ToString(n, 2);
-    // int hammingWeight = 0;
-    // for (int i = 0; i < binary.Length; i++)
-    // {
-    //     hammingWeight += binary[i] - '0';
-    // }
-    // return hammingWeight;
+    {
+        return Convert.ToString(n, 2).Count(x => x == '1');
+    }
 
     public static int AlterNateHammingWeight(uint n)
     {
@@ -31,5 +36,12 @@ public static class NumberOfOneBits
             n >>= 1;
         }
         return hammingWeight;
+    }
+
+    public static int NetWay(uint n)
+    {
+        // if want to count 0s
+        // 32 - BitOperations.PopCount(n);
+        return BitOperations.PopCount(n);
     }
 }

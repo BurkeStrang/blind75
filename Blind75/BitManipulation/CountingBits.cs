@@ -39,19 +39,15 @@ public static class CountingBits
 {
     public static int[] CountBits(int n)
     {
-        int[] hammingWeights = new int[n + 1];
+        int[] res = new int[n + 1];
+
         for (int i = 0; i <= n; i++)
         {
-            // string binary = Convert.ToString(i, 2);
-            // int hammingWeight = 0;
-            // for (int j = 0; j < binary.Length; j++)
-            // {
-            //     // this is actually doing the counting of 1's in the binary representation of i
-            //     hammingWeight += binary[j] - '0';
-            // }
-            // hammingWeights[i] = hammingWeight;
-            hammingWeights[i] = Convert.ToString(i, 2).Count(c => c == '1');
+            string binary = Convert.ToString(i, 2);
+            int numberOfOnes = binary.Count(x => x == '1');
+            res[i] = numberOfOnes;
         }
-        return hammingWeights;
+
+        return res;
     }
 }

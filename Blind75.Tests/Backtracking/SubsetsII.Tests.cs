@@ -41,4 +41,22 @@ public class SubsetsIITests
         IList<IList<int>> actual = SubsetsII.Subsets(nums);
         Assert.True(expected.SequenceEqual(actual, listComparer));
     }
+
+    [Fact]
+    public void Example3()
+    {
+        int[] nums = [1, 2, 2];
+        ListComparer<int> listComparer = new();
+        IList<IList<int>> expected =
+        [
+            [],
+            [1],
+            [2],
+            [1, 2],
+            [2, 2],
+            [1, 2, 2],
+        ];
+        List<List<int>> actual = SubsetsII.FindSubsets(nums);
+        Assert.True(expected.SequenceEqual(actual, listComparer));
+    }
 }

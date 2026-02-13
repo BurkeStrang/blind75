@@ -4,17 +4,22 @@ public static class ReverseBitsClass
 {
     public static uint ReverseBits(uint n)
     {
+
+        // WriteLine("----------------------------------------");
+        // WriteLine($"n: {n}");
+        // WriteLine($"n = {Convert.ToString(n, 2).PadLeft(32, '0')}");
         uint result = 0;
-        // iterate through 32 bits
+
         for (int i = 0; i < 32; i++)
         {
-            // get the last bit of n if it's last bit is 1
-            uint temp = n & 1;
-            // shift result to the left and add temp
-            result = (result << 1) + temp;
-            // shift n to the right
-            n >>= 1;
+            result <<= 1;   // make room on the right
+            // WriteLine($"After shift:  result = {Convert.ToString(result, 2).PadLeft(33, '0')}, n = {Convert.ToString(n, 2).PadLeft(32, '0')}");
+            result |= n & 1;// copy lowest bit of n
+            // WriteLine($"After OR:     result = {Convert.ToString(result, 2).PadLeft(33, '0')}, n = {Convert.ToString(n, 2).PadLeft(32, '0')}");
+            n >>= 1;        // drop the bit we just used
+            // WriteLine($"After n>>=1:  result = {Convert.ToString(result, 2).PadLeft(32, '0')}, n = {Convert.ToString(n, 2).PadLeft(32, '0')}");
         }
+
         return result;
     }
 }

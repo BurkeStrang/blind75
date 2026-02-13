@@ -64,8 +64,8 @@ public static class MedianOfTwoSortedArrays
             {
                 result =
                     total % 2 == 0
-                        ? (Math.Max(left1, left2) + Math.Min(right1, right2)) / 2.0
-                        : Math.Max(left1, left2);
+                        ? (Max(left1, left2) + Min(right1, right2)) / 2.0
+                        : Max(left1, left2);
                 break;
             }
             else if (left1 > right2)
