@@ -58,4 +58,33 @@ public static class LetterCasePermutations
         }
         return [.. queue];
     }
+
+
+    public static List<string> FindLetterCaseStringPermutations(string str)
+    {
+        List<string> permutations = [];
+        if (str == null)
+            return permutations;
+
+        permutations.Add(str);
+        // process every character of the string one by one
+        for (int i = 0; i < str.Length; i++)
+        {
+            if (char.IsLetter(str[i]))
+            { // only process characters, skip digits
+              // we'll take all existing permutations and change the letter case appropriately
+                int n = permutations.Count;
+                for (int j = 0; j < n; j++)
+                {
+                    char[] chs = permutations[j].ToCharArray();
+                    // if the current char is in upper case change it to lower case or vice versa
+                    chs[i] = char.IsUpper(chs[i]) ?
+                             char.ToLower(chs[i]) :
+                             char.ToUpper(chs[i]);
+                    permutations.Add(new string(chs));
+                }
+            }
+        }
+        return permutations;
+    }
 }
