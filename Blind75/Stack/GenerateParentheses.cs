@@ -60,4 +60,30 @@ public static class GenerateParentheses
             Backtrack(result, current, index + 1, openCount, closeCount + 1, n);
         }
     }
+
+
+    public static List<string> GenerateValidParentheses(int num)
+    {
+        List<string> result = [];
+        Queue<Parentheses> queue = new();
+        queue.Enqueue(new Parentheses("", 0, 0));
+        while (queue.Count > 0)
+        {
+            Parentheses ps = queue.Dequeue();
+            // if we've reached the maximum number of open and close parentheses, add to result
+            if (ps.OpenCount == num && ps.CloseCount == num)
+                result.Add(ps.Str);
+            else
+            {
+                if (ps.OpenCount < num) // if we can add an open parentheses, add it
+                    queue.Enqueue(new Parentheses(ps.Str + "(", ps.OpenCount + 1, ps.CloseCount));
+
+                if (ps.OpenCount > ps.CloseCount) // if we can add a close parentheses, add it
+                    queue.Enqueue(new Parentheses(ps.Str + ")", ps.OpenCount, ps.CloseCount + 1));
+            }
+        }
+        return result;
+    }
 }
+
+public record Parentheses(string Str, int OpenCount, int CloseCount);

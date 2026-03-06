@@ -38,5 +38,18 @@ public class GenerateParenthesesTests
         // Assert
         Assert.Equal(expected, result);
     }
+
+
+    [Fact]
+    public void Example3_queue()
+    {
+        // Arrange
+        int n = 2;
+        string[] expected = ["(())", "()()"];
+        // Act
+        IList<string> result = GenerateParentheses.GenerateValidParentheses(n);
+        // Assert
+        Assert.Equal(expected, result);
+    }
 }
 
