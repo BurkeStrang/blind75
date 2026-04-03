@@ -13,6 +13,10 @@ namespace Blind75.TwoPointers;
 // Input: s = "axc", t = "ahbgdc"
 // Output: false
 //
+// Example 3:
+// Input: s = "aec", t = "abcde"
+// Output: false
+//
 // Constraints:
 // 0 <= s.length <= 100
 // 0 <= t.length <= 104
@@ -22,15 +26,14 @@ public static class IsSubsequenceClass
 {
     public static bool IsSubsequence(string s, string t)
     {
-        int sIndex = 0;
-        int tIndex = 0;
-
-        while (sIndex < s.Length && tIndex < t.Length)
+        int si = 0;
+        int ti = 0;
+        while(si < s.Length && ti < t.Length)
         {
-            if (s[sIndex] == t[tIndex])
-                sIndex++;
-            tIndex++;
+            if(s[si]==t[ti])
+                si++;
+            ti++;
         }
-        return sIndex == s.Length;
+        return si == s.Length;
     }
 }

@@ -1,4 +1,4 @@
-namespace Blind75.ArraysAndHashing;
+namespace Blind75.TwoPointers;
 
 // You are given two strings word1 and word2.
 // Merge the strings by adding letters in alternating order, starting with word1.
@@ -39,21 +39,21 @@ public static class MergeStringsAlt
     public static string MergeAlternately(string word1, string word2)
     {
         StringBuilder sb = new();
-        int i = 0;
-        int j = 0;
-        while (i < word1.Length && j < word2.Length)
+        int word1idx = 0;
+        int word2idx = 0;
+
+        // alternating
+        while (word1idx < word1.Length && word2idx < word2.Length)
         {
-            sb.Append(word1[i++]);
-            sb.Append(word2[j++]);
+            sb.Append(word1[word1idx++]);
+            sb.Append(word2[word2idx++]);
         }
-        while (i < word1.Length)
-        {
-            sb.Append(word1[i++]);
-        }
-        while (j < word2.Length)
-        {
-            sb.Append(word2[j++]);
-        }
+        // add extra to end
+        while(word1idx < word1.Length)
+            sb.Append(word1[word1idx++]);
+        while(word2idx < word2.Length)
+            sb.Append(word2[word2idx++]);
+
         return sb.ToString();
     }
 }

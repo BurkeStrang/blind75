@@ -32,17 +32,14 @@ public static class BackspaceStringCompare
 
     private static string ProcessString(string str)
     {
-        StringBuilder result = new();
+        StringBuilder sb = new();
         foreach (char c in str)
         {
-            if (c == '#')
-            {
-                if (result.Length > 0)
-                    result.Length--; // remove the last character
-            }
+            if (c == '#' && sb.Length > 0)
+                sb.Length--;
             else
-                result.Append(c);
+                sb.Append(c);
         }
-        return $"{result}";
+        return sb.ToString();
     }
 }

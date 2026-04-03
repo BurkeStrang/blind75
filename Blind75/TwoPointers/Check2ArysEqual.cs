@@ -28,6 +28,32 @@ namespace Blind75.TwoPointers;
 
 public static class Check2ArysEqual
 {
-    public static bool ArrayStringsAreEqual(string[] word1, string[] word2) =>
-        string.Concat(word1) == string.Concat(word2);
+    public static bool ArrayStringsAreEqual(string[] word1, string[] word2)
+    {
+        int w1 = 0, c1 = 0;
+        int w2 = 0, c2 = 0;
+
+        while (w1 < word1.Length && w2 < word2.Length)
+        {
+            if (word1[w1][c1] != word2[w2][c2])
+                return false;
+
+            c1++;
+            c2++;
+
+            if (c1 == word1[w1].Length)
+            {
+                w1++;
+                c1 = 0;
+            }
+
+            if (c2 == word2[w2].Length)
+            {
+                w2++;
+                c2 = 0;
+            }
+        }
+
+        return w1 == word1.Length && w2 == word2.Length;
+    }
 }

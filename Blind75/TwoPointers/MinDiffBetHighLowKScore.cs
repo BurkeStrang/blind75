@@ -1,6 +1,7 @@
 namespace Blind75.TwoPointers;
 
-// You are given a 0-indexed integer array nums, where nums[i] represents the score of the ith student.
+// You are given a 0-indexed integer array nums,
+// where nums[i] represents the score of the ith student.
 // You are also given an integer k.
 // Pick the scores of any k students from the array so that the difference between the highest
 // and the lowest of the k scores is minimized.
@@ -33,12 +34,10 @@ public static class MinDiffBetHighLowKScore
 {
     public static int MinDifference(int[] nums, int k)
     {
-        if (nums.Length < k)
-            return 0;
         Array.Sort(nums);
-        int res = int.MaxValue;
+        int minDiff = int.MaxValue;
         for (int i = 0; i <= nums.Length - k; i++)
-            res = Min(res, nums[i + k - 1] - nums[i]);
-        return res;
+            minDiff = Min(minDiff, nums[i + k - 1] - nums[i]);
+        return minDiff;
     }
 }

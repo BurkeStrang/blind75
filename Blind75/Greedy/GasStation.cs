@@ -39,7 +39,7 @@ n == gas.length == cost.length
 
 */
 
-public class GasStation
+public static class GasStation
 {
     public static int CanCompleteCircuit(int[] gas, int[] cost)
     {

@@ -34,9 +34,7 @@ public static class UniquePathsClass
             int[] newRow = new int[n];
             Array.Fill(newRow, 1);
             for (int j = n - 2; j >= 0; j--)
-            {
                 newRow[j] = newRow[j + 1] + row[j];
-            }
             row = newRow;
         }
         return row[0];

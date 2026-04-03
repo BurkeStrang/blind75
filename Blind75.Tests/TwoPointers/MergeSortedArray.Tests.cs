@@ -31,4 +31,20 @@ public class MergeSortedArrayTests
         // Assert
         nums1.ShouldBeEquivalentTo(expected);
     }
+
+    [Fact]
+    public void Example3()
+    {
+
+        // Arrange
+        int[] nums1 = [1, 5, 6, 0, 0, 0];
+        int m = 3;
+        int[] nums2 = [2, 3, 4];
+        int n = 3;
+        int[] expected = [1, 2, 3, 4, 5, 6];
+        // Act
+        MergeSortedArray.Merge(nums1, m, nums2, n);
+        // Assert
+        nums1.ShouldBeEquivalentTo(expected);
+    }
 }

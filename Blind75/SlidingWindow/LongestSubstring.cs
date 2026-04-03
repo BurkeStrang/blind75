@@ -32,7 +32,7 @@ public record LongestSubstringClass
             if (!set.Contains(s[right]))
             {
                 set.Add(s[right++]);
-                max = Math.Max(max, set.Count);
+                max = Max(max, set.Count);
             }
             else
                 set.Remove(s[left++]);

@@ -1,3 +1,5 @@
+namespace Blind75.Tests.DynamicProgramming;
+
 public class LongestPalidromeTests
 {
     [Theory]

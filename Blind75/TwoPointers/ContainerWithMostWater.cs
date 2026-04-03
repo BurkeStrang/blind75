@@ -29,8 +29,8 @@ public static class ContainerWithMostWaterClass
 
         while (left < right)
         {
-            int minOfLeftAndRight = Math.Min(height[left], height[right]);
-            maxArea = Math.Max(maxArea, (right - left) * minOfLeftAndRight);
+            int minOfLeftAndRight = Min(height[left], height[right]);
+            maxArea = Max(maxArea, (right - left) * minOfLeftAndRight);
 
             if (minOfLeftAndRight == height[left])
                 left++;

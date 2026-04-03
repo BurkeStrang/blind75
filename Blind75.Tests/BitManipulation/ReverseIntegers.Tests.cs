@@ -1,4 +1,4 @@
-namespace Blind75.BitManipulation;
+namespace Blind75.Tests.BitManipulation;
 
 
 public class ReverseIntegersTests
